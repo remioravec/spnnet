@@ -5,7 +5,11 @@
 **Site :** SPN-NET — entreprise de nettoyage, Paris & Île-de-France.
 **Méthode :** crawl automatisé (`audit/crawl.py`) + analyse (`audit/analyze.py`). Données brutes dans `audit/data/` et `audit/reports/`.
 
-> ⚠️ **Accès en écriture WordPress bloqué.** Le serveur LiteSpeed ne transmet pas l'en-tête `Authorization` à WordPress : l'authentification via mot de passe d'application échoue (même des identifiants bidon renvoient `rest_not_logged_in`). Correctif `.htaccess` fourni en fin de document. L'audit ci-dessous repose sur le contenu public et ne nécessitait pas cet accès.
+> ✅ **Accès en écriture WordPress fonctionnel.** L'API REST accepte le mot de passe d'application avec le bon compte administrateur (`remi-oravec@seo-monkey.fr`). Les pages étant construites avec **Elementor**, les corrections passent par le serveur **MCP Elementor** (`/wp-json/mcp/elementor-mcp-server`) ; les articles de blog (éditeur classique) passent par l'API REST standard.
+
+> 🛠️ **Corrections déjà appliquées** (voir `agents/apply_*.py`) :
+> - **32 pages** : H1 unique enrichi ajouté (ex. « Entreprise de nettoyage – Paris 1er »).
+> - **12 articles de blog** : lien contextuel vers la page secteur/service correspondante (ancres diversifiées).
 
 ---
 
@@ -18,7 +22,7 @@
 | Surfeur raisonnable | 🔴 À corriger | **80,6 % des liens internes sont du boilerplate** (menu/footer) |
 | Diversification des ancres | 🔴 À corriger | Ancres exactes répétées à ~100 % ; 179 ancres vides |
 | Qualité / lisibilité | 🟠 Moyen | Lisibilité faible (Flesch ~25–45) ; contenu dense |
-| SEO on-page | 🟠 Moyen | **18 pages sans H1** ; sinon titles/metas/alt corrects |
+| SEO on-page | 🟠 Moyen | **32 pages sans H1** ; sinon titles/metas/alt corrects |
 
 **Points forts :** aucune image sans attribut `alt` (60 pages), titles et meta-descriptions presque tous dans les bonnes longueurs, contenu volumineux sur les pages secteurs/locales, temps de réponse corrects.
 
@@ -104,7 +108,7 @@ Le modèle du surfeur raisonnable de Google pondère un lien selon sa **probabil
 
 | Anomalie | Pages concernées | Priorité |
 |---|---|---|
-| **H1 manquant** | 18 pages : toutes les `paris-X` (sauf accueil), les 7 départements, `/a-propos/`, `/contact/`, `/proprete-des-locaux/`, `/ascenseurs-escalators/`, `/mention-legales/` | 🔴 Haute |
+| **H1 manquant** | 32 pages : toutes les `paris-X` (sauf accueil), les 7 départements, `/a-propos/`, `/contact/`, `/proprete-des-locaux/`, `/ascenseurs-escalators/`, `/mention-legales/` | 🔴 Haute |
 | Contenu mince | `/contact/`, `/blog/`, `/sitemap.html/` | 🟠 Moyenne |
 | Trop de liens sortants | `/` (95) | 🟠 Moyenne |
 | `/sitemap.html/` indexable (title 11 car., pas de meta) | 1 | 🟢 Basse |
@@ -119,7 +123,7 @@ Le modèle du surfeur raisonnable de Google pondère un lien selon sa **probabil
 
 | # | Action | Impact | Effort |
 |---|---|---|---|
-| 1 | Ajouter un **H1 unique** aux 18 pages sans H1 | 🔴🔴🔴 | Faible |
+| 1 | Ajouter un **H1 unique** aux 32 pages sans H1 | 🔴🔴🔴 | Faible |
 | 2 | **Relier les 12 articles** de blog à leurs pages secteurs (maillage bidirectionnel) | 🔴🔴🔴 | Moyen |
 | 3 | Injecter **2–4 liens contextuels** à ancres diversifiées dans chaque page secteur/locale | 🔴🔴 | Moyen |
 | 4 | Remplacer ancres génériques (124) et libeller les liens vides (179) | 🔴🔴 | Moyen |
