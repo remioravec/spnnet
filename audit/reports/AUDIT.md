@@ -7,9 +7,12 @@
 
 > ✅ **Accès en écriture WordPress fonctionnel.** L'API REST accepte le mot de passe d'application avec le bon compte administrateur (`remi-oravec@seo-monkey.fr`). Les pages étant construites avec **Elementor**, les corrections passent par le serveur **MCP Elementor** (`/wp-json/mcp/elementor-mcp-server`) ; les articles de blog (éditeur classique) passent par l'API REST standard.
 
-> 🛠️ **Corrections déjà appliquées** (voir `agents/apply_*.py`) :
+> 🛠️ **Corrections appliquées en production** (voir `agents/apply_*.py` et `agents/rewrites/`) :
 > - **32 pages** : H1 unique enrichi ajouté (ex. « Entreprise de nettoyage – Paris 1er »).
-> - **12 articles de blog** : lien contextuel vers la page secteur/service correspondante (ancres diversifiées).
+> - **Maillage bidirectionnel** : 12 articles → pages secteurs + 9 pages secteurs/services → articles, avec **ancres diversifiées**.
+> - **Réécriture lisibilité** : 8 pages secteurs + 12 articles de blog réécrits (Flesch FR ~25–45 → **57–70**), phrases courtes, listes, tableaux/FAQ préservés.
+> - **Nettoyage qualité** : ~80 liens cassés `google.com/search` neutralisés, bug visible corrigé (« eau chaude »), suppression du bourrage de mots-clés et de sections hors-sujet (Lyon, concurrents, RGPD), faits préservés.
+> - Backups de tous les contenus modifiés dans `agents/backups/` (réversible via `--restore`).
 
 ---
 
