@@ -69,8 +69,15 @@
 .spn-lp .lead-card .sub{font-size:.9rem;color:var(--grey);margin-bottom:18px}
 .spn-lp .field{margin-bottom:13px}
 .spn-lp .field label{display:block;font-size:.78rem;font-weight:700;color:var(--ink-2);margin-bottom:5px}
-.spn-lp .field input,.spn-lp .field select{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:.95rem;background:#fff;color:var(--ink);transition:border .15s,box-shadow .15s}
-.spn-lp .field input:focus,.spn-lp .field select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px var(--orange-soft)}
+.spn-lp .field input,.spn-lp .field select,.spn-lp .field textarea{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:.95rem;background:#fff;color:var(--ink);transition:border .15s,box-shadow .15s}
+.spn-lp .field textarea{resize:vertical;min-height:74px;line-height:1.5}
+.spn-lp .field input:focus,.spn-lp .field select:focus,.spn-lp .field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px var(--orange-soft)}
+.spn-lp .field.invalid textarea{border-color:var(--orange-deep)}
+.spn-lp .norecruit{display:flex;align-items:flex-start;gap:8px;margin-top:14px;padding:10px 13px;background:var(--cream);border:1px solid var(--line);border-radius:11px;font-size:.78rem;line-height:1.45;color:var(--grey)}
+.spn-lp .norecruit svg{flex:none;margin-top:1px;color:var(--orange-deep)}
+.spn-lp .norecruit b{color:var(--ink-2);font-weight:700}
+.spn-lp .cta-final .mini .norecruit{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:rgba(255,255,255,.75)}
+.spn-lp .cta-final .mini .norecruit b{color:#fff}
 .spn-lp .lead-card .btn-primary{width:100%;margin-top:6px;font-size:1.05rem;padding:17px}
 .spn-lp .reassure{display:flex;align-items:center;justify-content:center;gap:7px;font-size:.78rem;color:var(--grey);margin-top:13px}
 .spn-lp .form-success{display:none;text-align:center;padding:18px 6px}
@@ -198,7 +205,7 @@
 .spn-lp .cta-final .mini{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:26px}
 .spn-lp .cta-final .mini h3{color:#fff;font-size:1.3rem;margin-bottom:14px}
 .spn-lp .cta-final .mini .field label{color:rgba(255,255,255,.8)}
-.spn-lp .cta-final .mini .field input,.spn-lp .cta-final .mini .field select{background:rgba(255,255,255,.95);border-color:transparent}
+.spn-lp .cta-final .mini .field input,.spn-lp .cta-final .mini .field select,.spn-lp .cta-final .mini .field textarea{background:rgba(255,255,255,.95);border-color:transparent}
 .spn-lp .cta-final .mini .btn-primary{width:100%}
 
 /* ===================== STICKY MOBILE BAR ===================== */
@@ -276,12 +283,13 @@
       <p class="sub">Réponse sous 24h ouvrées · Sans engagement</p>
       <div class="field" data-field><label>Nom & prénom</label><input type="text" name="name" placeholder="Ex. Marie Dupont" required><span class="err">Merci d'indiquer votre nom.</span></div>
       <div class="field" data-field><label>Téléphone</label><input type="tel" name="phone" placeholder="06 12 34 56 78" required><span class="err">Numéro de téléphone invalide.</span></div>
-      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Adresse email invalide.</span></div>
-      <div class="field" data-field><label>Type de locaux</label>
-        <select name="type" required><option value="">Sélectionnez…</option><option selected>Santé / Médical</option><option>Bureaux / Tertiaire</option><option>Immeuble / Copropriété</option><option>Commerce / Retail</option><option>Santé / Médical</option><option>Logistique / Industrie</option><option>Autre</option></select>
-        <span class="err">Merci de sélectionner un type.</span></div>
+      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Merci d'utiliser une adresse e-mail professionnelle.</span></div>
+      <div class="field" data-field><label>Votre besoin</label>
+        <textarea name="message" rows="3" placeholder="Décrivez vos locaux et votre besoin : type d'établissement, surface approximative, fréquence souhaitée…" required></textarea>
+        <span class="err">Merci de décrire votre besoin en quelques mots.</span></div>
       <button type="submit" class="btn btn-primary">Demander mon devis gratuit</button>
       <div class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Données confidentielles · Aucune sollicitation abusive</div>
+      <div class="norecruit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Cette page concerne uniquement les demandes de <b>devis</b>. Nous ne recrutons pas actuellement.</span></div>
     </form>
     <div class="form-success" id="spn-success">
       <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8431F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
@@ -447,8 +455,9 @@
       <h3>Devis express</h3>
       <div class="field" data-field><label>Nom</label><input type="text" name="name" placeholder="Votre nom" required><span class="err">Champ requis.</span></div>
       <div class="field" data-field><label>Téléphone</label><input type="tel" name="phone" placeholder="06 12 34 56 78" required><span class="err">Numéro invalide.</span></div>
-      <div class="field" data-field><label>Email</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Email invalide.</span></div>
+      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Adresse e-mail professionnelle requise.</span></div>
       <button type="submit" class="btn btn-primary">Je veux mon devis</button>
+      <div class="norecruit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Demandes de <b>devis</b> uniquement — nous ne recrutons pas actuellement.</span></div>
     </form>
     <div class="form-success" id="spn-success-2">
       <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8431F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
@@ -499,6 +508,8 @@
 
   /* Validation + envoi formulaires */
   function vMail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
+  var FREEMAIL=['gmail.com','googlemail.com','yahoo.com','yahoo.fr','ymail.com','hotmail.com','hotmail.fr','hotmail.co.uk','outlook.com','outlook.fr','live.com','live.fr','msn.com','aol.com','icloud.com','me.com','mac.com','free.fr','orange.fr','wanadoo.fr','sfr.fr','neuf.fr','laposte.net','bbox.fr','numericable.fr','gmx.com','gmx.fr','protonmail.com','proton.me','yopmail.com','mail.com','yandex.com','yandex.ru','zoho.com'];
+  function vProMail(v){ if(!vMail(v)) return false; var d=(v.split('@')[1]||'').toLowerCase(); return FREEMAIL.indexOf(d)===-1; }
   function vTel(v){return v.replace(/[^0-9+]/g,'').length>=9;}
   function handle(formId, okId){
     var form=root.querySelector('#'+formId), ok=root.querySelector('#'+okId);
@@ -506,9 +517,9 @@
     form.addEventListener('submit', function(e){
       e.preventDefault(); var valid=true;
       form.querySelectorAll('[data-field]').forEach(function(f){
-        var c=f.querySelector('input,select'); f.classList.remove('invalid');
+        var c=f.querySelector('input,select,textarea'); f.classList.remove('invalid');
         var v=(c.value||'').trim(), bad=!v;
-        if(c.type==='email'&&v) bad=!vMail(v);
+        if(c.type==='email'&&v) bad=!vProMail(v);
         if(c.type==='tel'&&v) bad=!vTel(v);
         if(bad){f.classList.add('invalid');valid=false;}
       });
@@ -526,7 +537,7 @@
       fd.append('form_fields[email]', g('email'));
       fd.append('form_fields[field_1696542]', g('phone'));
       fd.append('form_fields[field_e9cc337]', 'Demande via Landing Ads Google');
-      fd.append('form_fields[message]', 'Demande de devis via la landing page Google Ads.' + (g('type') ? (' Type de locaux : ' + g('type') + '.') : ''));
+      fd.append('form_fields[message]', (g('message') ? g('message') + '\n\n' : '') + '— Demande de devis via la landing page Google Ads (' + document.title + ').');
       try{ fetch('/wp-admin/admin-ajax.php',{method:'POST',body:fd}); }catch(e){}
       if(window.dataLayer){ window.dataLayer.push({event:'spn_lead_submit',form:formId}); }
       // if(window.gtag){ gtag('event','conversion',{send_to:'AW-XXXXXXXXX/YYYY'}); }
