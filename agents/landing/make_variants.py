@@ -21,9 +21,9 @@ AUTH = (os.environ["WP_USER"], os.environ["WP_APP_PASSWORD"])
 BASE_HTML = pathlib.Path(__file__).parent / "lp.html"
 HERE = pathlib.Path(__file__).parent
 
-EYEBROW_SRC = '<span class="eyebrow">Propreté professionnelle · Paris & Île-de-France</span>'
-H1_SRC = "<h1>Nettoyage de <em>bureaux & d'immeubles</em> qui valorise vos espaces</h1>"
-LEAD_SRC = '<p class="lead">Entreprise de propreté certifiée ISO 45001, 30 ans d\'expérience et +350 clients. Un interlocuteur dédié, des équipes formées et un résultat irréprochable, semaine après semaine.</p>'
+EYEBROW_SRC = '<span class="eyebrow">Entretien de bureaux · Paris & Île-de-France</span>'
+H1_SRC = "<h1>Entretien de <em>bureaux</em> à Paris, sans jamais gêner votre activité</h1>"
+LEAD_SRC = '<p class="lead">Sociétés, PME et startups : un nettoyage de bureaux régulier et fiable, réalisé <b>tôt le matin ou en soirée</b>. Un interlocuteur dédié, des équipes formées et certifiées ISO 45001 — devis sous 24h.</p>'
 SELECT_SRC = '<select name="type" required><option value="">Sélectionnez…</option><option>Bureaux / Tertiaire</option><option>Immeuble / Copropriété</option><option>Commerce / Retail</option><option>Santé / Médical</option><option>Logistique / Industrie</option><option>Autre</option></select>'
 
 
