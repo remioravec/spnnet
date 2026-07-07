@@ -225,7 +225,7 @@ def get_page_id(slug):
     return r[0]["id"] if r else None
 
 
-def deploy(slug, z):
+def deploy(slug, z, builder=build, prefix="zone"):
     pid = get_page_id(slug)
     if not pid:
         return f"  ✗ {slug}: page introuvable"
@@ -237,8 +237,8 @@ def deploy(slug, z):
         bak = {"id": pid, "content": o["content"]["raw"], "template": o.get("template", ""),
                "edit_mode": o["meta"].get("_elementor_edit_mode")}
         bakf.write_text(json.dumps(bak))
-    html = build(z)
-    (HERE / f"zone-{slug}.html").write_text(html)
+    html = builder(z)
+    (HERE / f"{prefix}-{slug}.html").write_text(html)
     payload = {"content": "<!-- wp:html -->\n" + html + "\n<!-- /wp:html -->",
                "template": "elementor_header_footer",
                "meta": {"_elementor_edit_mode": "", "slim_seo": {"title": z["title"], "description": z["desc"], "noindex": False}}}
