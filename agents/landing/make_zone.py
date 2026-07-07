@@ -232,11 +232,17 @@ def deploy(slug, z, builder=build, prefix="zone"):
     # sauvegarde (réversible)
     bakf = BAK_DIR / f"{slug}.json"
     if not bakf.exists():  # ne jamais écraser la sauvegarde d'origine
-        o = requests.get(f"{API}/{pid}", params={"context": "edit", "_fields": "content,template,meta"},
-                         auth=AUTH, timeout=30).json()
-        bak = {"id": pid, "content": o["content"]["raw"], "template": o.get("template", ""),
-               "edit_mode": o["meta"].get("_elementor_edit_mode")}
-        bakf.write_text(json.dumps(bak))
+        try:
+            o = requests.get(f"{API}/{pid}", params={"context": "edit", "_fields": "content,template,meta"},
+                             auth=AUTH, timeout=30).json()
+            content, template = o["content"]["raw"], o.get("template", "")
+            em = o["meta"].get("_elementor_edit_mode")
+        except Exception:  # noqa: BLE001  (certaines pages 500 en edit avec content)
+            o = requests.get(f"{API}/{pid}", params={"context": "edit", "_fields": "template,meta"},
+                             auth=AUTH, timeout=30).json()
+            content, template = "", o.get("template", "")
+            em = o.get("meta", {}).get("_elementor_edit_mode")
+        bakf.write_text(json.dumps({"id": pid, "content": content, "template": template, "edit_mode": em}))
     html = builder(z)
     (HERE / f"{prefix}-{slug}.html").write_text(html)
     payload = {"content": "<!-- wp:html -->\n" + html + "\n<!-- /wp:html -->",
