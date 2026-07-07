@@ -94,7 +94,17 @@ CSS = """
 .spn-lp .team-cue .avs img:first-child{margin-left:0}
 .spn-lp .team-cue small{font-size:.86rem;color:var(--ink-2);font-weight:600;line-height:1.35;max-width:280px}
 .spn-lp .team-cue small b{color:var(--ink)}
+/* --- Intégration site : menu en overlay + allègement CTA mobile --- */
+.spn-lp .hero{padding-top:104px}
+@media(max-width:560px){.spn-lp .hero{padding-top:84px}.spn-lp .hero-cta{display:none}}
 """
+
+# Ajuste dynamiquement le padding haut du hero à la hauteur réelle du menu (overlay absolu)
+HEADFIX = ('<script>(function(){var r=document.querySelector(".spn-lp");if(!r)return;'
+           'var hero=r.querySelector(".hero");function pad(){var h=document.querySelector("header.elementor-location-header");'
+           'if(h&&hero&&h.offsetHeight){hero.style.paddingTop=(h.offsetHeight+24)+"px";}}'
+           'pad();window.addEventListener("load",pad);window.addEventListener("resize",pad);'
+           'if(document.readyState!=="loading")pad();else document.addEventListener("DOMContentLoaded",pad);})();</script>')
 
 _IMG = "https://spn-net.fr/wp-content/uploads/2026/02/"
 
@@ -311,7 +321,7 @@ def main() -> None:
 
     # Breadcrumb JSON-LD (GEO / structure) avant la fermeture de section
     assert html.rstrip().endswith("</section>")
-    html = html.rstrip()[:-len("</section>")] + BREADCRUMB + "\n</section>\n"
+    html = html.rstrip()[:-len("</section>")] + BREADCRUMB + HEADFIX + "\n</section>\n"
 
     (HERE / "paris2.html").write_text(html)
 
