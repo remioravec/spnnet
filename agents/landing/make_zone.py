@@ -46,6 +46,61 @@ A_ZONEP = ("<p>Basés dans les Hauts-de-Seine, nous réagissons vite à Paris co
            "Une présence locale et des équipes mobiles dans les 20 arrondissements et l'ensemble des "
            "départements franciliens.</p>")
 
+# ---- Carrousel de réalisations dans le hero (home + pages mères) ----
+_IMGB = "https://spn-net.fr/wp-content/uploads/2026/"
+_CAR_SLIDES = [
+    (_IMGB + "01/tertiaire-1-1024x683.jpg", "Bureaux & Tertiaire", "Entretien de bureaux · Paris"),
+    (_IMGB + "01/hotel-1024x683.jpg", "Hôtellerie & Restauration", "Parties communes & cuisines"),
+    (_IMGB + "01/sante-1024x683.jpg", "Santé & Médical", "Bionettoyage"),
+    (_IMGB + "01/commerce-1024x683.jpg", "Commerce & Retail", "Surfaces de vente & vitrines"),
+    (_IMGB + "01/copro-1024x683.jpg", "Copropriété & Habitat", "Parties communes d'immeubles"),
+    (_IMGB + "03/ascenseurs-et-escalators-e1773133478487.webp", "Ascenseurs & Escalators", "Métal, inox & vitrage"),
+]
+
+CAROUSEL_CSS = (
+    ".spn-lp .hero-carousel{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--ink-2)}"
+    ".spn-lp .hero-carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}"
+    ".spn-lp .hero-carousel .slide.on{opacity:1}"
+    ".spn-lp .hero-carousel .slide img{width:100%;height:100%;object-fit:cover}"
+    ".spn-lp .hero-carousel .slide::after{content:\"\";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(20,22,27,.82))}"
+    ".spn-lp .hero-carousel .cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;color:#fff}"
+    ".spn-lp .hero-carousel .cap b{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;display:block;line-height:1.15}"
+    ".spn-lp .hero-carousel .cap small{font-size:.85rem;color:rgba(255,255,255,.85)}"
+    ".spn-lp .hero-carousel .cbadge{position:absolute;top:16px;left:16px;z-index:3;background:rgba(255,255,255,.94);color:var(--ink);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:999px}"
+    ".spn-lp .hero-carousel .dots{position:absolute;top:18px;right:16px;z-index:3;display:flex;gap:6px}"
+    ".spn-lp .hero-carousel .dots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);border:none;cursor:pointer;padding:0;transition:.25s}"
+    ".spn-lp .hero-carousel .dots button.on{background:#fff;width:22px;border-radius:4px}"
+    "@media(max-width:880px){.spn-lp .hero-carousel{aspect-ratio:16/10}}"
+)
+
+CAROUSEL_JS = ('<script>(function(){var r=document.querySelector(".spn-lp");if(!r)return;var c=r.querySelector("#heroCar");'
+               'if(!c)return;var s=c.querySelectorAll(".slide"),d=c.querySelectorAll(".dots button"),i=0,t;'
+               'function go(n){s[i].classList.remove("on");if(d[i])d[i].classList.remove("on");i=(n+s.length)%s.length;'
+               's[i].classList.add("on");if(d[i])d[i].classList.add("on");}function play(){t=setInterval(function(){go(i+1);},4200);}'
+               'function stop(){clearInterval(t);}for(var k=0;k<d.length;k++){(function(k){d[k].addEventListener("click",'
+               'function(){go(k);stop();play();});})(k);}c.addEventListener("mouseenter",stop);c.addEventListener("mouseleave",play);'
+               'document.addEventListener("visibilitychange",function(){document.hidden?stop():play();});play();})();</script>')
+
+
+def carousel_html():
+    slides = ""
+    for k, (img, title, sub) in enumerate(_CAR_SLIDES):
+        slides += (f'<div class="slide{" on" if k == 0 else ""}"><img src="{img}" alt="{title} — réalisation SPN NET" '
+                   f'{"" if k == 0 else "loading=\"lazy\" "}/><div class="cap"><b>{title}</b><small>{sub}</small></div></div>')
+    dots = "".join(f'<button class="{"on" if k == 0 else ""}" aria-label="Vue {k + 1}"></button>' for k in range(len(_CAR_SLIDES)))
+    return ('<div class="hero-carousel reveal" id="heroCar"><span class="cbadge">Nos réalisations</span>'
+            + slides + '<div class="dots">' + dots + '</div></div>')
+
+
+def apply_carousel(h):
+    """Remplace le formulaire du hero par le carrousel ; déplace l'ancre #devis vers le CTA final."""
+    s = h.index('<div class="lead-card reveal" id="devis">')
+    e = h.index("<!-- ============ CLIENTS LOGOS")
+    h = h[:s] + carousel_html() + "\n</div></div>\n\n" + h[e:]
+    h = h.replace('<div class="cta-final">', '<div class="cta-final" id="devis">', 1)
+    h = h.replace("</style>", CAROUSEL_CSS + "</style>", 1)
+    return h
+
 
 def facts(z):
     return ('<div class="facts reveal"><h3>' + _CK + ' SPN NET — l\'essentiel</h3><dl>'
