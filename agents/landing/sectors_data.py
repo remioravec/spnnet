@@ -5,6 +5,31 @@ des pages locales (zones). Contenu, prestations et FAQ propres à chaque secteur
 
 # services : liste de (prestation, détail, fréquence)
 SECTORS = {
+    "ascenseurs-escalators": dict(
+        name="Ascenseurs & Escalators", short="ascenseurs & escalators", zone="Paris & Île-de-France",
+        title="Nettoyage d'ascenseurs & escalators à Paris & Île-de-France | SPN NET",
+        desc="Nettoyage d'ascenseurs et escalators à Paris et en IDF : cabines, inox, miroirs, portes, marches. Partenaire des ascensoristes. ISO 45001, 4,8/5. Devis 24h.",
+        eyebrow="Nettoyage ascenseurs & escalators · Paris & Île-de-France",
+        h1="Nettoyage d'<em>ascenseurs & d'escalators</em>",
+        lead="Cabines, portes palières, inox, miroirs, marches et peignes d'escalators : une propreté impeccable pour des équipements très sollicités et très visibles. Partenaire des ascensoristes et des gestionnaires. Certifiés ISO 45001 — <span class=\"hl\">devis sous 24h</span>.",
+        p1="Ascenseurs et escalators comptent parmi les équipements les plus visibles et les plus touchés d'un immeuble : cabines, parois inox, miroirs, portes palières, marches et peignes se salissent vite et demandent un entretien spécifique.",
+        p2="Nous en avons fait une spécialité, aux côtés des grands acteurs de l'ascenseur (OTIS, KONE, Schindler…) et des gestionnaires d'immeubles. Nos agents utilisent des produits adaptés à l'inox et au vitrage, et interviennent en horaires décalés.",
+        aspects=["Cabines", "Parois inox", "Miroirs & vitrage", "Portes palières", "Marches d'escalators", "Peignes & seuils"],
+        services=[
+            ("Cabines d'ascenseur", "Parois, sol, plafond, boutons et points de contact", "Régulier"),
+            ("Inox & miroirs", "Détachage et lustrage de l'inox et des surfaces vitrées", "Régulier"),
+            ("Portes palières", "Nettoyage des portes et encadrements à chaque niveau", "Régulier"),
+            ("Escalators", "Marches, mains courantes, joints et peignes", "Régulier"),
+            ("Vitrage & abords", "Gaines vitrées, seuils et abords immédiats", "Périodique"),
+        ],
+        faq=[("Travaillez-vous avec les ascensoristes ?",
+              "Oui, nous intervenons en partenariat avec des sociétés d'ascenseurs et des gestionnaires d'immeubles, sur des équipements neufs comme anciens."),
+             ("Utilisez-vous des produits adaptés à l'inox et au vitrage ?",
+              "Oui, les cabines, l'inox et les surfaces vitrées sont traités avec des produits et méthodes adaptés, pour éviter traces et rayures.")],
+        article=("ascenseurs", "Ascenseurs — en savoir plus"),
+        related=[("escalators", "Escalators"), ("copropriete-et-habitat", "Copropriété & Habitat")],
+        zones=[("paris-8", "Paris 8e"), ("paris-15", "Paris 15e"), ("92-hauts-de-seine", "Hauts-de-Seine (92)"), ("94-val-de-marne", "Val-de-Marne (94)")],
+    ),
     "tertiaire": dict(
         name="Bureaux & Tertiaire", short="Bureaux & Tertiaire", zone="Paris & Île-de-France",
         title="Nettoyage de bureaux & tertiaire à Paris & Île-de-France | SPN NET",
