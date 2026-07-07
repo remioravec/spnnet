@@ -211,6 +211,11 @@ FAQ_OLD = None  # rempli plus bas via slicing
 
 def main() -> None:
     html = BASE
+    # Page intégrée au site (menu + footer) : on retire la barre logo/tel de la LP,
+    # qui ferait doublon avec l'en-tête du site.
+    s = html.index("<!-- ============ TOP STRIP ============ -->")
+    e = html.index("<!-- ============ HERO ============ -->")
+    html = html[:s] + html[e:]
     # CSS
     assert "</style>" in html
     html = html.replace("</style>", CSS + "</style>", 1)
@@ -273,7 +278,7 @@ def main() -> None:
     ex = requests.get("https://spn-net.fr/wp-json/wp/v2/pages",
                       params={"slug": SLUG, "_fields": "id"}, auth=AUTH, timeout=30).json()
     payload = {"title": "Nettoyage bureaux Paris 2 (aperçu)", "slug": SLUG, "status": "publish",
-               "content": content, "template": "elementor_canvas",
+               "content": content, "template": "elementor_header_footer",
                "meta": {"slim_seo": {"title": SS_TITLE, "description": SS_DESC, "noindex": True}}}
     if ex:
         r = requests.post(f"https://spn-net.fr/wp-json/wp/v2/pages/{ex[0]['id']}", auth=AUTH, timeout=60, json=payload)
