@@ -11,7 +11,7 @@
 
 <section class="spn-lp">
 <script>try{document.head.insertAdjacentHTML('beforeend','<meta name="robots" content="noindex,nofollow,noarchive">');}catch(e){}</script>
-<!-- spn-schema --><script type="application/ld+json">{"@context":"https://schema.org","@type":"CleaningService","@id":"https://spn-net.fr/#business","name":"SPN NET","url":"https://spn-net.fr/","telephone":"+33149462240","email":"contact@spn-net.fr","image":"https://spn-net.fr/wp-content/uploads/elementor/thumbs/logo-rkamhcg62qbiqacow1pw230in940ue5954a7aysbu0.png","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"52 Avenue de Bourg-la-Reine","postalCode":"92220","addressLocality":"Bagneux","addressRegion":"Île-de-France","addressCountry":"FR"},"areaServed":[{"@type":"City","name":"Paris"},{"@type":"AdministrativeArea","name":"Île-de-France"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"48","bestRating":"5","worstRating":"1"}}</script>
+<!-- spn-schema --><script type="application/ld+json">{"@context":"https://schema.org","@type":"CleaningService","@id":"https://spn-net.fr/#business","name":"SPN NET","url":"https://spn-net.fr/","telephone":"+33149462240","email":"contact@spn-net.fr","image":"https://spn-net.fr/wp-content/uploads/elementor/thumbs/logo-rkamhcg62qbiqacow1pw230in940ue5954a7aysbu0.png","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"52 Avenue de Bourg-la-Reine","postalCode":"92220","addressLocality":"Bagneux","addressRegion":"Île-de-France","addressCountry":"FR"},"areaServed":[{"@type":"City","name":"Paris"},{"@type":"AdministrativeArea","name":"Île-de-France"}],"hasMap":"https://share.google/EHIcrr4rikijvXSJE","sameAs":["https://share.google/EHIcrr4rikijvXSJE","https://www.pappers.fr/entreprise/spn-net-382120814"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"48","bestRating":"5","worstRating":"1"}}</script>
 <style>
 /* ===================== TOKENS & RESET (scopés) ===================== */
 .spn-lp{
@@ -303,6 +303,21 @@
 .spn-lp .links a.card small{color:var(--grey);font-size:.85rem}
 .spn-lp .links a.card .ar{color:var(--orange-deep);font-weight:700}
 @media(max-width:820px){.spn-lp .links .grid{grid-template-columns:1fr}}
+/* --- Présence humaine (inspiration NEOSIT / Nikita) --- */
+.spn-lp .team{background:#fff}
+.spn-lp .team .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:6px}
+.spn-lp .team figure{margin:0;border-radius:16px;overflow:hidden;position:relative;background:var(--ink-2);aspect-ratio:3/4}
+.spn-lp .team figure img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.spn-lp .team figure:hover img{transform:scale(1.05)}
+.spn-lp .team figure::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 48%,rgba(20,22,27,.82));z-index:1}
+.spn-lp .team figcaption{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-size:.84rem;font-weight:700}
+@media(max-width:820px){.spn-lp .team .grid{grid-template-columns:repeat(2,1fr)}}
+.spn-lp .team-cue{display:flex;align-items:center;gap:13px;margin-top:20px}
+.spn-lp .team-cue .avs{display:flex}
+.spn-lp .team-cue .avs img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-12px;box-shadow:var(--shadow-sm)}
+.spn-lp .team-cue .avs img:first-child{margin-left:0}
+.spn-lp .team-cue small{font-size:.86rem;color:var(--ink-2);font-weight:600;line-height:1.35;max-width:280px}
+.spn-lp .team-cue small b{color:var(--ink)}
 </style>
 
 <!-- ============ HERO ============ -->
@@ -327,6 +342,7 @@
       <span class="dot"></span>
       <div class="trust-pill"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Design_sans_titre_30.png" alt="Médaille d'argent EcoVadis 2025"><span>EcoVadis <b>Argent</b></span></div>
       <div class="trust-pill"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Design_sans_titre_34.png" alt="Certification DEKRA ISO 45001"><span><b>ISO 45001</b></span></div>
+      <div class="team-cue"><div class="avs"><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-01.jpg" alt=""><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-07.jpg" alt=""><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-03.jpg" alt=""></div><small><b>Une équipe dédiée</b>, formée et fidèle — pas des remplaçants au hasard.</small></div>
     </div>
   </div>
 
@@ -457,6 +473,18 @@
     <div class="usp reveal"><div class="ic"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Asset-006.png" alt=""></div><h3>Sur-mesure</h3><p>Des prestations pensées pour vos contraintes et vos horaires, pas des forfaits standards.</p></div>
     <div class="usp reveal"><div class="ic"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Asset-004.png" alt=""></div><h3>Fiable & certifié</h3><p>ISO 45001 et médaille EcoVadis Argent : qualité, sécurité et RSE contrôlées.</p></div>
     <div class="usp reveal"><div class="ic"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Asset-005.png" alt=""></div><h3>Amélioration continue</h3><p>Suivi qualité régulier et ajustements pour un résultat constant dans le temps.</p></div>
+  </div>
+</div></div>
+
+
+<!-- ============ ÉQUIPE HUMAINE ============ -->
+<div class="sec team"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow c">Des visages, pas des remplaçants</span><h2>L'équipe qui prendra soin de vos bureaux</h2><p>Des agents formés, en tenue et fidélisés — souvent les mêmes d'une semaine à l'autre. Ils connaissent vos locaux, vos accès et vos exigences.</p></div>
+  <div class="grid reveal">
+    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-01.jpg" alt="Agent de propreté de l'équipe SPN NET à Paris 2" loading="lazy"><figcaption>Agent de propreté</figcaption></figure>
+    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-02.jpg" alt="Agent d'entretien SPN NET préparé pour le bionettoyage" loading="lazy"><figcaption>Préparation du matériel</figcaption></figure>
+    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-03.jpg" alt="Agent de nettoyage professionnel équipé d'un aspirateur" loading="lazy"><figcaption>Entretien des sols</figcaption></figure>
+    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-07.jpg" alt="Employée de l'entreprise de propreté SPN NET en tenue" loading="lazy"><figcaption>En tenue SPN NET</figcaption></figure>
   </div>
 </div></div>
 

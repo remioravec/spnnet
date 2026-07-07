@@ -79,7 +79,42 @@ CSS = """
 .spn-lp .links a.card small{color:var(--grey);font-size:.85rem}
 .spn-lp .links a.card .ar{color:var(--orange-deep);font-weight:700}
 @media(max-width:820px){.spn-lp .links .grid{grid-template-columns:1fr}}
+/* --- Présence humaine (inspiration NEOSIT / Nikita) --- */
+.spn-lp .team{background:#fff}
+.spn-lp .team .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:6px}
+.spn-lp .team figure{margin:0;border-radius:16px;overflow:hidden;position:relative;background:var(--ink-2);aspect-ratio:3/4}
+.spn-lp .team figure img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.spn-lp .team figure:hover img{transform:scale(1.05)}
+.spn-lp .team figure::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 48%,rgba(20,22,27,.82));z-index:1}
+.spn-lp .team figcaption{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-size:.84rem;font-weight:700}
+@media(max-width:820px){.spn-lp .team .grid{grid-template-columns:repeat(2,1fr)}}
+.spn-lp .team-cue{display:flex;align-items:center;gap:13px;margin-top:20px}
+.spn-lp .team-cue .avs{display:flex}
+.spn-lp .team-cue .avs img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-12px;box-shadow:var(--shadow-sm)}
+.spn-lp .team-cue .avs img:first-child{margin-left:0}
+.spn-lp .team-cue small{font-size:.86rem;color:var(--ink-2);font-weight:600;line-height:1.35;max-width:280px}
+.spn-lp .team-cue small b{color:var(--ink)}
 """
+
+_IMG = "https://spn-net.fr/wp-content/uploads/2026/02/"
+
+TEAMCUE = ('<div class="team-cue"><div class="avs">'
+           '<img src="' + _IMG + 'Teams-01.jpg" alt=""><img src="' + _IMG + 'Teams-07.jpg" alt="">'
+           '<img src="' + _IMG + 'Teams-03.jpg" alt=""></div>'
+           '<small><b>Une équipe dédiée</b>, formée et fidèle — pas des remplaçants au hasard.</small></div>')
+
+TEAM = ('\n<!-- ============ ÉQUIPE HUMAINE ============ -->\n'
+        '<div class="sec team"><div class="wrap">\n'
+        '  <div class="sec-head reveal"><span class="eyebrow c">Des visages, pas des remplaçants</span>'
+        '<h2>L\'équipe qui prendra soin de vos bureaux</h2>'
+        '<p>Des agents formés, en tenue et fidélisés — souvent les mêmes d\'une semaine à l\'autre. '
+        'Ils connaissent vos locaux, vos accès et vos exigences.</p></div>\n'
+        '  <div class="grid reveal">\n'
+        '    <figure><img src="' + _IMG + 'Teams-01.jpg" alt="Agent de propreté de l\'équipe SPN NET à Paris 2" loading="lazy"><figcaption>Agent de propreté</figcaption></figure>\n'
+        '    <figure><img src="' + _IMG + 'Teams-02.jpg" alt="Agent d\'entretien SPN NET préparé pour le bionettoyage" loading="lazy"><figcaption>Préparation du matériel</figcaption></figure>\n'
+        '    <figure><img src="' + _IMG + 'Teams-03.jpg" alt="Agent de nettoyage professionnel équipé d\'un aspirateur" loading="lazy"><figcaption>Entretien des sols</figcaption></figure>\n'
+        '    <figure><img src="' + _IMG + 'Teams-07.jpg" alt="Employée de l\'entreprise de propreté SPN NET en tenue" loading="lazy"><figcaption>En tenue SPN NET</figcaption></figure>\n'
+        '  </div>\n</div></div>\n\n<!-- ============ RÉALISATIONS ============ -->')
 
 _CK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>'
 
@@ -236,6 +271,13 @@ def main() -> None:
     # Maillage interne avant le CTA final
     assert "<!-- ============ FINAL CTA ============ -->" in html
     html = html.replace("<!-- ============ FINAL CTA ============ -->", LINKS, 1)
+    # Présence humaine : section équipe avant les réalisations
+    assert "<!-- ============ RÉALISATIONS ============ -->" in html
+    html = html.replace("<!-- ============ RÉALISATIONS ============ -->", TEAM, 1)
+    # Rappel visuel d'agents dans le hero (après la trust-row)
+    tr_anchor = 'ISO 45001</b></span></div>\n    </div>'
+    assert tr_anchor in html, "anchor trust-row introuvable"
+    html = html.replace(tr_anchor, 'ISO 45001</b></span></div>\n      ' + TEAMCUE + '\n    </div>', 1)
     # FAQ : remplacer le bloc des 6 <details> par une FAQ locale
     start = html.index(FAQ_OLD_START)
     end = html.index("</details>", html.index("bien-être et à la sécurité de nos agents")) + len("</details>")
