@@ -196,7 +196,8 @@ def build():
     q = ",".join('{"@type":"Question","name":"%s","acceptedAnswer":{"@type":"Answer","text":"%s"}}'
                  % (mz.strip_accents(n).replace('"', "'"), mz.strip_accents(x).replace('"', "'")) for n, x in fitems)
     h = h[:ls] + '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[' + q + ']}' + h[le:]
-    h = h.rstrip()[:-len("</section>")] + HEADFIX + "\n</section>\n"
+    h = mz.apply_carousel(h)
+    h = h.rstrip()[:-len("</section>")] + HEADFIX + mz.CAROUSEL_JS + "\n</section>\n"
     return h
 
 

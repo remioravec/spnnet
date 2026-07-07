@@ -150,7 +150,8 @@ def build(s):
     bc = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList",'
           '"itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://spn-net.fr/"},'
           f'{{"@type":"ListItem","position":2,"name":"{mz.strip_accents(s["name"])}"}}]}}</script>')
-    h = h.rstrip()[:-len("</section>")] + bc + HEADFIX + "\n</section>\n"
+    h = mz.apply_carousel(h)
+    h = h.rstrip()[:-len("</section>")] + bc + HEADFIX + mz.CAROUSEL_JS + "\n</section>\n"
     return h
 
 

@@ -85,8 +85,10 @@ CAROUSEL_JS = ('<script>(function(){var r=document.querySelector(".spn-lp");if(!
 def carousel_html():
     slides = ""
     for k, (img, title, sub) in enumerate(_CAR_SLIDES):
-        slides += (f'<div class="slide{" on" if k == 0 else ""}"><img src="{img}" alt="{title} — réalisation SPN NET" '
-                   f'{"" if k == 0 else "loading=\"lazy\" "}/><div class="cap"><b>{title}</b><small>{sub}</small></div></div>')
+        on = " on" if k == 0 else ""
+        lazy = "" if k == 0 else 'loading="lazy" '
+        slides += (f'<div class="slide{on}"><img src="{img}" alt="{title} — réalisation SPN NET" {lazy}/>'
+                   f'<div class="cap"><b>{title}</b><small>{sub}</small></div></div>')
     dots = "".join(f'<button class="{"on" if k == 0 else ""}" aria-label="Vue {k + 1}"></button>' for k in range(len(_CAR_SLIDES)))
     return ('<div class="hero-carousel reveal" id="heroCar"><span class="cbadge">Nos réalisations</span>'
             + slides + '<div class="dots">' + dots + '</div></div>')

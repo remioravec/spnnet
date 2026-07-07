@@ -325,7 +325,7 @@
 .elementor-widget-theme-post-content .elementor-widget-container{margin-bottom:0!important;padding-bottom:0!important}
 .page-content,main.site-main,.site-main,.elementor-section-wrap{margin-bottom:0!important;padding-bottom:0!important}
 .spn-lp{margin-bottom:0}
-</style>
+.spn-lp .hero-carousel{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--ink-2)}.spn-lp .hero-carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}.spn-lp .hero-carousel .slide.on{opacity:1}.spn-lp .hero-carousel .slide img{width:100%;height:100%;object-fit:cover}.spn-lp .hero-carousel .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(20,22,27,.82))}.spn-lp .hero-carousel .cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;color:#fff}.spn-lp .hero-carousel .cap b{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;display:block;line-height:1.15}.spn-lp .hero-carousel .cap small{font-size:.85rem;color:rgba(255,255,255,.85)}.spn-lp .hero-carousel .cbadge{position:absolute;top:16px;left:16px;z-index:3;background:rgba(255,255,255,.94);color:var(--ink);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:999px}.spn-lp .hero-carousel .dots{position:absolute;top:18px;right:16px;z-index:3;display:flex;gap:6px}.spn-lp .hero-carousel .dots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);border:none;cursor:pointer;padding:0;transition:.25s}.spn-lp .hero-carousel .dots button.on{background:#fff;width:22px;border-radius:4px}@media(max-width:880px){.spn-lp .hero-carousel{aspect-ratio:16/10}}</style>
 
 <!-- ============ HERO ============ -->
 <div class="hero"><div class="wrap">
@@ -353,23 +353,7 @@
     </div>
   </div>
 
-  <div class="lead-card reveal" id="devis">
-    <span class="badge">Devis gratuit 24h</span>
-    <form id="spn-form" novalidate>
-      <h3>Votre devis en 30 secondes</h3>
-      <p class="sub">3 champs suffisent · Réponse sous 24h ouvrées</p>
-      <div class="field" data-field><label>Nom & prénom</label><input type="text" name="name" placeholder="Ex. Marie Dupont" required><span class="err">Merci d'indiquer votre nom.</span></div>
-      <div class="field" data-field><label>Téléphone</label><input type="tel" name="phone" placeholder="06 12 34 56 78" required><span class="err">Numéro de téléphone invalide.</span></div>
-      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Merci d'utiliser une adresse e-mail professionnelle.</span></div>
-      <button type="submit" class="btn btn-primary">Demander mon devis gratuit</button>
-      <div class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Données confidentielles · Aucune sollicitation abusive</div>
-      <div class="norecruit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Cette page concerne uniquement les demandes de <b>devis</b>. Nous ne recrutons pas actuellement.</span></div>
-    </form>
-    <div class="form-success" id="spn-success">
-      <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8431F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-      <h3>Demande envoyée&nbsp;!</h3><p>Merci, notre équipe vous recontacte sous 24h ouvrées. Pour un échange immédiat : <b>01 49 46 22 40</b>.</p>
-    </div>
-  </div>
+  <div class="hero-carousel reveal" id="heroCar"><span class="cbadge">Nos réalisations</span><div class="slide on"><img src="https://spn-net.fr/wp-content/uploads/2026/01/tertiaire-1-1024x683.jpg" alt="Bureaux & Tertiaire — réalisation SPN NET" /><div class="cap"><b>Bureaux & Tertiaire</b><small>Entretien de bureaux · Paris</small></div></div><div class="slide"><img src="https://spn-net.fr/wp-content/uploads/2026/01/hotel-1024x683.jpg" alt="Hôtellerie & Restauration — réalisation SPN NET" loading="lazy" /><div class="cap"><b>Hôtellerie & Restauration</b><small>Parties communes & cuisines</small></div></div><div class="slide"><img src="https://spn-net.fr/wp-content/uploads/2026/01/sante-1024x683.jpg" alt="Santé & Médical — réalisation SPN NET" loading="lazy" /><div class="cap"><b>Santé & Médical</b><small>Bionettoyage</small></div></div><div class="slide"><img src="https://spn-net.fr/wp-content/uploads/2026/01/commerce-1024x683.jpg" alt="Commerce & Retail — réalisation SPN NET" loading="lazy" /><div class="cap"><b>Commerce & Retail</b><small>Surfaces de vente & vitrines</small></div></div><div class="slide"><img src="https://spn-net.fr/wp-content/uploads/2026/01/copro-1024x683.jpg" alt="Copropriété & Habitat — réalisation SPN NET" loading="lazy" /><div class="cap"><b>Copropriété & Habitat</b><small>Parties communes d'immeubles</small></div></div><div class="slide"><img src="https://spn-net.fr/wp-content/uploads/2026/03/ascenseurs-et-escalators-e1773133478487.webp" alt="Ascenseurs & Escalators — réalisation SPN NET" loading="lazy" /><div class="cap"><b>Ascenseurs & Escalators</b><small>Métal, inox & vitrage</small></div></div><div class="dots"><button class="on" aria-label="Vue 1"></button><button class="" aria-label="Vue 2"></button><button class="" aria-label="Vue 3"></button><button class="" aria-label="Vue 4"></button><button class="" aria-label="Vue 5"></button><button class="" aria-label="Vue 6"></button></div></div>
 </div></div>
 
 <!-- ============ CLIENTS LOGOS (réels, marquee) ============ -->
@@ -597,7 +581,7 @@
 </div></div>
 
 <!-- ============ FINAL CTA ============ -->
-<div class="cta-final"><div class="wrap">
+<div class="cta-final" id="devis"><div class="wrap">
   <div class="reveal">
     <span class="eyebrow">Passez à l'action</span>
     <h2>Des locaux impeccables, sans y penser</h2>
@@ -715,5 +699,5 @@
   });
 })();
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://spn-net.fr/"},{"@type":"ListItem","position":2,"name":"Enseignement & Petite Enfance"}]}</script><script>(function(){var r=document.querySelector(".spn-lp");if(!r)return;var hero=r.querySelector(".hero");function pad(){var h=document.querySelector("header.elementor-location-header");if(h&&hero&&h.offsetHeight){hero.style.paddingTop=(h.offsetHeight+24)+"px";}}pad();window.addEventListener("load",pad);window.addEventListener("resize",pad);if(document.readyState!=="loading")pad();else document.addEventListener("DOMContentLoaded",pad);})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://spn-net.fr/"},{"@type":"ListItem","position":2,"name":"Enseignement & Petite Enfance"}]}</script><script>(function(){var r=document.querySelector(".spn-lp");if(!r)return;var hero=r.querySelector(".hero");function pad(){var h=document.querySelector("header.elementor-location-header");if(h&&hero&&h.offsetHeight){hero.style.paddingTop=(h.offsetHeight+24)+"px";}}pad();window.addEventListener("load",pad);window.addEventListener("resize",pad);if(document.readyState!=="loading")pad();else document.addEventListener("DOMContentLoaded",pad);})();</script><script>(function(){var r=document.querySelector(".spn-lp");if(!r)return;var c=r.querySelector("#heroCar");if(!c)return;var s=c.querySelectorAll(".slide"),d=c.querySelectorAll(".dots button"),i=0,t;function go(n){s[i].classList.remove("on");if(d[i])d[i].classList.remove("on");i=(n+s.length)%s.length;s[i].classList.add("on");if(d[i])d[i].classList.add("on");}function play(){t=setInterval(function(){go(i+1);},4200);}function stop(){clearInterval(t);}for(var k=0;k<d.length;k++){(function(k){d[k].addEventListener("click",function(){go(k);stop();play();});})(k);}c.addEventListener("mouseenter",stop);c.addEventListener("mouseleave",play);document.addEventListener("visibilitychange",function(){document.hidden?stop():play();});play();})();</script>
 </section>
