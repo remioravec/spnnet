@@ -39,7 +39,45 @@ HOME_CSS = """
 .spn-lp .dep a:hover{background:var(--orange);text-decoration:none}
 @media(max-width:820px){.spn-lp .sectors .grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.spn-lp .sectors .grid{grid-template-columns:1fr}}
+/* --- Deux expertises (branding) --- */
+.spn-lp .pillars{background:var(--cream)}
+.spn-lp .pillars .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.spn-lp .pillar{position:relative;border-radius:22px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;color:#fff}
+.spn-lp .pillar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s}
+.spn-lp .pillar:hover img{transform:scale(1.06)}
+.spn-lp .pillar::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 28%,rgba(20,22,27,.92));z-index:1}
+.spn-lp .pillar .in{position:relative;z-index:2;padding:32px}
+.spn-lp .pillar .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--orange);color:#fff;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.spn-lp .pillar h3{color:#fff;font-size:1.8rem;margin-bottom:8px}
+.spn-lp .pillar p{color:rgba(255,255,255,.86);margin-bottom:18px;max-width:440px;font-size:1rem}
+.spn-lp .pillar .lk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);padding:11px 20px;border-radius:999px}
+.spn-lp .pillar:hover .lk{background:var(--orange);border-color:var(--orange)}
+@media(max-width:820px){.spn-lp .pillars .grid{grid-template-columns:1fr}}
 """
+
+_ARROW = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" '
+          'stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>')
+
+
+def pillars_section():
+    return (
+        '\n<!-- ============ DEUX EXPERTISES (branding) ============ -->\n'
+        '<div class="sec pillars"><div class="wrap">\n'
+        '  <div class="sec-head reveal"><span class="eyebrow c">Nos deux expertises</span>'
+        '<h2>Le nettoyage… et bien plus</h2>'
+        '<p>Une même exigence de propreté, du poste de travail à la cabine d\'ascenseur.</p></div>\n'
+        '  <div class="grid reveal">\n'
+        '    <a class="pillar" href="https://spn-net.fr/tertiaire/">'
+        '<img src="https://spn-net.fr/wp-content/uploads/2026/01/tertiaire-1-1024x683.jpg" alt="Nettoyage de bureaux et locaux professionnels" loading="lazy">'
+        '<div class="in"><span class="tag">Propreté</span><h3>Nettoyage professionnel</h3>'
+        '<p>Bureaux, commerces, santé, hôtellerie, copropriétés… Tous secteurs, à Paris et en Île-de-France.</p>'
+        f'<span class="lk">Voir nos secteurs {_ARROW}</span></div></a>\n'
+        '    <a class="pillar" href="https://spn-net.fr/ascenseurs-escalators/">'
+        '<img src="https://spn-net.fr/wp-content/uploads/2026/03/ascenseurs-et-escalators-e1773133478487.webp" alt="Nettoyage d\'ascenseurs et escalators" loading="lazy">'
+        '<div class="in"><span class="tag">Spécialité</span><h3>Ascenseurs & Escalators</h3>'
+        '<p>Notre expertise reconnue : le nettoyage des ascenseurs et escalators — la confiance des grands acteurs du secteur (OTIS, KONE, Schindler…).</p>'
+        f'<span class="lk">Découvrir {_ARROW}</span></div></a>\n'
+        '  </div>\n</div></div>')
 
 _SEC_ICON = ('<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
              'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>')
@@ -122,11 +160,11 @@ def build():
     h = h.replace(mz.A_EYEBROW, '<span class="eyebrow">Entreprise de propreté · Paris & Île-de-France</span>', 1)
     h = h.replace(mz.A_H1, "<h1>Votre entreprise de <em>nettoyage professionnel</em> à Paris & en Île-de-France</h1>", 1)
     h = h.replace(mz.A_LEAD,
-                  '<p class="lead">30 ans d\'expérience, +350 clients, tous secteurs. Bureaux, commerces, santé, '
-                  'hôtellerie, copropriétés… Un interlocuteur dédié, des équipes certifiées ISO 45001. '
-                  'Interventions <span class="hl">avant 9h ou après 18h</span> — <span class="hl">devis sous 24h</span>.</p>', 1)
-    # secteurs + facts avant WHY
-    h = h.replace("<!-- ============ WHY US ============ -->", PROMISE + sectors_section(), 1)
+                  '<p class="lead">30 ans au service des professionnels franciliens. Le <b>nettoyage tous secteurs</b> '
+                  'et notre spécialité, les <b>ascenseurs & escalators</b>. Équipes certifiées ISO 45001, un interlocuteur '
+                  'dédié — <span class="hl">devis sous 24h</span>.</p>', 1)
+    # deux expertises (branding) + secteurs avant WHY
+    h = h.replace("<!-- ============ WHY US ============ -->", PROMISE + pillars_section() + sectors_section(), 1)
     # citation avant avis
     h = h.replace("<!-- ============ AVIS GOOGLE", PULL + "\n<!-- ============ AVIS GOOGLE", 1)
     # équipe avant réalisations
