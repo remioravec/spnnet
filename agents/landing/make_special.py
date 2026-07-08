@@ -17,6 +17,9 @@ import make_zone as mz  # noqa: E402
 
 EXTRA_CSS = """
 .spn-lp .engage .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.spn-lp .engage .grid.g4-fix{grid-template-columns:repeat(4,1fr)}
+.spn-lp .eng p a{color:var(--orange-deep);font-weight:700}
+@media(max-width:900px){.spn-lp .engage .grid.g4-fix{grid-template-columns:1fr 1fr}}
 .spn-lp .eng{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;transition:transform .2s,box-shadow .2s}
 .spn-lp .eng:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
 .spn-lp .eng .ic{width:52px;height:52px;border-radius:14px;background:var(--orange-soft);display:flex;align-items:center;justify-content:center;color:var(--orange-deep);margin-bottom:15px}
@@ -94,7 +97,46 @@ def posts_section():
             '  <div class="grid">\n' + cards + '  </div>\n</div></div>\n\n<!-- ============ WHY US ============ -->')
 
 
+def contact_section():
+    cards = [
+        (_ic('<path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/>'),
+         "Adresse", "52 Avenue de Bourg-la-Reine<br>92220 Bagneux (92)"),
+        (_ic('<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.1 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9z"/>'),
+         "Téléphone", '<a href="tel:+33149462240">01 49 46 22 40</a><br>Du lundi au vendredi'),
+        (_ic('<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>'),
+         "E-mail", '<a href="mailto:contact@spn-net.fr">contact@spn-net.fr</a>'),
+        (_ic('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
+         "Réactivité", "Devis gratuit sous 24h<br>Interventions soir &amp; matin"),
+    ]
+    body = ""
+    for ic, h, v in cards:
+        body += f'    <div class="eng reveal"><div class="ic">{ic}</div><h3>{h}</h3><p>{v}</p></div>\n'
+    return ('\n<!-- ============ COORDONNÉES ============ -->\n'
+            '<div class="sec engage"><div class="wrap">\n'
+            '  <div class="sec-head reveal"><span class="eyebrow c">Nous joindre</span>'
+            '<h2>Une équipe joignable, une réponse rapide</h2>'
+            '<p>Basés à Bagneux (92), nous intervenons à Paris et dans toute l\'Île-de-France. '
+            'Écrivez-nous via le formulaire ou appelez-nous directement.</p></div>\n'
+            '  <div class="grid g4-fix">\n' + body + '  </div>\n</div></div>\n\n<!-- ============ WHY US ============ -->')
+
+
 CFG = {
+    "contact": dict(
+        title="Contact — Devis nettoyage à Paris & Île-de-France | SPN NET",
+        desc="Contactez SPN NET, entreprise de propreté à Bagneux (92) : devis gratuit sous 24h pour le nettoyage de vos locaux à Paris et en Île-de-France. 01 49 46 22 40.",
+        eyebrow="Contact", h1="Parlons de <em>vos locaux</em>",
+        lead="Décrivez-nous votre besoin : nous revenons vers vous sous 24h avec un devis gratuit et sans engagement. Vous pouvez aussi nous appeler directement.",
+        section=contact_section,
+        faq=[("Sous quel délai recevrai-je une réponse ?",
+              "Nous vous recontactons sous 24h ouvrées après réception de votre demande, avec un devis gratuit et sans engagement."),
+             ("Quelles informations préparer pour un devis ?",
+              "Le type de locaux, la surface approximative, la fréquence souhaitée et vos contraintes d'accès ou d'horaires suffisent pour un premier chiffrage."),
+             ("Intervenez-vous dans ma zone ?",
+              "Nous couvrons Paris (les 20 arrondissements) et toute l'Île-de-France (77, 78, 91, 92, 93, 94, 95). Notre base est à Bagneux (92)."),
+             ("Le devis engage-t-il à quelque chose ?",
+              "Non : le devis est gratuit et sans engagement. Les conditions du contrat sont définies avec vous avant toute intervention.")],
+        bc="Contact",
+    ),
     "a-propos": dict(
         title="Nos engagements : ISO 45001, EcoVadis, RSE | SPN NET",
         desc="Les engagements de SPN NET : certification ISO 45001, médaille d'argent EcoVadis, équipes formées, démarche responsable. 30 ans au service des professionnels d'Île-de-France.",
@@ -192,7 +234,7 @@ def main():
         for slug in args[1:]:
             print(mz.restore(slug))
         return
-    m = {"apropos": "a-propos", "a-propos": "a-propos", "blog": "blog"}
+    m = {"apropos": "a-propos", "a-propos": "a-propos", "blog": "blog", "contact": "contact"}
     for a in args:
         slug = m.get(a)
         if not slug:
