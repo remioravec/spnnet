@@ -158,7 +158,7 @@ def build():
     h = h.replace("</style>", CSS + HOME_CSS + "</style>", 1)
     # hero (positionnement entreprise, tous secteurs)
     h = h.replace(mz.A_EYEBROW, '<span class="eyebrow">Entreprise de propreté · Paris & Île-de-France</span>', 1)
-    h = h.replace(mz.A_H1, "<h1>Votre entreprise de <em>nettoyage professionnel</em> à Paris & en Île-de-France</h1>", 1)
+    h = h.replace(mz.A_H1, "<h1>Votre entreprise de <em>propreté professionnelle</em> à Paris et en Île-de-France</h1>", 1)
     h = h.replace(mz.A_LEAD,
                   '<p class="lead">30 ans au service des professionnels franciliens. Le <b>nettoyage tous secteurs</b> '
                   'et notre spécialité, les <b>ascenseurs & escalators</b>. Équipes certifiées ISO 45001, un interlocuteur '
