@@ -218,6 +218,18 @@
 .spn-lp .sticky-bar .call{color:var(--ink)}
 .spn-lp .sticky-bar .quote{background:linear-gradient(135deg,#F4794E,var(--orange-deep));color:#fff}
 
+/* ===================== MODALE FORMULAIRE ===================== */
+.spn-lp .spn-modal{position:fixed;inset:0;z-index:100000;background:rgba(20,22,27,.62);display:none;align-items:flex-start;justify-content:center;padding:5vh 16px;overflow:auto}
+.spn-lp .spn-modal.show{display:flex}
+.spn-lp .spn-modal-card{background:#fff;border-radius:22px;padding:30px 28px 26px;max-width:440px;width:100%;position:relative;box-shadow:var(--shadow);animation:spnpop .25s ease}
+@keyframes spnpop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.spn-lp .spn-modal-card .badge{position:absolute;top:-13px;left:24px;background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.spn-lp .spn-modal-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:var(--cream);border:1px solid var(--line);font-size:1.4rem;line-height:1;cursor:pointer;color:var(--grey);display:flex;align-items:center;justify-content:center}
+.spn-lp .spn-modal-x:hover{background:var(--line)}
+.spn-lp .spn-modal-card h3{font-size:1.45rem;margin-bottom:4px}
+.spn-lp .spn-modal-card .sub{font-size:.9rem;color:var(--grey);margin-bottom:18px}
+.spn-lp .spn-modal-card .btn-primary{width:100%;margin-top:6px;font-size:1.05rem;padding:16px}
+
 /* ===================== REVEAL ===================== */
 .spn-lp .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
 .spn-lp .reveal.in{opacity:1;transform:none}
@@ -478,6 +490,28 @@
   <a href="#devis" class="quote" data-scroll>Devis gratuit</a>
 </div>
 
+<!-- ============ MODALE FORMULAIRE (ouverte au clic des CTA) ============ -->
+<div class="spn-modal" id="spnModal" role="dialog" aria-modal="true" aria-label="Demande de devis">
+  <div class="spn-modal-card">
+    <button type="button" class="spn-modal-x" data-modal-close aria-label="Fermer">&times;</button>
+    <form id="spn-form-3" novalidate>
+      <span class="badge">Devis gratuit 24h</span>
+      <h3>Recevez votre devis</h3>
+      <p class="sub">Réponse sous 24h ouvrées · Sans engagement</p>
+      <div class="field" data-field><label>Nom & prénom</label><input type="text" name="name" placeholder="Ex. Marie Dupont" required><span class="err">Merci d'indiquer votre nom.</span></div>
+      <div class="field" data-field><label>Téléphone</label><input type="tel" name="phone" placeholder="06 12 34 56 78" required><span class="err">Numéro de téléphone invalide.</span></div>
+      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Merci d'utiliser une adresse e-mail professionnelle.</span></div>
+      <button type="submit" class="btn btn-primary">Demander mon devis gratuit</button>
+      <div class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Données confidentielles · Aucune sollicitation abusive</div>
+      <div class="norecruit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Cette page concerne uniquement les demandes de <b>devis</b>. Nous ne recrutons pas actuellement.</span></div>
+    </form>
+    <div class="form-success" id="spn-success-3">
+      <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8431F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Demande envoyée&nbsp;!</h3><p>Merci, notre équipe vous recontacte sous 24h ouvrées. Pour un échange immédiat : <b>01 49 46 22 40</b>.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ============ FAQ SCHEMA (SEO) ============ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -494,15 +528,16 @@
   var root = document.currentScript.closest('.spn-lp') || document.querySelector('.spn-lp');
   if(!root) return;
 
-  /* Smooth scroll vers le formulaire */
+  /* Ouverture du formulaire en pop-up au clic des CTA */
+  var modal = root.querySelector('#spnModal');
+  function openModal(){ if(modal){ modal.classList.add('show'); document.documentElement.style.overflow='hidden'; var f=modal.querySelector('input'); if(f){ setTimeout(function(){f.focus();},80); } } }
+  function closeModal(){ if(modal){ modal.classList.remove('show'); document.documentElement.style.overflow=''; } }
   root.querySelectorAll('[data-scroll]').forEach(function(el){
-    el.addEventListener('click', function(e){
-      e.preventDefault();
-      var t = root.querySelector('#devis');
-      if(t){ t.scrollIntoView({behavior:'smooth',block:'center'});
-        var f=t.querySelector('input'); if(f){ setTimeout(function(){f.focus();},600); } }
-    });
+    el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
   });
+  root.querySelectorAll('[data-modal-close]').forEach(function(el){ el.addEventListener('click', closeModal); });
+  if(modal){ modal.addEventListener('click', function(e){ if(e.target===modal){ closeModal(); } }); }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeModal(); } });
 
   /* Suivi conversion appels (GTM / Google Ads) */
   root.querySelectorAll('[data-tel]').forEach(function(el){
@@ -552,7 +587,7 @@
       form.style.display='none'; if(ok){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});}
     });
   }
-  handle('spn-form','spn-success'); handle('spn-form-2','spn-success-2');
+  handle('spn-form','spn-success'); handle('spn-form-2','spn-success-2'); handle('spn-form-3','spn-success-3');
 
   /* Avis Google : duplique les cartes pour un défilement continu sans trou */
   root.querySelectorAll('[data-rev]').forEach(function(tr){
