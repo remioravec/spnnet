@@ -713,10 +713,19 @@
           err.style.display='block';
         }
       };
-      fetch('/wp-admin/admin-ajax.php',{method:'POST',body:fd,keepalive:true})
+      /* Double écriture : Elementor + journal SPN (plugin). Succès si au moins un canal confirme. */
+      var pElem=fetch('/wp-admin/admin-ajax.php',{method:'POST',body:fd})
         .then(function(r){return r.json();})
-        .then(function(j){done(!!(j&&j.success));})
-        .catch(function(){done(false);});
+        .then(function(j){return !!(j&&j.success);})
+        .catch(function(){return false;});
+      var pJournal=fetch('/wp-json/spn/v1/lead',{method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({name:g('name'),email:g('email'),phone:g('phone'),
+            company:'Demande via le site',message:g('message'),
+            source:location.href,form:formId,website:''})})
+        .then(function(r){return r.ok;})
+        .catch(function(){return false;});
+      Promise.all([pElem,pJournal]).then(function(rs){done(rs[0]||rs[1]);});
     });
   }
   handle('spn-form','spn-success'); handle('spn-form-2','spn-success-2');
