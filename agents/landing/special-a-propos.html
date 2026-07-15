@@ -661,7 +661,7 @@
         var v=(c.value||'').trim();
         if(f.hasAttribute('data-optional') && !v) return;
         var bad=!v;
-        if(c.type==='email'&&v) bad=!vProMail(v);
+        if(c.type==='email'&&v) bad=!vMail(v);
         if(c.type==='tel'&&v) bad=!vTel(v);
         if(bad){f.classList.add('invalid');valid=false;}
       });
