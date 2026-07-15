@@ -680,10 +680,27 @@
       fd.append('form_fields[field_1696542]', g('phone'));
       fd.append('form_fields[field_e9cc337]', 'Demande via Landing Ads Google');
       fd.append('form_fields[message]', (g('message') ? g('message') + '\n\n' : '') + '— Demande de devis via la landing page Google Ads (' + document.title + ').');
-      try{ fetch('/wp-admin/admin-ajax.php',{method:'POST',body:fd}); }catch(e){}
-      if(window.dataLayer){ window.dataLayer.push({event:'spn_lead_submit',form:formId}); }
-      // if(window.gtag){ gtag('event','conversion',{send_to:'AW-XXXXXXXXX/YYYY'}); }
-      form.style.display='none'; if(ok){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});}
+      /* Envoi vérifié : le succès ne s'affiche que si le serveur confirme l'enregistrement */
+      var btn=form.querySelector('button[type="submit"],button:not([type])');
+      var btnTxt=btn?btn.textContent:'';
+      if(btn){btn.disabled=true;btn.textContent='Envoi en cours…';}
+      var err=form.querySelector('.spn-send-error');
+      if(!err){err=document.createElement('p');err.className='spn-send-error';err.style.cssText='display:none;color:#c0392b;font-weight:600;margin:10px 0 0;font-size:.92rem;';form.appendChild(err);}
+      err.style.display='none';
+      var done=function(okSend){
+        if(okSend){
+          if(window.dataLayer){ window.dataLayer.push({event:'spn_lead_submit',form:formId}); }
+          form.style.display='none'; if(ok){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});}
+        }else{
+          if(btn){btn.disabled=false;btn.textContent=btnTxt;}
+          err.textContent='⚠ L’envoi a échoué. Réessayez, ou appelez-nous directement au 01 49 46 22 40.';
+          err.style.display='block';
+        }
+      };
+      fetch('/wp-admin/admin-ajax.php',{method:'POST',body:fd,keepalive:true})
+        .then(function(r){return r.json();})
+        .then(function(j){done(!!(j&&j.success));})
+        .catch(function(){done(false);});
     });
   }
   handle('spn-form','spn-success'); handle('spn-form-2','spn-success-2');
