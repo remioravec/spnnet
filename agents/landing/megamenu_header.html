@@ -4,10 +4,10 @@
 .spnhdr{position:sticky;top:0;z-index:9000;background:#fff;border-bottom:1px solid #E9E4DD;font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif}
 .spnhdr *{box-sizing:border-box}
 .spnhdr a{text-decoration:none;color:inherit}
-.spnhdr .bar{display:flex;align-items:center;gap:20px;max-width:1200px;margin:0 auto;padding:11px 24px}
+.spnhdr .bar{display:flex;align-items:center;gap:14px;max-width:1200px;margin:0 auto;padding:11px 24px}
 .spnhdr .logo img{height:46px;width:auto;display:block}
 .spnhdr .nav{display:flex;align-items:center;gap:2px;margin-left:4px}
-.spnhdr .nav a,.spnhdr .nav button{font-family:inherit;font-size:.95rem;font-weight:600;color:#2A2D35;background:none;border:none;cursor:pointer;padding:9px 12px;border-radius:9px;display:inline-flex;align-items:center;gap:6px}
+.spnhdr .nav a,.spnhdr .nav button{font-family:inherit;font-size:.94rem;font-weight:600;color:#2A2D35;background:none;border:none;cursor:pointer;padding:9px 10px;border-radius:9px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
 .spnhdr .nav a:hover,.spnhdr .nav button:hover{background:#FAF8F5;color:#16181D}
 .spnhdr .nav button.on{color:#D8431F;background:#FFF1EA}
 .spnhdr .chev{transition:transform .2s}.spnhdr .nav button.on .chev{transform:rotate(180deg)}
@@ -56,7 +56,9 @@
 .spnhdr .mpanel a.spe{color:#D8431F;font-weight:800}
 .spnhdr .mcta{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:18px 24px;background:#FAF8F5}
 .spnhdr .mcta a{font-weight:800;font-size:1.1rem;color:#16181D}
-@media(max-width:960px){.spnhdr .nav,.spnhdr .tel,.spnhdr .bar>.btn{display:none}.spnhdr .burger{display:flex}.spnhdr .mega{display:none!important}.spnhdr .m-sect .in,.spnhdr .m-zone .in{grid-template-columns:1fr}}
+/* la barre bascule en burger dès que l'espace manque (évite le chevauchement des items) */
+@media(max-width:1180px){.spnhdr .tel small{display:none}.spnhdr .tel{font-size:.92rem}}
+@media(max-width:1080px){.spnhdr .nav,.spnhdr .tel,.spnhdr .bar>.btn{display:none}.spnhdr .burger{display:flex}.spnhdr .mega{display:none!important}.spnhdr .m-sect .in,.spnhdr .m-zone .in{grid-template-columns:1fr}}
 </style>
 <div class="spnhdr">
   <div class="bar">
@@ -65,7 +67,7 @@
       <a href="/">Accueil</a>
       <button id="spnBS">Secteurs <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button>
       <button id="spnBZ">Zones d'intervention <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button>
-      <a href="/a-propos/">Nos Engagements</a>
+      <a href="/a-propos/">Nos engagements</a>
       <a href="/blog/">Blog</a>
     </nav>
     <div class="sp"></div>
@@ -75,17 +77,17 @@
   </div>
   <div class="mega m-sect" id="spnMS"><div class="in">
     <div class="col"><h4>Par secteur</h4>
-      <a class="mitem" href="/tertiaire/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 8h.01M15 8h.01M9 12h.01M15 12h.01"/></svg></span><span><span class="t">Bureaux &amp; Tertiaire</span><span class="d">Sièges, plateaux, coworkings</span></span></a>
-      <a class="mitem" href="/commerce-et-retail/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9 4 4h16l1 5M4 9v10h16V9M4 9h16"/></svg></span><span><span class="t">Commerce &amp; Retail</span><span class="d">Boutiques, surfaces de vente</span></span></a>
-      <a class="mitem" href="/sante-et-medical/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span><span><span class="t">Santé &amp; Médical</span><span class="d">Cabinets, labos, bionettoyage</span></span></a>
-      <a class="mitem" href="/logistique-et-industrie/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M3 21h18M9 21v-6h6v6"/></svg></span><span><span class="t">Logistique &amp; Industrie</span><span class="d">Entrepôts, sites industriels</span></span></a></div>
+      <a class="mitem" href="/tertiaire/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 8h.01M15 8h.01M9 12h.01M15 12h.01"/></svg></span><span><span class="t">Bureaux &amp; tertiaire</span><span class="d">Sièges, plateaux, coworkings</span></span></a>
+      <a class="mitem" href="/commerce-et-retail/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9 4 4h16l1 5M4 9v10h16V9M4 9h16"/></svg></span><span><span class="t">Commerce &amp; retail</span><span class="d">Boutiques, surfaces de vente</span></span></a>
+      <a class="mitem" href="/sante-et-medical/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span><span><span class="t">Santé &amp; médical</span><span class="d">Cabinets, labos, bionettoyage</span></span></a>
+      <a class="mitem" href="/logistique-et-industrie/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M3 21h18M9 21v-6h6v6"/></svg></span><span><span class="t">Logistique &amp; industrie</span><span class="d">Entrepôts, sites industriels</span></span></a></div>
     <div class="col"><h4>&nbsp;</h4>
-      <a class="mitem" href="/hotellerie-et-restauration/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v7a3 3 0 0 0 6 0V2M9 2v20M17 2c-1.5 0-2 2-2 5s.5 5 2 5v10"/></svg></span><span><span class="t">Hôtellerie &amp; Restauration</span><span class="d">Hôtels, restaurants</span></span></a>
-      <a class="mitem" href="/copropriete-et-habitat/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V7l6-4 6 4v14M15 21V11l6 4v6M3 21h18M7 21v-4h4v4"/></svg></span><span><span class="t">Copropriété &amp; Habitat</span><span class="d">Immeubles, parties communes</span></span></a>
-      <a class="mitem" href="/loisirs-culture-et-evenementiel/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.4 7.4H22l-6 4.3 2.3 7.3L12 16.7 5.7 21l2.3-7.3-6-4.3h7.6z"/></svg></span><span><span class="t">Loisirs &amp; Événementiel</span><span class="d">Musées, salles, ERP</span></span></a>
-      <a class="mitem" href="/enseignement-et-petite-enfance/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></span><span><span class="t">Enseignement &amp; Petite Enfance</span><span class="d">Écoles, crèches</span></span></a></div>
+      <a class="mitem" href="/hotellerie-et-restauration/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v7a3 3 0 0 0 6 0V2M9 2v20M17 2c-1.5 0-2 2-2 5s.5 5 2 5v10"/></svg></span><span><span class="t">Hôtellerie &amp; restauration</span><span class="d">Hôtels, restaurants</span></span></a>
+      <a class="mitem" href="/copropriete-et-habitat/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V7l6-4 6 4v14M15 21V11l6 4v6M3 21h18M7 21v-4h4v4"/></svg></span><span><span class="t">Copropriété &amp; habitat</span><span class="d">Immeubles, parties communes</span></span></a>
+      <a class="mitem" href="/loisirs-culture-et-evenementiel/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.4 7.4H22l-6 4.3 2.3 7.3L12 16.7 5.7 21l2.3-7.3-6-4.3h7.6z"/></svg></span><span><span class="t">Loisirs &amp; événementiel</span><span class="d">Musées, salles, ERP</span></span></a>
+      <a class="mitem" href="/enseignement-et-petite-enfance/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></span><span><span class="t">Enseignement &amp; petite enfance</span><span class="d">Écoles, crèches</span></span></a></div>
     <div class="col"><h4>Notre spécialité</h4>
-      <a class="mitem spe" href="/ascenseurs-escalators/" style="margin-bottom:12px"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 7h12M6 12h12M6 17h12"/></svg></span><span><span class="t">Ascenseurs &amp; Escalators<span class="tag">Expert</span></span><span class="d">Cabines, inox, marches</span></span></a>
+      <a class="mitem spe" href="/ascenseurs-escalators/" style="margin-bottom:12px"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 7h12M6 12h12M6 17h12"/></svg></span><span><span class="t">Ascenseurs &amp; escalators<span class="tag">Expert</span></span><span class="d">Cabines, inox, marches</span></span></a>
       <div class="feat"><div class="fi"><span class="rate"><span class="s">★★★★★</span> 4,8/5 · 48 avis Google</span><h5>Un projet ? Devis 24h</h5><p>Certifiés ISO 45001 · 30 ans · +350 clients.</p><a class="fb" href="/contact/">Demander un devis →</a></div></div></div>
   </div></div>
   <div class="mega m-zone" id="spnMZ"><div class="in">
@@ -103,10 +105,10 @@
   <div class="mnav" id="spnMnav">
     <a class="ml" href="/">Accueil</a>
     <button class="mtrig" data-p="spnMP1">Secteurs <span class="p">+</span></button>
-    <div class="mpanel" id="spnMP1"><a href="/tertiaire/">Bureaux &amp; Tertiaire</a><a href="/commerce-et-retail/">Commerce &amp; Retail</a><a href="/sante-et-medical/">Santé &amp; Médical</a><a href="/logistique-et-industrie/">Logistique &amp; Industrie</a><a href="/hotellerie-et-restauration/">Hôtellerie &amp; Restauration</a><a href="/copropriete-et-habitat/">Copropriété &amp; Habitat</a><a href="/loisirs-culture-et-evenementiel/">Loisirs &amp; Événementiel</a><a href="/enseignement-et-petite-enfance/">Enseignement &amp; Petite Enfance</a><a class="spe" href="/ascenseurs-escalators/">★ Ascenseurs &amp; Escalators</a></div>
+    <div class="mpanel" id="spnMP1"><a href="/tertiaire/">Bureaux &amp; tertiaire</a><a href="/commerce-et-retail/">Commerce &amp; retail</a><a href="/sante-et-medical/">Santé &amp; médical</a><a href="/logistique-et-industrie/">Logistique &amp; industrie</a><a href="/hotellerie-et-restauration/">Hôtellerie &amp; restauration</a><a href="/copropriete-et-habitat/">Copropriété &amp; habitat</a><a href="/loisirs-culture-et-evenementiel/">Loisirs &amp; événementiel</a><a href="/enseignement-et-petite-enfance/">Enseignement &amp; petite enfance</a><a class="spe" href="/ascenseurs-escalators/">★ Ascenseurs &amp; escalators</a></div>
     <button class="mtrig" data-p="spnMP2">Zones d'intervention <span class="p">+</span></button>
     <div class="mpanel" id="spnMP2"><a href="/paris-8/">Paris — 20 arrondissements</a><a href="/92-hauts-de-seine/">Hauts-de-Seine (92)</a><a href="/94-val-de-marne/">Val-de-Marne (94)</a><a href="/93-seine-saint-denis/">Seine-Saint-Denis (93)</a><a href="/77-seine-et-marne/">Seine-et-Marne (77)</a></div>
-    <a class="ml" href="/a-propos/">Nos Engagements</a><a class="ml" href="/blog/">Blog</a>
+    <a class="ml" href="/a-propos/">Nos engagements</a><a class="ml" href="/blog/">Blog</a>
     <div class="mcta"><a class="btn" href="/contact/" style="color:#fff">Contact</a><a href="tel:+33149462240">01 49 46 22 40</a></div>
   </div>
 </div>
