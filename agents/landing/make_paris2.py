@@ -112,9 +112,16 @@ HEADFIX = ('<script>(function(){var r=document.querySelector(".spn-lp");if(!r)re
 
 _IMG = "https://spn-net.fr/wp-content/uploads/2026/02/"
 
+# Vraies photos de l'équipe SPN NET (fournies par le client)
+_UPL = "https://spn-net.fr/wp-content/uploads/2026/01/"
+_T1 = _UPL + "IMG_8655.jpg"        # agent à la monobrosse, hall de bureaux
+_T2 = _UPL + "IMG_7287.jpg"        # agente au lavage des sols
+_T3 = _UPL + "IMG_8471.png"        # autolaveuse autoportée, grande surface
+_T4 = _UPL + "1735487248175.jpg"   # agent en tenue de service
+
 TEAMCUE = ('<div class="team-cue"><div class="avs">'
-           '<img src="' + _IMG + 'Teams-01.jpg" alt=""><img src="' + _IMG + 'Teams-07.jpg" alt="">'
-           '<img src="' + _IMG + 'Teams-03.jpg" alt=""></div>'
+           '<img src="' + _T1 + '" alt=""><img src="' + _T2 + '" alt="">'
+           '<img src="' + _T3 + '" alt=""></div>'
            '<small><b>Une équipe dédiée</b>, formée et fidèle — pas des remplaçants au hasard.</small></div>')
 
 TEAM = ('\n<!-- ============ ÉQUIPE HUMAINE ============ -->\n'
@@ -124,10 +131,10 @@ TEAM = ('\n<!-- ============ ÉQUIPE HUMAINE ============ -->\n'
         '<p>Des agents formés, en tenue et fidélisés — souvent les mêmes d\'une semaine à l\'autre. '
         'Ils connaissent vos locaux, vos accès et vos exigences.</p></div>\n'
         '  <div class="grid reveal">\n'
-        '    <figure><img src="' + _IMG + 'Teams-01.jpg" alt="Agent de propreté de l\'équipe SPN NET à Paris 2" loading="lazy"><figcaption>Agent de propreté</figcaption></figure>\n'
-        '    <figure><img src="' + _IMG + 'Teams-02.jpg" alt="Agent d\'entretien SPN NET préparé pour le bionettoyage" loading="lazy"><figcaption>Préparation du matériel</figcaption></figure>\n'
-        '    <figure><img src="' + _IMG + 'Teams-03.jpg" alt="Agent de nettoyage professionnel équipé d\'un aspirateur" loading="lazy"><figcaption>Entretien des sols</figcaption></figure>\n'
-        '    <figure><img src="' + _IMG + 'Teams-07.jpg" alt="Employée de l\'entreprise de propreté SPN NET en tenue" loading="lazy"><figcaption>En tenue SPN NET</figcaption></figure>\n'
+        '    <figure><img src="' + _T1 + '" alt="Agent SPN NET à l\'entretien des sols de bureaux" loading="lazy"><figcaption>Sur le terrain</figcaption></figure>\n'
+        '    <figure><img src="' + _T2 + '" alt="Agente SPN NET au lavage des sols" loading="lazy"><figcaption>Nettoyage des surfaces</figcaption></figure>\n'
+        '    <figure><img src="' + _T3 + '" alt="Agent SPN NET sur autolaveuse autoportée" loading="lazy"><figcaption>Entretien des sols</figcaption></figure>\n'
+        '    <figure><img src="' + _T4 + '" alt="Agent SPN NET en tenue de service" loading="lazy"><figcaption>En tenue SPN NET</figcaption></figure>\n'
         '  </div>\n</div></div>\n\n<!-- ============ RÉALISATIONS ============ -->')
 
 _CK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>'
