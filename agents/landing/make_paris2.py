@@ -116,7 +116,7 @@ _IMG = "https://spn-net.fr/wp-content/uploads/2026/02/"
 _UPL = "https://spn-net.fr/wp-content/uploads/2026/01/"
 _T1 = _UPL + "IMG_8655.jpg"        # agent à la monobrosse, hall de bureaux
 _T2 = _UPL + "IMG_7287.jpg"        # agente au lavage des sols
-_T3 = _UPL + "IMG_8471.png"        # autolaveuse autoportée, grande surface
+_T3 = "https://spn-net.fr/wp-content/uploads/2026/08/IMG_8471-opt.jpg"  # autolaveuse (optimisee 228Ko vs 3.2Mo)
 _T4 = _UPL + "1735487248175.jpg"   # agent en tenue de service
 
 TEAMCUE = ('<div class="team-cue"><div class="avs">'
