@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — Correctifs SEO (301 + sitemap)
  * Description: Redirections 301 des anciennes pages vers leurs équivalents neufs, exclusion des pages noindex du sitemap, et purge LiteSpeed — le tout à l'activation, sans configuration.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -37,8 +37,18 @@ class SPN_Redirects {
         '/societe-nettoyage-bureaux-paris-12/'                            => '/paris-12/',
     ];
 
-    /** Pages noindex à exclure du sitemap (previews + LP Ads + variantes). */
-    const SITEMAP_EXCLUDE = [2883, 2776, 2594, 2601, 2603, 2599];
+    /**
+     * IDs à exclure du sitemap :
+     *  - previews + LP Ads + variantes noindex (série 25xx/28xx d'origine) ;
+     *  - toutes les anciennes URLs qui 301-redirigent via self::MAP : elles ne
+     *    doivent plus être annoncées à Google (un sitemap ne liste jamais une URL
+     *    qui redirige). IDs relevés le 2026-08-19.
+     */
+    const SITEMAP_EXCLUDE = [
+        550, 566, 1460, 2189, 2205, 2212, 2214, 2216, 2218, 2231, 2290, 2301,
+        2311, 2323, 2333, 2587, 2594, 2599, 2601, 2603, 2613, 2750, 2759, 2762,
+        2764, 2766, 2776, 2883,
+    ];
 
     public static function init() {
         register_activation_hook(__FILE__, [__CLASS__, 'on_activate']);
