@@ -112,7 +112,28 @@ A1_BODY = """<p class="lead">Changer d'entreprise de nettoyage inquiète surtout
 <div class="stp"><b>Signature</b><span>Transition sans coupure.</span></div>
 </div>
 <p>En pratique, un changement bien mené suit quatre temps : un premier contact rapide, une visite de vos locaux, une proposition adaptée, puis la signature et l'organisation de la transition avec l'ancien prestataire. La résiliation de votre contrat en cours peut, elle aussi, être accompagnée — lecture des conditions de préavis et rédaction de la lettre.</p>
-<p>Nous avons détaillé tout le processus, étape par étape, sur notre page dédiée : <a href="https://spn-net.fr/changer-de-prestataire-nettoyage/"><strong>changer de prestataire de nettoyage</strong></a>.</p>"""
+<p>Nous avons détaillé tout le processus, étape par étape, sur notre page dédiée : <a href="https://spn-net.fr/changer-de-prestataire-nettoyage/"><strong>changer de prestataire de nettoyage</strong></a>.</p>
+
+<h2 id="delai">Combien de temps prend un changement de prestataire ?</h2>
+<p>Le calendrier dépend d'un seul facteur vraiment contraignant : le <strong>préavis de résiliation</strong> inscrit dans votre contrat actuel. La plupart des contrats de nettoyage prévoient un préavis d'un à trois mois, à notifier par lettre recommandée. C'est lui qui fixe la date de bascule — pas la disponibilité du nouveau prestataire.</p>
+<p>Une fois le préavis identifié, la mécanique est rapide : premier contact sous 4 heures, visite des locaux dans les jours qui suivent, proposition envoyée sous 24 heures. La signature peut donc intervenir bien avant la fin du préavis, ce qui laisse le temps d'organiser sereinement la reprise des agents et le passage de relais. L'objectif : qu'au premier jour du nouveau contrat, tout soit déjà en place — plannings, accès, protocole — pour qu'aucune journée d'entretien ne saute. Notre <a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">page dédiée au changement de prestataire</a> décrit ce calendrier en détail.</p>
+
+<h2 id="exceptions">Les cas où l'Annexe 7 ne s'applique pas</h2>
+<p>La reprise n'est pas automatique dans toutes les situations. Elle ne concerne pas :</p>
+<ul>
+<li>les agents ayant <strong>moins de 6 mois d'ancienneté</strong> sur le site au moment du changement ;</li>
+<li>ceux qui y réalisent <strong>moins de 30 %</strong> de leur temps de travail ;</li>
+<li>certaines situations particulières (longue absence, statuts spécifiques, encadrement) qui suivent des règles à part.</li>
+</ul>
+<p>À l'inverse, un point souvent mal compris : l'Annexe 7 s'applique <strong>même si vous n'aviez pas anticipé la reprise</strong>. Dès lors qu'un marché change de prestataire et que les critères sont réunis, le transfert s'impose aux deux entreprises. C'est une protection légale, pas une option à cocher. En cas de doute sur l'éligibilité d'un agent, c'est au prestataire entrant d'instruire la question avec le sortant — pas à vous. C'est précisément le genre de démarche dont nous nous chargeons.</p>
+
+<h2 id="aller-plus-loin">Aller plus loin</h2>
+<div class="art-links rv">
+<a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">Changer de prestataire de nettoyage<span>Le process complet, résiliation et reprise incluses</span></a>
+<a href="https://spn-net.fr/tertiaire/">Nettoyage de bureaux à Paris<span>Notre expertise tertiaire, tous secteurs</span></a>
+<a href="https://spn-net.fr/a-propos/">Nos engagements<span>ISO 45001, EcoVadis, équipes fidélisées</span></a>
+<a href="https://spn-net.fr/contact/">Demander un devis<span>Réponse sous 24 h, sans engagement</span></a>
+</div>"""
 
 A1 = dict(
     slug="annexe-7-changer-entreprise-nettoyage",
@@ -185,7 +206,28 @@ A2_BODY = """<p class="lead">C'est un grand classique : les premières semaines,
 <li><strong>Un interlocuteur dédié</strong> et joignable, capable d'ajuster la prestation.</li>
 <li><strong>Un contrôle qualité régulier</strong>, avec des points de suivi, pour corriger avant que vous n'ayez à relancer.</li>
 </ul>
-<p>Chez SPN NET, ces trois principes structurent chaque contrat. Découvrez <a href="https://spn-net.fr/a-propos/">nos engagements</a>. Et si votre prestataire actuel s'est essoufflé, sachez qu'<a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">en changer se fait sans friction</a>.</p>"""
+<p>Chez SPN NET, ces trois principes structurent chaque contrat. Découvrez <a href="https://spn-net.fr/a-propos/">nos engagements</a>. Et si votre prestataire actuel s'est essoufflé, sachez qu'<a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">en changer se fait sans friction</a>.</p>
+
+<h2 id="cahier">Le cahier des charges : votre meilleure assurance qualité</h2>
+<p>La plupart des baisses de qualité ne viennent pas d'un manque de bonne volonté, mais d'un <strong>flou contractuel</strong>. Ce qui n'est pas écrit n'est pas dû — et ce qui n'est pas mesurable n'est pas contrôlable. Un cahier des charges utile précise, espace par espace : les tâches, leur fréquence et le résultat attendu.</p>
+<p>Trois éléments font la différence : des <strong>fréquences datées</strong> (quotidien, 3×/semaine, hebdomadaire) plutôt que « régulièrement » ; un <strong>périmètre explicite</strong> (quelles surfaces, quels espaces, avec quelles exclusions) ; et un <strong>niveau de finition</strong> décrit pour les points sensibles (sanitaires, salles de réunion, accueil). Ce document n'est pas une contrainte administrative : c'est le référentiel commun qui permet, six mois plus tard, de dire objectivement si la prestation est tenue — sans discussion d'appréciation.</p>
+
+<h2 id="decider">Changer ou renégocier ? Comment décider</h2>
+<p>Une baisse ponctuelle ne justifie pas toujours un changement. Avant de rompre, posez-vous trois questions :</p>
+<ul>
+<li><strong>Le prestataire réagit-il ?</strong> Un point de suivi et un rappel du cahier des charges suffisent parfois à remettre la prestation à niveau.</li>
+<li><strong>Le problème est-il structurel ?</strong> Turnover chronique, interlocuteur injoignable, sous-traitance : ce sont des causes de fond que la bonne volonté ne corrige pas.</li>
+<li><strong>La confiance est-elle rompue ?</strong> Si vous passez plus de temps à relancer qu'à travailler, le calcul est vite fait.</li>
+</ul>
+<p>Si le relâchement persiste malgré les relances, changer n'a rien d'un saut dans l'inconnu : le cadre légal (reprise des agents) et un prestataire qui organise la transition rendent le passage <a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">fluide et sans coupure de service</a>.</p>
+
+<h2 id="aller-plus-loin">Aller plus loin</h2>
+<div class="art-links rv">
+<a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">Changer de prestataire<span>Sans coupure, reprise des agents incluse</span></a>
+<a href="https://spn-net.fr/tertiaire/">Nettoyage de bureaux à Paris<span>Équipe fidélisée, contrôle qualité régulier</span></a>
+<a href="https://spn-net.fr/a-propos/">Nos engagements<span>Ce sur quoi vous pouvez compter dans la durée</span></a>
+<a href="https://spn-net.fr/contact/">Demander un devis<span>Réponse sous 24 h, sans engagement</span></a>
+</div>"""
 
 A2 = dict(
     slug="qualite-nettoyage-baisse-apres-3-mois",
@@ -241,7 +283,35 @@ A3_BODY = """<p class="lead">Le nettoyage de bureaux se fait souvent tôt le mat
 
 <h2 id="rgpd">Données personnelles : le rôle du prestataire</h2>
 <p>Même sans accès aux systèmes informatiques, un prestataire de nettoyage évolue dans un environnement où circulent des données personnelles (documents RH, dossiers clients). Un partenaire sérieux <strong>forme ses agents à la discrétion</strong> et intègre la confidentialité à ses engagements, en cohérence avec vos obligations RGPD.</p>
-<p>Un nettoyage discret et maîtrisé fait partie d'une prestation professionnelle. C'est l'un des principes de notre approche du <a href="https://spn-net.fr/tertiaire/">nettoyage de bureaux</a>.</p>"""
+<p>Un nettoyage discret et maîtrisé fait partie d'une prestation professionnelle. C'est l'un des principes de notre approche du <a href="https://spn-net.fr/tertiaire/">nettoyage de bureaux</a>.</p>
+
+<h2 id="secteurs">Les secteurs où la confidentialité est critique</h2>
+<p>Toutes les entreprises méritent de la discrétion, mais certaines activités élèvent le niveau d'exigence :</p>
+<ul>
+<li><strong>Cabinets d'avocats et professions du droit</strong> : secret professionnel, dossiers clients sensibles.</li>
+<li><strong>Santé et médical</strong> : données patients et protocoles d'hygiène renforcés — un cadre que nous appliquons pour le <a href="https://spn-net.fr/sante-et-medical/">nettoyage médical</a>.</li>
+<li><strong>Finance, conseil, R&D</strong> : informations stratégiques, propriété intellectuelle, documents confidentiels.</li>
+</ul>
+<p>Dans ces environnements, la confidentialité n'est pas un supplément : elle fait partie du cahier des charges au même titre que la propreté. Le choix d'agents fidélisés et formés y prend tout son sens.</p>
+
+<h2 id="checklist">La check-list avant de signer</h2>
+<p>Avant de confier vos clés à un prestataire, vérifiez ces points :</p>
+<ul>
+<li>Le contrat contient-il une <strong>clause de confidentialité</strong> claire ?</li>
+<li>Les <strong>agents sont-ils nommés</strong> et stables, ou remplacés au gré des plannings ?</li>
+<li>Existe-t-il une <strong>traçabilité des accès</strong> (clés, badges, horaires) ?</li>
+<li>Les agents sont-ils <strong>formés à la discrétion</strong> (ne rien déplacer, ne rien ouvrir) ?</li>
+<li>Le prestataire <strong>sous-traite-t-il</strong> tout ou partie de la prestation ?</li>
+</ul>
+<p>Un partenaire sérieux répond « oui » sans hésiter aux quatre premiers points, et « non » au dernier. Si ce n'est pas le cas, c'est un signal — et un motif légitime pour <a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">changer de prestataire</a>.</p>
+
+<h2 id="aller-plus-loin">Aller plus loin</h2>
+<div class="art-links rv">
+<a href="https://spn-net.fr/tertiaire/">Nettoyage de bureaux à Paris<span>Interventions discrètes, en horaires décalés</span></a>
+<a href="https://spn-net.fr/sante-et-medical/">Nettoyage médical &amp; bionettoyage<span>Protocoles d'hygiène et confidentialité renforcés</span></a>
+<a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">Changer de prestataire<span>Reprendre la main sans coupure</span></a>
+<a href="https://spn-net.fr/contact/">Demander un devis<span>Réponse sous 24 h, sans engagement</span></a>
+</div>"""
 
 A3 = dict(
     slug="nettoyage-bureaux-confidentialite-securite",
@@ -310,7 +380,28 @@ A4_BODY = """<p class="lead">Qualipropre, ISO 9001, Écolabel, ISO 45001, EcoVad
 <li><strong>Qui certifie ?</strong> Un organisme indépendant reconnu (et non l'entreprise elle-même).</li>
 <li><strong>Quoi exactement ?</strong> L'entreprise, un site, un produit ? Le périmètre change tout.</li>
 <li><strong>Est-elle à jour ?</strong> Une certification a une date de validité et fait l'objet d'audits de suivi.</li>
-</ul>"""
+</ul>
+
+<h2 id="engagement">Certification n'est pas engagement : ne pas confondre</h2>
+<p>Une certification prouve qu'un référentiel est respecté à un instant donné. Elle ne dit rien, à elle seule, de la qualité que vous constaterez sur le terrain. Une entreprise peut être certifiée <em>et</em> livrer une prestation moyenne si les équipes tournent, si le suivi client est inexistant ou si tout est sous-traité.</p>
+<p>L'inverse est vrai aussi : certaines exigences qui comptent vraiment — la <strong>fidélisation des agents</strong>, un <strong>interlocuteur dédié</strong>, un <strong>contrôle qualité régulier</strong> — ne font l'objet d'aucun logo. Lisez donc les certifications pour ce qu'elles sont : un socle vérifié, à compléter par des preuves concrètes de tenue dans la durée.</p>
+
+<h2 id="questions">Les questions à poser à votre prestataire</h2>
+<ul>
+<li>Quelles certifications détenez-vous, et sur quel périmètre exact (entreprise, site, produits) ?</li>
+<li>Par quel organisme, et à quelle date remonte le dernier audit ?</li>
+<li>Vos agents sont-ils formés à vos produits et protocoles ?</li>
+<li>Comment mesurez-vous la qualité une fois le contrat lancé ?</li>
+</ul>
+<p>Les réponses vous en diront plus qu'une rangée de logos. Pour notre part, nous préférons parler de nos <a href="https://spn-net.fr/a-propos/">engagements réels</a> — certifications comprises — plutôt que d'afficher ce que nous n'avons pas.</p>
+
+<h2 id="aller-plus-loin">Aller plus loin</h2>
+<div class="art-links rv">
+<a href="https://spn-net.fr/a-propos/">Nos engagements<span>ISO 45001, EcoVadis Argent, équipes formées</span></a>
+<a href="https://spn-net.fr/tertiaire/">Nettoyage de bureaux à Paris<span>Une prestation tenue, pas seulement certifiée</span></a>
+<a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">Changer de prestataire<span>Passer à un partenaire qui prouve</span></a>
+<a href="https://spn-net.fr/contact/">Demander un devis<span>Réponse sous 24 h, sans engagement</span></a>
+</div>"""
 
 A4 = dict(
     slug="certifications-entreprise-nettoyage",

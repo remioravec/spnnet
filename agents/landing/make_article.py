@@ -90,6 +90,12 @@ ART_CSS = """<style>
 .spn-art .art-chart .cap{font-size:.8rem;color:var(--grey);margin-bottom:12px}
 .spn-art .art-chart .lg{display:flex;gap:18px;font-size:.8rem;color:var(--grey);font-weight:600;margin-top:10px}
 .spn-art .art-chart .lg i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.spn-art .art-links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.spn-art .art-links a{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;text-decoration:none;color:var(--ink);font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;transition:transform .15s,box-shadow .15s,border-color .15s}
+.spn-art .art-links a:hover{border-color:var(--orange);box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.spn-art .art-links a span{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:.83rem;color:var(--grey);margin-top:3px}
+.spn-art .art-links a::after{content:" →";color:var(--orange-deep)}
+@media(max-width:560px){.spn-art .art-links{grid-template-columns:1fr}}
 .spn-art .art-grid{display:grid;grid-template-columns:1fr 330px;gap:48px;align-items:start}
 .spn-art .art-main{min-width:0}
 /* sidebar */
