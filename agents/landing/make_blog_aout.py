@@ -75,7 +75,7 @@ A1_BODY = """<p class="lead">Changer d'entreprise de nettoyage inquiète surtout
 </ol></div>
 
 <h2 id="definition">Qu'est-ce que l'Annexe 7 ?</h2>
-<p>L'<strong>Annexe 7</strong> est un texte de la <strong>convention collective nationale des entreprises de propreté</strong>. Elle organise la <em>continuité du contrat de travail</em> des agents de nettoyage lorsqu'un marché change de prestataire. Concrètement : quand une nouvelle société reprend l'entretien d'un site, elle a l'obligation de reprendre les salariés qui y travaillaient, dès lors que certains critères sont réunis.</p>
+<p>L'<strong>Annexe 7</strong> — désormais désignée <strong>Article 7</strong> dans la version rénovée de la convention — est un texte de la <strong>convention collective nationale des entreprises de propreté</strong>. Elle organise la <em>continuité du contrat de travail</em> des agents de nettoyage lorsqu'un marché change de prestataire. Concrètement : quand une nouvelle société reprend l'entretien d'un site, elle a l'obligation de reprendre les salariés qui y travaillaient, dès lors que certains critères sont réunis.</p>
 <p>L'objectif est double : <strong>protéger l'emploi</strong> des agents (ils ne perdent pas leur poste parce que vous changez de prestataire) et <strong>préserver la connaissance du site</strong> (les personnes qui connaissent vos locaux restent en place).</p>
 
 <div class="art-stats rv">
@@ -92,8 +92,10 @@ A1_BODY = """<p class="lead">Changer d'entreprise de nettoyage inquiète surtout
 <tr><td>Ancienneté sur le site</td><td>≥ 6 mois</td><td>L'agent doit travailler sur votre site depuis au moins six mois.</td></tr>
 <tr><td>Temps de travail sur site</td><td>≥ 30 %</td><td>Au moins 30 % de son temps de travail y est effectué.</td></tr>
 <tr><td>Type de contrat</td><td>CDI (ou CDD)</td><td>Contrat en cours, effectivement affecté au marché repris.</td></tr>
+<tr><td>Absence prolongée</td><td>&lt; 4 mois</td><td>L'agent ne doit pas être absent depuis 4 mois ou plus à la date du transfert.</td></tr>
 </tbody></table></div>
 <p>Les salariés qui remplissent ces critères sont transférés à la société entrante <strong>avec leur ancienneté et les éléments essentiels de leur contrat</strong>. Ceux qui ne les remplissent pas restent salariés de l'entreprise sortante.</p>
+<div class="art-note rv"><b>Ce que l'agent repris conserve :</b> son CDI et le volume d'heures réalisé sur le site, son ancienneté et sa rémunération brute (primes fixes comprises). Le statut collectif du nouvel employeur s'applique, lui, dès le premier jour de la reprise.</div>
 
 <h2 id="donneur">Ce que ça change pour vous, donneur d'ordre</h2>
 <p>Bonne nouvelle : l'Annexe 7 <strong>simplifie votre changement</strong> plutôt qu'elle ne le complique.</p>
@@ -127,6 +129,9 @@ A1_BODY = """<p class="lead">Changer d'entreprise de nettoyage inquiète surtout
 </ul>
 <p>À l'inverse, un point souvent mal compris : l'Annexe 7 s'applique <strong>même si vous n'aviez pas anticipé la reprise</strong>. Dès lors qu'un marché change de prestataire et que les critères sont réunis, le transfert s'impose aux deux entreprises. C'est une protection légale, pas une option à cocher. En cas de doute sur l'éligibilité d'un agent, c'est au prestataire entrant d'instruire la question avec le sortant — pas à vous. C'est précisément le genre de démarche dont nous nous chargeons.</p>
 
+<h2 id="refus">Un agent peut-il refuser la reprise ?</h2>
+<p>La question du <strong>refus</strong> revient souvent. Deux cas à distinguer. Côté <strong>entreprise entrante</strong> : elle ne peut pas « trier » les agents éligibles — dès que les critères sont réunis, la reprise s'impose, elle n'a pas de droit de refus. Côté <strong>salarié</strong> : le transfert du contrat s'opère de plein droit ; un agent qui refuserait de rejoindre le nouvel employeur s'expose à une rupture de son contrat, non à un maintien chez le sortant. Autrement dit, pour vous, donneur d'ordre, la reprise est un mécanisme <strong>stable et prévisible</strong> : elle ne peut pas être bloquée unilatéralement par l'une des parties. En cas de désaccord sur un dossier précis (éligibilité contestée, pièces manquantes), c'est aux deux prestataires de le résoudre entre eux, documents à l'appui — jamais à vous d'arbitrer.</p>
+
 <h2 id="aller-plus-loin">Aller plus loin</h2>
 <div class="art-links rv">
 <a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">Changer de prestataire de nettoyage<span>Le process complet, résiliation et reprise incluses</span></a>
@@ -151,6 +156,8 @@ A1 = dict(
          "Non, si la transition est organisée : les agents repris assurent la continuité, et le passage de relais avec l'ancien prestataire se prépare en amont."),
         ("Qui gère les démarches de reprise du personnel ?",
          "Elles relèvent des deux prestataires (sortant et entrant). Un prestataire entrant sérieux s'occupe des formalités pour vous."),
+        ("Une entreprise entrante peut-elle refuser de reprendre un agent ?",
+         "Non : dès que les critères de l'Annexe 7 sont réunis (ancienneté, temps de travail, contrat), la reprise s'impose. L'entreprise entrante ne peut pas sélectionner les agents éligibles."),
     ],
     cta=_cta("Vous envisagez de changer de prestataire ?",
              "On vous accompagne du premier contact au démarrage : résiliation, reprise des agents (Annexe 7), transition sans coupure.",
@@ -207,6 +214,19 @@ A2_BODY = """<p class="lead">C'est un grand classique : les premières semaines,
 <li><strong>Un contrôle qualité régulier</strong>, avec des points de suivi, pour corriger avant que vous n'ayez à relancer.</li>
 </ul>
 <p>Chez SPN NET, ces trois principes structurent chaque contrat. Découvrez <a href="https://spn-net.fr/a-propos/">nos engagements</a>. Et si votre prestataire actuel s'est essoufflé, sachez qu'<a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">en changer se fait sans friction</a>.</p>
+
+<h2 id="grille">La grille de contrôle qui transforme le ressenti en fait</h2>
+<p>« J'ai l'impression que c'est moins bien » ne se défend pas face à un prestataire. Un <strong>score mensuel</strong>, si. L'idée : noter chaque mois quelques zones clés sur un barème simple (2 = conforme, 1 = à reprendre, 0 = non fait), puis suivre la moyenne dans le temps. Cinq minutes par mois suffisent, et vous passez d'une discussion d'appréciation à une donnée opposable.</p>
+<div class="twrap rv"><table class="art-table">
+<thead><tr><th>Zone contrôlée</th><th>Fréquence attendue</th><th>Barème</th></tr></thead>
+<tbody>
+<tr><td>Sanitaires (cuvettes, sols, réappro)</td><td>Quotidienne</td><td>0 · 1 · 2</td></tr>
+<tr><td>Sols &amp; circulations</td><td>Quotidienne</td><td>0 · 1 · 2</td></tr>
+<tr><td>Postes &amp; surfaces de contact</td><td>Selon contrat</td><td>0 · 1 · 2</td></tr>
+<tr><td>Poubelles &amp; consommables</td><td>Quotidienne</td><td>0 · 1 · 2</td></tr>
+<tr><td>Cuisine / espace pause</td><td>Quotidienne</td><td>0 · 1 · 2</td></tr>
+</tbody></table></div>
+<div class="art-note rv"><b>Le seuil de décision :</b> une moyenne qui reste sous <b>1,5 pendant deux mois consécutifs</b> malgré une relance écrite n'est plus un accident de parcours — c'est un problème structurel. À ce stade, la question n'est plus « comment relancer ? » mais « faut-il changer ? ».</div>
 
 <h2 id="cahier">Le cahier des charges : votre meilleure assurance qualité</h2>
 <p>La plupart des baisses de qualité ne viennent pas d'un manque de bonne volonté, mais d'un <strong>flou contractuel</strong>. Ce qui n'est pas écrit n'est pas dû — et ce qui n'est pas mesurable n'est pas contrôlable. Un cahier des charges utile précise, espace par espace : les tâches, leur fréquence et le résultat attendu.</p>
@@ -272,6 +292,17 @@ A3_BODY = """<p class="lead">Le nettoyage de bureaux se fait souvent tôt le mat
 <tr><td>Traçabilité des accès</td><td>Savoir qui intervient, quand, avec quelles clés ou badges.</td></tr>
 <tr><td>Formation à la discrétion</td><td>Ne rien déplacer, ne rien ouvrir, signaler toute anomalie.</td></tr>
 </tbody></table></div>
+
+<h2 id="charte">La charte de discrétion de l'agent, concrètement</h2>
+<p>« Former à la discrétion » ne veut rien dire tant qu'on ne pose pas les règles noir sur blanc. Voici ce qu'un agent formé applique sur site, chaque intervention :</p>
+<ul>
+<li><strong>Ne rien photographier</strong> — ni les locaux, ni un écran, ni un document laissé en évidence.</li>
+<li><strong>Ne rien lire ni déplacer</strong> — les documents, courriers et dossiers restent là où ils sont, sans exception.</li>
+<li><strong>Ne pas toucher aux postes de travail</strong> — clavier, écran, papiers : on nettoie autour, on ne manipule pas.</li>
+<li><strong>Signaler toute anomalie</strong> — porte d'un local sensible restée ouverte, coffre non fermé, badge oublié : remontée immédiate au référent.</li>
+<li><strong>Restituer clés et badges</strong> en fin d'intervention, et ne jamais les prêter.</li>
+</ul>
+<div class="art-note rv"><b>À retenir :</b> ces règles ne relèvent pas de la bonne volonté individuelle. Elles s'écrivent dans le contrat, se rappellent en formation, et se contrôlent — c'est ce qui sépare un engagement réel d'une promesse commerciale.</div>
 
 <h2 id="pratiques">Vos bonnes pratiques internes</h2>
 <ul>
@@ -351,12 +382,23 @@ A4_BODY = """<p class="lead">Qualipropre, ISO 9001, Écolabel, ISO 45001, EcoVad
 <thead><tr><th>Certification</th><th>Ce qu'elle certifie</th><th>Portée</th><th>SPN NET</th></tr></thead>
 <tbody>
 <tr><td>Qualipropre</td><td>Bonnes pratiques du métier de la propreté</td><td>Entreprise (secteur)</td><td class="no">—</td></tr>
+<tr><td>Certipropre</td><td>Nouvelle certification sectorielle (déployée depuis 2025)</td><td>Entreprise (secteur)</td><td class="no">—</td></tr>
 <tr><td>ISO 9001</td><td>Système de management de la qualité</td><td>Entreprise (tous secteurs)</td><td class="no">—</td></tr>
+<tr><td>ISO 14001</td><td>Système de management environnemental</td><td>Entreprise</td><td class="no">—</td></tr>
 <tr><td>Écolabel</td><td>Critères environnementaux d'un produit</td><td>Produit</td><td class="no">—</td></tr>
 <tr><td>ISO 45001</td><td>Santé &amp; sécurité au travail</td><td>Entreprise</td><td class="yes">✓</td></tr>
 <tr><td>EcoVadis</td><td>Performance RSE (environnement, social, éthique)</td><td>Entreprise</td><td class="yes">✓ Argent 2025</td></tr>
 </tbody></table></div>
 <p style="font-size:.82rem;color:#5b616b;margin-top:-6px">Nous affichons ce que nous détenons réellement. Détail de chaque ligne ci-dessous.</p>
+
+<h2 id="niveaux">Diplôme, certification, label : trois choses différentes</h2>
+<p>La confusion la plus fréquente — et celle que la plupart des pages entretiennent — consiste à mélanger trois niveaux qui ne s'évaluent pas de la même façon :</p>
+<ul>
+<li><strong>Le diplôme (la personne)</strong> — il qualifie un <em>agent</em>, pas l'entreprise : <strong>CAP Agent de propreté et d'hygiène</strong>, <strong>CQP</strong> (Certificat de qualification professionnelle) ou <strong>TFP</strong> de la propreté. Utile pour juger la formation des équipes.</li>
+<li><strong>La certification (l'entreprise)</strong> — elle audite une <em>organisation</em> : ISO 9001 (qualité), ISO 14001 (environnement), ISO 45001 (sécurité), ou les labels sectoriels Qualipropre et Certipropre.</li>
+<li><strong>Le label (le produit)</strong> — il porte sur un <em>produit</em> précis : l'Écolabel Européen certifie une gamme de nettoyage, pas la société qui l'emploie.</li>
+</ul>
+<p>Ranger chaque repère dans la bonne colonne évite le piège classique : croire qu'une entreprise est « certifiée écologique » parce qu'elle utilise un produit écolabellisé, ou « qualifiée » parce que ses agents ont un CAP. Ce sont trois preuves distinctes — et complémentaires.</p>
 
 <h2 id="qualipropre">Qualipropre : le label métier</h2>
 <p><strong>Qualipropre</strong> est un label propre au secteur de la propreté. Il atteste du respect de bonnes pratiques professionnelles (organisation, moyens, suivi client) spécifiques au métier du nettoyage. C'est un signe de sérieux <em>sectoriel</em>.</p>
@@ -419,6 +461,8 @@ A4 = dict(
          "SPN NET est certifiée ISO 45001 (santé et sécurité au travail, par DEKRA) et a obtenu la médaille d'argent EcoVadis 2025, dans le top 15 % des entreprises évaluées sur la RSE."),
         ("Comment vérifier qu'une certification est sérieuse ?",
          "Vérifiez qui certifie (un organisme indépendant reconnu), ce qui est certifié (entreprise, site ou produit) et la date de validité, une certification faisant l'objet d'audits de suivi."),
+        ("Quelle différence entre un diplôme (CAP, CQP) et une certification de nettoyage ?",
+         "Un diplôme comme le CAP Agent de propreté ou un CQP qualifie une personne (l'agent). Une certification comme ISO 9001 ou Qualipropre audite l'organisation de l'entreprise. Un Écolabel, lui, porte sur un produit. Ce sont trois preuves distinctes."),
     ],
     cta=_cta("Une entreprise de nettoyage certifiée & responsable",
              "ISO 45001, médaille d'argent EcoVadis, équipes formées : découvrez des engagements vérifiés, pas des promesses.",
