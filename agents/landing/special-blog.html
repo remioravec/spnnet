@@ -218,6 +218,18 @@
 .spn-lp .sticky-bar .call{color:var(--ink)}
 .spn-lp .sticky-bar .quote{background:linear-gradient(135deg,#F4794E,var(--orange-deep));color:#fff}
 
+/* ===================== MODALE FORMULAIRE ===================== */
+.spn-lp .spn-modal{position:fixed;inset:0;z-index:100000;background:rgba(20,22,27,.62);display:none;align-items:flex-start;justify-content:center;padding:5vh 16px;overflow:auto}
+.spn-lp .spn-modal.show{display:flex}
+.spn-lp .spn-modal-card{background:#fff;border-radius:22px;padding:30px 28px 26px;max-width:440px;width:100%;position:relative;box-shadow:var(--shadow);animation:spnpop .25s ease}
+@keyframes spnpop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.spn-lp .spn-modal-card .badge{position:absolute;top:-13px;left:24px;background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.spn-lp .spn-modal-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:var(--cream);border:1px solid var(--line);font-size:1.4rem;line-height:1;cursor:pointer;color:var(--grey);display:flex;align-items:center;justify-content:center}
+.spn-lp .spn-modal-x:hover{background:var(--line)}
+.spn-lp .spn-modal-card h3{font-size:1.45rem;margin-bottom:4px}
+.spn-lp .spn-modal-card .sub{font-size:.9rem;color:var(--grey);margin-bottom:18px}
+.spn-lp .spn-modal-card .btn-primary{width:100%;margin-top:6px;font-size:1.05rem;padding:16px}
+
 /* ===================== REVEAL ===================== */
 .spn-lp .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
 .spn-lp .reveal.in{opacity:1;transform:none}
@@ -327,6 +339,9 @@
 .spn-lp{margin-bottom:0}
 
 .spn-lp .engage .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.spn-lp .engage .grid.g4-fix{grid-template-columns:repeat(4,1fr)}
+.spn-lp .eng p a{color:var(--orange-deep);font-weight:700}
+@media(max-width:900px){.spn-lp .engage .grid.g4-fix{grid-template-columns:1fr 1fr}}
 .spn-lp .eng{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;transition:transform .2s,box-shadow .2s}
 .spn-lp .eng:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
 .spn-lp .eng .ic{width:52px;height:52px;border-radius:14px;background:var(--orange-soft);display:flex;align-items:center;justify-content:center;color:var(--orange-deep);margin-bottom:15px}
@@ -364,7 +379,7 @@
       <span class="dot"></span>
       <div class="trust-pill"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Design_sans_titre_30.png" alt="Médaille d'argent EcoVadis 2025"><span>EcoVadis <b>Argent</b></span></div>
       <div class="trust-pill"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Design_sans_titre_34.png" alt="Certification DEKRA ISO 45001"><span><b>ISO 45001</b></span></div>
-      <div class="team-cue"><div class="avs"><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-01.jpg" alt=""><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-07.jpg" alt=""><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-03.jpg" alt=""></div><small><b>Une équipe dédiée</b>, formée et fidèle — pas des remplaçants au hasard.</small></div>
+      <div class="team-cue"><div class="avs"><img src="https://spn-net.fr/wp-content/uploads/2026/01/IMG_8655.jpg" alt=""><img src="https://spn-net.fr/wp-content/uploads/2026/01/IMG_7287.jpg" alt=""><img src="https://spn-net.fr/wp-content/uploads/2026/08/IMG_8471-opt.jpg" alt=""></div><small><b>Une équipe dédiée</b>, formée et fidèle — pas des remplaçants au hasard.</small></div>
     </div>
   </div>
 
@@ -449,18 +464,8 @@
 <div class="sec posts"><div class="wrap">
   <div class="sec-head reveal"><span class="eyebrow c">Nos guides</span><h2>Guides & conseils propreté</h2><p>Nos ressources pour bien choisir et organiser le nettoyage de vos locaux.</p></div>
   <div class="grid">
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-tertiaire-paris/"><span class="tag">Bureaux</span><h3>Nettoyage tertiaire à Paris</h3><p>Bien choisir son prestataire pour l'entretien de bureaux et de locaux tertiaires.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-commerce-retail-paris/"><span class="tag">Commerce</span><h3>Nettoyage de commerces & retail</h3><p>Vitrines, surfaces de vente, sanitaires : garder un point de vente impeccable.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-sante-medical-paris/"><span class="tag">Santé</span><h3>Nettoyage médical & bionettoyage</h3><p>Protocoles d'hygiène pour cabinets, laboratoires et établissements de santé.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-logistique-industrie-paris/"><span class="tag">Logistique</span><h3>Nettoyage logistique & industrie</h3><p>Entrepôts et sites industriels : moyens mécanisés et sécurité.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-hotellerie-restauration-paris/"><span class="tag">Hôtellerie</span><h3>Nettoyage d'hôtels & restaurants</h3><p>Parties communes, chambres, cuisines : protéger sa réputation.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-copropriete-habitat-paris/"><span class="tag">Copropriété</span><h3>Nettoyage de copropriétés</h3><p>Parties communes, locaux poubelles, sorties de bacs pour les immeubles.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-loisirs-culture-evenementiel-paris/"><span class="tag">Culture</span><h3>Nettoyage culturel & événementiel</h3><p>Musées, salles, sites recevant du public : avant et après le public.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-enseignement-petite-enfance-paris/"><span class="tag">Enseignement</span><h3>Nettoyage d'écoles & crèches</h3><p>Hygiène renforcée pour les établissements scolaires et la petite enfance.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-fin-de-chantier-paris/"><span class="tag">Remise en état</span><h3>Nettoyage de fin de chantier</h3><p>Livrer des locaux nets après travaux ou avant emménagement.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-apres-sinistre-paris/"><span class="tag">Remise en état</span><h3>Nettoyage après sinistre</h3><p>Remise en état après dégât des eaux, incendie ou autre sinistre.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-parkings-paris/"><span class="tag">Parkings</span><h3>Nettoyage de parkings</h3><p>Sols, murs et signalétique des parkings de copropriétés et d'entreprises.</p><span class="go">Lire le guide →</span></a>
-    <a class="post reveal" href="https://spn-net.fr/meilleure-entreprise-nettoyage-vitrines-paris/"><span class="tag">Vitrerie</span><h3>Nettoyage de vitrines</h3><p>Vitrines et surfaces vitrées : capter l'attention et soigner l'image.</p><span class="go">Lire le guide →</span></a>
+    <a class="post reveal" href="https://spn-net.fr/annexe-7-changer-entreprise-nettoyage/"><span class="tag">Guide</span><h3>Annexe 7 : changer sans friction</h3><p>Ce que dit vraiment la loi sur la reprise des agents quand vous changez de prestataire.</p><span class="go">Lire le guide →</span></a>
+    <a class="post reveal" href="https://spn-net.fr/qualite-nettoyage-baisse-apres-3-mois/"><span class="tag">Conseil</span><h3>Qualité qui baisse après 3 mois</h3><p>Pourquoi la propreté s'essouffle passé le démarrage — et comment tenir un niveau constant.</p><span class="go">Lire le guide →</span></a>
   </div>
 </div></div>
 
@@ -480,10 +485,10 @@
 <div class="sec team"><div class="wrap">
   <div class="sec-head reveal"><span class="eyebrow c">Des visages, pas des remplaçants</span><h2>L'équipe qui prendra soin de vos bureaux</h2><p>Des agents formés, en tenue et fidélisés — souvent les mêmes d'une semaine à l'autre. Ils connaissent vos locaux, vos accès et vos exigences.</p></div>
   <div class="grid reveal">
-    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-01.jpg" alt="Agent de propreté de l'équipe SPN NET à Paris 2" loading="lazy"><figcaption>Agent de propreté</figcaption></figure>
-    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-02.jpg" alt="Agent d'entretien SPN NET préparé pour le bionettoyage" loading="lazy"><figcaption>Préparation du matériel</figcaption></figure>
-    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-03.jpg" alt="Agent de nettoyage professionnel équipé d'un aspirateur" loading="lazy"><figcaption>Entretien des sols</figcaption></figure>
-    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Teams-07.jpg" alt="Employée de l'entreprise de propreté SPN NET en tenue" loading="lazy"><figcaption>En tenue SPN NET</figcaption></figure>
+    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/01/IMG_8655.jpg" alt="Agent SPN NET à l'entretien des sols de bureaux" loading="lazy"><figcaption>Sur le terrain</figcaption></figure>
+    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/01/IMG_7287.jpg" alt="Agente SPN NET au lavage des sols" loading="lazy"><figcaption>Nettoyage des surfaces</figcaption></figure>
+    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/08/IMG_8471-opt.jpg" alt="Agent SPN NET sur autolaveuse autoportée" loading="lazy"><figcaption>Entretien des sols</figcaption></figure>
+    <figure><img src="https://spn-net.fr/wp-content/uploads/2026/01/1735487248175.jpg" alt="Agent SPN NET en tenue de service" loading="lazy"><figcaption>En tenue SPN NET</figcaption></figure>
   </div>
 </div></div>
 
@@ -623,6 +628,28 @@
   <a href="#devis" class="quote" data-scroll>Devis gratuit</a>
 </div>
 
+<!-- ============ MODALE FORMULAIRE (ouverte au clic des CTA) ============ -->
+<div class="spn-modal" id="spnModal" role="dialog" aria-modal="true" aria-label="Demande de devis">
+  <div class="spn-modal-card">
+    <button type="button" class="spn-modal-x" data-modal-close aria-label="Fermer">&times;</button>
+    <form id="spn-form-3" novalidate>
+      <span class="badge">Devis gratuit 24h</span>
+      <h3>Recevez votre devis</h3>
+      <p class="sub">Réponse sous 24h ouvrées · Sans engagement</p>
+      <div class="field" data-field><label>Nom & prénom</label><input type="text" name="name" placeholder="Ex. Marie Dupont" required><span class="err">Merci d'indiquer votre nom.</span></div>
+      <div class="field" data-field><label>Téléphone</label><input type="tel" name="phone" placeholder="06 12 34 56 78" required><span class="err">Numéro de téléphone invalide.</span></div>
+      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Merci d'utiliser une adresse e-mail professionnelle.</span></div>
+      <button type="submit" class="btn btn-primary">Demander mon devis gratuit</button>
+      <div class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Données confidentielles · Aucune sollicitation abusive</div>
+      <div class="norecruit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Cette page concerne uniquement les demandes de <b>devis</b>. Nous ne recrutons pas actuellement.</span></div>
+    </form>
+    <div class="form-success" id="spn-success-3">
+      <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8431F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Demande envoyée&nbsp;!</h3><p>Merci, notre équipe vous recontacte sous 24h ouvrées. Pour un échange immédiat : <b>01 49 46 22 40</b>.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ============ FAQ SCHEMA (SEO) ============ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"A qui s'adressent ces guides ?","acceptedAnswer":{"@type":"Answer","text":"Aux professionnels — dirigeants, office managers, syndics, gestionnaires — qui cherchent a choisir et organiser le nettoyage de leurs locaux."}},{"@type":"Question","name":"Proposez-vous un devis a partir de ces pages ?","acceptedAnswer":{"@type":"Answer","text":"Oui, chaque guide renvoie vers nos pages dediees et un devis gratuit sous 24h, sans engagement."}},{"@type":"Question","name":"Dans quelles zones intervenez-vous ?","acceptedAnswer":{"@type":"Answer","text":"Paris (les 20 arrondissements) et toute l'Ile-de-France : 77, 78, 91, 92, 93, 94 et 95."}}]}
@@ -633,15 +660,16 @@
   var root = document.currentScript.closest('.spn-lp') || document.querySelector('.spn-lp');
   if(!root) return;
 
-  /* Smooth scroll vers le formulaire */
+  /* Ouverture du formulaire en pop-up au clic des CTA */
+  var modal = root.querySelector('#spnModal');
+  function openModal(){ if(modal){ modal.classList.add('show'); document.documentElement.style.overflow='hidden'; var f=modal.querySelector('input'); if(f){ setTimeout(function(){f.focus();},80); } } }
+  function closeModal(){ if(modal){ modal.classList.remove('show'); document.documentElement.style.overflow=''; } }
   root.querySelectorAll('[data-scroll]').forEach(function(el){
-    el.addEventListener('click', function(e){
-      e.preventDefault();
-      var t = root.querySelector('#devis');
-      if(t){ t.scrollIntoView({behavior:'smooth',block:'center'});
-        var f=t.querySelector('input'); if(f){ setTimeout(function(){f.focus();},600); } }
-    });
+    el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
   });
+  root.querySelectorAll('[data-modal-close]').forEach(function(el){ el.addEventListener('click', closeModal); });
+  if(modal){ modal.addEventListener('click', function(e){ if(e.target===modal){ closeModal(); } }); }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeModal(); } });
 
   /* Suivi conversion appels (GTM / Google Ads) */
   root.querySelectorAll('[data-tel]').forEach(function(el){
@@ -717,7 +745,7 @@
       Promise.all([pElem,pJournal]).then(function(rs){done(rs[0]||rs[1]);});
     });
   }
-  handle('spn-form','spn-success'); handle('spn-form-2','spn-success-2');
+  handle('spn-form','spn-success'); handle('spn-form-2','spn-success-2'); handle('spn-form-3','spn-success-3');
 
   /* Avis Google : duplique les cartes pour un défilement continu sans trou */
   root.querySelectorAll('[data-rev]').forEach(function(tr){

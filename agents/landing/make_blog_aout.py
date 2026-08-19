@@ -293,6 +293,37 @@ A4 = dict(
 
 ARTICLES = [A1, A2, A3, A4]
 
+# Cartes pour l'index /blog/ (tag, titre court, accroche) — clé = slug
+BLOG_CARDS = [
+    ("annexe-7-changer-entreprise-nettoyage", "Guide", "Annexe 7 : changer sans friction",
+     "Ce que dit vraiment la loi sur la reprise des agents quand vous changez de prestataire."),
+    ("qualite-nettoyage-baisse-apres-3-mois", "Conseil", "Qualité qui baisse après 3 mois",
+     "Pourquoi la propreté s'essouffle passé le démarrage — et comment tenir un niveau constant."),
+    ("nettoyage-bureaux-confidentialite-securite", "Sécurité B2B", "Confidentialité au bureau",
+     "Sécuriser le nettoyage réalisé hors présence de vos équipes : accès, discrétion, RGPD."),
+    ("certifications-entreprise-nettoyage", "Certifications", "Certifications de nettoyage",
+     "Qualipropre, ISO 9001, Écolabel, ISO 45001 : ce qu'elles garantissent vraiment."),
+]
+
+
+def rebuild_blog():
+    """Reconstruit l'index /blog/ avec les articles réellement PUBLIÉS (statut WP).
+
+    Relançable à tout moment : les articles programmés apparaissent
+    automatiquement une fois leur date de publication passée.
+    """
+    import make_special as ms
+    import make_zone as mz
+    live = []
+    for c in BLOG_CARDS:
+        r = requests.get(API, params={"slug": c[0], "status": "publish", "_fields": "id"},
+                         auth=AUTH, timeout=30).json()
+        if r:
+            live.append(c)
+    ms.POSTS[:] = live  # posts_section() lit ce global au moment du build
+    print(f"  index /blog/ : {len(live)} article(s) publié(s) listé(s)")
+    print(mz.deploy("blog", ms.CFG["blog"], builder=ms.build, prefix="special"))
+
 
 def strip_accents(s):
     return "".join(c for c in unicodedata.normalize("NFKD", s) if not unicodedata.combining(c))
@@ -329,6 +360,9 @@ def main():
             if pid:
                 requests.post(f"{API}/{pid}", auth=AUTH, timeout=60, json={"status": "draft"})
                 print("  ↩ brouillon:", a["slug"])
+        return
+    if len(sys.argv) > 1 and sys.argv[1] == "--blog":
+        rebuild_blog()
         return
     for a in ARTICLES:
         try:
