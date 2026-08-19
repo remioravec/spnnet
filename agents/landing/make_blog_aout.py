@@ -78,13 +78,21 @@ A1_BODY = """<p class="lead">Changer d'entreprise de nettoyage inquiète surtout
 <p>L'<strong>Annexe 7</strong> est un texte de la <strong>convention collective nationale des entreprises de propreté</strong>. Elle organise la <em>continuité du contrat de travail</em> des agents de nettoyage lorsqu'un marché change de prestataire. Concrètement : quand une nouvelle société reprend l'entretien d'un site, elle a l'obligation de reprendre les salariés qui y travaillaient, dès lors que certains critères sont réunis.</p>
 <p>L'objectif est double : <strong>protéger l'emploi</strong> des agents (ils ne perdent pas leur poste parce que vous changez de prestataire) et <strong>préserver la connaissance du site</strong> (les personnes qui connaissent vos locaux restent en place).</p>
 
+<div class="art-stats rv">
+<div class="st"><div class="n">−4 h</div><div class="l">délai de premier contact</div></div>
+<div class="st"><div class="n">6 mois</div><div class="l">ancienneté minimale</div></div>
+<div class="st"><div class="n">0</div><div class="l">coupure de service</div></div>
+</div>
+
 <h2 id="conditions">Les conditions de reprise du personnel</h2>
-<p>La reprise ne concerne pas tout le monde automatiquement. Les principaux critères, cumulatifs, sont :</p>
-<ul>
-<li>une <strong>ancienneté d'au moins 6 mois</strong> sur le site concerné ;</li>
-<li>au moins <strong>30 % du temps de travail</strong> effectué sur ce site ;</li>
-<li>un contrat en cours (CDI, ou CDD sous conditions) et une affectation effective au marché repris.</li>
-</ul>
+<p>La reprise ne concerne pas tout le monde automatiquement. Les principaux critères, <strong>cumulatifs</strong>, sont :</p>
+<div class="twrap rv"><table class="art-table">
+<thead><tr><th>Critère de reprise</th><th>Seuil</th><th>Ce que ça implique</th></tr></thead>
+<tbody>
+<tr><td>Ancienneté sur le site</td><td>≥ 6 mois</td><td>L'agent doit travailler sur votre site depuis au moins six mois.</td></tr>
+<tr><td>Temps de travail sur site</td><td>≥ 30 %</td><td>Au moins 30 % de son temps de travail y est effectué.</td></tr>
+<tr><td>Type de contrat</td><td>CDI (ou CDD)</td><td>Contrat en cours, effectivement affecté au marché repris.</td></tr>
+</tbody></table></div>
 <p>Les salariés qui remplissent ces critères sont transférés à la société entrante <strong>avec leur ancienneté et les éléments essentiels de leur contrat</strong>. Ceux qui ne les remplissent pas restent salariés de l'entreprise sortante.</p>
 
 <h2 id="donneur">Ce que ça change pour vous, donneur d'ordre</h2>
@@ -97,6 +105,12 @@ A1_BODY = """<p class="lead">Changer d'entreprise de nettoyage inquiète surtout
 <p>La partie administrative (échanges d'informations sur les salariés, formalités de transfert) relève des <strong>deux prestataires</strong>. Un bon prestataire entrant s'en charge pour vous.</p>
 
 <h2 id="etapes">Changer sans friction : les étapes</h2>
+<div class="art-steps rv">
+<div class="stp"><b>Prise de contact</b><span>En moins de 4 h ouvrées.</span></div>
+<div class="stp"><b>Visite des locaux</b><span>Pour une proposition juste.</span></div>
+<div class="stp"><b>Proposition</b><span>+ protocole sur mesure si besoin.</span></div>
+<div class="stp"><b>Signature</b><span>Transition sans coupure.</span></div>
+</div>
 <p>En pratique, un changement bien mené suit quatre temps : un premier contact rapide, une visite de vos locaux, une proposition adaptée, puis la signature et l'organisation de la transition avec l'ancien prestataire. La résiliation de votre contrat en cours peut, elle aussi, être accompagnée — lecture des conditions de préavis et rédaction de la lettre.</p>
 <p>Nous avons détaillé tout le processus, étape par étape, sur notre page dédiée : <a href="https://spn-net.fr/changer-de-prestataire-nettoyage/"><strong>changer de prestataire de nettoyage</strong></a>.</p>"""
 
@@ -134,13 +148,27 @@ A2_BODY = """<p class="lead">C'est un grand classique : les premières semaines,
 <h2 id="lunedemiel">L'effet « lune de miel » du contrat</h2>
 <p>Au démarrage, un prestataire met ses meilleures ressources sur votre site : il veut réussir sa prise de marché. Cette période flatteuse crée une référence élevée dans votre esprit. Le problème n'est pas tant que la qualité baisse « anormalement » — c'est qu'elle <strong>revient à la normale</strong> une fois l'attention retombée, et que rien n'a été mis en place pour la maintenir.</p>
 
+<div class="art-chart rv">
+<div class="ttl">La qualité perçue dans le temps</div>
+<div class="cap">Le scénario fréquent (gris pointillé) face à une prestation tenue dans la durée (orange).</div>
+<svg viewBox="0 0 420 170" width="100%" height="170" role="img" aria-label="Courbe de qualité dans le temps : baisse après le 3e mois pour un prestataire moyen, stable avec SPN NET">
+<line x1="34" y1="140" x2="412" y2="140" stroke="#E9E4DD"/><line x1="34" y1="18" x2="34" y2="140" stroke="#E9E4DD"/>
+<path d="M40,42 L120,42 L196,48 L272,88 L348,112 L406,122" fill="none" stroke="#9aa0a6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 6"/>
+<path class="line" pathLength="1" d="M40,46 L120,43 L196,41 L272,40 L348,39 L406,38" fill="none" stroke="#D8431F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g font-size="10" fill="#9aa0a6" font-family="monospace"><text x="34" y="158">Mois 1</text><text x="182" y="158">Mois 3</text><text x="360" y="158">Mois 6</text></g>
+</svg>
+<div class="lg"><span><i style="background:#9aa0a6"></i>Prestataire moyen</span><span><i style="background:#D8431F"></i>Avec SPN NET</span></div>
+</div>
+
 <h2 id="causes">Les 4 vraies causes du relâchement</h2>
-<ul>
-<li><strong>Le turnover des agents.</strong> Un agent qui change tous les mois ne connaît jamais vos locaux. La qualité dépend directement de la stabilité des équipes.</li>
-<li><strong>Un cahier des charges flou.</strong> Sans fréquences écrites et sans périmètre précis, chacun interprète — et l'interprétation se dégrade avec le temps.</li>
-<li><strong>L'absence de contrôle qualité.</strong> Ce qui n'est pas contrôlé n'est pas tenu. Sans visite de suivi ni point régulier, personne ne corrige les dérives.</li>
-<li><strong>La sous-traitance en cascade.</strong> Quand la prestation est refilée à un tiers, l'engagement initial se dilue à chaque maillon.</li>
-</ul>
+<div class="twrap rv"><table class="art-table">
+<thead><tr><th>Cause</th><th>Symptôme visible</th><th>La parade</th></tr></thead>
+<tbody>
+<tr><td>Turnover des agents</td><td>Des visages différents chaque semaine</td><td>Une équipe fidélisée, affectée à votre site</td></tr>
+<tr><td>Cahier des charges flou</td><td>Tâches « oubliées », interprétations</td><td>Fréquences écrites, périmètre précis</td></tr>
+<tr><td>Absence de contrôle</td><td>Vous devez relancer</td><td>Contrôle qualité et points de suivi réguliers</td></tr>
+<tr><td>Sous-traitance en cascade</td><td>Interlocuteur qui change, engagement dilué</td><td>Une prestation assurée en direct</td></tr>
+</tbody></table></div>
 
 <h2 id="signaux">Les signaux qui doivent vous alerter</h2>
 <ul>
@@ -191,13 +219,17 @@ A3_BODY = """<p class="lead">Le nettoyage de bureaux se fait souvent tôt le mat
 <h2 id="risque">Le vrai risque : l'accès hors présence</h2>
 <p>La confidentialité en entreprise ne se joue pas qu'à l'informatique. Un bureau laissé ouvert, un dossier sur une imprimante, un badge d'accès : autant d'éléments exposés lorsqu'une intervention a lieu sans que personne de chez vous ne soit présent. Le risque n'est pas théorique — il se gère par <strong>l'organisation et le contrat</strong>, pas par la méfiance.</p>
 
+<div class="art-note rv"><b>À retenir :</b> le risque se gère par l'organisation et le contrat, pas par la méfiance. Un prestataire sérieux vous propose ce cadre spontanément.</div>
+
 <h2 id="exiger">Ce qu'il faut exiger du prestataire</h2>
-<ul>
-<li><strong>Une clause de confidentialité</strong> engageant l'entreprise et ses agents.</li>
-<li><strong>Des agents identifiés et fidélisés</strong> — les mêmes personnes, connues et formées, plutôt que des remplaçants au hasard.</li>
-<li><strong>Une traçabilité des accès</strong> : qui intervient, quand, avec quelles clés ou badges.</li>
-<li><strong>Une formation aux règles de discrétion</strong> : ne pas déplacer les documents, ne pas ouvrir ce qui est fermé, signaler toute anomalie.</li>
-</ul>
+<div class="twrap rv"><table class="art-table">
+<thead><tr><th>À exiger</th><th>Pourquoi c'est déterminant</th></tr></thead>
+<tbody>
+<tr><td>Clause de confidentialité</td><td>Engage l'entreprise et chaque agent sur la discrétion.</td></tr>
+<tr><td>Agents identifiés &amp; fidélisés</td><td>Les mêmes personnes, connues et formées, plutôt que des remplaçants au hasard.</td></tr>
+<tr><td>Traçabilité des accès</td><td>Savoir qui intervient, quand, avec quelles clés ou badges.</td></tr>
+<tr><td>Formation à la discrétion</td><td>Ne rien déplacer, ne rien ouvrir, signaler toute anomalie.</td></tr>
+</tbody></table></div>
 
 <h2 id="pratiques">Vos bonnes pratiques internes</h2>
 <ul>
@@ -244,6 +276,17 @@ A4_BODY = """<p class="lead">Qualipropre, ISO 9001, Écolabel, ISO 45001, EcoVad
 
 <h2 id="pourquoi">Pourquoi les certifications comptent</h2>
 <p>Une certification est un <strong>engagement vérifié par un tiers indépendant</strong>. Elle ne dit pas qu'une entreprise est « la meilleure », mais qu'elle respecte un référentiel précis, contrôlé par audit. C'est un repère objectif dans un secteur où les promesses commerciales se ressemblent.</p>
+
+<div class="twrap rv"><table class="art-table">
+<thead><tr><th>Certification</th><th>Ce qu'elle certifie</th><th>Portée</th><th>SPN NET</th></tr></thead>
+<tbody>
+<tr><td>Qualipropre</td><td>Bonnes pratiques du métier de la propreté</td><td>Entreprise (secteur)</td><td class="no">—</td></tr>
+<tr><td>ISO 9001</td><td>Système de management de la qualité</td><td>Entreprise (tous secteurs)</td><td class="no">—</td></tr>
+<tr><td>Écolabel</td><td>Critères environnementaux d'un produit</td><td>Produit</td><td class="no">—</td></tr>
+<tr><td>ISO 45001</td><td>Santé &amp; sécurité au travail</td><td>Entreprise</td><td class="yes">✓</td></tr>
+<tr><td>EcoVadis</td><td>Performance RSE (environnement, social, éthique)</td><td>Entreprise</td><td class="yes">✓ Argent 2025</td></tr>
+</tbody></table></div>
+<p style="font-size:.82rem;color:#5b616b;margin-top:-6px">Nous affichons ce que nous détenons réellement. Détail de chaque ligne ci-dessous.</p>
 
 <h2 id="qualipropre">Qualipropre : le label métier</h2>
 <p><strong>Qualipropre</strong> est un label propre au secteur de la propreté. Il atteste du respect de bonnes pratiques professionnelles (organisation, moyens, suivi client) spécifiques au métier du nettoyage. C'est un signe de sérieux <em>sectoriel</em>.</p>
@@ -292,6 +335,12 @@ A4 = dict(
 )
 
 ARTICLES = [A1, A2, A3, A4]
+
+# Chiffres clés affichés dans le hero (carte "L'essentiel")
+A1["hero_stats"] = [("−4 h", "1er contact"), ("6 mois", "ancienneté mini"), ("30 %", "du temps sur site")]
+A2["hero_stats"] = [("3 mois", "le cap critique"), ("4", "causes réelles"), ("0", "relance à faire")]
+A3["hero_stats"] = [("Soir & matin", "interventions"), ("100 %", "agents identifiés"), ("RGPD", "conformité")]
+A4["hero_stats"] = [("2", "certifs SPN NET"), ("Top 15 %", "EcoVadis 2025"), ("ISO 45001", "sécurité")]
 
 # Cartes pour l'index /blog/ (tag, titre court, accroche) — clé = slug
 BLOG_CARDS = [

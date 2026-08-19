@@ -35,18 +35,61 @@ TAGS = {c[0]: c[1] for c in BLOG_CARDS}
 
 ART_CSS = """<style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-.spn-art{--orange:#ED5D37;--orange-deep:#D8431F;--orange-soft:#FFF1EA;--ink:#16181D;--ink-2:#2A2D35;--grey:#5b616b;--line:#E9E4DD;--cream:#FAF8F5;--r:18px;--shadow:0 18px 40px -22px rgba(22,24,29,.28);font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);line-height:1.65}
+.spn-art{--orange:#ED5D37;--orange-deep:#D8431F;--orange-soft:#FFF1EA;--ink:#16181D;--ink-2:#2A2D35;--grey:#5b616b;--line:#E9E4DD;--cream:#FAF8F5;--r:18px;--shadow:0 18px 40px -22px rgba(22,24,29,.28);--shadow-sm:0 8px 20px -12px rgba(22,24,29,.22);font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);line-height:1.65}
 .spn-art *{box-sizing:border-box}
 .spn-art .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 .spn-art a{color:var(--orange-deep)}
-.spn-art .art-hero{background:linear-gradient(180deg,var(--cream),#fff);border-bottom:1px solid var(--line);padding:34px 0 30px}
-.spn-art .crumbs{font-size:.82rem;color:var(--grey);margin-bottom:14px}
+/* ---- HERO ---- */
+.spn-art .art-hero{position:relative;overflow:hidden;background:radial-gradient(120% 120% at 88% -20%,var(--orange-soft),transparent 46%),linear-gradient(180deg,var(--cream),#fff);border-bottom:1px solid var(--line);padding:38px 0 36px}
+.spn-art .hero-in{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center}
+.spn-art .crumbs{font-size:.82rem;color:var(--grey);margin-bottom:16px}
 .spn-art .crumbs a{color:var(--grey);text-decoration:none}.spn-art .crumbs a:hover{color:var(--orange-deep)}
-.spn-art .eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-deep);background:var(--orange-soft);padding:5px 13px;border-radius:999px}
-.spn-art h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.9rem);line-height:1.1;letter-spacing:-.015em;margin:14px 0 0;max-width:20ch}
-.spn-art .art-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;font-size:.86rem;color:var(--grey);font-weight:600}
+.spn-art .eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-deep);background:#fff;border:1px solid rgba(216,67,31,.28);padding:6px 14px;border-radius:999px}
+.spn-art h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,4.2vw,3rem);line-height:1.08;letter-spacing:-.015em;margin:16px 0 0;max-width:20ch}
+.spn-art .chapo{font-size:1.06rem;color:var(--ink-2);font-weight:500;margin:14px 0 0;max-width:52ch}
+.spn-art .art-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.spn-art .art-meta span{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:.8rem;color:var(--grey);font-weight:600}
 .spn-art .art-meta .rate b{color:var(--ink)}.spn-art .art-meta .s{color:#FBBC05;letter-spacing:1px}
-.spn-art .art-body{padding:40px 0 60px}
+/* carte chiffres clés du hero */
+.spn-art .hero-key{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:22px 22px 8px}
+.spn-art .hero-key .lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--grey);font-weight:800;margin-bottom:6px}
+.spn-art .hero-key .k{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.spn-art .hero-key .k:last-child{border-bottom:none}
+.spn-art .hero-key .k b{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:var(--orange-deep);line-height:1}
+.spn-art .hero-key .k span{font-size:.82rem;color:var(--ink-2);font-weight:600;text-align:right}
+.spn-art .hero-solo{display:block;max-width:820px}
+@media(max-width:820px){.spn-art .hero-in{grid-template-columns:1fr;gap:24px}.spn-art .hero-key{max-width:380px}}
+.spn-art.js .rv{opacity:0;transform:translateY(16px)}
+.spn-art.js .rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.6,.2,1)}
+.spn-art .art-chart path.line{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s ease .2s}
+.spn-art .art-body{padding:44px 0 60px}
+/* ---- COMPOSANTS RICHES ---- */
+.spn-art .art-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+.spn-art .art-stats .st{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:center}
+.spn-art .art-stats .st .n{font-family:'Fraunces',serif;font-weight:600;font-size:2rem;color:var(--orange-deep);line-height:1}
+.spn-art .art-stats .st .l{font-size:.82rem;color:var(--grey);font-weight:600;margin-top:6px}
+@media(max-width:560px){.spn-art .art-stats{grid-template-columns:1fr}}
+.spn-art .art-table{width:100%;border-collapse:collapse;margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.92rem}
+.spn-art .art-table thead th{background:var(--ink);color:#fff;text-align:left;font-weight:700;font-size:.8rem;letter-spacing:.02em;padding:12px 14px}
+.spn-art .art-table td,.spn-art .art-table th{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.spn-art .art-table tbody tr:last-child td{border-bottom:none}
+.spn-art .art-table tbody tr:nth-child(even){background:var(--cream)}
+.spn-art .art-table td:first-child{font-weight:700;color:var(--ink)}
+.spn-art .art-table .yes{color:#1e8e3e;font-weight:800}.spn-art .art-table .no{color:#c0392b;font-weight:800}
+.spn-art .twrap{overflow-x:auto}
+.spn-art .art-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0;counter-reset:s}
+.spn-art .art-steps .stp{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 16px 16px}
+.spn-art .art-steps .stp::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--orange-soft);color:var(--orange-deep);font-family:'Fraunces',serif;font-weight:700;margin-bottom:10px}
+.spn-art .art-steps .stp b{display:block;font-size:.98rem;margin-bottom:3px}
+.spn-art .art-steps .stp span{font-size:.83rem;color:var(--grey)}
+@media(max-width:720px){.spn-art .art-steps{grid-template-columns:1fr 1fr}}
+.spn-art .art-note{background:var(--orange-soft);border:1px solid rgba(216,67,31,.24);border-left:4px solid var(--orange-deep);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.95rem}
+.spn-art .art-note b{color:var(--ink)}
+.spn-art .art-chart{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px 14px;margin:24px 0}
+.spn-art .art-chart .ttl{font-weight:700;font-size:.92rem;margin-bottom:4px}
+.spn-art .art-chart .cap{font-size:.8rem;color:var(--grey);margin-bottom:12px}
+.spn-art .art-chart .lg{display:flex;gap:18px;font-size:.8rem;color:var(--grey);font-weight:600;margin-top:10px}
+.spn-art .art-chart .lg i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
 .spn-art .art-grid{display:grid;grid-template-columns:1fr 330px;gap:48px;align-items:start}
 .spn-art .art-main{min-width:0}
 /* sidebar */
@@ -129,9 +172,20 @@ CTA_CARD = (
 )
 
 
+ART_JS = """<script>(function(){var r=document.querySelector('.spn-art');if(!r)return;r.classList.add('js');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');
+var p=e.target.querySelector('path.line');if(p){p.style.strokeDashoffset='0';}io.unobserve(e.target);}});},{threshold:.2});
+r.querySelectorAll('.rv').forEach(function(el){io.observe(el);});})();</script>"""
+
+
 def build_article(a):
     body = a["body"]
-    # extraire le sommaire du corps pour le passer en sidebar
+    # chapô : on remonte le <p class="lead"> du corps vers le hero (une seule fois)
+    lm = re.search(r'<p class="lead">(.*?)</p>\s*', body, re.S)
+    chapo = lm.group(1).strip() if lm else a["desc"]
+    if lm:
+        body = body.replace(lm.group(0), "", 1)
+    # sommaire du corps -> sidebar
     m = re.search(r'<div class="toc">.*?</div>\s*', body, re.S)
     toc_inner = ""
     if m:
@@ -140,24 +194,33 @@ def build_article(a):
         body = body.replace(m.group(0), "", 1)
     side_toc = f'<div class="side-toc"><b>Au sommaire</b>{toc_inner}</div>' if toc_inner else ""
 
+    # carte chiffres clés du hero
+    stats = a.get("hero_stats") or []
+    key = ""
+    if stats:
+        rows = "".join(f'<div class="k"><b>{n}</b><span>{l}</span></div>' for n, l in stats)
+        key = f'<div class="hero-key rv"><div class="lbl">L\'essentiel</div>{rows}</div>'
+    hero_cols = "hero-in" if key else "hero-solo"
+
     hero = (
-        '<div class="art-hero"><div class="wrap">'
+        '<div class="art-hero"><div class="wrap ' + hero_cols + '"><div>'
         '<nav class="crumbs"><a href="https://spn-net.fr/">Accueil</a> › '
         '<a href="https://spn-net.fr/blog/">Blog</a> › <span>' + strip_accents(a["title"].split(":")[0].strip()) + '</span></nav>'
         f'<span class="eyebrow">{TAGS.get(a["slug"], "Guide")}</span>'
         f'<h1>{a["title"]}</h1>'
+        f'<p class="chapo">{chapo}</p>'
         '<div class="art-meta">'
         f'<span>📅 {fr_date(a["date"])}</span>'
         f'<span>⏱ {reading_time(body)} min de lecture</span>'
         '<span class="rate"><span class="s">★</span> <b>4,8/5</b> · 48 avis</span>'
-        '</div></div></div>'
+        '</div></div>' + key + '</div></div>'
     )
     main = '<article class="art-main">' + body + _faq_block(a["faq"]) + '</article>'
     side = '<aside class="art-side">' + CTA_CARD + side_toc + '</aside>'
     schema = _faq_schema(a["faq"]) + article_schema(a) + breadcrumb(a)
     return (ART_CSS + '<div class="spn-art">' + hero
             + '<div class="art-body"><div class="wrap art-grid">' + main + side + '</div></div>'
-            + schema + '</div>')
+            + schema + ART_JS + '</div>')
 
 
 def convert(a):
