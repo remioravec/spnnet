@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — CRM des demandes (leads)
  * Description: CRM léger : capture toutes les demandes (Elementor + endpoint REST), qualifie bon/mauvais lead, filtre, source précise + canal, e-mail de secours, export CSV. Design moderne 2026.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -106,6 +106,32 @@ class SPN_Leads {
     /* ---------- Endpoint REST public ---------- */
     public static function rest() {
         register_rest_route('spn/v1', '/lead', ['methods'=>'POST','permission_callback'=>'__return_true','callback'=>[__CLASS__,'rest_lead']]);
+        // Export sécurisé (admin only) : backfill complet des submissions Elementor puis dump JSON.
+        register_rest_route('spn/v1', '/export', [
+            'methods'  => 'GET',
+            'permission_callback' => function () { return current_user_can('manage_options'); },
+            'callback' => [__CLASS__, 'rest_export'],
+        ]);
+    }
+
+    /** Renvoie toutes les demandes (historique inclus), tests signalés. Auth : App Password admin. */
+    public static function rest_export($req) {
+        self::backfill(); // récupère l'historique Elementor manquant dans la table
+        global $wpdb; $t = $wpdb->prefix . self::TABLE;
+        $rows = $wpdb->get_results("SELECT * FROM $t ORDER BY created_at ASC", ARRAY_A) ?: [];
+        $include_tests = (string)$req->get_param('tests') === '1';
+        $out = [];
+        foreach ($rows as $r) {
+            $r['is_test'] = self::is_test_row($r) ? 1 : 0;
+            if (!$include_tests && $r['is_test']) continue;
+            $out[] = $r;
+        }
+        return new WP_REST_Response([
+            'ok' => true,
+            'count' => count($out),
+            'generated_at' => current_time('mysql'),
+            'rows' => $out,
+        ], 200);
     }
     public static function rest_lead($req) {
         if ((string)$req->get_param('website') !== '') return new WP_REST_Response(['ok'=>true], 200);
@@ -145,7 +171,7 @@ class SPN_Leads {
         global $wpdb;
         $sub=$wpdb->prefix.'e_submissions'; $val=$wpdb->prefix.'e_submissions_values'; $t=$wpdb->prefix.self::TABLE;
         if ($wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s",$sub))!==$sub) return;
-        $rows=$wpdb->get_results("SELECT id, form_name, referer, created_at FROM $sub ORDER BY created_at DESC LIMIT 500");
+        $rows=$wpdb->get_results("SELECT id, form_name, referer, created_at FROM $sub ORDER BY created_at DESC LIMIT 5000");
         if (!$rows) return;
         foreach ($rows as $r) {
             $vals=$wpdb->get_results($wpdb->prepare("SELECT `key`,`value` FROM $val WHERE submission_id=%d",$r->id));
