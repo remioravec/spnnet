@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — CRM des demandes (leads)
  * Description: CRM léger : capture toutes les demandes (Elementor + endpoint REST), qualifie bon/mauvais lead, filtre, source précise + canal, e-mail de secours, export CSV. Design moderne 2026.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -16,8 +16,15 @@ class SPN_Leads {
 
     public static function init() {
         register_activation_hook(__FILE__, [__CLASS__, 'activate']);
+        register_deactivation_hook(__FILE__, [__CLASS__, 'deactivate']);
         add_action('elementor_pro/forms/new_record', [__CLASS__, 'capture'], 10, 2);
         add_action('rest_api_init', [__CLASS__, 'rest']);
+        // Filet de sécurité : backfill horaire via wp-cron, indépendant du hook live.
+        // Si la capture temps réel décroche (maj Elementor, etc.), la table se resynchronise seule.
+        add_action('spn_leads_cron_backfill', [__CLASS__, 'backfill']);
+        if (!wp_next_scheduled('spn_leads_cron_backfill')) {
+            wp_schedule_event(time() + 300, 'hourly', 'spn_leads_cron_backfill');
+        }
         add_action('admin_menu', [__CLASS__, 'menu']);
         add_action('admin_post_spn_leads_export', [__CLASS__, 'export_csv']);
         add_action('admin_post_spn_leads_save_settings', [__CLASS__, 'save_settings']);
@@ -51,6 +58,14 @@ class SPN_Leads {
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         dbDelta($sql);
         if (get_option(self::OPT_EMAIL) === false) update_option(self::OPT_EMAIL, get_option('admin_email'));
+        if (!wp_next_scheduled('spn_leads_cron_backfill')) {
+            wp_schedule_event(time() + 60, 'hourly', 'spn_leads_cron_backfill');
+        }
+        self::backfill(); // rattrape l'historique dès l'activation
+    }
+
+    public static function deactivate() {
+        wp_clear_scheduled_hook('spn_leads_cron_backfill');
     }
 
     /* ---------- Helpers ---------- */
@@ -167,7 +182,7 @@ class SPN_Leads {
     }
 
     /* ---------- Backfill historique Elementor -> table (dédup) ---------- */
-    private static function backfill() {
+    public static function backfill() {
         global $wpdb;
         $sub=$wpdb->prefix.'e_submissions'; $val=$wpdb->prefix.'e_submissions_values'; $t=$wpdb->prefix.self::TABLE;
         if ($wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s",$sub))!==$sub) return;
