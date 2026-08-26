@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — CRM des demandes (leads)
  * Description: CRM léger : capture toutes les demandes (Elementor + endpoint REST), qualifie bon/mauvais lead, filtre, source précise + canal, e-mail de secours, export CSV. Design moderne 2026.
- * Version: 1.5.0
+ * Version: 1.6.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -34,7 +34,7 @@ class SPN_Leads {
     }
 
     /* ---------- Table ---------- */
-    public static function activate() {
+    private static function create_table() {
         global $wpdb;
         $t = $wpdb->prefix . self::TABLE;
         $charset = $wpdb->get_charset_collate();
@@ -57,6 +57,11 @@ class SPN_Leads {
         ) $charset;";
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         dbDelta($sql);
+    }
+
+    public static function activate() {
+        global $wpdb;
+        self::create_table();
         if (get_option(self::OPT_EMAIL) === false) update_option(self::OPT_EMAIL, get_option('admin_email'));
         if (!wp_next_scheduled('spn_leads_cron_backfill')) {
             wp_schedule_event(time() + 60, 'hourly', 'spn_leads_cron_backfill');
@@ -134,12 +139,63 @@ class SPN_Leads {
             'permission_callback' => function () { return current_user_can('manage_options'); },
             'callback' => [__CLASS__, 'rest_import'],
         ]);
+        // Réparation (admin only) : REPAIR TABLE, et recréation propre si l'écriture échoue encore.
+        register_rest_route('spn/v1', '/repair', [
+            'methods'  => 'POST',
+            'permission_callback' => function () { return current_user_can('manage_options'); },
+            'callback' => [__CLASS__, 'rest_repair'],
+        ]);
+    }
+
+    public static function rest_repair($req) {
+        global $wpdb; $t = $wpdb->prefix . self::TABLE;
+        $out = ['steps' => []];
+        // 1) sauvegarde des lignes lisibles
+        $old = $wpdb->get_results("SELECT * FROM $t", ARRAY_A);
+        $out['rows_backed_up'] = is_array($old) ? count($old) : 0;
+        // 2) test d'écriture initial
+        $probe = $wpdb->insert($t, ['created_at'=>current_time('mysql'), 'name'=>'__probe__',
+            'email'=>'', 'phone'=>'', 'company'=>'', 'message'=>'', 'source'=>'', 'form'=>'',
+            'channel'=>'probe', 'ip'=>'', 'quality'=>'']);
+        $out['insert_before'] = ($probe !== false);
+        $out['error_before'] = $wpdb->last_error;
+        if ($probe !== false) { $wpdb->delete($t, ['channel'=>'probe']); }
+        // 3) REPAIR TABLE
+        $out['steps'][] = 'REPAIR TABLE';
+        $wpdb->query("REPAIR TABLE $t");
+        $out['repair_error'] = $wpdb->last_error;
+        // 4) re-test d'écriture
+        $probe2 = $wpdb->insert($t, ['created_at'=>current_time('mysql'), 'name'=>'__probe2__',
+            'email'=>'', 'phone'=>'', 'company'=>'', 'message'=>'', 'source'=>'', 'form'=>'',
+            'channel'=>'probe', 'ip'=>'', 'quality'=>'']);
+        if ($probe2 !== false) { $wpdb->delete($t, ['channel'=>'probe']); }
+        // 5) si l'écriture échoue toujours, recréation complète (les lignes sont sauvegardées)
+        if ($probe2 === false) {
+            $out['steps'][] = 'DROP + CREATE';
+            $wpdb->query("DROP TABLE IF EXISTS $t");
+            self::create_table();
+            $out['recreate_error'] = $wpdb->last_error;
+            if (is_array($old)) {
+                foreach ($old as $o) { unset($o['id']); $wpdb->insert($t, $o); }
+            }
+            $probe2 = $wpdb->insert($t, ['created_at'=>current_time('mysql'), 'name'=>'__probe3__',
+                'email'=>'', 'phone'=>'', 'company'=>'', 'message'=>'', 'source'=>'', 'form'=>'',
+                'channel'=>'probe', 'ip'=>'', 'quality'=>'']);
+            if ($probe2 !== false) { $wpdb->delete($t, ['channel'=>'probe']); }
+        }
+        $out['insert_after'] = ($probe2 !== false);
+        $out['error_after'] = $wpdb->last_error;
+        $out['count_now'] = (int)$wpdb->get_var("SELECT COUNT(*) FROM $t");
+        // 6) rattrapage historique
+        self::backfill();
+        $out['count_after_backfill'] = (int)$wpdb->get_var("SELECT COUNT(*) FROM $t");
+        return new WP_REST_Response(['ok'=>true] + $out, 200);
     }
 
     public static function rest_import($req) {
         $rows = $req->get_param('rows');
         if (!is_array($rows)) return new WP_REST_Response(['ok'=>false,'error'=>'rows manquant'], 400);
-        global $wpdb; $t = $wpdb->prefix . self::TABLE; $ins = 0;
+        global $wpdb; $t = $wpdb->prefix . self::TABLE; $ins = 0; $errors = [];
         foreach ($rows as $r) {
             if (!is_array($r)) continue;
             $email = sanitize_email($r['email'] ?? '');
@@ -151,7 +207,7 @@ class SPN_Leads {
                 "SELECT id FROM $t WHERE DATE(created_at)=%s AND ((email<>'' AND email=%s) OR (phone<>'' AND phone=%s)) LIMIT 1",
                 $day, $email, $phone));
             if ($exists) continue;
-            $wpdb->insert($t, [
+            $res = $wpdb->insert($t, [
                 'created_at'=>$created,
                 'name'=>mb_substr(sanitize_text_field($r['name'] ?? ''),0,255),
                 'email'=>$email, 'phone'=>$phone,
@@ -161,9 +217,10 @@ class SPN_Leads {
                 'form'=>mb_substr(sanitize_text_field($r['form'] ?? ''),0,150),
                 'channel'=>'elementor', 'ip'=>'', 'quality'=>'',
             ]);
-            $ins++;
+            if ($res !== false) { $ins++; }
+            elseif (count($errors) < 3) { $errors[] = $wpdb->last_error; }
         }
-        return new WP_REST_Response(['ok'=>true, 'inserted'=>$ins], 200);
+        return new WP_REST_Response(['ok'=>true, 'inserted'=>$ins, 'attempted'=>count($rows), 'errors'=>$errors], 200);
     }
 
     /** Renvoie toutes les demandes (historique inclus), tests signalés. Auth : App Password admin. */
