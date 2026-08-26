@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — CRM des demandes (leads)
  * Description: CRM léger : capture toutes les demandes (Elementor + endpoint REST), qualifie bon/mauvais lead, filtre, source précise + canal, e-mail de secours, export CSV. Design moderne 2026.
- * Version: 1.4.0
+ * Version: 1.5.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -127,6 +127,43 @@ class SPN_Leads {
             'permission_callback' => function () { return current_user_can('manage_options'); },
             'callback' => [__CLASS__, 'rest_export'],
         ]);
+        // Import (admin only) : insère des demandes fournies (dédup jour+contact),
+        // pour repeupler la table depuis une source fiable si le backfill a échoué.
+        register_rest_route('spn/v1', '/import', [
+            'methods'  => 'POST',
+            'permission_callback' => function () { return current_user_can('manage_options'); },
+            'callback' => [__CLASS__, 'rest_import'],
+        ]);
+    }
+
+    public static function rest_import($req) {
+        $rows = $req->get_param('rows');
+        if (!is_array($rows)) return new WP_REST_Response(['ok'=>false,'error'=>'rows manquant'], 400);
+        global $wpdb; $t = $wpdb->prefix . self::TABLE; $ins = 0;
+        foreach ($rows as $r) {
+            if (!is_array($r)) continue;
+            $email = sanitize_email($r['email'] ?? '');
+            $phone = mb_substr(sanitize_text_field($r['phone'] ?? ''), 0, 100);
+            if (!$email && !$phone) continue;
+            $created = sanitize_text_field($r['created_at'] ?? current_time('mysql'));
+            $day = substr($created, 0, 10);
+            $exists = $wpdb->get_var($wpdb->prepare(
+                "SELECT id FROM $t WHERE DATE(created_at)=%s AND ((email<>'' AND email=%s) OR (phone<>'' AND phone=%s)) LIMIT 1",
+                $day, $email, $phone));
+            if ($exists) continue;
+            $wpdb->insert($t, [
+                'created_at'=>$created,
+                'name'=>mb_substr(sanitize_text_field($r['name'] ?? ''),0,255),
+                'email'=>$email, 'phone'=>$phone,
+                'company'=>mb_substr(sanitize_text_field($r['company'] ?? ''),0,255),
+                'message'=>mb_substr(wp_strip_all_tags((string)($r['message'] ?? '')),0,4000),
+                'source'=>esc_url_raw($r['source'] ?? ''),
+                'form'=>mb_substr(sanitize_text_field($r['form'] ?? ''),0,150),
+                'channel'=>'elementor', 'ip'=>'', 'quality'=>'',
+            ]);
+            $ins++;
+        }
+        return new WP_REST_Response(['ok'=>true, 'inserted'=>$ins], 200);
     }
 
     /** Renvoie toutes les demandes (historique inclus), tests signalés. Auth : App Password admin. */
@@ -185,21 +222,41 @@ class SPN_Leads {
     public static function backfill() {
         global $wpdb;
         $sub=$wpdb->prefix.'e_submissions'; $val=$wpdb->prefix.'e_submissions_values'; $t=$wpdb->prefix.self::TABLE;
-        if ($wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s",$sub))!==$sub) return;
-        $rows=$wpdb->get_results("SELECT id, form_name, referer, created_at FROM $sub ORDER BY created_at DESC LIMIT 5000");
+        // table Elementor présente ? (comparaison souple, pas de !== strict)
+        if (!$wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s",$sub))) return;
+        $rows=$wpdb->get_results("SELECT id, form_name, referer, created_at FROM $sub ORDER BY created_at ASC LIMIT 5000");
         if (!$rows) return;
         foreach ($rows as $r) {
-            $vals=$wpdb->get_results($wpdb->prepare("SELECT `key`,`value` FROM $val WHERE submission_id=%d",$r->id));
-            $map=[]; foreach($vals as $v)$map[strtolower($v->key)]=$v->value;
-            $pick=function($keys)use($map){foreach($keys as $k)foreach($map as $mk=>$mv){if(strpos($mk,$k)!==false&&$mv!=='')return $mv;}return '';};
-            $email=$pick(['email','mail']); $phone=$pick(['tel','phone','1696542','2dc1dda']);
-            if (!$email && !$phone) continue;
-            $exists=$wpdb->get_var($wpdb->prepare(
-                "SELECT id FROM $t WHERE created_at=%s AND (email=%s OR phone=%s) LIMIT 1",$r->created_at,$email,$phone));
-            if ($exists) continue;
-            $wpdb->insert($t,['created_at'=>$r->created_at,'name'=>$pick(['name','nom']),'email'=>$email,
-                'phone'=>$phone,'company'=>$pick(['entreprise','company','e9cc337']),'message'=>$pick(['message']),
-                'source'=>$r->referer,'form'=>$r->form_name,'channel'=>'elementor','ip'=>'','quality'=>'']);
+            try {
+                $vals=$wpdb->get_results($wpdb->prepare("SELECT `key`,`value` FROM $val WHERE submission_id=%d",$r->id));
+                if (!$vals) continue;
+                $email=$phone=$name=$company=$message='';
+                foreach ($vals as $v) {
+                    $k=strtolower((string)$v->key); $vv=trim((string)$v->value);
+                    if ($vv==='') continue;
+                    // e-mail : détecté par le motif, quel que soit le nom du champ
+                    if (!$email && strpos($vv,'@')!==false && is_email($vv)) { $email=$vv; continue; }
+                    // téléphone : suite de 8 à 15 chiffres, sans @
+                    if (!$phone && strpos($vv,'@')===false) {
+                        $digits=preg_replace('/\D+/','',$vv);
+                        if (strlen($digits)>=8 && strlen($digits)<=15) { $phone=$vv; continue; }
+                    }
+                    if (!$message && (strpos($k,'message')!==false || strpos($k,'msg')!==false)) { $message=$vv; continue; }
+                    if (!$name && (strpos($k,'name')!==false || strpos($k,'nom')!==false)) { $name=$vv; continue; }
+                    if (!$company && (strpos($k,'entreprise')!==false || strpos($k,'company')!==false
+                        || strpos($k,'societe')!==false || strpos($k,'e9cc337')!==false)) { $company=$vv; continue; }
+                }
+                if (!$email && !$phone) continue;
+                // dédup : même contact le même jour (évite les doublons avec les lignes 'rest')
+                $day=substr((string)$r->created_at,0,10);
+                $exists=$wpdb->get_var($wpdb->prepare(
+                    "SELECT id FROM $t WHERE DATE(created_at)=%s AND ((email<>'' AND email=%s) OR (phone<>'' AND phone=%s)) LIMIT 1",
+                    $day,$email,$phone));
+                if ($exists) continue;
+                $wpdb->insert($t,['created_at'=>$r->created_at,'name'=>$name,'email'=>$email,
+                    'phone'=>$phone,'company'=>$company,'message'=>$message,
+                    'source'=>$r->referer,'form'=>$r->form_name,'channel'=>'elementor','ip'=>'','quality'=>'']);
+            } catch (\Throwable $e) { continue; }
         }
     }
 
