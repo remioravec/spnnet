@@ -1,0 +1,417 @@
+<title>Optimisation on-site 2026 — SPN NET</title>
+<style>
+.spnos{
+  --g-blue:#4285F4;--g-red:#EA4335;--g-yellow:#FBBC04;--g-green:#34A853;
+  --action:#1a73e8;--action-hover:#1b66c9;--focus:#aecbfa;
+  --bg:#fff;--surface:#f8f9fa;--surface-2:#f1f3f4;
+  --ink:#1f1f1f;--ink-2:#5f6368;--line:#e8eaed;
+  --r-card:28px;--r-md:16px;--r-sm:12px;--r-pill:999px;
+  --shadow:0 1px 2px rgba(60,64,67,.08),0 1px 3px rgba(60,64,67,.06);
+  --shadow-hover:0 6px 18px rgba(60,64,67,.12),0 2px 6px rgba(60,64,67,.08);
+  --max:1180px;
+  --display:'Google Sans Flex','Google Sans','Product Sans','Roboto',system-ui,'Segoe UI',Arial,sans-serif;
+  --body:'Roboto',system-ui,'Segoe UI',Arial,sans-serif;
+  --mono:'Roboto Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-family:var(--body);color:var(--ink);line-height:1.55;background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+.spnos *{box-sizing:border-box;margin:0;padding:0}
+.spnos .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.spnos h1,.spnos h2,.spnos h3,.spnos h4{font-family:var(--display);letter-spacing:-.01em;font-weight:600;line-height:1.2}
+.spnos p{margin:.5em 0}
+.spnos a{color:var(--action);text-decoration:none}
+.spnos a:hover{text-decoration:underline}
+.spnos .eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--ink-2);font-weight:500}
+.spnos .mono{font-family:var(--mono)}
+
+/* nav */
+.spnos .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.spnos .nav .wrap{display:flex;align-items:center;gap:8px;height:60px;flex-wrap:wrap}
+.spnos .nav .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;margin-right:auto}
+.spnos .nav a{color:var(--ink-2);font-size:14px;padding:8px 12px;border-radius:var(--r-pill);white-space:nowrap}
+.spnos .nav a:hover{color:var(--ink);text-decoration:none;background:var(--surface)}
+.spnos .navlinks{display:flex;gap:2px;flex-wrap:wrap}
+@media(max-width:820px){.spnos .navlinks{display:none}}
+
+/* hero */
+.spnos .hero{padding:72px 0 40px;background:linear-gradient(180deg,#fff 0%,var(--surface) 100%)}
+.spnos .hero h1{font-size:clamp(30px,5vw,50px);font-weight:700;max-width:15ch}
+.spnos .hero .sub{font-size:clamp(16px,2.2vw,20px);color:var(--ink-2);max-width:62ch;margin-top:16px}
+.spnos .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+@media(max-width:720px){.spnos .tiles{grid-template-columns:1fr}}
+.spnos .tile{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:24px;box-shadow:var(--shadow)}
+.spnos .tile .n{font-family:var(--display);font-size:40px;font-weight:700;line-height:1}
+.spnos .tile .lbl{color:var(--ink-2);font-size:14px;margin-top:8px}
+.spnos .tile .tag{display:inline-block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:var(--r-pill);margin-top:14px}
+.spnos .t-opt{background:#e8f0fe;color:#174ea6}
+.spnos .t-fix{background:#fce8e6;color:#a50e0e}
+.spnos .t-new{background:#e6f4ea;color:#137333}
+
+/* sections */
+.spnos section{padding:56px 0;border-top:1px solid var(--line)}
+.spnos .shead{max-width:70ch;margin-bottom:28px}
+.spnos .shead h2{font-size:clamp(24px,3.4vw,34px)}
+.spnos .shead p{color:var(--ink-2);font-size:17px;margin-top:10px}
+.spnos .kicker{color:var(--action);font-weight:600}
+
+/* cards grid */
+.spnos .grid{display:grid;gap:16px}
+.spnos .g3{grid-template-columns:repeat(3,1fr)}
+.spnos .g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.spnos .g3,.spnos .g2{grid-template-columns:1fr}}
+.spnos .card{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--shadow);transition:box-shadow .25s,transform .25s;padding:26px}
+.spnos .card:hover{box-shadow:var(--shadow-hover)}
+.spnos .card h3{font-size:19px;margin-bottom:8px}
+.spnos .card p{color:var(--ink-2);font-size:14.5px}
+.spnos .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;vertical-align:middle}
+
+/* table */
+.spnos .tbl{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+.spnos .tblwrap{overflow-x:auto;border-radius:var(--r-md);box-shadow:var(--shadow)}
+.spnos .tbl th{background:var(--surface);text-align:left;font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink-2);padding:13px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+.spnos .tbl td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.spnos .tbl tr:last-child td{border-bottom:none}
+.spnos .tbl code{font-family:var(--mono);font-size:12.5px;background:var(--surface-2);padding:2px 6px;border-radius:6px}
+
+/* étage toggle */
+.spnos .seg{display:inline-flex;position:relative;background:var(--surface-2);border-radius:var(--r-pill);padding:5px;margin-bottom:26px;flex-wrap:wrap}
+.spnos .seg button{position:relative;z-index:2;border:none;background:transparent;font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink-2);padding:10px 18px;border-radius:var(--r-pill);cursor:pointer;transition:color .3s}
+.spnos .seg button.active{color:#fff}
+.spnos .seg .pill{position:absolute;z-index:1;top:5px;bottom:5px;background:var(--action);border-radius:var(--r-pill);transition:left .42s cubic-bezier(.65,0,.2,1),width .42s cubic-bezier(.65,0,.2,1)}
+.spnos .etage{display:none}
+.spnos .etage.show{display:block;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* Hn tree */
+.spnos .htree{font-family:var(--mono);font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px 24px;line-height:2}
+.spnos .htree .h1{color:var(--ink);font-weight:500}
+.spnos .htree .h2{color:var(--action);padding-left:22px}
+.spnos .htree .h3{color:var(--ink-2);padding-left:44px}
+.spnos .htree .note{color:#137333;font-style:normal}
+
+/* checklist */
+.spnos .chk{list-style:none;display:grid;gap:10px}
+.spnos .chk li{display:flex;gap:12px;font-size:15px;align-items:flex-start}
+.spnos .chk .ic{flex:0 0 22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;margin-top:1px;font-weight:700}
+.spnos .ok{background:#e6f4ea;color:#137333}
+.spnos .no{background:#fce8e6;color:#a50e0e}
+
+/* callout */
+.spnos .callout{background:#e8f0fe;border:1px solid #d2e3fc;border-radius:var(--r-md);padding:18px 22px;font-size:15px}
+.spnos .callout.warn{background:#fef7e0;border-color:#feefc3}
+.spnos .callout b{color:var(--ink)}
+
+/* steps */
+.spnos .steps{display:grid;gap:16px}
+.spnos .step{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:24px;box-shadow:var(--shadow)}
+.spnos .step .num{width:44px;height:44px;border-radius:50%;background:var(--action);color:#fff;font-family:var(--display);font-weight:700;font-size:18px;display:grid;place-items:center}
+.spnos .step h3{font-size:18px}
+.spnos .step .meta{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);margin-top:4px}
+.spnos .step p{color:var(--ink-2);font-size:14.5px;margin-top:8px}
+
+.spnos .footer{padding:40px 0 60px;color:var(--ink-2);font-size:14px;border-top:1px solid var(--line)}
+.spnos .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.spnos .chip{font-family:var(--mono);font-size:12px;background:var(--surface);border:1px solid var(--line);padding:6px 12px;border-radius:var(--r-pill);color:var(--ink-2)}
+@media(prefers-reduced-motion:reduce){.spnos *{transition:none!important;scroll-behavior:auto!important}}
+.spnos :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+</style>
+
+<div class="spnos">
+
+<nav class="nav"><div class="wrap">
+  <div class="brand">
+    <svg viewBox="0 0 200 200" width="30" height="30" aria-hidden="true"><g fill="none" stroke-width="24" stroke-linecap="round"><circle cx="100" cy="100" r="80" stroke="#4285F4" stroke-dasharray="194.7 308" stroke-dashoffset="-198"/><circle cx="100" cy="100" r="80" stroke="#34A853" stroke-dasharray="169.5 333.1" stroke-dashoffset="-494.5"/><circle cx="100" cy="100" r="80" stroke="#FBBC04" stroke-dasharray="28.8 473.9" stroke-dashoffset="-429.2"/></g><rect x="76" y="83" width="48" height="14" rx="7" fill="#dadce0"/><rect x="62" y="105" width="76" height="15" rx="7.5" fill="#bdc1c6"/></svg>
+    On-site 2026 · SPN NET
+  </div>
+  <div class="navlinks">
+    <a href="#archi">Architecture</a>
+    <a href="#template">Template</a>
+    <a href="#doorway">Anti-doorway</a>
+    <a href="#balisage">Balisage</a>
+    <a href="#mesure">Mesure</a>
+    <a href="#plan">Séquencement</a>
+    <a href="#stop">À éviter</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="eyebrow">Optimisation on-site · méthode 20/80 · acquisition</span>
+  <h1>Pas 32 pages neuves. 19 à optimiser, 2 à fusionner, 13 à créer.</h1>
+  <p class="sub">Tes requêtes <span class="mono">« société de nettoyage bureaux paris X »</span> sont déjà couvertes par les pages <code>/paris-N/</code>. Le levier 2026 n'est pas de dupliquer — c'est de <b>dédoublonner, densifier le local, et n'ouvrir en programmatique que les zones réellement vierges</b>. Chaque action ci-dessous est branchée à un signal utilisateur mesurable.</p>
+  <div class="tiles">
+    <div class="tile"><div class="n" style="color:var(--g-blue)">19</div><div class="lbl">arrondissements déjà en page <code>/paris-N/</code> — à <b>optimiser</b>, pas recréer</div><span class="tag t-opt">Cœur 20/80 · optimiser</span></div>
+    <div class="tile"><div class="n" style="color:var(--g-red)">2</div><div class="lbl">articles <code>/societe-nettoyage-bureaux-paris-{2,12}/</code> qui <b>cannibalisent</b></div><span class="tag t-fix">Cœur 20/80 · fusionner (301)</span></div>
+    <div class="tile"><div class="n" style="color:var(--g-green)">13</div><div class="lbl">communes 92/94 <b>sans page</b> — la vraie demande programmatique nette</div><span class="tag t-new">Création · net-new</span></div>
+  </div>
+</div></header>
+
+<!-- ARCHITECTURE -->
+<section id="archi"><div class="wrap">
+  <div class="shead">
+    <span class="eyebrow kicker">Décision n°1</span>
+    <h2>Architecture : consolider avant de créer</h2>
+    <p>Ta Règle 3 (une position ne vaut que son CA) + action 6 (pruning) tranchent le sujet. Générer 32 pages quasi identiques sur un motif fixe, c'est fabriquer des <i>doorway pages</i> : Google les détecte, les regroupe, et dilue l'autorité. Voici l'état réel du site et le traitement par cas.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>Cas</th><th>Existant vérifié</th><th>Requête ciblée</th><th>Action 2026</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="dot" style="background:var(--g-blue)"></span><b>19 arrondissements</b></td>
+        <td><code>/paris-1/</code> → <code>/paris-20/</code> · H1 déjà « Société de nettoyage de bureaux à Paris Ne (750XX) »</td>
+        <td class="mono">société nettoyage bureaux paris X</td>
+        <td><b>Optimiser</b> (title/meta CTR, contenu local, schema areaServed). Aucune nouvelle URL.</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:var(--g-red)"></span><b>2 doublons</b></td>
+        <td>Articles <code>/societe-nettoyage-bureaux-paris-2/</code> et <code>-12/</code>, indexables, H1 quasi identique à la page zone</td>
+        <td class="mono">société nettoyage bureaux paris 2 / 12</td>
+        <td><b>301</b> vers <code>/paris-2/</code> et <code>/paris-12/</code>. Récupère le jus, stoppe la cannibalisation.</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:var(--g-green)"></span><b>13 communes 92/94</b></td>
+        <td>Aucune page. Bagneux, Montrouge, Malakoff, Châtillon, Antony, Clamart, Cachan, Sceaux, Arcueil, Gentilly, Bourg-la-Reine, Fontenay-aux-Roses, Le Kremlin-Bicêtre</td>
+        <td class="mono">société nettoyage bureaux [commune]</td>
+        <td><b>Créer</b> sur le même gabarit — angle proximité fort (siège SPN NET à Bagneux 92).</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <div class="callout" style="margin-top:22px">💡 <b>Pourquoi les communes, elles, sont légitimes en programmatique :</b> il y a une demande distincte, aucune page concurrente sur ton domaine, et un signal de proximité réel (tu es <i>physiquement</i> à Bagneux). Ce n'est pas du remplissage — c'est de la couverture de demande non servie. Exactement le cadre de ton action 2 (« pages service dédiées »).</div>
+</div></section>
+
+<!-- TEMPLATE -->
+<section id="template"><div class="wrap">
+  <div class="shead">
+    <span class="eyebrow kicker">Le gabarit</span>
+    <h2>Le template on-site, lu par tes 3 étages</h2>
+    <p>Un seul gabarit, décliné par zone. On le juge à chaque étage : mérite-t-on le clic (pré-clic), mérite-t-on la position (post-clic), est-ce que ça rapporte (business).</p>
+  </div>
+
+  <div class="seg" role="tablist">
+    <span class="pill"></span>
+    <button class="active" data-e="1">① Pré-clic (SERP)</button>
+    <button data-e="2">② Post-clic (page)</button>
+    <button data-e="3">③ Business</button>
+  </div>
+
+  <!-- Étage 1 -->
+  <div class="etage show" data-e="1">
+    <div class="grid g2">
+      <div class="card">
+        <h3>Title — motif CTR</h3>
+        <p style="margin-bottom:10px">55–60 caractères, requête exacte en tête, code postal (rassure + capte la longue traîne), marque en fin.</p>
+        <div class="htree"><span class="h1">Société de nettoyage de bureaux à Paris 2e (75002) | SPN&nbsp;NET</span></div>
+        <p style="margin-top:12px">Commune : <code>Nettoyage de bureaux à Montrouge (92) — SPN NET, basée à Bagneux</code> → la proximité <b>dans le title</b> est un levier CTR local sous-exploité.</p>
+      </div>
+      <div class="card">
+        <h3>Meta description — la promesse différenciante</h3>
+        <p>150–155 car. On ne décrit pas, on <b>vend le clic</b> : preuve + proximité + délai + anti-gêne. Variabiliser le quartier.</p>
+        <div class="htree" style="line-height:1.7"><span class="h2" style="padding:0">Nettoyage de bureaux dans le [quartier], Paris [N]e. Interventions tôt le matin ou en soirée, sans gêner votre activité. Devis sous 24h · noté 4,8/5 · ISO 45001.</span></div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:16px">🎯 <b>Rich snippet — le vrai, pas le fantasme.</b> Ce qui s'affiche : ⭐ <b>aggregateRating</b> (4,8/48, déjà en place) et le <b>fil d'Ariane</b>. Ce qui ne s'affiche plus (Google 2023, réservé gov/santé) : la <b>FAQ</b> → on la garde pour le GEO et l'entité, jamais comme pari « étoiles ». Signal piloté : <b>CTR réel vs courbe CTR de la position</b> (GSC). Sous la courbe = title/meta à retravailler, pas le contenu.</div>
+  </div>
+
+  <!-- Étage 2 -->
+  <div class="etage" data-e="2">
+    <div class="grid g2" style="align-items:start">
+      <div>
+        <div class="card" style="margin-bottom:16px">
+          <h3>Structure Hn — l'intention BOFU avant le scroll 50 %</h3>
+          <p>La réponse à « je cherche un prestataire pour mes bureaux ici » doit vivre <b>au-dessus de la ligne de flottaison</b> : H1 + micro-preuve + formulaire. Le reste nourrit la position, pas la conversion.</p>
+        </div>
+        <div class="htree">
+          <div class="h1">H1 — Société de nettoyage de bureaux à [Zone] ([CP])</div>
+          <div class="h2">H2 — Votre devis pour vos bureaux à [Zone], sous 24h <span class="note">← form + preuve, avant 50%</span></div>
+          <div class="h2">H2 — Le nettoyage adapté aux [typologie locale]</div>
+          <div class="h3">H3 — [quartier A], [quartier B], [quartier C]</div>
+          <div class="h2">H2 — Nos prestations pour les bureaux du [CP]</div>
+          <div class="h2">H2 — Pourquoi les entreprises de [Zone] nous choisissent</div>
+          <div class="h2">H2 — Nous intervenons aussi à proximité <span class="note">← maillage</span></div>
+          <div class="h2">H2 — Questions fréquentes — bureaux à [Zone] <span class="note">← GEO</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Les 4 signaux post-clic à tenir</h3>
+        <ul class="chk" style="margin-top:14px">
+          <li><span class="ic ok">↓</span><div><b>Profondeur de scroll (GA4 25/50/75/90)</b> — la promesse locale doit être lue avant 50 %. Si le scroll cale à 25 %, l'above-the-fold ne répond pas à l'intention.</div></li>
+          <li><span class="ic ok">↺</span><div><b>Retour SERP / pogo (&lt;10 s + sortie)</b> — la métrique la plus corrélée aux pertes de position. Tuée par un H1 net + preuve immédiate + form visible.</div></li>
+          <li><span class="ic ok">◔</span><div><b>Taux d'engagement GA4 (&gt; 55 %)</b> — sous 55 % sur une page zone = contenu trop générique, pas assez local.</div></li>
+          <li><span class="ic ok">⚡</span><div><b>LCP/INP/CLS (CrUX réel : 2,5 s / 200 ms / 0,1)</b> — hero léger, image de réalisation lazy, pas de layout shift du formulaire.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Étage 3 -->
+  <div class="etage" data-e="3">
+    <div class="callout" style="margin-bottom:18px">🔓 <b>Débloqué cette semaine :</b> la collecte des leads était cassée (l'action « save-to-database » manquait sur le formulaire, et le JS masquait les échecs). C'est réparé + doublé d'un journal indépendant. <b>Conséquence directe pour ce plan :</b> l'attribution <i>conversion SEO par page d'atterrissage</i> (ton étage 3) est enfin fiable. C'était ton action 1 — « reconstituer la vérité des leads » — elle est faite.</div>
+    <div class="grid g3">
+      <div class="card"><h3>Conversion mobile</h3><p>Click-to-call collant, formulaire 3 champs (nom · tél · e-mail pro), pop-up au clic CTA. Déjà en place sur le gabarit — à répliquer tel quel sur les communes.</p></div>
+      <div class="card"><h3>Attribution</h3><p>Chaque envoi porte son <code>referer</code> = la page zone. Conversions SEO / page, valeur par intention (BOFU zone &gt; MOFU secteur &gt; info blog), CPA SEO vs CPA Ads.</p></div>
+      <div class="card"><h3>Boucle CRM</h3><p>Journal des demandes → export CSV → statut « signé » côté SPN NET. La seule ligne qui compte : lead → devis → contrat mensuel récurrent.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ANTI DOORWAY -->
+<section id="doorway"><div class="wrap">
+  <div class="shead">
+    <span class="eyebrow kicker">Le point technique décisif</span>
+    <h2>La variabilisation anti-doorway</h2>
+    <p>Une page programmatique n'échappe au « thin/doorway » que si <b>≥ 40 % du texte varie réellement</b> par zone — pas un numéro qui change dans un paragraphe cloné. Voici le modèle de données à remplir par zone avant génération. C'est lui qui fait la différence entre 32 pages qui rankent et 32 pages ignorées.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>Variable</th><th>Rôle SEO / GEO</th><th>Exemple — Paris 2e</th><th>Exemple — Montrouge (92)</th></tr></thead>
+    <tbody>
+      <tr><td><b>Quartiers clés</b> (×3)</td><td>Longue traîne + preuve de connaissance du terrain</td><td>Sentier, Bourse, Mail</td><td>Jean Jaurès, Centre, Portes de Montrouge</td></tr>
+      <tr><td><b>Typologie de bâti</b></td><td>Angle prestation (contraintes réelles)</td><td>Immeubles haussmanniens, plateaux startups/coworking</td><td>Immeubles mixtes, petits sièges PME, RDC commerciaux</td></tr>
+      <tr><td><b>Tissu tertiaire dominant</b></td><td>Vocabulaire d'intention du prospect</td><td>Mode, e-commerce, agences, tech</td><td>PME, professions libérales, TPE de services</td></tr>
+      <tr><td><b>Accès / logistique</b></td><td>Réassurance « on vient vraiment »</td><td>M3 Sentier, M8/9 Grands Boulevards</td><td>M4 Mairie de Montrouge, à 4 min de notre siège</td></tr>
+      <tr><td><b>Limitrophes</b></td><td>Maillage interne contextuel</td><td>Paris 1, 3, 9, 10</td><td>Paris 14, Malakoff, Châtillon, Bagneux</td></tr>
+      <tr><td><b>Preuve locale</b></td><td>E-E-A-T, anti-généricité</td><td>Type de mission déjà réalisée dans le secteur (sans inventer de client)</td><td>Proximité immédiate du siège = réactivité affichée</td></tr>
+      <tr><td><b>Angle éditorial</b></td><td>Chunk unique pour le LLM</td><td>« Nettoyer un plateau ouvert de startup sans gêner les horaires décalés »</td><td>« Un prestataire de proximité pour PME, à quelques minutes »</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn" style="margin-top:22px">⚠️ <b>Garde-fou éditorial (ta consigne, tenue) :</b> on ne <i>fabrique pas d'offre</i>. Pas de client inventé, pas d'engagement non tenu (produits fournis, contrat annuel, multi-sites…). La variable « preuve locale » décrit le <b>terrain</b> et renvoie au devis — jamais une promesse commerciale non validée par SPN NET.</div>
+</div></section>
+
+<!-- BALISAGE -->
+<section id="balisage"><div class="wrap">
+  <div class="shead">
+    <span class="eyebrow kicker">Balisage · maillage · GEO</span>
+    <h2>Ce qui fait entité et ce qui fait silo</h2>
+  </div>
+  <div class="grid g3">
+    <div class="card">
+      <h3><span class="dot" style="background:var(--g-blue)"></span>Schema par page</h3>
+      <p style="margin-bottom:8px"><code>CleaningService</code> (@id #business, déjà global) enrichi <b>par page</b> de :</p>
+      <ul class="chk">
+        <li><span class="ic ok">+</span><div><code>areaServed</code> = la zone précise (City / AdministrativeArea + code postal)</div></li>
+        <li><span class="ic ok">+</span><div><code>Service</code> « Nettoyage de bureaux » lié à areaServed</div></li>
+        <li><span class="ic ok">+</span><div><code>BreadcrumbList</code> Accueil › Tertiaire › [Zone]</div></li>
+        <li><span class="ic ok">+</span><div><code>FAQPage</code> (pour GEO, pas pour les étoiles)</div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="dot" style="background:var(--g-green)"></span>Maillage en silo</h3>
+      <p>Anti-boilerplate : 80 % de tes liens actuels sont menu/footer. Ici on injecte du <b>lien contextuel</b> :</p>
+      <ul class="chk">
+        <li><span class="ic ok">→</span><div>Chaque zone ↔ <b>pillar « nettoyage bureaux / tertiaire »</b></div></li>
+        <li><span class="ic ok">→</span><div>Zone ↔ <b>2-3 limitrophes</b> (Paris 2 ↔ 1/3/9/10)</div></li>
+        <li><span class="ic ok">→</span><div>Arrondissement du sud ↔ <b>commune 92/94</b> limitrophe (Paris 14 ↔ Montrouge)</div></li>
+        <li><span class="ic ok">→</span><div>Chaque commune ↔ <b>Bagneux (siège)</b></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="dot" style="background:var(--g-yellow)"></span>GEO — être recommandé</h3>
+      <p>Prompt cible : « meilleure société de nettoyage de bureaux à Paris [N] ». Pour être cité :</p>
+      <ul class="chk">
+        <li><span class="ic ok">◆</span><div><b>Chunks autonomes</b> : chaque H2 répond à une question complète, citable hors contexte</div></li>
+        <li><span class="ic ok">◆</span><div>Entité claire : nom, NAP, zone, preuve — cohérents page/GBP/schema</div></li>
+        <li><span class="ic ok">◆</span><div>Mesure : <b>part de citation IA</b> (AI Overviews / ChatGPT / Perplexity) sur les prompts × zones</div></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- MESURE -->
+<section id="mesure"><div class="wrap">
+  <div class="shead">
+    <span class="eyebrow kicker">Le tableau de bord</span>
+    <h2>Chaque action est branchée à un signal — sinon elle vole à l'aveugle</h2>
+    <p>Traduction de ton dashboard 3 étages sur ce chantier précis. Si une ligne n'est pas instrumentée, on ne lance pas l'action correspondante.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>Étage</th><th>Signal</th><th>Source</th><th>Seuil / lecture</th><th>Action déclenchée</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="2"><b>① Pré-clic</b></td><td>CTR vs courbe</td><td>GSC</td><td>Sous la courbe de la position</td><td>Réécrire title/meta (pas le contenu)</td></tr>
+      <tr><td>Position pondérée + part citation IA</td><td>DataForSEO live · audit prompts</td><td>Position 4–15 = « à bascule »</td><td>Prioriser l'optimisation (action 4)</td></tr>
+      <tr><td rowspan="2"><b>② Post-clic</b></td><td>Scroll 50 % + engagement</td><td>GA4</td><td>Engagement &lt; 55 % / scroll &lt; 50 %</td><td>Remonter la preuve locale, densifier le unique</td></tr>
+      <tr><td>Pogo (&lt;10 s + sortie)</td><td>GA4</td><td>Pic de sessions courtes</td><td>Revoir l'above-the-fold (H1+preuve+form)</td></tr>
+      <tr><td><b>③ Business</b></td><td>Conversions SEO / page + CPA</td><td>Journal leads → CRM</td><td>Lead → devis → contrat récurrent</td><td>Doubler la mise sur les zones qui signent</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<!-- PLAN -->
+<section id="plan"><div class="wrap">
+  <div class="shead">
+    <span class="eyebrow kicker">Séquencement 20/80</span>
+    <h2>L'ordre d'exécution, par impact business décroissant</h2>
+    <p>On ne fait pas tout en même temps. On stoppe d'abord les fuites (cannibalisation, mesure), puis on pousse les pages déjà « à bascule », puis on étend.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div>
+      <h3>Dédoublonner — 301 les 2 articles vers les pages zones</h3>
+      <div class="meta">Cœur · ~1 h · gain rapide</div>
+      <p><code>/societe-nettoyage-bureaux-paris-2/</code> → <code>/paris-2/</code> et le -12 → <code>/paris-12/</code>. Deux URL indexables sur la même requête money divisent ton autorité : on la reconcentre. Zéro contenu à produire.</p>
+    </div></div>
+    <div class="step"><div class="num">2</div><div>
+      <h3>Identifier les arrondissements « à bascule » (position 4–15)</h3>
+      <div class="meta">Cœur · donnée d'abord</div>
+      <p>GSC + DataForSEO live sur les 19 requêtes « société nettoyage bureaux paris X ». Celles en page 1 basse / page 2 = ROI maximal : un cran de qualité on-site suffit à basculer en top 3. C'est ton action 4.</p>
+    </div></div>
+    <div class="step"><div class="num">3</div><div>
+      <h3>Densifier le local + schema areaServed sur les 19</h3>
+      <div class="meta">Cœur · le gros du 20/80</div>
+      <p>Remplir le modèle de variables (quartiers, bâti, tissu, limitrophes), remonter la preuve avant 50 %, injecter <code>areaServed</code> + maillage contextuel. Priorité aux « à bascule » de l'étape 2.</p>
+    </div></div>
+    <div class="step"><div class="num">4</div><div>
+      <h3>Créer les 13 communes 92/94 sur le gabarit</h3>
+      <div class="meta">Création · net-new</div>
+      <p>Commencer par les plus fort tertiaire / proximité siège : Montrouge, Malakoff, Antony, Clamart, Châtillon. Angle proximité Bagneux = différenciateur imbattable vs les nationaux.</p>
+    </div></div>
+    <div class="step"><div class="num">5</div><div>
+      <h3>Boucler la mesure GEO + business</h3>
+      <div class="meta">Pilotage continu</div>
+      <p>Audit prompts × zones (part de citation IA), suivi conversions/page via le journal réparé, arbitrage CPA SEO vs Ads. On double la mise là où ça signe, on prune ce qui ne convertit pas (action 6).</p>
+    </div></div>
+  </div>
+</div></section>
+
+<!-- STOP -->
+<section id="stop"><div class="wrap">
+  <div class="shead">
+    <span class="eyebrow kicker">À la place</span>
+    <h2>Ce qu'il ne faut plus faire</h2>
+  </div>
+  <div class="grid g2">
+    <div class="card"><ul class="chk">
+      <li><span class="ic no">✕</span><div><b>Générer 32 pages neuves identiques.</b> → Doorway / near-duplicate. Google les regroupe, tu perds l'autorité déjà acquise par les <code>/paris-N/</code>.</div></li>
+      <li><span class="ic no">✕</span><div><b>Laisser 2 URL sur la même requête.</b> → Cannibalisation : tu concours contre toi-même.</div></li>
+      <li><span class="ic no">✕</span><div><b>Cloner un paragraphe en changeant le numéro.</b> → Détecté comme contenu mince. Le local doit être <i>réel</i>.</div></li>
+    </ul></div>
+    <div class="card"><ul class="chk">
+      <li><span class="ic no">✕</span><div><b>Empiler des FAQ pour les étoiles.</b> → Google ne les affiche plus. Utile pour le GEO uniquement.</div></li>
+      <li><span class="ic no">✕</span><div><b>Optimiser le title avant de lire le CTR.</b> → On mesure d'abord vs la courbe, puis on agit.</div></li>
+      <li><span class="ic no">✕</span><div><b>Bâtir avant d'avoir branché la mesure.</b> → Ta Règle : une action sans métrique attachée n'entre pas dans le plan.</div></li>
+    </ul></div>
+  </div>
+</div></section>
+
+<footer class="footer"><div class="wrap">
+  <b>Optimisation on-site 2026 — SPN NET</b> · méthode 20/80 orientée acquisition.<br>
+  Périmètre vérifié en direct sur spn-net.fr : 20 pages <code>/paris-N/</code> publiées, 2 doublons repérés, 13 communes 92/94 vierges.
+  <div class="pillrow">
+    <span class="chip">19 optimiser</span><span class="chip">2 fusionner</span><span class="chip">13 créer</span>
+    <span class="chip">areaServed schema</span><span class="chip">maillage contextuel</span><span class="chip">GEO chunks</span><span class="chip">attribution réparée</span>
+  </div>
+</div></footer>
+
+</div>
+
+<script>
+(function(){
+  var root=document.querySelector('.spnos'); if(!root) return;
+  var seg=root.querySelector('.seg'), pill=seg.querySelector('.pill'), btns=seg.querySelectorAll('button');
+  function move(b){pill.style.left=b.offsetLeft+'px';pill.style.width=b.offsetWidth+'px';}
+  function show(e){
+    btns.forEach(function(b){b.classList.toggle('active',b.dataset.e===e);});
+    root.querySelectorAll('.etage').forEach(function(el){el.classList.toggle('show',el.dataset.e===e);});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){move(b);show(b.dataset.e);});});
+  function init(){var a=seg.querySelector('button.active');if(a)move(a);}
+  if(document.readyState!=='loading')setTimeout(init,60);else document.addEventListener('DOMContentLoaded',function(){setTimeout(init,60);});
+  window.addEventListener('resize',function(){var a=seg.querySelector('button.active');if(a)move(a);});
+})();
+</script>
