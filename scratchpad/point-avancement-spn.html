@@ -1,0 +1,161 @@
+<title>Point d'avancement · SPN NET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--panel:#f8f9fa;--card:#fff;--ink:#202124;--muted:#5f6368;--line:#e3e5e8;
+  --red:#AA182B;--red2:#9B1123;--green:#1e8e3e;--green-soft:#e6f4ea;--amber:#b06000;
+  --amber-soft:#feefc3;--soft:#fdeef0;--sans:'Poppins',system-ui,'Segoe UI',Roboto,Arial,sans-serif;}
+@media (prefers-color-scheme:dark){:root{--bg:#fff;--panel:#f8f9fa;--card:#fff;--ink:#202124;--muted:#5f6368;--line:#e3e5e8;--red:#AA182B;--green:#1e8e3e;--green-soft:#e6f4ea;--amber:#b06000;--amber-soft:#feefc3;--soft:#fdeef0;}}
+:root[data-theme="dark"]{--bg:#fff;--panel:#f8f9fa;--card:#fff;--ink:#202124;--muted:#5f6368;--line:#e3e5e8;--red:#AA182B;--green:#1e8e3e;--green-soft:#e6f4ea;--amber:#b06000;--amber-soft:#feefc3;--soft:#fdeef0;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:56px 20px 72px}
+.head{text-align:center;margin-bottom:40px}
+.kicker{font-size:13px;font-weight:600;color:var(--muted)}.kicker b{color:var(--red)}
+h1{font-size:34px;font-weight:600;letter-spacing:-.02em;margin:6px 0 4px}
+.head .sub{color:var(--muted);font-size:16px}
+.badge{display:inline-flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-weight:600;font-size:14.5px;margin-top:18px;box-shadow:0 1px 2px rgba(60,64,67,.08)}
+.badge .stars{color:#F9AB00;letter-spacing:1px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;margin-bottom:18px;box-shadow:0 1px 3px rgba(60,64,67,.06)}
+.st{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.st h2{font-size:19px;font-weight:600;margin:0}
+.ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:16px;flex:0 0 auto}
+.i-green{background:var(--green-soft);color:var(--green)}.i-red{background:var(--soft);color:var(--red)}
+.gline{display:flex;align-items:baseline;gap:12px}.gline .big{font-size:46px;font-weight:600;line-height:1}
+.gline .lab{color:var(--muted);font-size:15px;padding-bottom:6px}
+.bar{height:14px;border-radius:100px;background:var(--panel);overflow:hidden}
+.bar>i{display:block;height:100%;width:78%;background:var(--green);border-radius:100px}
+.pct{display:flex;justify-content:space-between;margin-top:9px;font-size:13px;color:var(--muted)}
+.note{color:var(--muted);font-size:14.5px;margin:16px 0 0}
+.kw{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}.kw:last-child{border-bottom:0}
+.kw .name{flex:1;font-weight:500;font-size:15.5px}.kw .vol{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.pill{font-size:12px;font-weight:600;padding:5px 13px;border-radius:100px;white-space:nowrap;background:var(--amber-soft);color:var(--amber)}
+.evo{font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:100px;white-space:nowrap;background:var(--green-soft);color:var(--green)}
+.evo.flat{background:var(--panel);color:var(--muted)}
+ul{list-style:none;margin:0;padding:0}li{display:flex;gap:12px;padding:9px 0}
+li .m{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:12px;flex:0 0 auto;margin-top:1px}
+li .tick{background:var(--green-soft);color:var(--green)}li .arw{background:var(--soft);color:var(--red)}
+li .sub{color:var(--muted);font-size:13.5px;margin-top:1px}
+.lnks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lnk{display:flex;align-items:center;gap:9px;padding:13px 15px;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500}
+.lnk:hover{border-color:var(--red);background:var(--soft)}.lnk .a{color:var(--red);margin-left:auto;font-weight:600}
+@media(max-width:520px){.lnks{grid-template-columns:1fr}}
+.src{display:grid;gap:10px}
+.srow{display:flex;align-items:center;gap:13px}
+.srow .lbl{width:104px;font-size:14.5px;font-weight:500;flex:0 0 auto}
+.srow .track{flex:1;height:26px;background:var(--panel);border-radius:8px;overflow:hidden;display:flex;align-items:center}
+.srow .fill{height:100%;border-radius:8px}
+.srow .n{width:96px;text-align:right;font-size:13px;color:var(--muted);flex:0 0 auto}
+.srow .n b{color:var(--ink);font-size:15px}
+.f-seo{background:var(--green)}.f-ads{background:var(--red)}.f-ia{background:#8430ce}.f-dir{background:#9aa0a6}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.kbox{background:var(--panel);border-radius:16px;padding:16px 18px}
+.kbox .n{font-size:26px;font-weight:600;line-height:1.1}
+.kbox .l{font-size:12.5px;color:var(--muted);margin-top:3px}
+.kbox .d{font-size:12px;font-weight:600;color:var(--green);margin-top:5px}
+.kbox .d.down{color:var(--muted)}
+@media(max-width:520px){.kpi{grid-template-columns:1fr}.srow .lbl{width:78px;font-size:13.5px}.srow .n{width:78px}}
+.foot{text-align:center;color:var(--muted);font-size:12.5px;margin-top:26px}
+</style>
+
+<div class="wrap">
+
+  <div class="head">
+    <div class="kicker">SPN <b>NET</b> · Propreté professionnelle à Paris &amp; Île-de-France</div>
+    <h1>Point d'avancement</h1>
+    <div class="sub">Référencement naturel · 11 septembre 2026</div>
+    <div class="badge"><span class="stars">★★★★★</span> 4,8 / 5 · 48 avis Google</div>
+  </div>
+
+  <!-- 1. D'OÙ VIENNENT LES DEMANDES -->
+  <div class="card">
+    <div class="st"><span class="ic i-green">◉</span><h2>D'où viennent vos demandes</h2></div>
+    <div class="src">
+      <div class="srow"><span class="lbl">Référencement</span><span class="track"><span class="fill f-seo" style="width:100%"></span></span><span class="n"><b>5</b> demandes</span></div>
+      <div class="srow"><span class="lbl">Google Ads</span><span class="track"><span class="fill f-ads" style="width:60%"></span></span><span class="n"><b>3</b> demandes</span></div>
+      <div class="srow"><span class="lbl">ChatGPT</span><span class="track"><span class="fill f-ia" style="width:60%"></span></span><span class="n"><b>3</b> demandes</span></div>
+      <div class="srow"><span class="lbl">Direct</span><span class="track"><span class="fill f-dir" style="width:2%"></span></span><span class="n"><b>0</b> demande</span></div>
+    </div>
+    <div class="kpi" style="margin-top:20px">
+      <div class="kbox"><div class="n">7,0 %</div><div class="l">des visites SEO aboutissent à une demande</div></div>
+      <div class="kbox"><div class="n">0,8 %</div><div class="l">des visites Google Ads aboutissent à une demande</div></div>
+    </div>
+    <p class="note">11 demandes reçues du 1<sup>er</sup> au 11 septembre. Le référencement naturel représente 12 % des visites et 45 % des demandes ; Google Ads représente 68 % des visites et 27 % des demandes.</p>
+  </div>
+
+  <!-- 2. VOTRE SITE SUR GOOGLE -->
+  <div class="card">
+    <div class="st"><span class="ic i-green">◎</span><h2>Votre site sur Google</h2></div>
+    <div class="gline"><span class="big">67</span><span class="lab">pages visibles dans les résultats</span></div>
+    <div style="margin-top:18px" class="bar"><i></i></div>
+    <div class="pct"><span>67 pages sur 86 déclarées</span><span>78 %</span></div>
+    <div class="kpi" style="margin-top:20px">
+      <div class="kbox"><div class="n">17 100</div><div class="l">affichages sur Google (28 jours)</div><div class="d">↑ +35 % vs il y a 3 mois</div></div>
+      <div class="kbox"><div class="n">66</div><div class="l">visites hors recherches de marque</div><div class="d">↑ +6 % vs il y a 3 mois</div></div>
+    </div>
+    <p class="note">Le site est affiché plus souvent qu'il y a trois mois, sur un plus grand nombre de recherches. Les nouvelles pages se positionnent d'abord en deuxième page, puis remontent.</p>
+  </div>
+
+  <!-- 3. VOS RECHERCHES CIBLES -->
+  <div class="card">
+    <div class="st"><span class="ic i-red">⌕</span><h2>Vos recherches cibles</h2></div>
+    <div class="kw"><span class="name">agence de nettoyage théâtre</span><span class="vol">79 affichages</span><span class="evo">↑ 15ᵉ → 5ᵉ</span></div>
+    <div class="kw"><span class="name">agence de nettoyage musée</span><span class="vol">80 affichages</span><span class="evo">↑ 6ᵉ → 5ᵉ</span></div>
+    <div class="kw"><span class="name">agence de nettoyage médical</span><span class="vol">91 affichages</span><span class="evo">↑ 33ᵉ → 23ᵉ</span></div>
+    <div class="kw"><span class="name">agence de nettoyage laboratoire</span><span class="vol">88 affichages</span><span class="evo">↑ 35ᵉ → 26ᵉ</span></div>
+    <div class="kw"><span class="name">agence de nettoyage logistique</span><span class="vol">104 affichages</span><span class="evo">↑ 19ᵉ → 15ᵉ</span></div>
+    <div class="kw"><span class="name">agence de nettoyage collectivité</span><span class="vol">52 affichages</span><span class="evo">↑ 17ᵉ → 12ᵉ</span></div>
+    <div class="kw"><span class="name">entreprise de nettoyage Paris 17</span><span class="vol">151 affichages</span><span class="evo">↑ Nouveau · 10ᵉ</span></div>
+    <div class="kw"><span class="name">agence de nettoyage EHPAD</span><span class="vol">87 affichages</span><span class="evo">↑ Nouveau · 13ᵉ</span></div>
+    <div class="kw"><span class="name">nettoyage bureaux Val-de-Marne</span><span class="vol">17 affichages</span><span class="evo">↑ 3ᵉ</span></div>
+    <p class="note">Positions moyennes constatées sur les 28 derniers jours, comparées à la même durée il y a trois mois.</p>
+  </div>
+
+  <!-- 4. CE QUI A ÉTÉ MIS EN PLACE -->
+  <div class="card">
+    <div class="st"><span class="ic i-green">✓</span><h2>Ce qui a été mis en place</h2></div>
+    <ul>
+      <li><span class="m tick">✓</span><div><b>Réparation du suivi des demandes</b><div class="sub">La base qui enregistre les formulaires était défaillante : plus aucune demande ne s'enregistrait. Corrigée, avec récupération de l'historique.</div></div></li>
+      <li><span class="m tick">✓</span><div><b>7 articles de conseil publiés</b><div class="sub">Prix du nettoyage, copropriété, conformité, changement de prestataire, confidentialité, certifications.</div></div></li>
+      <li><span class="m tick">✓</span><div><b>Calculateurs de budget interactifs</b><div class="sub">Estimation au m², à l'heure et au poste de travail, directement dans les pages.</div></div></li>
+      <li><span class="m tick">✓</span><div><b>Page « Changer de prestataire »</b><div class="sub">Demandée par vos équipes : résiliation, reprise du personnel, transition sans coupure.</div></div></li>
+      <li><span class="m tick">✓</span><div><b>13 pages de communes</b><div class="sub">Bagneux, Montrouge, Malakoff, Châtillon, Clamart, Sceaux, Antony et les communes limitrophes.</div></div></li>
+      <li><span class="m tick">✓</span><div><b>Notifications élargies</b><div class="sub">Les demandes sont désormais adressées à trois destinataires.</div></div></li>
+      <li><span class="m tick">✓</span><div><b>Nettoyage technique du site</b><div class="sub">Redirections des anciennes adresses et suppression des pages en double.</div></div></li>
+      <li><span class="m tick">✓</span><div><b>Balisage des pages pour Google</b><div class="sub">Questions fréquentes, fil d'Ariane et fiches structurées sur les nouvelles pages.</div></div></li>
+    </ul>
+  </div>
+
+  <!-- 5. VOS NOUVELLES PAGES -->
+  <div class="card">
+    <div class="st"><span class="ic i-red">↗</span><h2>Vos nouvelles pages</h2></div>
+    <div class="lnks">
+      <a class="lnk" href="https://spn-net.fr/prix-nettoyage-bureaux-paris/" target="_blank" rel="noopener">Prix du nettoyage<span class="a">↗</span></a>
+      <a class="lnk" href="https://spn-net.fr/nettoyage-copropriete/" target="_blank" rel="noopener">Nettoyage copropriété<span class="a">↗</span></a>
+      <a class="lnk" href="https://spn-net.fr/travail-dissimule-entreprise-nettoyage/" target="_blank" rel="noopener">Conformité prestataire<span class="a">↗</span></a>
+      <a class="lnk" href="https://spn-net.fr/changer-de-prestataire-nettoyage/" target="_blank" rel="noopener">Changer de prestataire<span class="a">↗</span></a>
+      <a class="lnk" href="https://spn-net.fr/nettoyage-bureaux-confidentialite-securite/" target="_blank" rel="noopener">Confidentialité<span class="a">↗</span></a>
+      <a class="lnk" href="https://spn-net.fr/certifications-entreprise-nettoyage/" target="_blank" rel="noopener">Certifications<span class="a">↗</span></a>
+      <a class="lnk" href="https://spn-net.fr/annexe-7-changer-entreprise-nettoyage/" target="_blank" rel="noopener">Annexe 7<span class="a">↗</span></a>
+      <a class="lnk" href="https://spn-net.fr/qualite-nettoyage-baisse-apres-3-mois/" target="_blank" rel="noopener">Qualité dans la durée<span class="a">↗</span></a>
+    </div>
+  </div>
+
+  <!-- 6. LA SUITE -->
+  <div class="card">
+    <div class="st"><span class="ic i-red">→</span><h2>Les prochaines étapes</h2></div>
+    <ul>
+      <li><span class="m arw">→</span><div><b>Créer les pages Musées et Théâtres</b><div class="sub">Ces deux recherches vous placent déjà en 5ᵉ position sans page dédiée : une page propre est la suite logique.</div></div></li>
+      <li><span class="m arw">→</span><div><b>Relier les nouvelles pages entre elles</b><div class="sub">Depuis les pages Bureaux et Copropriété, pour accélérer leur prise en compte par Google.</div></div></li>
+      <li><span class="m arw">→</span><div><b>Enrichir la page Paris 17</b><div class="sub">Version prête, en attente de vos fourchettes tarifaires indicatives.</div></div></li>
+      <li><span class="m arw">→</span><div><b>Identifier la source de chaque demande automatiquement</b><div class="sub">Pour distinguer référencement, publicité et visite directe sans analyse manuelle.</div></div></li>
+      <li><span class="m arw">→</span><div><b>Suivre la remontée des pages Santé et Logistique</b><div class="sub">Elles progressent régulièrement et approchent la première page.</div></div></li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    SPN NET · 52 avenue de Bourg-la-Reine, 92220 Bagneux<br>
+    Données Search Console et Analytics du 13 août au 9 septembre 2026 · suivi SEO Monkey
+  </div>
+
+</div>
