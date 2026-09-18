@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — Envoi des e-mails (Google Workspace)
  * Description: Route les e-mails de WordPress par le SMTP authentifié de Google Workspace, au lieu de la fonction mail() du serveur. Tout se règle depuis Réglages → Envoi e-mails : aucun fichier à modifier.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -187,20 +187,45 @@ class SPN_SMTP {
         $res = self::do_test($to);
         self::back($res['ok']
             ? 'Message de test envoyé à ' . $to . ' (expéditeur : ' . $res['from'] . '). Vérifiez la réception.'
-            : 'Erreur : ' . ($res['errors'] ? implode(' / ', $res['errors']) : 'envoi refusé, sans détail.'));
+            : 'Erreur : ' . ($res['errors'] ? implode(' / ', $res['errors']) : 'envoi refusé')
+              . ($res['dialog'] ? '  —  Réponse de Google : ' . $res['dialog'] : ''));
     }
 
     private static function do_test($to) {
-        if (!self::ready()) return ['ok' => false, 'from' => '', 'errors' => ["aucun mot de passe d'application enregistré"]];
-        $errors = [];
+        if (!self::ready()) return ['ok' => false, 'from' => '', 'errors' => ["aucun mot de passe d'application enregistré"], 'dialog' => ''];
+        $errors = []; $dialog = '';
+
+        // On capture le dialogue SMTP pour remonter le motif exact de Google.
+        // Seules les réponses du SERVEUR sont conservées : les lignes du client
+        // contiennent l'authentification encodée, elles ne sont jamais gardées.
+        $sniff = function ($m) use (&$dialog) {
+            $m->SMTPDebug   = 2;
+            $m->Debugoutput = function ($str, $level) use (&$dialog) {
+                if (strpos($str, 'SERVER -> CLIENT') !== false) {
+                    $dialog .= trim($str) . "\n";
+                }
+            };
+        };
+        add_action('phpmailer_init', $sniff, 99);
+
         $catch = function ($e) use (&$errors) { $errors[] = $e->get_error_message(); };
         add_action('wp_mail_failed', $catch);
+
         $sent = wp_mail($to, 'Test d\'envoi — spn-net.fr',
             "Test d'envoi depuis spn-net.fr via Google Workspace.\n\nDate : " . current_time('mysql')
             . "\nExpéditeur : " . self::from('') . "\n",
             ['Content-Type: text/plain; charset=UTF-8']);
+
         remove_action('wp_mail_failed', $catch);
-        return ['ok' => (bool) $sent, 'from' => self::from(''), 'errors' => $errors];
+        remove_action('phpmailer_init', $sniff, 99);
+
+        // On ne garde que les réponses parlantes (codes d'erreur SMTP).
+        $keep = [];
+        foreach (explode("\n", $dialog) as $line) {
+            if (preg_match('/\b(5\d\d|4\d\d)[ -]/', $line)) $keep[] = preg_replace('/^.*SERVER -> CLIENT:?\s*/', '', $line);
+        }
+        return ['ok' => (bool) $sent, 'from' => self::from(''), 'errors' => $errors,
+                'dialog' => trim(implode(' | ', array_slice($keep, -6)))];
     }
 
     private static function back($msg) {
