@@ -1,0 +1,127 @@
+<style>
+/* reset : les pages modele geraient un header en overlay ; le nouveau header est sticky en flux */
+.spn-lp .hero{padding-top:46px!important}
+.spnhdr{position:sticky;top:0;z-index:9000;background:#fff;border-bottom:1px solid #E9E4DD;font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif}
+.spnhdr *{box-sizing:border-box}
+.spnhdr a,.spnhdr button{text-decoration:none;color:inherit;text-transform:none}
+.spnhdr .bar{display:flex;align-items:center;gap:14px;max-width:1200px;margin:0 auto;padding:11px 24px}
+.spnhdr .logo img{height:46px;width:auto;display:block}
+.spnhdr .nav{display:flex;align-items:center;gap:2px;margin-left:4px}
+.spnhdr .nav a,.spnhdr .nav button{font-family:inherit;font-size:.94rem;font-weight:600;color:#2A2D35;background:none;border:none;cursor:pointer;padding:9px 10px;border-radius:9px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;text-transform:none;letter-spacing:normal}
+.spnhdr .nav a:hover,.spnhdr .nav button:hover{background:#FAF8F5;color:#16181D}
+.spnhdr .nav button.on{color:#D8431F;background:#FFF1EA}
+.spnhdr .chev{transition:transform .2s}.spnhdr .nav button.on .chev{transform:rotate(180deg)}
+.spnhdr .sp{flex:1}
+.spnhdr .tel{display:flex;align-items:center;gap:8px;font-weight:800;color:#16181D;font-size:1rem;white-space:nowrap}
+.spnhdr .tel small{display:block;font-size:.66rem;font-weight:600;color:#6B7280}
+.spnhdr .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.92rem;padding:11px 20px;border-radius:999px;background:linear-gradient(135deg,#F4794E,#D8431F);color:#fff;border:none;cursor:pointer;white-space:nowrap}
+.spnhdr .burger{display:none;background:none;border:1px solid #E9E4DD;border-radius:10px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;color:#16181D;flex:none}
+.spnhdr .burger svg{width:22px;height:22px}
+.spnhdr .mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid #E9E4DD;box-shadow:0 26px 50px -20px rgba(22,24,29,.22);display:none;animation:spdrop .2s ease}
+.spnhdr .mega.show{display:block}
+@keyframes spdrop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.spnhdr .mega .in{max-width:1200px;margin:0 auto;display:grid;gap:24px;padding:24px}
+.spnhdr .m-sect .in{grid-template-columns:1.6fr 1.6fr 1fr}
+.spnhdr .m-zone .in{grid-template-columns:1.7fr 1.2fr 1fr}
+.spnhdr .col h4{font-size:.78rem;font-weight:700;letter-spacing:.01em;text-transform:none;color:#9AA0A8;margin:0 0 12px}
+.spnhdr .mitem{display:flex;align-items:flex-start;gap:11px;padding:9px 10px;border-radius:11px;transition:.15s}
+.spnhdr .mitem:hover{background:#FAF8F5}
+.spnhdr .mitem .ic{flex:none;width:34px;height:34px;border-radius:9px;background:#FFF1EA;color:#D8431F;display:flex;align-items:center;justify-content:center}
+.spnhdr .mitem>span{display:flex;flex-direction:column;min-width:0}
+.spnhdr .mitem .t{display:block;font-weight:700;font-size:.95rem;line-height:1.25;color:#16181D}
+.spnhdr .mitem .d{display:block;font-size:.85rem;color:#2A2D35;font-weight:500;margin-top:2px;line-height:1.35}
+.spnhdr .mitem.spe{background:linear-gradient(120deg,#FFF1EA,transparent);border:1px solid rgba(237,93,55,.28)}
+.spnhdr .tag{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.01em;text-transform:none;color:#fff;background:#ED5D37;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
+.spnhdr .zgrid{display:grid;grid-template-columns:1fr 1fr;gap:5px 16px}
+.spnhdr .zpill{font-size:.88rem;font-weight:600;color:#2A2D35;padding:7px 9px;border-radius:8px}
+.spnhdr .zpill:hover{background:#FAF8F5;color:#D8431F}
+.spnhdr .dep{display:flex;flex-wrap:wrap;gap:7px}
+.spnhdr .dep a{font-size:.84rem;font-weight:600;padding:7px 12px;border-radius:8px;border:1px solid #E9E4DD;color:#2A2D35}
+.spnhdr .dep a:hover{border-color:#ED5D37;color:#D8431F}
+.spnhdr .feat{border-radius:14px;overflow:hidden;position:relative;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:linear-gradient(150deg,#2A2D35,#16181D)}
+.spnhdr .feat::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 220px at 90% -10%,rgba(237,93,55,.5),transparent 60%)}
+.spnhdr .feat .fi{position:relative;padding:20px}
+.spnhdr .feat .rate{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.82rem;margin-bottom:auto}
+.spnhdr .feat .rate .s{color:#FBBC05}
+.spnhdr .feat h5{font-size:1.1rem;margin:12px 0 4px;font-weight:800}
+.spnhdr .feat p{font-size:.82rem;color:rgba(255,255,255,.82);margin:0 0 14px}
+.spnhdr .feat .fb{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.85rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:9px 16px;border-radius:999px;align-self:flex-start;color:#fff}
+/* mobile */
+.spnhdr .mnav{display:none;border-top:1px solid #E9E4DD;max-height:80vh;overflow-y:auto}
+.spnhdr .mnav.show{display:block}
+.spnhdr .mnav .ml,.spnhdr .mtrig{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;font-family:inherit;font-size:1rem;font-weight:700;color:#16181D;background:none;border:none;border-bottom:1px solid #E9E4DD;padding:15px 24px;cursor:pointer;text-align:left}
+.spnhdr .mtrig .p{color:#D8431F;font-size:1.4rem;line-height:1;transition:transform .2s}.spnhdr .mtrig.on .p{transform:rotate(45deg)}
+.spnhdr .mpanel{display:none;background:#FAF8F5;border-bottom:1px solid #E9E4DD}
+.spnhdr .mpanel.show{display:block}
+.spnhdr .mpanel a{display:block;padding:11px 30px;font-size:.93rem;font-weight:600;color:#2A2D35}
+.spnhdr .mpanel a.spe{color:#D8431F;font-weight:800}
+.spnhdr .mcta{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:18px 24px;background:#FAF8F5}
+.spnhdr .mcta a{font-weight:800;font-size:1.1rem;color:#16181D}
+/* la barre bascule en burger dès que l'espace manque (évite le chevauchement des items) */
+.spnhdr .nav a.hot{color:#D8431F;background:#FFF1EA;font-weight:700}
+.spnhdr .nav a.hot:hover{background:#FFE3D6;color:#B8351A}
+@media(max-width:1300px){.spnhdr .tel small{display:none}.spnhdr .tel{font-size:.92rem}}
+@media(max-width:1200px){.spnhdr .nav,.spnhdr .tel,.spnhdr .bar>.btn{display:none}.spnhdr .burger{display:flex}.spnhdr .mega{display:none!important}.spnhdr .m-sect .in,.spnhdr .m-zone .in{grid-template-columns:1fr}}
+</style>
+<div class="spnhdr">
+  <div class="bar">
+    <a class="logo" href="/" aria-label="SPN NET"><img src="https://spn-net.fr/wp-content/uploads/elementor/thumbs/logo-rkamhcg62qbiqacow1pw230in940ue5954a7aysbu0.png" alt="SPN NET"></a>
+    <nav class="nav">
+      <a href="/">Accueil</a>
+      <button id="spnBS">Secteurs <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button id="spnBZ">Zones d'intervention <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button>
+      <a href="/a-propos/">Nos engagements</a>
+      <a href="/blog/">Blog</a>
+      <a class="hot" href="/changer-de-prestataire-nettoyage/">Changer de prestataire</a>
+    </nav>
+    <div class="sp"></div>
+    <div class="tel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ED5D37" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.1 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9z"/></svg><span>01 49 46 22 40<small>Lun–Ven · réponse rapide</small></span></div>
+    <a class="btn" href="/contact/">Contact</a>
+    <button class="burger" id="spnBurger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mega m-sect" id="spnMS"><div class="in">
+    <div class="col"><h4>Par secteur</h4>
+      <a class="mitem" href="/tertiaire/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 8h.01M15 8h.01M9 12h.01M15 12h.01"/></svg></span><span><span class="t">Bureaux &amp; tertiaire</span><span class="d">Sièges, plateaux, coworkings</span></span></a>
+      <a class="mitem" href="/commerce-et-retail/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9 4 4h16l1 5M4 9v10h16V9M4 9h16"/></svg></span><span><span class="t">Commerce &amp; retail</span><span class="d">Boutiques, surfaces de vente</span></span></a>
+      <a class="mitem" href="/sante-et-medical/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span><span><span class="t">Santé &amp; médical</span><span class="d">Cabinets, labos, bionettoyage</span></span></a>
+      <a class="mitem" href="/logistique-et-industrie/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M3 21h18M9 21v-6h6v6"/></svg></span><span><span class="t">Logistique &amp; industrie</span><span class="d">Entrepôts, sites industriels</span></span></a></div>
+    <div class="col"><h4>&nbsp;</h4>
+      <a class="mitem" href="/hotellerie-et-restauration/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v7a3 3 0 0 0 6 0V2M9 2v20M17 2c-1.5 0-2 2-2 5s.5 5 2 5v10"/></svg></span><span><span class="t">Hôtellerie &amp; restauration</span><span class="d">Hôtels, restaurants</span></span></a>
+      <a class="mitem" href="/copropriete-et-habitat/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V7l6-4 6 4v14M15 21V11l6 4v6M3 21h18M7 21v-4h4v4"/></svg></span><span><span class="t">Copropriété &amp; habitat</span><span class="d">Immeubles, parties communes</span></span></a>
+      <a class="mitem" href="/loisirs-culture-et-evenementiel/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.4 7.4H22l-6 4.3 2.3 7.3L12 16.7 5.7 21l2.3-7.3-6-4.3h7.6z"/></svg></span><span><span class="t">Loisirs &amp; événementiel</span><span class="d">Musées, salles, ERP</span></span></a>
+      <a class="mitem" href="/enseignement-et-petite-enfance/"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></span><span><span class="t">Enseignement &amp; petite enfance</span><span class="d">Écoles, crèches</span></span></a></div>
+    <div class="col"><h4>Notre spécialité</h4>
+      <a class="mitem spe" href="/ascenseurs-escalators/" style="margin-bottom:12px"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 7h12M6 12h12M6 17h12"/></svg></span><span><span class="t">Ascenseurs &amp; escalators<span class="tag">Expert</span></span><span class="d">Cabines, inox, marches</span></span></a>
+      <div class="feat"><div class="fi"><span class="rate"><span class="s">★★★★★</span> 4,8/5 · 48 avis Google</span><h5>Un projet ? Devis 24h</h5><p>Certifiés ISO 45001 · 30 ans · +350 clients.</p><a class="fb" href="/contact/">Demander un devis →</a></div></div></div>
+  </div></div>
+  <div class="mega m-zone" id="spnMZ"><div class="in">
+    <div class="col"><h4>Paris — 20 arrondissements</h4><div class="zgrid">
+      <a class="zpill" href="/paris-1/">Paris 1ᵉʳ</a><a class="zpill" href="/paris-11/">Paris 11ᵉ</a>
+      <a class="zpill" href="/paris-2/">Paris 2ᵉ</a><a class="zpill" href="/paris-12/">Paris 12ᵉ</a>
+      <a class="zpill" href="/paris-3/">Paris 3ᵉ</a><a class="zpill" href="/paris-13/">Paris 13ᵉ</a>
+      <a class="zpill" href="/paris-8/">Paris 8ᵉ</a><a class="zpill" href="/paris-15/">Paris 15ᵉ</a>
+      <a class="zpill" href="/paris-9/">Paris 9ᵉ</a><a class="zpill" href="/paris-16/">Paris 16ᵉ</a>
+      <a class="zpill" href="/paris-10/">Paris 10ᵉ</a><a class="zpill" href="/paris-17/">Paris 17ᵉ</a></div></div>
+    <div class="col"><h4>Île-de-France</h4><div class="dep">
+      <a href="/77-seine-et-marne/">77 Seine-et-Marne</a><a href="/78-yvelines/">78 Yvelines</a><a href="/91-essonne/">91 Essonne</a><a href="/92-hauts-de-seine/">92 Hauts-de-Seine</a><a href="/93-seine-saint-denis/">93 Seine-St-Denis</a><a href="/94-val-de-marne/">94 Val-de-Marne</a><a href="/95-val-doise/">95 Val-d'Oise</a></div></div>
+    <div class="col"><h4>Notre base</h4><div class="feat"><div class="fi"><span class="rate">📍 Bagneux (92)</span><h5>Réactifs en proche couronne</h5><p>À quelques minutes de Paris et des Hauts-de-Seine.</p><a class="fb" href="/92-hauts-de-seine/">Vérifier ma zone →</a></div></div></div>
+  </div></div>
+  <div class="mnav" id="spnMnav">
+    <a class="ml" href="/">Accueil</a>
+    <button class="mtrig" data-p="spnMP1">Secteurs <span class="p">+</span></button>
+    <div class="mpanel" id="spnMP1"><a href="/tertiaire/">Bureaux &amp; tertiaire</a><a href="/commerce-et-retail/">Commerce &amp; retail</a><a href="/sante-et-medical/">Santé &amp; médical</a><a href="/logistique-et-industrie/">Logistique &amp; industrie</a><a href="/hotellerie-et-restauration/">Hôtellerie &amp; restauration</a><a href="/copropriete-et-habitat/">Copropriété &amp; habitat</a><a href="/loisirs-culture-et-evenementiel/">Loisirs &amp; événementiel</a><a href="/enseignement-et-petite-enfance/">Enseignement &amp; petite enfance</a><a class="spe" href="/ascenseurs-escalators/">★ Ascenseurs &amp; escalators</a></div>
+    <button class="mtrig" data-p="spnMP2">Zones d'intervention <span class="p">+</span></button>
+    <div class="mpanel" id="spnMP2"><a href="/paris-8/">Paris — 20 arrondissements</a><a href="/92-hauts-de-seine/">Hauts-de-Seine (92)</a><a href="/94-val-de-marne/">Val-de-Marne (94)</a><a href="/93-seine-saint-denis/">Seine-Saint-Denis (93)</a><a href="/77-seine-et-marne/">Seine-et-Marne (77)</a></div>
+    <a class="ml" href="/a-propos/">Nos engagements</a><a class="ml" href="/blog/">Blog</a><a class="ml spe" href="/changer-de-prestataire-nettoyage/">Changer de prestataire</a>
+    <div class="mcta"><a class="btn" href="/contact/" style="color:#fff">Contact</a><a href="tel:+33149462240">01 49 46 22 40</a></div>
+  </div>
+</div>
+<script>
+(function(){var d=document,BS=d.getElementById('spnBS'),BZ=d.getElementById('spnBZ'),MS=d.getElementById('spnMS'),MZ=d.getElementById('spnMZ');
+function tg(w){var oS=w==='s'&&!MS.classList.contains('show'),oZ=w==='z'&&!MZ.classList.contains('show');MS.classList.toggle('show',oS);BS.classList.toggle('on',oS);MZ.classList.toggle('show',oZ);BZ.classList.toggle('on',oZ);}
+BS.addEventListener('click',function(e){e.preventDefault();tg('s');});BZ.addEventListener('click',function(e){e.preventDefault();tg('z');});
+d.addEventListener('click',function(e){if(!e.target.closest('.spnhdr .nav')&&!e.target.closest('.spnhdr .mega')){MS.classList.remove('show');MZ.classList.remove('show');BS.classList.remove('on');BZ.classList.remove('on');}});
+var bg=d.getElementById('spnBurger'),mn=d.getElementById('spnMnav');if(bg){bg.addEventListener('click',function(){mn.classList.toggle('show');});}
+d.querySelectorAll('.spnhdr .mtrig').forEach(function(b){b.addEventListener('click',function(){var p=d.getElementById(b.dataset.p),o=p.classList.contains('show');d.querySelectorAll('.spnhdr .mpanel').forEach(function(x){x.classList.remove('show');});d.querySelectorAll('.spnhdr .mtrig').forEach(function(x){x.classList.remove('on');});if(!o){p.classList.add('show');b.classList.add('on');}});});
+})();
+</script>

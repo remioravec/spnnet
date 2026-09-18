@@ -1,0 +1,291 @@
+{
+  "pages_analysees": 60,
+  "total_liens_internes": 3880,
+  "liens_contextuels_main": 753,
+  "liens_boilerplate": 3127,
+  "ratio_contextuel": 0.194,
+  "liens_ancre_vide": 179,
+  "liens_ancre_generique": 124,
+  "pages_orphelines": [
+    "/meilleure-entreprise-nettoyage-commerce-retail-paris/",
+    "/meilleure-entreprise-nettoyage-copropriete-habitat-paris/",
+    "/meilleure-entreprise-nettoyage-hotellerie-restauration-paris/",
+    "/meilleure-entreprise-nettoyage-logistique-industrie-paris/",
+    "/meilleure-entreprise-nettoyage-sante-medical-paris/",
+    "/meilleure-entreprise-nettoyage-tertiaire-paris/",
+    "/sitemap.html/"
+  ],
+  "ancres_sur_optimisees": [
+    [
+      "/blog/",
+      "blog",
+      119,
+      120,
+      0.99
+    ],
+    [
+      "/a-propos/",
+      "nos engagements",
+      118,
+      118,
+      1.0
+    ],
+    [
+      "/paris-20/",
+      "paris 20",
+      64,
+      65,
+      0.98
+    ],
+    [
+      "/paris-16/",
+      "paris 16",
+      63,
+      63,
+      1.0
+    ],
+    [
+      "/paris-8/",
+      "paris 8",
+      63,
+      63,
+      1.0
+    ],
+    [
+      "/paris-17/",
+      "paris 17",
+      63,
+      64,
+      0.98
+    ],
+    [
+      "/paris-18/",
+      "paris 18",
+      63,
+      64,
+      0.98
+    ],
+    [
+      "/paris-19/",
+      "paris 19",
+      63,
+      64,
+      0.98
+    ],
+    [
+      "/tertiaire/",
+      "tertiaire",
+      62,
+      73,
+      0.85
+    ],
+    [
+      "/paris-9/",
+      "paris 9",
+      62,
+      62,
+      1.0
+    ],
+    [
+      "/paris-10/",
+      "paris 10",
+      62,
+      62,
+      1.0
+    ],
+    [
+      "/paris-11/",
+      "paris 11",
+      62,
+      62,
+      1.0
+    ],
+    [
+      "/paris-12/",
+      "paris 12",
+      62,
+      62,
+      1.0
+    ],
+    [
+      "/paris-1/",
+      "paris 1",
+      61,
+      65,
+      0.94
+    ],
+    [
+      "/paris-7/",
+      "paris 7",
+      61,
+      61,
+      1.0
+    ],
+    [
+      "/paris-15/",
+      "paris 15",
+      61,
+      61,
+      1.0
+    ],
+    [
+      "/paris-13/",
+      "paris 13",
+      61,
+      61,
+      1.0
+    ],
+    [
+      "/proprete-des-locaux/",
+      "propreté des locaux",
+      60,
+      67,
+      0.9
+    ],
+    [
+      "/paris-2/",
+      "paris 2",
+      60,
+      60,
+      1.0
+    ],
+    [
+      "/paris-3/",
+      "paris 3",
+      60,
+      60,
+      1.0
+    ],
+    [
+      "/paris-4/",
+      "paris 4",
+      60,
+      60,
+      1.0
+    ],
+    [
+      "/paris-5/",
+      "paris 5",
+      60,
+      60,
+      1.0
+    ],
+    [
+      "/paris-6/",
+      "paris 6",
+      60,
+      60,
+      1.0
+    ],
+    [
+      "/paris-14/",
+      "paris 14",
+      60,
+      60,
+      1.0
+    ],
+    [
+      "/77-seine-et-marne/",
+      "77 – seine-et-marne",
+      60,
+      65,
+      0.92
+    ],
+    [
+      "/78-yvelines/",
+      "78 – yvelines",
+      60,
+      65,
+      0.92
+    ],
+    [
+      "/91-essonne/",
+      "91 – essonne",
+      60,
+      65,
+      0.92
+    ],
+    [
+      "/92-hauts-de-seine/",
+      "92 – hauts-de-seine",
+      60,
+      69,
+      0.87
+    ],
+    [
+      "/93-seine-saint-denis/",
+      "93 – seine-saint-denis",
+      60,
+      68,
+      0.88
+    ],
+    [
+      "/94-val-de-marne/",
+      "94 – val-de-marne",
+      60,
+      66,
+      0.91
+    ],
+    [
+      "/95-val-doise/",
+      "95 – val-d’oise",
+      60,
+      66,
+      0.91
+    ],
+    [
+      "/ascenseurs-escalators/",
+      "ascenseurs & escalators",
+      59,
+      61,
+      0.97
+    ],
+    [
+      "/mention-legales/",
+      "mention légales",
+      59,
+      59,
+      1.0
+    ],
+    [
+      "/tertaire/",
+      "voir nos services",
+      37,
+      37,
+      1.0
+    ]
+  ],
+  "sections": {
+    "header": 118,
+    "nav": 2655,
+    "main": 753,
+    "footer": 354
+  },
+  "top_domaines_externes": [
+    [
+      "www.google.com",
+      211
+    ],
+    [
+      "fr.linkedin.com",
+      59
+    ],
+    [
+      "maps.google.com",
+      59
+    ],
+    [
+      "auctollo.com",
+      5
+    ],
+    [
+      "wordpress.org",
+      2
+    ],
+    [
+      "sitemaps.org",
+      1
+    ]
+  ],
+  "titles_dupliques": {}
+}
