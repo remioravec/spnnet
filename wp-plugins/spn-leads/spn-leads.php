@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — CRM des demandes (leads)
  * Description: CRM léger : capture toutes les demandes (Elementor + endpoint REST), qualifie bon/mauvais lead, filtre, source précise + canal, e-mail de secours, export CSV. Design moderne 2026.
- * Version: 1.6.0
+ * Version: 1.7.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -13,6 +13,11 @@ class SPN_Leads {
 
     const TABLE = 'spn_leads';
     const OPT_EMAIL = 'spn_leads_notify_email';
+
+    /** Destinataires par defaut si le reglage est vide. */
+    const DEF_NOTIFY = 'a.guenantin@spn-net.fr, f.guenantin@spn-net.fr, remi.oravec@seo-monkey.fr';
+    /** Adresse inexistante cote Google (c'est un identifiant WordPress, pas une boite). */
+    const DEAD_MAIL  = 'remi-oravec@seo-monkey.fr';
 
     public static function init() {
         register_activation_hook(__FILE__, [__CLASS__, 'activate']);
@@ -114,13 +119,80 @@ class SPN_Leads {
             'channel' => $channel, 'ip' => $d['ip'], 'quality' => '',
         ]);
         $id = (int)$wpdb->insert_id;
-        $to = get_option(self::OPT_EMAIL);
-        if ($to) {
-            $body  = "Nouvelle demande via le site.\n\nNom : {$d['name']}\nE-mail : {$d['email']}\nTéléphone : {$d['phone']}\nEntreprise : {$d['company']}\n\nMessage :\n{$d['message']}\n\nPage : {$d['source']}\nCanal : $channel\nDate : " . current_time('mysql') . "\n";
-            $h = []; if ($d['email'] && is_email($d['email'])) $h[] = 'Reply-To: ' . $d['email'];
-            wp_mail($to, '🧹 Nouvelle demande — ' . ($d['name'] ?: $d['email'] ?: 'Sans nom'), $body, $h);
-        }
+        self::notify($d, $channel);
         return $id;
+    }
+
+    /**
+     * Un lead = un seul e-mail.
+     * Le formulaire Elementor envoie deja son propre e-mail mis en page : on ne
+     * double pas. Les formulaires des landings passent par /spn/v1/lead et n'ont
+     * que cette notification — elle reprend donc la meme mise en page.
+     */
+    private static function notify($d, $channel) {
+        if ($channel === 'elementor') return;
+        $to = self::notify_to();
+        if (!$to) return;
+        $h = ['Content-Type: text/html; charset=UTF-8'];
+        if ($d['email'] && is_email($d['email'])) $h[] = 'Reply-To: ' . $d['email'];
+        wp_mail($to, 'Nouvelle demande - SPN NET - Site internet', self::mail_html($d), $h);
+    }
+
+    /** Destinataires nettoyes : jamais l'adresse morte, repli sur la liste par defaut. */
+    private static function notify_to() {
+        $raw = (string) get_option(self::OPT_EMAIL);
+        if (trim($raw) === '') $raw = self::DEF_NOTIFY;
+        $out = [];
+        foreach (explode(',', $raw) as $a) {
+            $a = sanitize_email(trim($a));
+            if ($a && strcasecmp($a, self::DEAD_MAIL) !== 0) $out[] = $a;
+        }
+        $out = array_values(array_unique($out));
+        return $out ? implode(', ', $out) : '';
+    }
+
+    /** Meme gabarit que l'e-mail du formulaire de contact, pour n'avoir qu'une seule forme. */
+    private static function mail_html($d) {
+        $e = function ($v) { return esc_html((string) $v); };
+        $mail = sanitize_email((string) $d['email']);
+        $tel  = preg_replace('/[^0-9+]/', '', (string) $d['phone']);
+        $rows = [
+            ['Nom',        $e($d['name']),    ''],
+            ['Entreprise', $e($d['company']), ''],
+            ['E-mail',     $mail ? '<a href="mailto:' . esc_attr($mail) . '" style="color:#D8431F;font-weight:600;text-decoration:none">' . $e($mail) . '</a>' : '&mdash;', ''],
+            ['Téléphone',  $tel  ? '<a href="tel:' . esc_attr($tel) . '" style="color:#D8431F;font-weight:600;text-decoration:none">' . $e($d['phone']) . '</a>' : '&mdash;', ''],
+            ['Page',       $d['source'] ? '<a href="' . esc_url($d['source']) . '" style="color:#D8431F;text-decoration:none">' . $e($d['source']) . '</a>' : '&mdash;', ''],
+        ];
+        $tr = '';
+        $first = true;
+        foreach ($rows as $r) {
+            $bt = $first ? '' : 'border-top:1px solid #f0f0f2;';
+            $first = false;
+            $tr .= '<tr><td style="padding:9px 0;color:#6b7280;width:110px;' . $bt . '">' . $r[0] . '</td>'
+                 . '<td style="padding:9px 0;font-weight:600;' . $bt . '">' . $r[1] . '</td></tr>';
+        }
+        $msg = nl2br($e($d['message']));
+        $cta = $mail
+            ? '<a href="mailto:' . esc_attr($mail) . '" style="display:inline-block;background:#D8431F;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:12px 26px;border-radius:999px">Répondre à ce prospect</a>'
+            : '';
+
+        return '<div style="margin:0;padding:24px 12px;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Helvetica,Arial,sans-serif">'
+            . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e6e6e8">'
+            . '<tr><td style="background:#D8431F;padding:20px 26px">'
+            . '<div style="color:#ffffff;font-size:18px;font-weight:700;letter-spacing:-.2px">Nouvelle demande de devis</div>'
+            . '<div style="color:rgba(255,255,255,.85);font-size:13px;margin-top:3px">Formulaire du site spn-net.fr</div>'
+            . '</td></tr>'
+            . '<tr><td style="padding:24px 26px 8px">'
+            . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;color:#16181D">' . $tr . '</table>'
+            . '</td></tr>'
+            . ($msg ? '<tr><td style="padding:6px 26px 4px">'
+                . '<div style="color:#6b7280;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:8px">Message</div>'
+                . '<div style="background:#faf8f5;border-left:3px solid #D8431F;border-radius:0 10px 10px 0;padding:14px 16px;font-size:14px;line-height:1.6;color:#2A2D35">' . $msg . '</div>'
+                . '</td></tr>' : '')
+            . '<tr><td style="padding:22px 26px 26px">' . $cta
+            . '<div style="color:#9aa0a6;font-size:12px;margin-top:16px;line-height:1.5">Répondre à cet e-mail écrit directement au prospect.<br>'
+            . 'Le détail (page d\'origine, date, canal) est dans le menu Demandes de WordPress.</div>'
+            . '</td></tr></table></div>';
     }
 
     /* ---------- Endpoint REST public ---------- */
