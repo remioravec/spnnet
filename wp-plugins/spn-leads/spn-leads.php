@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — CRM des demandes (leads)
  * Description: CRM léger : capture toutes les demandes (Elementor + endpoint REST), qualifie bon/mauvais lead, filtre, source précise + canal, e-mail de secours, export CSV. Design moderne 2026.
- * Version: 1.7.0
+ * Version: 1.7.1
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -13,6 +13,7 @@ class SPN_Leads {
 
     const TABLE = 'spn_leads';
     const OPT_EMAIL = 'spn_leads_notify_email';
+    const OPT_NOTIFY_ON = 'spn_leads_notify_on';
 
     /** Destinataires par defaut si le reglage est vide. */
     const DEF_NOTIFY = 'a.guenantin@spn-net.fr, f.guenantin@spn-net.fr, remi.oravec@seo-monkey.fr';
@@ -124,13 +125,19 @@ class SPN_Leads {
     }
 
     /**
-     * Un lead = un seul e-mail.
-     * Le formulaire Elementor envoie deja son propre e-mail mis en page : on ne
-     * double pas. Les formulaires des landings passent par /spn/v1/lead et n'ont
-     * que cette notification — elle reprend donc la meme mise en page.
+     * Un lead = un seul e-mail, et c'est Elementor qui l'envoie.
+     *
+     * Tous les formulaires du site aboutissent chez Elementor : celui de la page
+     * contact directement, et les cartes de devis des landings par double
+     * ecriture (admin-ajax.php pour Elementor + /spn/v1/lead pour ce journal).
+     * L'action « email » d'Elementor couvre donc 100 % des demandes, deja mise
+     * en page. Cette notification-ci ferait double emploi : elle reste eteinte.
+     *
+     * Elle se rallume dans Demandes -> Reglages, pour le seul cas ou le
+     * formulaire Elementor disparaitrait du site.
      */
     private static function notify($d, $channel) {
-        if ($channel === 'elementor') return;
+        if (get_option(self::OPT_NOTIFY_ON, '0') !== '1') return;
         $to = self::notify_to();
         if (!$to) return;
         $h = ['Content-Type: text/html; charset=UTF-8'];
