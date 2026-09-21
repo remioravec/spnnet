@@ -56,6 +56,73 @@ HUB_CSS = """
 .spn-art .cmp-act button{font-family:inherit;font-size:.88rem;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:10px 20px;cursor:pointer}
 .spn-art .cmp-act button:hover{border-color:var(--orange-deep);color:var(--orange-deep)}
 .spn-art .cmp-act .hint{font-size:.8rem;color:var(--grey)}
+
+/* ---------- hero illustre ---------- */
+.spn-art .art-hero .hero-in{grid-template-columns:1fr 360px}
+.spn-art .hero-img{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--cream)}
+.spn-art .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+/* ---------- infographies ---------- */
+.spn-art .vz{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 26px;margin:26px 0;box-shadow:var(--shadow-sm)}
+.spn-art .vz .vz-t{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:16px}
+.spn-art .vz-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.spn-art .vz-col{border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px}
+.spn-art .vz-col.win{border-color:rgba(216,67,31,.35);background:var(--orange-soft)}
+.spn-art .vz-col h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.04rem;margin:0 0 10px}
+.spn-art .vz-col ul{list-style:none;margin:0;padding:0}
+.spn-art .vz-col li{font-size:.88rem;color:var(--ink-2);padding:5px 0 5px 20px;position:relative}
+.spn-art .vz-col li:before{content:"—";position:absolute;left:0;color:var(--grey)}
+.spn-art .vz-col.win li:before{content:"✓";color:var(--orange-deep);font-weight:800}
+/* barre empilee */
+.spn-art .vz-bar{display:flex;height:42px;border-radius:10px;overflow:hidden;margin-bottom:10px}
+.spn-art .vz-bar span{display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:800}
+.spn-art .vz-leg{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--ink-2)}
+.spn-art .vz-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+/* timeline */
+.spn-art .vz-tl{display:flex;gap:0;flex-wrap:wrap}
+.spn-art .vz-step{flex:1;min-width:130px;position:relative;padding:0 12px}
+.spn-art .vz-step:before{content:"";position:absolute;top:15px;left:0;right:0;height:2px;background:var(--line)}
+.spn-art .vz-step:first-child:before{left:50%}.spn-art .vz-step:last-child:before{right:50%}
+.spn-art .vz-dot{position:relative;width:32px;height:32px;border-radius:50%;background:var(--orange-soft);color:var(--orange-deep);border:2px solid #fff;box-shadow:0 0 0 2px var(--orange-soft);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;margin:0 auto 12px}
+.spn-art .vz-step b{display:block;text-align:center;font-size:.9rem;margin-bottom:3px}
+.spn-art .vz-step span{display:block;text-align:center;font-size:.8rem;color:var(--grey);line-height:1.45}
+/* niveaux empiles */
+.spn-art .vz-lv{display:grid;gap:9px}
+.spn-art .vz-lv div{border-radius:11px;padding:13px 16px;font-size:.9rem;display:flex;gap:12px;align-items:baseline}
+.spn-art .vz-lv b{font-family:'Fraunces',serif;font-size:.96rem;min-width:92px;flex:0 0 auto}
+.spn-art .vz-lv .l1{background:#16181D;color:#fff}.spn-art .vz-lv .l1 b{color:#fff}
+.spn-art .vz-lv .l2{background:var(--orange-soft);color:var(--ink-2)}.spn-art .vz-lv .l2 b{color:var(--orange-deep)}
+.spn-art .vz-lv .l3{background:var(--cream);color:var(--ink-2)}.spn-art .vz-lv .l3 b{color:var(--grey)}
+/* zones d'acces */
+.spn-art .vz-zn{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.spn-art .vz-zn div{border-radius:12px;padding:16px;text-align:center;border:1px solid var(--line)}
+.spn-art .vz-zn .z-ok{background:#eaf6ec;border-color:#b7dcc0}
+.spn-art .vz-zn .z-md{background:var(--orange-soft);border-color:rgba(216,67,31,.3)}
+.spn-art .vz-zn .z-no{background:var(--cream)}
+.spn-art .vz-zn b{display:block;font-size:.94rem;margin-bottom:5px}
+.spn-art .vz-zn span{font-size:.8rem;color:var(--grey);line-height:1.45}
+/* galerie 4 photos */
+.spn-art .vz-g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.spn-art .vz-g4 figure{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--cream)}
+.spn-art .vz-g4 img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+.spn-art .vz-g4 figcaption{font-size:.78rem;font-weight:700;color:var(--ink-2);padding:8px 10px;text-align:center}
+/* photo pleine largeur */
+.spn-art .vz-photo{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.spn-art .vz-photo img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
+.spn-art .vz-photo figcaption{font-size:.82rem;color:var(--grey);padding:10px 14px;background:#fff}
+/* CTA intermediaire */
+.spn-art .midcta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(120deg,var(--orange-soft),#fff);border:1px solid rgba(216,67,31,.28);border-radius:var(--r);padding:20px 24px;margin:28px 0}
+.spn-art .midcta p{margin:0;flex:1;min-width:220px;font-size:.96rem;font-weight:600;color:var(--ink)}
+.spn-art .midcta a{display:inline-flex;align-items:center;gap:8px;background:var(--orange-deep);color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;padding:12px 24px;border-radius:999px;white-space:nowrap}
+.spn-art .midcta a:hover{background:var(--orange)}
+/* CTA final */
+.spn-art .endcta{background:#16181D;color:#fff;border-radius:var(--r);padding:34px 34px 30px;margin:32px 0 0}
+.spn-art .endcta h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:#fff;margin:0 0 10px}
+.spn-art .endcta p{color:rgba(255,255,255,.82);font-size:.98rem;margin:0 0 20px;max-width:56ch}
+.spn-art .endcta .acts{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.spn-art .endcta .b1{background:var(--orange);color:#fff;font-weight:800;text-decoration:none;padding:14px 30px;border-radius:999px}
+.spn-art .endcta .b2{color:#fff;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.3)}
+.spn-art .endcta .badges{margin-top:18px;font-size:.8rem;color:rgba(255,255,255,.6)}
+@media(max-width:820px){.spn-art .vz-2,.spn-art .vz-zn{grid-template-columns:1fr}.spn-art .vz-g4{grid-template-columns:1fr 1fr}}
 @media print{.spn-art .art-side,.spn-art .art-hero,.spn-art .cmp-act{display:none!important}}
 """
 
@@ -187,6 +254,72 @@ CRITERES = [
  ("Prestations périphériques","Vitrerie, sols, ascenseurs traités en direct ?"),
 ]
 
+IMG = "https://spn-net.fr/wp-content/uploads/2026/02/"
+IMG1 = "https://spn-net.fr/wp-content/uploads/2026/01/"
+
+def cta(txt, label="Ouvrir la grille de comparaison"):
+    return (f'<div class="midcta rv"><p>{txt}</p>'
+            f'<a href="#grille">{label} &#8594;</a></div>')
+
+VISUELS = {
+1: ('<div class="vz rv"><div class="vz-t">Ce qui change concrètement</div><div class="vz-2">'
+    '<div class="vz-col"><h4>Le généraliste</h4><ul>'
+    '<li>Un protocole unique adapté après coup</li><li>Agents polyvalents, tournés sur plusieurs typologies</li>'
+    '<li>Réactif sur le devis, plus lent sur le terrain</li><li>Les à-côtés partent en sous-traitance</li></ul></div>'
+    '<div class="vz-col win"><h4>Le spécialiste de vos locaux</h4><ul>'
+    '<li>Un protocole écrit pour votre typologie</li><li>Agents formés à vos surfaces et contraintes</li>'
+    '<li>Références chiffrées sur des sites comparables</li><li>Prestations périphériques traitées en direct</li></ul></div>'
+    '</div></div>'),
+2: ('<div class="vz rv"><div class="vz-t">Où part réellement votre budget</div>'
+    '<div class="vz-bar">'
+    '<span style="width:64%;background:#D8431F">Main-d\'œuvre 64 %</span>'
+    '<span style="width:19%;background:#ED5D37">Encadrement 19 %</span>'
+    '<span style="width:17%;background:#c9bdb2">Produits &amp; matériel 17 %</span></div>'
+    '<div class="vz-leg"><span><i style="background:#D8431F"></i>Temps passé sur site</span>'
+    '<span><i style="background:#ED5D37"></i>Contrôle qualité, remplacements</span>'
+    '<span><i style="background:#c9bdb2"></i>Consommables, machines</span></div>'
+    '<p style="font-size:.82rem;color:var(--grey);margin:14px 0 0">La main-d\'œuvre représentant près des deux tiers '
+    'du prix, un devis nettement moins cher signifie presque toujours moins d\'heures sur site — rarement une meilleure organisation.</p></div>'),
+3: ('<div class="vz rv"><div class="vz-t">Votre obligation de vigilance, dans le temps</div><div class="vz-tl">'
+    '<div class="vz-step"><div class="vz-dot">1</div><b>À la signature</b><span>Dès 5 000 € HT de contrat : attestation URSSAF exigée</span></div>'
+    '<div class="vz-step"><div class="vz-dot">2</div><b>+ 6 mois</b><span>Nouvelle attestation, vérifiée en ligne</span></div>'
+    '<div class="vz-step"><div class="vz-dot">3</div><b>+ 12 mois</b><span>Et ainsi de suite jusqu\'au terme</span></div>'
+    '<div class="vz-step"><div class="vz-dot">&#10003;</div><b>Archivage</b><span>C\'est la trace datée qui vous exonère</span></div>'
+    '</div></div>'),
+4: ('<div class="vz rv"><div class="vz-t">Trois niveaux qu\'on confond tout le temps</div><div class="vz-lv">'
+    '<div class="l1"><b>L\'entreprise</b><span>ISO 9001, 14001, 45001, Qualipropre, Certipropre — une organisation auditée</span></div>'
+    '<div class="l2"><b>La personne</b><span>CAP, CQP, TFP — la formation d\'un agent, pas de la société</span></div>'
+    '<div class="l3"><b>Le produit</b><span>Écolabel Européen — une gamme, jamais l\'entreprise qui l\'emploie</span></div>'
+    '</div></div>'),
+5: ('<div class="vz rv"><div class="vz-t">Découper vos locaux en trois zones</div><div class="vz-zn">'
+    '<div class="z-ok"><b>Accès libre</b><span>Bureaux ouverts, circulations, sanitaires, espaces de pause</span></div>'
+    '<div class="z-md"><b>Accès encadré</b><span>Direction, salles de réunion, bureaux fermés — agents nommés</span></div>'
+    '<div class="z-no"><b>Accès exclu</b><span>Salle serveur, archives, coffre — hors périmètre ou sous escorte</span></div>'
+    '</div></div>'),
+6: ('<div class="vz rv"><div class="vz-t">La qualité perçue, mois après mois</div>'
+    '<svg viewBox="0 0 460 170" width="100%" height="170" role="img" aria-label="Courbe : la qualité d\'un prestataire moyen baisse après le 3e mois, celle d\'un contrat suivi reste stable">'
+    '<line x1="38" y1="140" x2="450" y2="140" stroke="#E9E4DD"/><line x1="38" y1="16" x2="38" y2="140" stroke="#E9E4DD"/>'
+    '<path d="M44,44 L130,44 L216,52 L302,92 L388,116 L446,126" fill="none" stroke="#9aa0a6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 6"/>'
+    '<path d="M44,48 L130,44 L216,42 L302,40 L388,39 L446,38" fill="none" stroke="#D8431F" stroke-width="3" stroke-linecap="round"/>'
+    '<g font-size="10" fill="#9aa0a6" font-family="monospace"><text x="38" y="158">Mois 1</text><text x="196" y="158">Mois 3</text><text x="398" y="158">Mois 6</text></g></svg>'
+    '<div class="vz-leg" style="margin-top:8px"><span><i style="background:#9aa0a6"></i>Sans contrôle qualité</span>'
+    '<span><i style="background:#D8431F"></i>Avec visites de site datées</span></div></div>'),
+7: (f'<figure class="vz-photo rv"><img src="{IMG}cleanzonejpg-0018.jpg" alt="Équipe SPN NET en intervention sur un site tertiaire à Paris" loading="lazy" decoding="async" width="1909" height="724">'
+    '<figcaption>Des équipes basées en Île-de-France : c\'est la proximité qui rend le remplacement possible le jour même.</figcaption></figure>'),
+8: (f'<div class="vz rv"><div class="vz-t">Les quatre prestations qu\'on oublie de chiffrer</div><div class="vz-g4">'
+    f'<figure><img src="{IMG}Ascenseur-3.jpg" alt="Nettoyage d\'ascenseur" loading="lazy" decoding="async" width="1500" height="1000"><figcaption>Ascenseurs</figcaption></figure>'
+    f'<figure><img src="{IMG}portage-1.jpg" alt="Portage de charges" loading="lazy" decoding="async" width="1500" height="1000"><figcaption>Portage</figcaption></figure>'
+    f'<figure><img src="{IMG}peinture-2.jpg" alt="Peinture de rafraîchissement" loading="lazy" decoding="async" width="1500" height="1000"><figcaption>Peinture</figcaption></figure>'
+    f'<figure><img src="{IMG}marquage-1.jpg" alt="Marquage au sol de parking" loading="lazy" decoding="async" width="1500" height="1000"><figcaption>Marquage au sol</figcaption></figure>'
+    '</div></div>'),
+9: ('<div class="vz rv"><div class="vz-t">Un changement de prestataire, étape par étape</div><div class="vz-tl">'
+    '<div class="vz-step"><div class="vz-dot">1</div><b>Préavis</b><span>1 à 3 mois selon votre contrat : c\'est lui qui fixe la date</span></div>'
+    '<div class="vz-step"><div class="vz-dot">2</div><b>Visite</b><span>Le nouveau prestataire chiffre sur vos locaux réels</span></div>'
+    '<div class="vz-step"><div class="vz-dot">3</div><b>Annexe 7</b><span>Les agents éligibles sont repris par l\'entrant</span></div>'
+    '<div class="vz-step"><div class="vz-dot">&#10003;</div><b>Bascule</b><span>Aucune journée sans entretien</span></div>'
+    '</div></div>'),
+}
+
 
 def grille():
     head = ('<thead><tr><th>Critere</th>'
@@ -229,19 +362,30 @@ def body():
     for n,t,_ in SECTIONS:
         h += f'<li><a href="#s{n}">{t}</a></li>'
     h += '<li><a href="#grille">La grille de comparaison</a></li></ol></div>'
+    CTA_APRES = {
+        3: "Vous avez de quoi vérifier la conformité d'un candidat. Notez-le tout de suite.",
+        6: "Trois points passés en revue : prix, conformité, suivi. Reportez-les sur la grille.",
+        9: "Vous avez les neuf critères. Il ne reste qu'à les confronter, candidat par candidat.",
+    }
     for n,t,c in SECTIONS:
         h += f'<h2 id="s{n}"><span class="sec-num">{n}</span>{t}</h2>\n{c}\n'
+        if n in VISUELS: h += VISUELS[n] + "\n"
+        if n in CTA_APRES: h += cta(CTA_APRES[n]) + "\n"
     h += '<h2 id="s10"><span class="sec-num">10</span>La grille de comparaison</h2>'
     h += ('<p>Un choix se défend d\'autant mieux qu\'il repose sur une notation commune. '
           'Remplissez la grille ci-dessous pour vos candidats : elle reprend les neuf points du guide, '
           'se calcule en direct et s\'imprime pour votre comité.</p>')
     h += grille()
     h += ('<h2 id="devis">Demander un devis à SPN NET</h2>'
+          '<div class="endcta rv"><h3>Mettez-nous sur votre grille</h3>'
           '<p>SPN NET entretient des bureaux, commerces, copropriétés et établissements de santé à Paris '
-          'et en Île-de-France depuis 30 ans. Équipes fidélisées, interlocuteur dédié, certification '
-          'ISO 45001 et médaille d\'argent EcoVadis 2025. Nous nous déplaçons pour chiffrer vos locaux '
-          'et vous transmettons une proposition détaillée sous 24 heures ouvrées : '
-          '<a href="https://spn-net.fr/contact/">demander un devis</a>.</p>')
+          'et en Île-de-France depuis 30 ans. Équipes fidélisées, interlocuteur dédié, contrôle qualité '
+          'tracé. Nous nous déplaçons pour chiffrer vos locaux réels et vous transmettons une proposition '
+          'détaillée sous 24 heures ouvrées.</p>'
+          '<div class="acts"><a class="b1" href="https://spn-net.fr/contact/">demander un devis</a>'
+          '<a class="b2" href="tel:+33149462240">01 49 46 22 40</a></div>'
+          '<div class="badges">ISO 45001 &#183; Médaille d\'argent EcoVadis 2025 &#183; 4,8/5 sur 48 avis Google</div>'
+          '</div>')
     return h
 
 
@@ -261,7 +405,7 @@ def schema():
 
 
 def build():
-    hero = ('<div class="art-hero"><div class="wrap hero-solo">'
+    hero = ('<div class="art-hero"><div class="wrap hero-in"><div>'
             '<nav class="crumbs"><a href="https://spn-net.fr/">Accueil</a> &#8250; '
             '<a href="https://spn-net.fr/tertiaire/">Nettoyage de bureaux</a> &#8250; '
             '<span>Choisir son entreprise</span></nav>'
@@ -273,6 +417,10 @@ def build():
             '<span>&#9201; 12 min de lecture</span>'
             '<span class="rate"><span class="s">&#9733;</span> <b>4,8/5</b> &#183; 48 avis</span></div>'
             '<a class="hero-cta" href="#grille">Ouvrir la grille de comparaison &#8594;</a>'
+            '</div>'
+            f'<figure class="hero-img rv"><img src="{IMG1}tertiaire-1.jpg" '
+            'alt="Entretien de bureaux par SPN NET à Paris" width="1500" height="1000" '
+            'decoding="async"></figure>'
             '</div></div>')
     main = '<article class="art-main">' + body() + _faq_block(FAQ) + '</article>'
     side = ('<aside class="art-side"><div class="side-toc"><b>Au sommaire</b><ol>'
