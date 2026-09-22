@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — CRM des demandes (leads)
  * Description: CRM léger : capture toutes les demandes (Elementor + endpoint REST), qualifie bon/mauvais lead, filtre, source précise + canal, e-mail de secours, export CSV. Design moderne 2026.
- * Version: 1.7.1
+ * Version: 1.8.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -125,6 +125,36 @@ class SPN_Leads {
     }
 
     /**
+     * D'ou vient la demande, lu dans l'URL d'arrivee.
+     *
+     * Google Ads est certain : le clic paye depose gclid / gbraid / wbraid, et
+     * les campagnes recentes gad_source + gad_campaignid. Le reste ne peut pas
+     * etre tranche depuis la seule URL d'atterrissage : sans referent, une
+     * visite organique et un acces direct sont indiscernables. On ne devine
+     * donc pas, on nomme le groupe pour ce qu'il est.
+     *
+     * Retourne [libelle, classe CSS].
+     */
+    public static function acquisition($source) {
+        $q = [];
+        $qs = parse_url((string) $source, PHP_URL_QUERY);
+        if ($qs) parse_str($qs, $q);
+        $has = function ($k) use ($q) { return isset($q[$k]) && $q[$k] !== ''; };
+
+        if ($has('gclid') || $has('gbraid') || $has('wbraid')
+            || $has('gad_source') || $has('gad_campaignid')) return ['Google Ads', 'ads'];
+        if (isset($q['utm_medium']) && in_array(strtolower($q['utm_medium']), ['cpc', 'ppc', 'paid'], true))
+            return ['Google Ads', 'ads'];
+
+        $src = isset($q['utm_source']) ? strtolower($q['utm_source']) : '';
+        foreach (['chatgpt', 'openai', 'perplexity', 'copilot', 'gemini', 'claude'] as $ia) {
+            if (strpos($src, $ia) !== false) return ['IA', 'ia'];
+        }
+        if ($src !== '') return [ucfirst($src), 'autre'];
+        return ['SEO / direct', 'seo'];
+    }
+
+    /**
      * Un lead = un seul e-mail, et c'est Elementor qui l'envoie.
      *
      * Tous les formulaires du site aboutissent chez Elementor : celui de la page
@@ -168,8 +198,9 @@ class SPN_Leads {
             ['Entreprise', $e($d['company']), ''],
             ['E-mail',     $mail ? '<a href="mailto:' . esc_attr($mail) . '" style="color:#D8431F;font-weight:600;text-decoration:none">' . $e($mail) . '</a>' : '&mdash;', ''],
             ['Téléphone',  $tel  ? '<a href="tel:' . esc_attr($tel) . '" style="color:#D8431F;font-weight:600;text-decoration:none">' . $e($d['phone']) . '</a>' : '&mdash;', ''],
-            ['Page',       $d['source'] ? '<a href="' . esc_url($d['source']) . '" style="color:#D8431F;text-decoration:none">' . $e($d['source']) . '</a>' : '&mdash;', ''],
         ];
+        // Pas de page d'origine ici : elle vit dans le menu Demandes, avec le
+        // canal d'acquisition. L'e-mail reste une fiche de contact.
         $tr = '';
         $first = true;
         foreach ($rows as $r) {
@@ -468,9 +499,11 @@ class SPN_Leads {
             if ($r['company']) echo '<div class="co">'.esc_html($r['company']).'</div>';
             echo '</td>';
             // source & canal
-            echo '<td class="spn-src"><span class="chan chan-'.esc_attr($chan).'">'.esc_html($chan).'</span>';
+            list($acq,$acqc) = self::acquisition($src);
+            echo '<td class="spn-src"><span class="acq acq-'.esc_attr($acqc).'">'.esc_html($acq).'</span>';
             if ($src) echo '<a class="pg" href="'.esc_url($src).'" target="_blank" title="'.esc_attr($src).'">'.esc_html($srclabel).'</a>';
             if ($r['ip']) echo '<span class="ip">'.esc_html($r['ip']).'</span>';
+            echo '<span class="chan chan-'.esc_attr($chan).'">'.esc_html($chan).'</span>';
             echo '</td>';
             // message
             echo '<td class="spn-msg">'.esc_html(mb_strimwidth((string)$r['message'],0,150,'…')).'</td>';
@@ -539,8 +572,8 @@ class SPN_Leads {
         header('Content-Type: text/csv; charset=utf-8');
         header('Content-Disposition: attachment; filename=demandes-spn-'.date('Y-m-d').'.csv');
         $out=fopen('php://output','w'); fprintf($out,"\xEF\xBB\xBF");
-        fputcsv($out,['Date','Nom','Email','Telephone','Entreprise','Message','Source','Canal','IP','Qualite'],';');
-        foreach ($rows as $r) if(!self::is_test_row($r)) fputcsv($out,[$r['created_at'],$r['name'],$r['email'],$r['phone'],$r['company'],$r['message'],$r['source'],$r['channel'],$r['ip'],$r['quality']],';');
+        fputcsv($out,['Date','Nom','Email','Telephone','Entreprise','Message','Acquisition','Page d\'origine','Canal technique','IP','Qualite'],';');
+        foreach ($rows as $r) if(!self::is_test_row($r)) { $a=self::acquisition($r['source']); fputcsv($out,[$r['created_at'],$r['name'],$r['email'],$r['phone'],$r['company'],$r['message'],$a[0],$r['source'],$r['channel'],$r['ip'],$r['quality']],';'); }
         fclose($out); exit;
     }
 
@@ -580,7 +613,12 @@ class SPN_Leads {
 .spncrm .spn-contact .co{color:var(--mut);font-size:12.5px;margin-top:2px}
 .spncrm .tag{font-size:10px;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:100px;vertical-align:middle}
 .spncrm .tag.pro{background:var(--green-s);color:var(--green)}.spncrm .tag.perso{background:#f1f5f9;color:var(--mut)}
-.spncrm .chan{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;background:#eef2ff;color:var(--brand);text-transform:capitalize}
+.spncrm .acq{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:6px;letter-spacing:.02em}
+.spncrm .acq-ads{background:#fff1ea;color:#d8431f}
+.spncrm .acq-seo{background:#ecfdf5;color:#047857}
+.spncrm .acq-ia{background:#f5f3ff;color:#6d28d9}
+.spncrm .acq-autre{background:#f1f5f9;color:#475569}
+.spncrm .chan{display:inline-block;font-size:10px;font-weight:600;margin-top:4px;padding:2px 7px;border-radius:5px;background:#f8fafc;color:#94a3b8;text-transform:capitalize}
 .spncrm .chan-rest{background:#ecfeff;color:#0891b2}.spncrm .chan-historique{background:#f8fafc;color:var(--mut)}
 .spncrm .spn-src .pg{display:block;color:var(--ink);font-size:12px;margin-top:5px;text-decoration:none;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .spncrm .spn-src .pg:hover{color:var(--brand)}
