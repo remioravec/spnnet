@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SPN NET — Correctifs SEO (301 + sitemap)
  * Description: Redirections 301 des anciennes pages vers leurs équivalents neufs, exclusion des pages noindex du sitemap, et purge LiteSpeed — le tout à l'activation, sans configuration.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: SEO Monkey
  * Requires PHP: 7.2
  */
@@ -78,7 +78,7 @@ class SPN_Redirects {
     /** Retire les URLs exclues d'un éventuel filtre du générateur de sitemap. */
     public static function filter_sitemap($elements) {
         if (!is_array($elements)) return $elements;
-        $urls = array_map('get_permalink', self::SITEMAP_EXCLUDE);
+        $urls = array_map('get_permalink', self::exclude_ids());
         $urls = array_filter($urls);
         foreach ($elements as $k => $el) {
             $loc = is_array($el) && isset($el['loc']) ? $el['loc'] : (is_object($el) && isset($el->loc) ? $el->loc : '');
@@ -88,12 +88,31 @@ class SPN_Redirects {
     }
 
     /** À l'activation : exclut les pages du sitemap, régénère, purge LiteSpeed. */
+    /**
+     * Les IDs à exclure, résolus depuis self::MAP au lieu d'une liste figée.
+     *
+     * La liste en dur datait du 2026-08-19 : elle ne suivait plus les pages
+     * ajoutées depuis, et laissait 22 URLs redirigées annoncées au sitemap.
+     * On résout chaque ancien chemin en ID, pages et articles confondus.
+     */
+    public static function exclude_ids() {
+        $ids = self::SITEMAP_EXCLUDE;
+        foreach (array_keys(self::MAP) as $path) {
+            $slug = trim($path, '/');
+            foreach (['page', 'post'] as $type) {
+                $p = get_page_by_path($slug, OBJECT, $type);
+                if ($p) { $ids[] = (int) $p->ID; break; }
+            }
+        }
+        return array_values(array_unique(array_filter(array_map('intval', $ids))));
+    }
+
     public static function on_activate() {
         // 1) Exclure les IDs dans les réglages du plugin "XML Sitemap Generator" (option sm_options)
         $opts = get_option('sm_options');
         if (is_array($opts)) {
             $ex = (isset($opts['sm_b_exclude']) && is_array($opts['sm_b_exclude'])) ? $opts['sm_b_exclude'] : [];
-            $opts['sm_b_exclude'] = array_values(array_unique(array_map('intval', array_merge($ex, self::SITEMAP_EXCLUDE))));
+            $opts['sm_b_exclude'] = array_values(array_unique(array_map('intval', array_merge($ex, self::exclude_ids()))));
             update_option('sm_options', $opts);
         }
         // 2) Régénérer le sitemap
