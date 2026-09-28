@@ -54,12 +54,26 @@ DROP = ("aller plus loin", "nos clients parlent", "des locaux impeccables")
 
 # ---------------------------------------------------------------- extraction
 
+WRAP = re.compile(r"<!--\s*/?wp:html\s*-->")
+
+
+SRC_DIR = os.environ.get("SPN_RELIFT_SRC")  # repartir d'une sauvegarde plutot que du live
+
+
 def live_content(slug):
     r = mz.requests.get(mz.API, params={"slug": slug, "context": "edit", "_fields": "id,content"},
                         auth=mz.AUTH, timeout=90).json()
     if not r:
         raise SystemExit(f"{slug} : page introuvable")
-    return r[0]["id"], r[0]["content"]["raw"]
+    pid = r[0]["id"]
+    if SRC_DIR:
+        # Le contenu en ligne peut deja etre une sortie de ce script : on
+        # recolte alors depuis la sauvegarde d'origine, jamais depuis soi-meme.
+        p = pathlib.Path(SRC_DIR) / f"{slug}.html"
+        if not p.exists():
+            raise SystemExit(f"{slug} : sauvegarde absente ({p})")
+        return pid, WRAP.sub("", p.read_text(encoding="utf-8"))
+    return pid, r[0]["content"]["raw"]
 
 
 def sections(h):
@@ -251,8 +265,13 @@ def main():
         print(f"  {s:22} id={pid:5} {len(h):7} o · {n} modules"
               + ("  -> deploye" if deploy else ""))
         if deploy:
-            r = mz.requests.post(f"{mz.API}/{pid}", auth=mz.AUTH, timeout=180,
-                                 json={"content": h})
+            # Le wrapper wp:html est obligatoire : sans lui WordPress applique
+            # wpautop au contenu et injecte des <p>/</p> a l'interieur du CSS
+            # et du JS, ce qui casse la page. C'est ce que fait make_zone.deploy().
+            payload = {"content": "<!-- wp:html -->\n" + h + "\n<!-- /wp:html -->",
+                       "template": "elementor_header_footer",
+                       "meta": {"_elementor_edit_mode": ""}}
+            r = mz.requests.post(f"{mz.API}/{pid}", auth=mz.AUTH, timeout=180, json=payload)
             if r.status_code != 200:
                 print(f"     ECHEC {r.status_code} {r.text[:160]}")
 
