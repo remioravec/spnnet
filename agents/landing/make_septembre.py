@@ -557,8 +557,12 @@ def main():
     for a in ARTICLES:
         r = resolve(a)
         html = ma.build_article(r)
-        html = html.replace("</style>", "</style>" + nb.NB_CSS + extra_css(), 1) \
-            if "</style>" in html else nb.NB_CSS + extra_css() + html
+        # NB_CSS est du CSS brut, sans balises <style> : il se pose DEDANS.
+        # extra_css() porte ses propres balises et se pose apres.
+        if "</style>" in html:
+            html = html.replace("</style>", nb.NB_CSS + "</style>", 1) + extra_css()
+        else:
+            html = "<style>" + nb.NB_CSS + "</style>" + extra_css() + html
         html = html.rstrip()
         # JS des modules, juste avant la fermeture du gabarit
         js = nb.NB_JS + (nbr.JS if 'id="calcResil"' in html else "")
