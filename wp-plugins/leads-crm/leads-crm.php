@@ -59,6 +59,23 @@ class Leads_CRM {
         return $o[$k];
     }
 
+    /**
+     * Teinte claire derivee de l'accent, pour les fonds de citation.
+     *
+     * Evite d'avoir une couleur de fond en dur qui jurerait des que la marque
+     * n'est plus celle d'origine : le bloc message suit la couleur du client.
+     */
+    public static function accent_soft() {
+        $c = ltrim(self::accent(), '#');
+        if (strlen($c) === 3) $c = $c[0].$c[0].$c[1].$c[1].$c[2].$c[2];
+        $o = '#';
+        for ($i = 0; $i < 3; $i++) {
+            $v = hexdec(substr($c, $i * 2, 2));
+            $o .= sprintf('%02x', (int) round($v + (255 - $v) * 0.94));  // 6 % de teinte
+        }
+        return $o;
+    }
+
     /** Couleur d'accent validee, pour ne jamais injecter n'importe quoi en CSS. */
     public static function accent() {
         $c = sanitize_hex_color(self::cfg('accent'));
@@ -307,6 +324,7 @@ class Leads_CRM {
     private static function mail_html($d) {
         $e  = function ($v) { return esc_html((string) $v); };
         $ac = esc_attr(self::accent());
+        $as = esc_attr(self::accent_soft());
         $mail = sanitize_email((string) $d['email']);
         $tel  = preg_replace('/[^0-9+]/', '', (string) $d['phone']);
         $rows = [
@@ -341,7 +359,7 @@ class Leads_CRM {
             . '</td></tr>'
             . ($msg ? '<tr><td style="padding:6px 26px 4px">'
                 . '<div style="color:#6b7280;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:8px">Message</div>'
-                . '<div style="background:#faf8f5;border-left:3px solid ' . $ac . ';border-radius:0 10px 10px 0;padding:14px 16px;font-size:14px;line-height:1.6;color:#2A2D35">' . $msg . '</div>'
+                . '<div style="background:' . $as . ';border-left:3px solid ' . $ac . ';border-radius:0 10px 10px 0;padding:14px 16px;font-size:14px;line-height:1.6;color:#2A2D35">' . $msg . '</div>'
                 . '</td></tr>' : '')
             . '<tr><td style="padding:22px 26px 26px">' . $cta
             . '<div style="color:#9aa0a6;font-size:12px;margin-top:16px;line-height:1.5">Répondre à cet e-mail écrit directement au prospect.<br>'
