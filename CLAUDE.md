@@ -223,6 +223,11 @@ Pose du bandeau : **après le premier bloc de contenu, jamais au-dessus du H1.**
 - Mise à jour d'une page existante : tableau « section actuelle → ce qu'elle devient → décision », étiquette CONSERVÉ / RÉÉCRIT / NOUVEAU sur chaque section, passages à valeur repris mot pour mot.
 - Section d'un hub dont le contenu existe déjà → **brief de branchement** (RETIRER / AJOUTER / DÉPLACER / NE PAS BRANCHER), pas un brief de contenu.
 - Modèles de pages : l'UX/UI et l'interaction priment sur le contenu. Construire dans cet ordre.
+- **Copywriting visuel — règle dure.** Le texte seul ne fait pas une page. **Une infographie HTML entre chaque Hn**, plus les modules d'attention NavBoost : ce sont eux l'essentiel de la page, pas un décor ajouté à la fin. Un article qui sort avec une seule checklist et un tableau est hors standard et se réécrit.
+  - Seuil de contrôle : **≥ 1 visuel par H2**, au moins un module interactif, un CTA intermédiaire, un tableau de synthèse.
+  - Les blocs se construisent avec `agents/landing/visuels.py` (`duo` · `barre` · `etapes` · `cartes` · `jauge` · `cta`) et `navboost.py`. On n'improvise pas un gabarit par page.
+  - Pas d'image décorative : chaque visuel porte une donnée, un arbitrage ou une comparaison. Sans dépendance externe, sans décalage de mise en page.
+  - Vérification avant publication : rendre la page et **compter les visuels rendus**, jamais se fier au compte de jetons dans la source.
 - **Ne jamais inventer une offre ni une certification.** SPN NET détient **ISO 45001** et la **médaille d'argent EcoVadis 2025**, rien d'autre. Les fourchettes de prix publiées sont des **relevés de marché datés et sourcés**, signalés comme tels, jamais présentés comme les tarifs de SPN.
 - Tagline : « propreté professionnelle », pas « nettoyage professionnel ».
 

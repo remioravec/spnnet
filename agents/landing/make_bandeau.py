@@ -139,7 +139,7 @@ def main():
     auth = auth_header()
     skip = redirected_slugs() | EXCLUDE
 
-    pages = call(f"{API}/pages?per_page=100&status=publish&context=edit"
+    pages = call(f"{API}/pages?per_page=100&status=publish,future&context=edit"
                  "&_fields=id,slug,content", auth)
     todo = [p for p in pages if p["slug"] not in skip]
     print(f"{len(pages)} pages publiées · {len(pages)-len(todo)} écartées (301 ou exclues) "

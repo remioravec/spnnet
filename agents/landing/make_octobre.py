@@ -36,6 +36,8 @@ from __future__ import annotations
 import os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import navboost as nb
+import visuels as vz
+import octobre_visuels as ov
 
 COPRO   = "https://spn-net.fr/nettoyage-copropriete/"
 HABITAT = "https://spn-net.fr/copropriete-et-habitat/"
@@ -71,6 +73,8 @@ A1_BODY = """<p class="lead">Un contrat d'entretien de parties communes se vote 
 
 <p>La dépense, elle, se répartit en charges générales selon les tantièmes, sauf si le règlement de copropriété prévoit une clé particulière pour l'entretien. Les fourchettes de budget sont détaillées dans notre page sur le <a href="__COPRO__">nettoyage de copropriété</a>, avec un calculateur par nombre de lots.</p>
 
+__V_QUI__
+
 <h2 id="clauses">Les clauses à exiger</h2>
 
 <p>Un contrat d'entretien tient en quatre pages. Ce qui compte n'est pas sa longueur mais sa précision : tout ce qui n'y figure pas sera facturé en supplément, ou ne sera pas fait. Cochez ce que vous voulez y voir.</p>
@@ -81,11 +85,27 @@ __CLAUSES__
 
 <p>Pour la rédaction du périmètre lui-même, notre <a href="__CDC__">cahier des charges de nettoyage</a> se remplit zone par zone et s'annexe directement au contrat.</p>
 
+__V_CLAUSES__
+
+<h2 id="hors">Ce que le contrat ne couvre jamais sans le dire</h2>
+
+<p>Une part des tensions vient moins d'un manquement que d'un malentendu sur le périmètre. Certaines prestations que les copropriétaires croient incluses le sont effectivement ; d'autres, qu'ils croient aussi incluses, ne le sont jamais sans ligne dédiée.</p>
+
+__V_HORS__
+
+<p>La règle est simple : tout ce qui demande du matériel spécifique, une habilitation ou une intervention ponctuelle sort du forfait d'entretien courant. Vitrerie en hauteur, décapage de sols, remise en état après dégât des eaux, traitement 3D : ces prestations se chiffrent au passage, deux à quatre fois par an, et figurent dans une annexe distincte du contrat.</p>
+
+<p>Écrivez-les quand même, même si vous ne les commandez pas tout de suite. Un tarif négocié à la signature coûte toujours moins cher qu'un devis demandé dans l'urgence un lundi matin.</p>
+
+__CTA__
+
 <h2 id="duree">Durée, reconduction et dénonciation</h2>
 
 <p>La quasi-totalité des contrats d'entretien de copropriété sont conclus pour un an, avec <strong>tacite reconduction</strong>. Si personne ne dit rien avant l'échéance, le contrat repart pour douze mois aux mêmes conditions.</p>
 
 <p>Le préavis de dénonciation est fixé par le contrat, pas par la loi. Trois mois est de loin le plus courant. Il se compte à rebours depuis la date anniversaire, et c'est la date de première présentation du recommandé qui fait foi.</p>
+
+__V_DUREE__
 
 <p>Un point que beaucoup de conseils syndicaux ignorent : la <strong>loi Chatel ne s'applique pas</strong>. Elle protège les consommateurs et les non-professionnels ; un syndicat de copropriétaires agit pour la gestion de l'immeuble et n'en bénéficie pas en principe. Aucun rappel d'échéance ne vous est dû. La surveillance du calendrier est à votre charge. La procédure complète est détaillée dans notre guide pour <a href="__RESIL__">résilier un contrat de nettoyage</a>.</p>
 
@@ -93,8 +113,10 @@ __CLAUSES__
 
 <p>C'est ici que se perdent la plupart des changements de prestataire : non pas sur le fond, mais sur les dates. Deux contraintes se superposent — le préavis du contrat, et la date de l'assemblée générale annuelle. Il faut que la seconde tombe avant la première.</p>
 
+__V_CALENDRIER__
+
 <div class="tbl-wrap"><table class="tbl">
-<caption>Rétroplanning pour un contrat à échéance au 31 décembre, préavis de 3 mois</caption>
+<caption>Le même rétroplanning, en détail</caption>
 <thead><tr><th>Quand</th><th>Qui</th><th>Quoi</th></tr></thead>
 <tbody>
 <tr><td>Juin</td><td>Conseil syndical</td><td>Bilan de l'année, relevés de contrôle à l'appui</td></tr>
@@ -111,6 +133,8 @@ __CLAUSES__
 <p>Si l'assemblée ne peut pas se tenir à temps, la dénonciation reste la priorité : elle se révoque plus facilement qu'une reconduction ne s'annule. La suite du processus est décrite dans notre guide pour <a href="__CHANGER__">changer de prestataire de nettoyage</a>.</p>
 
 <h2 id="erreurs">Ce qui fait déraper un contrat de copropriété</h2>
+
+__V_ERREURS__
 
 <p><strong>Le périmètre non écrit.</strong> « Entretien des parties communes » ne veut rien dire. Les caves, le local à poubelles, le parking, les vitrages de hall et la sortie des bacs doivent être nommés, ou ils ne seront pas faits.</p>
 
@@ -169,6 +193,8 @@ A2_BODY = """<p class="lead">Tout ce qui se publie sur le contrôle qualité en 
 
 <p>Le second effet est plus discret mais plus puissant : <strong>un contrôle annoncé et tenu modifie le comportement avant même d'être appliqué</strong>. C'est exactement le mécanisme décrit dans notre article sur <a href="__QUAL__">la qualité du nettoyage qui baisse après trois mois</a> — la dérive ne vient pas d'un manque de bonne volonté, mais de l'absence de retour.</p>
 
+__V_POURQUOI__
+
 <h2 id="grille">La grille de contrôle à remplir</h2>
 
 <p>Douze postes, notés de 0 à 2 : <strong>2</strong> conforme, <strong>1</strong> acceptable mais à reprendre, <strong>0</strong> non fait. Cochez les postes conformes ; ce qui reste décoché est votre constat. Comptez dix minutes, au même moment chaque mois.</p>
@@ -177,7 +203,21 @@ __GRILLE__
 
 <p>Deux règles pour que la grille tienne dans le temps. Contrôlez <strong>toujours au même moment du cycle</strong> — le lendemain d'un passage, jamais la veille, sinon vous mesurez l'usure et non la prestation. Et <strong>faites signer</strong> par le responsable de secteur quand c'est possible : un relevé contradictoire pèse infiniment plus qu'un relevé unilatéral.</p>
 
+__V_GRILLE__
+
 <p>La grille se cale sur ce que le contrat prévoit, poste par poste. Si votre périmètre n'est pas écrit, commencez par là : notre <a href="__CDC__">cahier des charges de nettoyage</a> se remplit zone par zone et devient la référence du contrôle.</p>
+
+<h2 id="faux">Les indicateurs à ne pas suivre</h2>
+
+<p>La moitié de ce qu'on appelle « suivi qualité » dans les contrats d'entretien ne mesure rien. Ce sont des chiffres faciles à produire, qui donnent le sentiment de piloter sans rien dire de l'état réel des locaux.</p>
+
+__V_FAUX__
+
+<p>Le cas le plus répandu est l'<strong>autocontrôle fourni par le prestataire</strong>. Il a sa valeur — une entreprise qui s'autocontrôle vaut mieux qu'une qui ne le fait pas — mais il ne remplace pas le vôtre, pour une raison simple : personne ne se note mal.</p>
+
+<p>Le second est le <strong>nombre d'heures facturées</strong>. Vous n'achetez pas des heures, vous achetez un résultat. Un prestataire qui organise mieux ses tournées fait le même travail en moins de temps ; le pénaliser pour cela revient à encourager la lenteur.</p>
+
+__CTA__
 
 <h2 id="seuil">Lire le score et fixer le seuil</h2>
 
@@ -193,11 +233,15 @@ __GRILLE__
 <tr><td><b>12 ou moins</b></td><td>Manquement caractérisé</td><td>Mise en demeure. Les pénalités du contrat s'appliquent.</td></tr>
 </tbody></table></div>
 
+__V_SEUIL__
+
 <p>Le vrai seuil de décision n'est pas un chiffre isolé : c'est <strong>deux mois consécutifs sous 17</strong>. Un mauvais mois arrive — un arrêt maladie, un remplacement raté. Deux de suite après un signalement, c'est une organisation qui ne tient pas.</p>
 
 <h2 id="rituel">Le rituel : qui, quand, combien de temps</h2>
 
 <p>Un dispositif de contrôle ne survit que s'il coûte peu. Dix minutes par mois, une seule personne désignée, toujours la même : l'office manager pour des bureaux, un membre du conseil syndical pour un immeuble. La rotation des contrôleurs tue la comparabilité.</p>
+
+__V_RITUEL__
 
 <p>Trois documents suffisent : la grille remplie et datée, un cahier de liaison sur site pour les signalements du quotidien, et un point annuel qui reprend les douze relevés. Le reste est du confort.</p>
 
@@ -206,6 +250,8 @@ __GRILLE__
 <h2 id="apres">Ce qu'on fait d'un score qui baisse</h2>
 
 <p>La gradation est toujours la même, et elle compte juridiquement : un juge regarde si vous avez laissé au prestataire une chance de corriger. Signalement écrit, puis réunion de recadrage avec plan d'action daté, puis mise en demeure, puis résolution. Jamais l'inverse, jamais de saut d'étape.</p>
+
+__V_APRES__
 
 <p>Chaque relevé transmis est une pièce. Douze relevés mensuels forment un dossier que personne ne conteste — c'est la différence entre « ça ne va pas » et une inexécution démontrée. La procédure complète, avec le modèle de mise en demeure, est dans notre page sur <a href="__LITIGE__">le prestataire qui ne respecte pas le contrat</a>.</p>
 
@@ -280,6 +326,11 @@ GRILLE = [
  ("Consommables fournis", "Conformément à ce que le contrat met à la charge du prestataire.", None),
 ]
 
+VISUELS = {
+ "contrat-nettoyage-copropriete": {f"__V_{k}__": vv for k, vv in ov.V_COPRO.items()} | {"__CTA__": ov.CTA_COPRO},
+ "controle-qualite-prestataire-nettoyage": {f"__V_{k}__": vv for k, vv in ov.V_CTRL.items()} | {"__CTA__": ov.CTA_CTRL},
+}
+
 LINKS = {"__COPRO__": COPRO, "__HABITAT__": HABITAT, "__PRIX__": PRIX, "__CDC__": CDC,
          "__QUAL__": QUAL, "__LITIGE__": LITIGE, "__RESIL__": RESIL, "__HUB__": HUB,
          "__CHANGER__": CHANGER, "__CTRL__": CTRL, "__CONTRAT__": CONTRAT}
@@ -304,6 +355,8 @@ def resolve(a):
     for k, f in MODULES.items():
         if k in b:
             b = b.replace(k, f())
+    for k, vv in VISUELS.get(a["slug"], {}).items():
+        b = b.replace(k, vv)
     left = re.findall(r"__[A-Z0-9_]+__", b)
     if left:
         raise SystemExit(f"{a['slug']} : jetons non resolus {set(left)}")
@@ -324,6 +377,7 @@ def main():
             html = html.replace("</style>", nb.NB_CSS + "</style>", 1)
         else:
             html = "<style>" + nb.NB_CSS + "</style>" + html
+        html += vz.CSS + vz.EXTRA
         html = html.rstrip()
         html = html[: html.rfind("</div>")] + nb.NB_JS + html[html.rfind("</div>"):]
         open(os.path.join(os.path.dirname(__file__), f"article-{a['slug']}.html"), "w",
