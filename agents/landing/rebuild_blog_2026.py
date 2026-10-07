@@ -14,13 +14,14 @@ import make_zone as mz
 from make_blog_aout import BLOG_CARDS as CARDS_AOUT
 from make_juillet import BLOG_CARDS_JUILLET as CARDS_JUIL
 from make_septembre import BLOG_CARDS_SEPT as CARDS_SEPT
+from make_octobre import BLOG_CARDS_OCT as CARDS_OCT
 
 AUTH = (os.environ["WP_USER"], os.environ["WP_APP_PASSWORD"])
 PAGES = "https://spn-net.fr/wp-json/wp/v2/pages"
 
 
 def main():
-    cards = list(CARDS_SEPT) + list(CARDS_AOUT) + list(CARDS_JUIL)
+    cards = list(CARDS_OCT) + list(CARDS_SEPT) + list(CARDS_AOUT) + list(CARDS_JUIL)
     seen, ordered = set(), []
     for c in cards:
         if c[0] not in seen:
