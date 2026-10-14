@@ -1,0 +1,461 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+.spn-art{--orange:#ED5D37;--orange-deep:#D8431F;--orange-soft:#FFF1EA;--ink:#16181D;--ink-2:#2A2D35;--grey:#5b616b;--line:#E9E4DD;--cream:#FAF8F5;--r:18px;--shadow:0 18px 40px -22px rgba(22,24,29,.28);--shadow-sm:0 8px 20px -12px rgba(22,24,29,.22);font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);line-height:1.65}
+.spn-art *{box-sizing:border-box}
+.spn-art .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.spn-art a{color:var(--orange-deep)}
+/* ---- HERO ---- */
+.spn-art .art-hero{position:relative;overflow:hidden;background:radial-gradient(120% 120% at 88% -20%,var(--orange-soft),transparent 46%),linear-gradient(180deg,var(--cream),#fff);border-bottom:1px solid var(--line);padding:38px 0 36px}
+.spn-art .hero-in{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center}
+.spn-art .crumbs{font-size:.82rem;color:var(--grey);margin-bottom:16px}
+.spn-art .crumbs a{color:var(--grey);text-decoration:none}.spn-art .crumbs a:hover{color:var(--orange-deep)}
+.spn-art .eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-deep);background:#fff;border:1px solid rgba(216,67,31,.28);padding:6px 14px;border-radius:999px}
+.spn-art h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,4.2vw,3rem);line-height:1.08;letter-spacing:-.015em;margin:16px 0 0;max-width:20ch}
+.spn-art .chapo{font-size:1.06rem;color:var(--ink-2);font-weight:500;margin:14px 0 0;max-width:52ch}
+.spn-art .art-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.spn-art .art-meta span{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:.8rem;color:var(--grey);font-weight:600}
+.spn-art .art-meta .rate b{color:var(--ink)}.spn-art .art-meta .s{color:#FBBC05;letter-spacing:1px}
+/* carte chiffres clés du hero */
+.spn-art .hero-key{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:22px 22px 8px}
+.spn-art .hero-key .lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--grey);font-weight:800;margin-bottom:6px}
+.spn-art .hero-key .k{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.spn-art .hero-key .k:last-child{border-bottom:none}
+.spn-art .hero-key .k b{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:var(--orange-deep);line-height:1}
+.spn-art .hero-key .k span{font-size:.82rem;color:var(--ink-2);font-weight:600;text-align:right}
+.spn-art .hero-solo{display:block;max-width:820px}
+@media(max-width:820px){.spn-art .hero-in{grid-template-columns:1fr;gap:24px}.spn-art .hero-key{max-width:380px}}
+.spn-art.js .rv{opacity:0;transform:translateY(16px)}
+.spn-art.js .rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.6,.2,1)}
+.spn-art .art-chart path.line{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s ease .2s}
+.spn-art .art-body{padding:44px 0 60px}
+/* ---- COMPOSANTS RICHES ---- */
+.spn-art .art-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+.spn-art .art-stats .st{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:center}
+.spn-art .art-stats .st .n{font-family:'Fraunces',serif;font-weight:600;font-size:2rem;color:var(--orange-deep);line-height:1}
+.spn-art .art-stats .st .l{font-size:.82rem;color:var(--grey);font-weight:600;margin-top:6px}
+@media(max-width:560px){.spn-art .art-stats{grid-template-columns:1fr}}
+.spn-art .art-table{width:100%;border-collapse:collapse;margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.92rem}
+.spn-art .art-table thead th{background:var(--ink);color:#fff;text-align:left;font-weight:700;font-size:.8rem;letter-spacing:.02em;padding:12px 14px}
+.spn-art .art-table td,.spn-art .art-table th{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.spn-art .art-table tbody tr:last-child td{border-bottom:none}
+.spn-art .art-table tbody tr:nth-child(even){background:var(--cream)}
+.spn-art .art-table td:first-child{font-weight:700;color:var(--ink)}
+.spn-art .art-table .yes{color:#1e8e3e;font-weight:800}.spn-art .art-table .no{color:#c0392b;font-weight:800}
+.spn-art .twrap{overflow-x:auto}
+.spn-art .art-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0;counter-reset:s}
+.spn-art .art-steps .stp{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 16px 16px}
+.spn-art .art-steps .stp::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--orange-soft);color:var(--orange-deep);font-family:'Fraunces',serif;font-weight:700;margin-bottom:10px}
+.spn-art .art-steps .stp b{display:block;font-size:.98rem;margin-bottom:3px}
+.spn-art .art-steps .stp span{font-size:.83rem;color:var(--grey)}
+@media(max-width:720px){.spn-art .art-steps{grid-template-columns:1fr 1fr}}
+.spn-art .art-note{background:var(--orange-soft);border:1px solid rgba(216,67,31,.24);border-left:4px solid var(--orange-deep);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.95rem}
+.spn-art .art-note b{color:var(--ink)}
+.spn-art .art-chart{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px 14px;margin:24px 0}
+.spn-art .art-chart .ttl{font-weight:700;font-size:.92rem;margin-bottom:4px}
+.spn-art .art-chart .cap{font-size:.8rem;color:var(--grey);margin-bottom:12px}
+.spn-art .art-chart .lg{display:flex;gap:18px;font-size:.8rem;color:var(--grey);font-weight:600;margin-top:10px}
+.spn-art .art-chart .lg i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.spn-art .art-links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.spn-art .art-links a{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;text-decoration:none;color:var(--ink);font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;transition:transform .15s,box-shadow .15s,border-color .15s}
+.spn-art .art-links a:hover{border-color:var(--orange);box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.spn-art .art-links a span{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:.83rem;color:var(--grey);margin-top:3px}
+.spn-art .art-links a::after{content:" →";color:var(--orange-deep)}
+@media(max-width:560px){.spn-art .art-links{grid-template-columns:1fr}}
+.spn-art .art-grid{display:grid;grid-template-columns:1fr 330px;gap:48px;align-items:start}
+.spn-art .art-main{min-width:0}
+/* sidebar */
+.spn-art .art-side{position:sticky;top:86px;display:flex;flex-direction:column;gap:18px}
+.spn-art .cta-card{background:var(--ink);color:#fff;border-radius:var(--r);padding:26px 24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.spn-art .cta-card::before{content:"";position:absolute;inset:0;background:radial-gradient(360px 180px at 100% -20%,rgba(237,93,55,.55),transparent 60%)}
+.spn-art .cta-card>*{position:relative}
+.spn-art .cta-card .rate{font-size:.82rem;font-weight:700;color:#fff}.spn-art .cta-card .rate .s{color:#FBBC05;letter-spacing:1px}
+.spn-art .cta-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;margin:12px 0 6px;line-height:1.15}
+.spn-art .cta-card p{font-size:.9rem;color:rgba(255,255,255,.82);margin:0 0 16px}
+.spn-art .cta-card .btn{display:block;text-align:center;background:linear-gradient(135deg,#F4794E,#D8431F);color:#fff;font-weight:700;text-decoration:none;padding:13px 18px;border-radius:999px}
+.spn-art .cta-card .btn:hover{filter:brightness(1.06)}
+.spn-art .cta-card .tel{display:block;text-align:center;color:#fff;font-weight:800;font-size:1.1rem;text-decoration:none;margin-top:14px}
+.spn-art .cta-card .badges{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.16);font-size:.75rem;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.7);text-align:center}
+.spn-art .side-toc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.spn-art .side-toc b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--grey);margin-bottom:10px}
+.spn-art .side-toc ol{margin:0;padding-left:18px}.spn-art .side-toc li{margin-bottom:7px}
+.spn-art .side-toc a{color:var(--ink-2);text-decoration:none;font-size:.9rem;font-weight:600}.spn-art .side-toc a:hover{color:var(--orange-deep)}
+@media(max-width:900px){.spn-art .art-grid{grid-template-columns:1fr;gap:28px}.spn-art .art-side{position:static;order:2}}
+/* typo article (réutilise .spnblog mais scopée sous .spn-art) */
+.spn-art .art-main .lead{font-size:1.12rem;color:var(--ink-2);font-weight:500;line-height:1.6}
+.spn-art .art-main h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;line-height:1.2;margin:34px 0 12px;letter-spacing:-.01em}
+.spn-art .art-main h2:first-child{margin-top:0}
+.spn-art .art-main p{margin:0 0 16px}
+.spn-art .art-main ul{margin:0 0 18px;padding-left:22px}.spn-art .art-main li{margin-bottom:9px}
+.spn-art .art-main strong{color:var(--ink)}
+.spn-art .art-main .faq details{border:1px solid var(--line);border-radius:12px;padding:4px 18px;margin-bottom:10px;background:#fff}
+.spn-art .art-main .faq summary{cursor:pointer;font-weight:700;padding:12px 0;list-style:none}
+.spn-art .art-main .faq summary::-webkit-details-marker{display:none}
+.spn-art .art-main .faq summary::after{content:"+";float:right;color:var(--orange-deep);font-weight:800}
+.spn-art .art-main .faq details[open] summary::after{content:"–"}
+
+/* ===== Modules d'attention (NavBoost) ===== */
+.spn-art .nb{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:26px 26px 22px;margin:30px 0}
+.spn-art .nb-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px}
+.spn-art .nb-head .ic{flex:0 0 40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background:var(--orange-soft);color:var(--orange-deep);border-radius:11px}
+.spn-art .nb-head .ic svg{width:22px;height:22px}
+.spn-art .nb-head h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.24rem;margin:0;line-height:1.2}
+.spn-art .nb-head p{margin:4px 0 0;font-size:.88rem;color:var(--grey)}
+/* --- formulaire --- */
+.spn-art .nb-form{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:end}
+.spn-art .nb-f{display:flex;flex-direction:column;gap:6px}
+.spn-art .nb-f label{font-size:.78rem;font-weight:700;color:var(--ink-2);letter-spacing:.01em}
+.spn-art .nb-f input,.spn-art .nb-f select{font-family:inherit;font-size:.95rem;font-weight:600;color:var(--ink);padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--cream);width:100%}
+.spn-art .nb-f input:focus,.spn-art .nb-f select:focus{outline:2px solid var(--orange);outline-offset:1px;background:#fff}
+.spn-art .nb-f .hint{font-size:.72rem;color:var(--grey)}
+/* --- résultat --- */
+.spn-art .nb-out{margin-top:20px;background:linear-gradient(180deg,var(--orange-soft),#fff);border:1px solid rgba(216,67,31,.25);border-radius:14px;padding:20px 22px;min-height:112px}
+.spn-art .nb-out .big{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.7rem,4vw,2.3rem);color:var(--orange-deep);line-height:1.05}
+.spn-art .nb-out .sub{font-size:.86rem;color:var(--ink-2);font-weight:600;margin-top:4px}
+.spn-art .nb-splits{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.spn-art .nb-splits div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:.84rem;color:var(--ink-2);font-weight:600}
+.spn-art .nb-splits div b{color:var(--orange-deep);font-weight:800}
+.spn-art .nb-nojs{font-size:.85rem;color:var(--ink-2)}
+.spn-art.js .nb-nojs{display:none}
+.spn-art .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.spn-art .nb-src{font-size:.75rem;color:var(--grey);margin-top:14px;line-height:1.5}
+.spn-art .nb-warn{margin-top:12px;background:var(--cream);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:11px 14px;font-size:.82rem;color:var(--ink-2)}
+/* --- grille de référence (fallback sans JS + preuve) --- */
+.spn-art .nb-grid{margin-top:20px;overflow-x:auto}
+.spn-art .nb-grid table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:460px}
+.spn-art .nb-grid th,.spn-art .nb-grid td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line)}
+.spn-art .nb-grid thead th{background:var(--cream);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--grey);font-weight:800;white-space:nowrap}
+.spn-art .nb-grid tbody tr:hover{background:var(--cream)}
+.spn-art .nb-grid td:first-child{font-weight:700}
+.spn-art .nb-grid td{white-space:nowrap}
+.spn-art .nb-grid .hi{background:var(--orange-soft)!important}
+/* --- checklist --- */
+.spn-art .nb-check{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.spn-art .nb-check li{background:var(--cream);border:1px solid var(--line);border-radius:12px;transition:background .18s,border-color .18s}
+.spn-art .nb-check li:has(input:checked){background:#eaf6ec;border-color:#b7dcc0}
+.spn-art .nb-check label{display:flex;gap:13px;align-items:flex-start;padding:14px 16px;cursor:pointer}
+.spn-art .nb-check input{margin:2px 0 0;width:19px;height:19px;flex:0 0 19px;accent-color:#2e7d32;cursor:pointer}
+.spn-art .nb-check label>span>b{display:block;font-size:.96rem;margin-bottom:2px;color:var(--ink)}
+.spn-art .nb-check label>span>span b{color:var(--ink-2)}
+.spn-art .nb-check span{display:block;font-size:.85rem;color:var(--grey);line-height:1.5}
+.spn-art .nb-check .law{display:inline-block;margin-top:5px;font-size:.72rem;font-weight:700;color:var(--orange-deep);background:#fff;border:1px solid rgba(216,67,31,.25);border-radius:999px;padding:2px 9px}
+.spn-art .nb-score{margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.spn-art .nb-bar{flex:1;min-width:180px;height:9px;background:var(--line);border-radius:999px;overflow:hidden}
+.spn-art .nb-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),#2e7d32);border-radius:999px;transition:width .4s cubic-bezier(.65,0,.2,1)}
+.spn-art .nb-score .txt{font-size:.88rem;font-weight:700;color:var(--ink-2)}
+/* --- tableau triable --- */
+.spn-art .nb-sort thead th{cursor:pointer;user-select:none;position:relative}
+.spn-art .nb-sort thead th[data-s]:after{content:"↕";opacity:.35;margin-left:6px;font-size:.9em}
+.spn-art .nb-sort thead th.asc:after{content:"↑";opacity:1;color:var(--orange-deep)}
+.spn-art .nb-sort thead th.desc:after{content:"↓";opacity:1;color:var(--orange-deep)}
+/* --- réponse encadrée (anti AI Overview) --- */
+.spn-art .nb-answer{background:linear-gradient(135deg,var(--orange-soft),#fff);border:1px solid rgba(216,67,31,.3);border-left:4px solid var(--orange-deep);border-radius:0 var(--r) var(--r) 0;padding:22px 24px;margin:24px 0}
+.spn-art .nb-answer .tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:8px}
+.spn-art .nb-answer p{margin:0;font-size:1.06rem;line-height:1.6;color:var(--ink)}
+.spn-art .nb-answer p strong{color:var(--orange-deep)}
+.spn-art .nb-answer .date{display:block;margin-top:10px;font-size:.76rem;color:var(--grey)}
+@media(max-width:720px){
+  .spn-art .nb{padding:20px 18px 18px}
+  .spn-art .nb-form{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.spn-art .nb-form{grid-template-columns:1fr}}
+
+.spn-art .hub-answer{background:var(--cream);border:1px solid var(--line);border-left:4px solid var(--orange-deep);border-radius:0 var(--r) var(--r) 0;padding:26px 28px;margin:28px 0}
+.spn-art .hub-answer .tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:10px}
+.spn-art .hub-answer ol{margin:0;padding-left:20px}
+.spn-art .hub-answer li{font-size:1.02rem;line-height:1.55;margin-bottom:5px;color:var(--ink)}
+.spn-art .hub-answer li b{color:var(--orange-deep)}
+.spn-art .hero-cta{display:inline-flex;align-items:center;gap:9px;background:var(--orange-deep);color:#fff;font-weight:700;font-size:.98rem;text-decoration:none;padding:13px 28px;border-radius:999px;margin-top:22px}
+.spn-art .hero-cta:hover{background:var(--orange)}
+.spn-art .sec-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--orange-soft);color:var(--orange-deep);font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;margin-right:11px;vertical-align:middle}
+/* grille de comparaison */
+.spn-art .cmp{width:100%;border-collapse:collapse;font-size:.9rem;min-width:620px}
+.spn-art .cmp th,.spn-art .cmp td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+.spn-art .cmp thead th{background:var(--cream);font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:var(--grey);font-weight:800}
+.spn-art .cmp thead th input{width:100%;border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-family:inherit;font-size:.86rem;font-weight:700;color:var(--ink);background:#fff;text-transform:none;letter-spacing:0}
+.spn-art .cmp td:first-child{font-weight:600;color:var(--ink);width:36%}
+.spn-art .cmp td:first-child small{display:block;font-weight:400;color:var(--grey);font-size:.8rem;margin-top:3px}
+.spn-art .cmp select{width:100%;border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-family:inherit;font-size:.86rem;background:var(--cream);color:var(--ink);font-weight:600}
+.spn-art .cmp tfoot td{background:var(--cream);font-weight:800}
+.spn-art .cmp .sc{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--orange-deep)}
+.spn-art .cmp-wrap{overflow-x:auto;margin-top:18px}
+.spn-art .cmp-act{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.spn-art .cmp-act button{font-family:inherit;font-size:.88rem;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:10px 20px;cursor:pointer}
+.spn-art .cmp-act button:hover{border-color:var(--orange-deep);color:var(--orange-deep)}
+.spn-art .cmp-act .hint{font-size:.8rem;color:var(--grey)}
+
+/* ---------- hero illustre ---------- */
+.spn-art .art-hero .hero-in{grid-template-columns:1fr 360px}
+.spn-art .hero-img{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--cream)}
+.spn-art .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+/* ---------- infographies ---------- */
+.spn-art .vz{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 26px;margin:26px 0;box-shadow:var(--shadow-sm)}
+.spn-art .vz .vz-t{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:16px}
+.spn-art .vz-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.spn-art .vz-col{border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px}
+.spn-art .vz-col.win{border-color:rgba(216,67,31,.35);background:var(--orange-soft)}
+.spn-art .vz-col h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.04rem;margin:0 0 10px}
+.spn-art .vz-col ul{list-style:none;margin:0;padding:0}
+.spn-art .vz-col li{font-size:.88rem;color:var(--ink-2);padding:5px 0 5px 20px;position:relative}
+.spn-art .vz-col li:before{content:"—";position:absolute;left:0;color:var(--grey)}
+.spn-art .vz-col.win li:before{content:"✓";color:var(--orange-deep);font-weight:800}
+/* barre empilee */
+.spn-art .vz-bar{display:flex;height:42px;border-radius:10px;overflow:hidden;margin-bottom:10px}
+.spn-art .vz-bar span{display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:800}
+.spn-art .vz-leg{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--ink-2)}
+.spn-art .vz-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+/* timeline */
+.spn-art .vz-tl{display:flex;gap:0;flex-wrap:wrap}
+.spn-art .vz-step{flex:1;min-width:130px;position:relative;padding:0 12px}
+.spn-art .vz-step:before{content:"";position:absolute;top:15px;left:0;right:0;height:2px;background:var(--line)}
+.spn-art .vz-step:first-child:before{left:50%}.spn-art .vz-step:last-child:before{right:50%}
+.spn-art .vz-dot{position:relative;width:32px;height:32px;border-radius:50%;background:var(--orange-soft);color:var(--orange-deep);border:2px solid #fff;box-shadow:0 0 0 2px var(--orange-soft);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;margin:0 auto 12px}
+.spn-art .vz-step b{display:block;text-align:center;font-size:.9rem;margin-bottom:3px}
+.spn-art .vz-step span{display:block;text-align:center;font-size:.8rem;color:var(--grey);line-height:1.45}
+/* niveaux empiles */
+.spn-art .vz-lv{display:grid;gap:9px}
+.spn-art .vz-lv div{border-radius:11px;padding:13px 16px;font-size:.9rem;display:flex;gap:12px;align-items:baseline}
+.spn-art .vz-lv b{font-family:'Fraunces',serif;font-size:.96rem;min-width:92px;flex:0 0 auto}
+.spn-art .vz-lv .l1{background:#16181D;color:#fff}.spn-art .vz-lv .l1 b{color:#fff}
+.spn-art .vz-lv .l2{background:var(--orange-soft);color:var(--ink-2)}.spn-art .vz-lv .l2 b{color:var(--orange-deep)}
+.spn-art .vz-lv .l3{background:var(--cream);color:var(--ink-2)}.spn-art .vz-lv .l3 b{color:var(--grey)}
+/* zones d'acces */
+.spn-art .vz-zn{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.spn-art .vz-zn div{border-radius:12px;padding:16px;text-align:center;border:1px solid var(--line)}
+.spn-art .vz-zn .z-ok{background:#eaf6ec;border-color:#b7dcc0}
+.spn-art .vz-zn .z-md{background:var(--orange-soft);border-color:rgba(216,67,31,.3)}
+.spn-art .vz-zn .z-no{background:var(--cream)}
+.spn-art .vz-zn b{display:block;font-size:.94rem;margin-bottom:5px}
+.spn-art .vz-zn span{font-size:.8rem;color:var(--grey);line-height:1.45}
+/* galerie 4 photos */
+.spn-art .vz-g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.spn-art .vz-g4 figure{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--cream)}
+.spn-art .vz-g4 img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+.spn-art .vz-g4 figcaption{font-size:.78rem;font-weight:700;color:var(--ink-2);padding:8px 10px;text-align:center}
+/* photo pleine largeur */
+.spn-art .vz-photo{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.spn-art .vz-photo img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
+.spn-art .vz-photo figcaption{font-size:.82rem;color:var(--grey);padding:10px 14px;background:#fff}
+/* CTA intermediaire */
+.spn-art .midcta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(120deg,var(--orange-soft),#fff);border:1px solid rgba(216,67,31,.28);border-radius:var(--r);padding:20px 24px;margin:28px 0}
+.spn-art .midcta p{margin:0;flex:1;min-width:220px;font-size:.96rem;font-weight:600;color:var(--ink)}
+.spn-art .midcta a{display:inline-flex;align-items:center;gap:8px;background:var(--orange-deep);color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;padding:12px 24px;border-radius:999px;white-space:nowrap}
+.spn-art .midcta a:hover{background:var(--orange)}
+/* CTA final */
+.spn-art .endcta{background:#16181D;color:#fff;border-radius:var(--r);padding:34px 34px 30px;margin:32px 0 0}
+.spn-art .endcta h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:#fff;margin:0 0 10px}
+.spn-art .endcta p{color:rgba(255,255,255,.82);font-size:.98rem;margin:0 0 20px;max-width:56ch}
+.spn-art .endcta .acts{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.spn-art .endcta .b1{background:var(--orange);color:#fff;font-weight:800;text-decoration:none;padding:14px 30px;border-radius:999px}
+.spn-art .endcta .b2{color:#fff;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.3)}
+.spn-art .endcta .badges{margin-top:18px;font-size:.8rem;color:rgba(255,255,255,.6)}
+@media(max-width:820px){.spn-art .vz-2,.spn-art .vz-zn{grid-template-columns:1fr}.spn-art .vz-g4{grid-template-columns:1fr 1fr}}
+@media print{.spn-art .art-side,.spn-art .art-hero,.spn-art .cmp-act{display:none!important}}
+</style><div class="spn-art"><div class="art-hero"><div class="wrap hero-in"><div><nav class="crumbs"><a href="https://spn-net.fr/">Accueil</a> &#8250; <a href="https://spn-net.fr/tertiaire/">Nettoyage de bureaux</a> &#8250; <span>Choisir son entreprise</span></nav><span class="eyebrow">Guide d'achat</span><h1>Comment choisir son entreprise de nettoyage : le guide en 10 points</h1><p class="chapo">Dix points à vérifier avant de signer, du temps d'intervention au devis jusqu'à la conformité sociale — et une grille pour noter vos candidats.</p><div class="art-meta"><span>&#128197; 21 septembre 2026</span><span>&#9201; 12 min de lecture</span><span class="rate"><span class="s">&#9733;</span> <b>4,8/5</b> &#183; 48 avis</span></div><a class="hero-cta" href="#grille">Ouvrir la grille de comparaison &#8594;</a></div><figure class="hero-img rv"><img src="https://spn-net.fr/wp-content/uploads/2026/01/tertiaire-1.jpg" alt="Entretien de bureaux par SPN NET à Paris" width="1500" height="1000" decoding="async"></figure></div></div><div class="art-body"><div class="wrap art-grid"><article class="art-main"><div class="hub-answer rv"><span class="tag">La reponse en 10 points</span><ol><li>Choisir une entreprise <b>spécialisée dans votre typologie de locaux</b>.</li><li>Comparer le <b>temps d'intervention prévu</b>, pas le total du devis.</li><li>Exiger l'<b>attestation de vigilance URSSAF</b> et la vérifier en ligne.</li><li>Distinguer diplôme d'agent, certification d'entreprise et label produit.</li><li>Contractualiser la <b>confidentialité</b> et la traçabilité des accès.</li><li>Vérifier <b>qui contrôle la qualité</b> sur site, et à quelle fréquence.</li><li>Privilégier des <b>équipes stables</b> et un remplacement prévu au contrat.</li><li>Identifier les <b>prestations hors contrat</b> avant de comparer les prix.</li><li>Connaître l'<b>Annexe 7</b> si vous changez de prestataire.</li><li>Noter chaque candidat sur une <b>grille commune</b> avant de décider.</li></ol></div><div class="toc"><b>Au sommaire</b><ol><li><a href="#s1">Généraliste ou spécialiste de vos locaux</a></li><li><a href="#s2">Lire un devis, et le prix au mètre carré</a></li><li><a href="#s3">Vérifier qu'elle est en règle</a></li><li><a href="#s4">Les certifications qui comptent vraiment</a></li><li><a href="#s5">Qui entre réellement dans vos locaux</a></li><li><a href="#s6">Le suivi qualité, et le cap du troisième mois</a></li><li><a href="#s7">Proximité et capacité de remplacement</a></li><li><a href="#s8">Ce qui n'est pas dans le contrat d'entretien</a></li><li><a href="#s9">Vous avez déjà un prestataire</a></li><li><a href="#grille">La grille de comparaison</a></li></ol></div><h2 id="s1"><span class="sec-num">1</span>Généraliste ou spécialiste de vos locaux</h2>
+<p>La première question n'est pas le prix, c'est le périmètre : une entreprise qui entretient des plateaux de bureaux ne travaille pas comme celle qui nettoie des cuisines ou des blocs opératoires. Les protocoles, les produits et la formation des agents changent complètement. Si vos locaux sont des bureaux, cherchez une société dont le <a href="https://spn-net.fr/tertiaire/">nettoyage de bureaux à Paris</a> constitue le cœur de métier, pas une ligne parmi trente.</p>
+<p>Le signe qui ne trompe pas : demandez combien de sites comparables au vôtre l'entreprise entretient aujourd'hui, en surface et en fréquence. Une réponse chiffrée et immédiate indique une spécialité réelle. Une réponse vague indique un catalogue.</p>
+<p>Attention toutefois à l'excès inverse : un spécialiste trop étroit ne saura pas traiter vos à-côtés — vitrerie, sols techniques, parties communes. L'équilibre utile est une entreprise centrée sur votre typologie de locaux, capable d'absorber les prestations périphériques sans sous-traiter.</p>
+<div class="vz rv"><div class="vz-t">Ce qui change concrètement</div><div class="vz-2"><div class="vz-col"><h4>Le généraliste</h4><ul><li>Un protocole unique adapté après coup</li><li>Agents polyvalents, tournés sur plusieurs typologies</li><li>Réactif sur le devis, plus lent sur le terrain</li><li>Les à-côtés partent en sous-traitance</li></ul></div><div class="vz-col win"><h4>Le spécialiste de vos locaux</h4><ul><li>Un protocole écrit pour votre typologie</li><li>Agents formés à vos surfaces et contraintes</li><li>Références chiffrées sur des sites comparables</li><li>Prestations périphériques traitées en direct</li></ul></div></div></div>
+<h2 id="s2"><span class="sec-num">2</span>Lire un devis, et le prix au mètre carré</h2>
+<p>Un devis de propreté ne se juge pas sur son total. Il se juge sur le <b>temps d'intervention prévu</b>, exprimé en heures par passage : c'est cette ligne qui détermine la qualité que vous obtiendrez. Un prestataire moins cher qui prévoit deux heures là où il en faut trois vous livrera des sanitaires mal faits, et la différence se verra au troisième mois. Nous avons détaillé les fourchettes réelles dans notre guide du <a href="https://spn-net.fr/prix-nettoyage-bureaux-paris/">prix du nettoyage de bureaux à Paris</a>, avec un calculateur au m² et au poste.</p>
+<p>Les cinq lignes à exiger sur tout devis : le temps prévu par passage, le périmètre exact espace par espace, la fréquence par espace (les sanitaires ne suivent pas le rythme des bureaux), ce qui est facturé en supplément (vitrerie, décapage, remise en état, consommables) et la clause de révision de prix.</p>
+<p>Un devis clair sur ces cinq points vaut mieux qu'un devis moins cher de 8 % dont vous découvrirez le périmètre réel en cours de contrat.</p>
+<div class="vz rv"><div class="vz-t">Où part réellement votre budget</div><div class="vz-bar"><span style="width:64%;background:#D8431F">Main-d'œuvre 64 %</span><span style="width:19%;background:#ED5D37">Encadrement 19 %</span><span style="width:17%;background:#c9bdb2">Produits &amp; matériel 17 %</span></div><div class="vz-leg"><span><i style="background:#D8431F"></i>Temps passé sur site</span><span><i style="background:#ED5D37"></i>Contrôle qualité, remplacements</span><span><i style="background:#c9bdb2"></i>Consommables, machines</span></div><p style="font-size:.82rem;color:var(--grey);margin:14px 0 0">La main-d'œuvre représentant près des deux tiers du prix, un devis nettement moins cher signifie presque toujours moins d'heures sur site — rarement une meilleure organisation.</p></div>
+<h2 id="s3"><span class="sec-num">3</span>Vérifier qu'elle est en règle</h2>
+<p>Ce point n'est pas une formalité : c'est une obligation légale qui vous engage. Dès qu'un contrat de nettoyage atteint 5 000 € HT, le donneur d'ordre doit obtenir l'attestation de vigilance URSSAF de son prestataire, puis la renouveler tous les six mois. À défaut, il peut être tenu solidairement responsable des cotisations impayées. La procédure complète et les six pièces à réunir figurent dans notre guide pour <a href="https://spn-net.fr/travail-dissimule-entreprise-nettoyage/">vérifier que votre entreprise de nettoyage est en règle</a>.</p>
+<p>Le réflexe qui protège : ne pas se contenter de recevoir l'attestation, mais en vérifier l'authenticité en ligne sur urssaf.fr grâce au code de sécurité qu'elle porte. Une attestation reçue et non vérifiée ne vous exonère pas.</p>
+<p>Demandez également par écrit si tout ou partie de la prestation est sous-traitée, et à qui. Votre obligation de vigilance s'étend à chaque sous-traitant direct.</p>
+<div class="vz rv"><div class="vz-t">Votre obligation de vigilance, dans le temps</div><div class="vz-tl"><div class="vz-step"><div class="vz-dot">1</div><b>À la signature</b><span>Dès 5 000 € HT de contrat : attestation URSSAF exigée</span></div><div class="vz-step"><div class="vz-dot">2</div><b>+ 6 mois</b><span>Nouvelle attestation, vérifiée en ligne</span></div><div class="vz-step"><div class="vz-dot">3</div><b>+ 12 mois</b><span>Et ainsi de suite jusqu'au terme</span></div><div class="vz-step"><div class="vz-dot">&#10003;</div><b>Archivage</b><span>C'est la trace datée qui vous exonère</span></div></div></div>
+<div class="midcta rv"><p>Vous avez de quoi vérifier la conformité d'un candidat. Notez-le tout de suite.</p><a href="#grille">Ouvrir la grille de comparaison &#8594;</a></div>
+<h2 id="s4"><span class="sec-num">4</span>Les certifications qui comptent vraiment</h2>
+<p>Les logos s'alignent vite sur les plaquettes. Encore faut-il savoir ce que chacun certifie : un diplôme qualifie un agent, une certification audite une organisation, un label porte sur un produit. Confondre les trois conduit à croire qu'une entreprise est « certifiée écologique » parce qu'elle emploie un produit écolabellisé. Le détail de chaque repère est dans notre guide des <a href="https://spn-net.fr/certifications-entreprise-nettoyage/">certifications d'une entreprise de nettoyage</a>.</p>
+<p>Les questions qui tranchent : quelles certifications, sur quel périmètre exact, délivrées par quel organisme, et à quelle date remonte le dernier audit ? Une certification a une date de validité et fait l'objet d'audits de suivi.</p>
+<p>Gardez en tête qu'une certification prouve le respect d'un référentiel à un instant donné. Elle ne dit rien, à elle seule, de la qualité que vous constaterez sur le terrain.</p>
+<div class="twrap rv"><table class="art-table">
+<thead><tr><th>Repère</th><th>Ce qu'il certifie</th><th>Portée</th></tr></thead>
+<tbody>
+<tr><td>CAP, CQP, TFP</td><td>La formation d'un agent</td><td>La personne</td></tr>
+<tr><td>ISO 9001 / 14001 / 45001</td><td>Qualité, environnement, santé et sécurité au travail</td><td>L'entreprise</td></tr>
+<tr><td>Qualipropre, Certipropre</td><td>Bonnes pratiques du secteur de la propreté</td><td>L'entreprise</td></tr>
+<tr><td>Écolabel Européen</td><td>Critères environnementaux d'un produit</td><td>Le produit</td></tr>
+</tbody></table></div>
+<div class="vz rv"><div class="vz-t">Trois niveaux qu'on confond tout le temps</div><div class="vz-lv"><div class="l1"><b>L'entreprise</b><span>ISO 9001, 14001, 45001, Qualipropre, Certipropre — une organisation auditée</span></div><div class="l2"><b>La personne</b><span>CAP, CQP, TFP — la formation d'un agent, pas de la société</span></div><div class="l3"><b>Le produit</b><span>Écolabel Européen — une gamme, jamais l'entreprise qui l'emploie</span></div></div></div>
+<h2 id="s5"><span class="sec-num">5</span>Qui entre réellement dans vos locaux</h2>
+<p>Le nettoyage de bureaux se fait le plus souvent hors présence de vos équipes, tôt le matin ou en soirée. Des personnes accèdent donc à vos postes de travail, vos documents et votre matériel sans témoin. Le risque ne se gère pas par la méfiance mais par le contrat : clause de confidentialité, agents nommés et stables, traçabilité des accès. Nous avons détaillé le cadre et la charte de discrétion dans notre guide sur la <a href="https://spn-net.fr/nettoyage-bureaux-confidentialite-securite/">confidentialité du nettoyage de bureaux</a>.</p>
+<p>Quatre exigences à poser noir sur blanc : une clause de confidentialité engageant l'entreprise et chaque agent, des agents identifiés et fidélisés plutôt que des remplaçants au hasard, une traçabilité des clés et des badges, et une formation explicite à la discrétion.</p>
+<div class="twrap rv"><table class="art-table">
+<thead><tr><th>À exiger</th><th>Pourquoi c'est déterminant</th></tr></thead>
+<tbody>
+<tr><td>Clause de confidentialité</td><td>Engage l'entreprise et chaque agent individuellement.</td></tr>
+<tr><td>Agents identifiés et stables</td><td>Les mêmes personnes, connues, formées à vos locaux.</td></tr>
+<tr><td>Traçabilité des accès</td><td>Savoir qui intervient, quand, avec quelles clés.</td></tr>
+<tr><td>Zones sensibles délimitées</td><td>Salle serveur, archives, direction : accès restreint ou exclu.</td></tr>
+</tbody></table></div>
+<div class="vz rv"><div class="vz-t">Découper vos locaux en trois zones</div><div class="vz-zn"><div class="z-ok"><b>Accès libre</b><span>Bureaux ouverts, circulations, sanitaires, espaces de pause</span></div><div class="z-md"><b>Accès encadré</b><span>Direction, salles de réunion, bureaux fermés — agents nommés</span></div><div class="z-no"><b>Accès exclu</b><span>Salle serveur, archives, coffre — hors périmètre ou sous escorte</span></div></div></div>
+<h2 id="s6"><span class="sec-num">6</span>Le suivi qualité, et le cap du troisième mois</h2>
+<p>C'est le point que presque personne ne vérifie à la signature, et celui qui décide de tout. Les premières semaines sont toujours impeccables : le prestataire met ses meilleures ressources sur une prise de marché. Le vrai sujet est ce qui se passe ensuite, quand l'attention retombe. Nous avons documenté les quatre causes réelles du relâchement et la grille de contrôle mensuelle dans notre analyse de <a href="https://spn-net.fr/qualite-nettoyage-baisse-apres-3-mois/">la qualité du nettoyage qui baisse après trois mois</a>.</p>
+<p>Demandez donc, avant de signer : qui vient contrôler le travail sur site, à quelle fréquence, et sous quelle forme le constat vous est-il transmis ? Une réponse orale « on passe régulièrement » ne vaut rien. Un compte rendu de visite daté, si.</p>
+<p>Le second garde-fou est la stabilité des équipes. Un turnover élevé annule tout : chaque nouvel agent redécouvre vos locaux, vos accès et vos exigences.</p>
+<div class="vz rv"><div class="vz-t">La qualité perçue, mois après mois</div><svg viewBox="0 0 460 170" width="100%" height="170" role="img" aria-label="Courbe : la qualité d'un prestataire moyen baisse après le 3e mois, celle d'un contrat suivi reste stable"><line x1="38" y1="140" x2="450" y2="140" stroke="#E9E4DD"/><line x1="38" y1="16" x2="38" y2="140" stroke="#E9E4DD"/><path d="M44,44 L130,44 L216,52 L302,92 L388,116 L446,126" fill="none" stroke="#9aa0a6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 6"/><path d="M44,48 L130,44 L216,42 L302,40 L388,39 L446,38" fill="none" stroke="#D8431F" stroke-width="3" stroke-linecap="round"/><g font-size="10" fill="#9aa0a6" font-family="monospace"><text x="38" y="158">Mois 1</text><text x="196" y="158">Mois 3</text><text x="398" y="158">Mois 6</text></g></svg><div class="vz-leg" style="margin-top:8px"><span><i style="background:#9aa0a6"></i>Sans contrôle qualité</span><span><i style="background:#D8431F"></i>Avec visites de site datées</span></div></div>
+<div class="midcta rv"><p>Trois points passés en revue : prix, conformité, suivi. Reportez-les sur la grille.</p><a href="#grille">Ouvrir la grille de comparaison &#8594;</a></div>
+<h2 id="s7"><span class="sec-num">7</span>Proximité et capacité de remplacement</h2>
+<p>Une entreprise proche de vos locaux réagit plus vite sur les imprévus — un agent absent, une intervention d'urgence, un dégât des eaux un vendredi soir. Vérifiez qu'elle couvre réellement votre secteur avec des équipes basées à proximité, et pas depuis l'autre bout de la région : nos pages locales, du <a href="https://spn-net.fr/paris-8/">nettoyage de bureaux dans le 8e</a> à l'ensemble des <a href="https://spn-net.fr/92-hauts-de-seine/">Hauts-de-Seine</a>, décrivent cette couverture secteur par secteur.</p>
+<p>La question décisive porte sur le remplacement : que se passe-t-il si votre agent habituel est absent ? Un prestataire sérieux a une réponse contractuelle — un remplaçant formé, prévenu, qui connaît le protocole du site. Un prestataire fragile vous annoncera l'absence le matin même.</p>
+<figure class="vz-photo rv"><img src="https://spn-net.fr/wp-content/uploads/2026/02/cleanzonejpg-0018.jpg" alt="Équipe SPN NET en intervention sur un site tertiaire à Paris" loading="lazy" decoding="async" width="1909" height="724"><figcaption>Des équipes basées en Île-de-France : c'est la proximité qui rend le remplacement possible le jour même.</figcaption></figure>
+<h2 id="s8"><span class="sec-num">8</span>Ce qui n'est pas dans le contrat d'entretien</h2>
+<p>Beaucoup de prestations courantes ne figurent pas dans un contrat de nettoyage standard et se découvrent en cours de route. Mieux vaut les identifier avant de comparer les devis, sans quoi vous comparez des périmètres différents. Selon vos locaux, pensez au <a href="https://spn-net.fr/ascenseurs-escalators/">nettoyage d'ascenseurs et escalators</a>, au <a href="https://spn-net.fr/portage/">portage</a> de charges, à la <a href="https://spn-net.fr/peinture/">peinture</a> de rafraîchissement ou au <a href="https://spn-net.fr/marquage-au-sol/">marquage au sol</a> des parkings.</p>
+<p>Le bon réflexe est de demander à votre prestataire ce qu'il sait traiter en direct, et ce qu'il confierait à un tiers. Chaque intervenant supplémentaire est un interlocuteur de plus à piloter.</p>
+<div class="twrap rv"><table class="art-table">
+<thead><tr><th>Prestation</th><th>Rythme courant</th><th>Toujours en supplément ?</th></tr></thead>
+<tbody>
+<tr><td>Vitrerie intérieure et cloisons</td><td>Mensuel à trimestriel</td><td>Oui, chiffrée au m² de vitrage</td></tr>
+<tr><td>Décapage et cristallisation des sols</td><td>Annuel</td><td>Oui</td></tr>
+<tr><td>Ascenseurs et escalators</td><td>Selon fréquentation</td><td>Souvent</td></tr>
+<tr><td>Marquage au sol des parkings</td><td>Ponctuel</td><td>Oui</td></tr>
+<tr><td>Remise en état, fin de chantier</td><td>Ponctuel</td><td>Devis dédié</td></tr>
+</tbody></table></div>
+<div class="vz rv"><div class="vz-t">Les quatre prestations qu'on oublie de chiffrer</div><div class="vz-g4"><figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/Ascenseur-3.jpg" alt="Nettoyage d'ascenseur" loading="lazy" decoding="async" width="1500" height="1000"><figcaption>Ascenseurs</figcaption></figure><figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/portage-1.jpg" alt="Portage de charges" loading="lazy" decoding="async" width="1500" height="1000"><figcaption>Portage</figcaption></figure><figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/peinture-2.jpg" alt="Peinture de rafraîchissement" loading="lazy" decoding="async" width="1500" height="1000"><figcaption>Peinture</figcaption></figure><figure><img src="https://spn-net.fr/wp-content/uploads/2026/02/marquage-1.jpg" alt="Marquage au sol de parking" loading="lazy" decoding="async" width="1500" height="1000"><figcaption>Marquage au sol</figcaption></figure></div></div>
+<h2 id="s9"><span class="sec-num">9</span>Vous avez déjà un prestataire</h2>
+<p>Changer fait peur pour deux raisons : la paperasse et le sort des agents en place. Les deux sont encadrées, et moins lourdes qu'on ne le croit. Si votre contrat actuel s'essouffle, la marche à suivre complète figure sur notre page dédiée pour <a href="https://spn-net.fr/changer-de-prestataire-nettoyage/">changer de prestataire de nettoyage</a> — résiliation, transition, reprise des équipes.</p>
+<p>Le point juridique à connaître est le transfert du personnel, organisé par l'<a href="https://spn-net.fr/annexe-7-changer-entreprise-nettoyage/">Annexe 7 de la convention collective de la propreté</a> : lorsqu'un marché change de prestataire, les agents remplissant les critères sont repris par l'entreprise entrante. C'est une protection, et pour vous une garantie de continuité.</p>
+<p>Le seul élément vraiment contraignant est le préavis inscrit à votre contrat en cours — généralement d'un à trois mois. C'est lui qui fixe la date de bascule, pas la disponibilité du nouveau prestataire.</p>
+<div class="vz rv"><div class="vz-t">Un changement de prestataire, étape par étape</div><div class="vz-tl"><div class="vz-step"><div class="vz-dot">1</div><b>Préavis</b><span>1 à 3 mois selon votre contrat : c'est lui qui fixe la date</span></div><div class="vz-step"><div class="vz-dot">2</div><b>Visite</b><span>Le nouveau prestataire chiffre sur vos locaux réels</span></div><div class="vz-step"><div class="vz-dot">3</div><b>Annexe 7</b><span>Les agents éligibles sont repris par l'entrant</span></div><div class="vz-step"><div class="vz-dot">&#10003;</div><b>Bascule</b><span>Aucune journée sans entretien</span></div></div></div>
+<div class="midcta rv"><p>Vous avez les neuf critères. Il ne reste qu'à les confronter, candidat par candidat.</p><a href="#grille">Ouvrir la grille de comparaison &#8594;</a></div>
+<h2 id="s10"><span class="sec-num">10</span>La grille de comparaison</h2><p>Un choix se défend d'autant mieux qu'il repose sur une notation commune. Remplissez la grille ci-dessous pour vos candidats : elle reprend les neuf points du guide, se calcule en direct et s'imprime pour votre comité.</p><div class="nb rv" id="grille"><div class="nb-head"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><div><h3>Votre grille de comparaison</h3><p>Notez jusqu'à trois entreprises sur les neuf points du guide. Le score se calcule tout seul. Rien à saisir d'autre : ni e-mail, ni formulaire.</p></div></div><div class="cmp-wrap"><table class="cmp" id="cmpTable"><thead><tr><th>Critere</th><th><input type="text" placeholder="Prestataire A" aria-label="Nom du prestataire A"></th><th><input type="text" placeholder="Prestataire B" aria-label="Nom du prestataire B"></th><th><input type="text" placeholder="Prestataire C" aria-label="Nom du prestataire C"></th></tr></thead><tbody><tr><td>Spécialiste de vos locaux<small>Entretient-elle des sites comparables, chiffres à l'appui ?</small></td><td><select aria-label="Spécialiste de vos locaux — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Spécialiste de vos locaux — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Spécialiste de vos locaux — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr><tr><td>Temps d'intervention au devis<small>Le devis indique-t-il les heures prévues par passage ?</small></td><td><select aria-label="Temps d'intervention au devis — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Temps d'intervention au devis — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Temps d'intervention au devis — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr><tr><td>Attestation de vigilance URSSAF<small>Fournie, datée de moins de 6 mois, et vérifiée en ligne ?</small></td><td><select aria-label="Attestation de vigilance URSSAF — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Attestation de vigilance URSSAF — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Attestation de vigilance URSSAF — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr><tr><td>Certifications vérifiées<small>Périmètre, organisme et date du dernier audit connus ?</small></td><td><select aria-label="Certifications vérifiées — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Certifications vérifiées — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Certifications vérifiées — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr><tr><td>Confidentialité contractualisée<small>Clause écrite, agents nommés, accès tracés ?</small></td><td><select aria-label="Confidentialité contractualisée — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Confidentialité contractualisée — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Confidentialité contractualisée — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr><tr><td>Contrôle qualité tracé<small>Visites de site datées et compte rendu transmis ?</small></td><td><select aria-label="Contrôle qualité tracé — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Contrôle qualité tracé — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Contrôle qualité tracé — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr><tr><td>Stabilité des agents<small>Même équipe annoncée, remplacement prévu au contrat ?</small></td><td><select aria-label="Stabilité des agents — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Stabilité des agents — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Stabilité des agents — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr><tr><td>Proximité et réactivité<small>Équipes basées dans votre secteur ?</small></td><td><select aria-label="Proximité et réactivité — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Proximité et réactivité — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Proximité et réactivité — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr><tr><td>Prestations périphériques<small>Vitrerie, sols, ascenseurs traités en direct ?</small></td><td><select aria-label="Prestations périphériques — prestataire A"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Prestations périphériques — prestataire B"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td><td><select aria-label="Prestations périphériques — prestataire C"><option value="">—</option><option value="oui">Oui (2)</option><option value="partiel">Partiel (1)</option><option value="non">Non (0)</option></select></td></tr></tbody><tfoot><tr><td>Score</td><td>—</td><td>—</td><td>—</td></tr></tfoot></table></div><div class="cmp-act"><button type="button" id="cmpPrint">Imprimer la grille</button><button type="button" id="cmpReset">Effacer</button><span class="hint">Un écart de 4 points ou plus est rarement rattrapable par le prix.</span></div></div><h2 id="devis">Demander un devis à SPN NET</h2><div class="endcta rv"><h3>Mettez-nous sur votre grille</h3><p>SPN NET entretient des bureaux, commerces, copropriétés et établissements de santé à Paris et en Île-de-France depuis 30 ans. Équipes fidélisées, interlocuteur dédié, contrôle qualité tracé. Nous nous déplaçons pour chiffrer vos locaux réels et vous transmettons une proposition détaillée sous 24 heures ouvrées.</p><div class="acts"><a class="b1" href="https://spn-net.fr/contact/">demander un devis</a><a class="b2" href="tel:+33149462240">01 49 46 22 40</a></div><div class="badges">ISO 45001 &#183; Médaille d'argent EcoVadis 2025 &#183; 4,8/5 sur 48 avis Google</div></div><h2 id="faq">Questions fréquentes</h2>
+<div class="faq">
+  <details><summary>Comment choisir une entreprise de nettoyage pour des bureaux ?</summary><p>Vérifiez d'abord qu'elle est spécialisée dans votre typologie de locaux, puis le temps d'intervention prévu au devis, sa conformité sociale (attestation de vigilance URSSAF), la stabilité de ses agents et la réalité de son contrôle qualité. Le prix ne se compare qu'à périmètre et temps d'intervention identiques.</p></details>
+  <details><summary>Quels documents demander à une entreprise de nettoyage ?</summary><p>L'attestation de vigilance URSSAF de moins de 6 mois, un extrait Kbis de moins de 3 mois, l'attestation d'assurance responsabilité civile professionnelle, la convention collective appliquée, la liste nominative des salariés étrangers le cas échéant, et la déclaration écrite de la chaîne de sous-traitance.</p></details>
+  <details><summary>Quel est le prix d'un contrat de nettoyage de bureaux à Paris ?</summary><p>Les taux horaires relevés à Paris se situent entre 20 et 35 € HT de l'heure, soit environ 1,50 à 3,90 € HT par m² et par mois selon la fréquence. Un minimum de facturation d'environ 1 h 30 par semaine s'applique chez la plupart des prestataires.</p></details>
+  <details><summary>Faut-il choisir un généraliste ou un spécialiste ?</summary><p>Une entreprise centrée sur votre typologie de locaux, mais capable d'absorber les prestations périphériques (vitrerie, sols, parties communes) sans sous-traiter. Un généraliste dilue ses protocoles, un spécialiste trop étroit multiplie les intervenants.</p></details>
+  <details><summary>Comment savoir si la qualité va tenir dans la durée ?</summary><p>Posez trois questions avant de signer : qui contrôle le travail sur site, à quelle fréquence, et sous quelle forme le constat vous est transmis. Vérifiez aussi le taux de rotation des agents : c'est lui qui explique l'essentiel des baisses de qualité constatées passé le troisième mois.</p></details>
+  <details><summary>Que se passe-t-il pour les agents si je change de prestataire ?</summary><p>L'Annexe 7 de la convention collective de la propreté organise leur transfert vers l'entreprise entrante dès lors qu'ils remplissent les critères d'ancienneté et de temps de travail sur le site. Pour vous, c'est une garantie de continuité : les mêmes personnes continuent d'entretenir vos locaux.</p></details>
+  <details><summary>Suis-je responsable si mon prestataire emploie des travailleurs non déclarés ?</summary><p>Oui, si vous n'avez pas accompli votre obligation de vigilance. Dès 5 000 € HT de contrat, vous devez obtenir l'attestation de vigilance URSSAF à la signature puis tous les six mois. Sans cette traçabilité, vous pouvez être tenu solidairement responsable des cotisations dues.</p></details>
+</div>
+</article><aside class="art-side"><div class="side-toc"><b>Au sommaire</b><ol><li><a href="#s1">Généraliste ou spécialiste de vos locaux</a></li><li><a href="#s2">Lire un devis, et le prix au mètre carré</a></li><li><a href="#s3">Vérifier qu'elle est en règle</a></li><li><a href="#s4">Les certifications qui comptent vraiment</a></li><li><a href="#s5">Qui entre réellement dans vos locaux</a></li><li><a href="#s6">Le suivi qualité, et le cap du troisième mois</a></li><li><a href="#s7">Proximité et capacité de remplacement</a></li><li><a href="#s8">Ce qui n'est pas dans le contrat d'entretien</a></li><li><a href="#s9">Vous avez déjà un prestataire</a></li><li><a href="#grille">La grille de comparaison</a></li></ol></div></aside></div></div><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Comment choisir une entreprise de nettoyage pour des bureaux ?","acceptedAnswer":{"@type":"Answer","text":"Verifiez d'abord qu'elle est specialisee dans votre typologie de locaux, puis le temps d'intervention prevu au devis, sa conformite sociale (attestation de vigilance URSSAF), la stabilite de ses agents et la realite de son controle qualite. Le prix ne se compare qu'a perimetre et temps d'intervention identiques."}},{"@type":"Question","name":"Quels documents demander a une entreprise de nettoyage ?","acceptedAnswer":{"@type":"Answer","text":"L'attestation de vigilance URSSAF de moins de 6 mois, un extrait Kbis de moins de 3 mois, l'attestation d'assurance responsabilite civile professionnelle, la convention collective appliquee, la liste nominative des salaries etrangers le cas echeant, et la declaration ecrite de la chaine de sous-traitance."}},{"@type":"Question","name":"Quel est le prix d'un contrat de nettoyage de bureaux a Paris ?","acceptedAnswer":{"@type":"Answer","text":"Les taux horaires releves a Paris se situent entre 20 et 35 € HT de l'heure, soit environ 1,50 a 3,90 € HT par m2 et par mois selon la frequence. Un minimum de facturation d'environ 1 h 30 par semaine s'applique chez la plupart des prestataires."}},{"@type":"Question","name":"Faut-il choisir un generaliste ou un specialiste ?","acceptedAnswer":{"@type":"Answer","text":"Une entreprise centree sur votre typologie de locaux, mais capable d'absorber les prestations peripheriques (vitrerie, sols, parties communes) sans sous-traiter. Un generaliste dilue ses protocoles, un specialiste trop etroit multiplie les intervenants."}},{"@type":"Question","name":"Comment savoir si la qualite va tenir dans la duree ?","acceptedAnswer":{"@type":"Answer","text":"Posez trois questions avant de signer : qui controle le travail sur site, a quelle frequence, et sous quelle forme le constat vous est transmis. Verifiez aussi le taux de rotation des agents : c'est lui qui explique l'essentiel des baisses de qualite constatees passe le troisieme mois."}},{"@type":"Question","name":"Que se passe-t-il pour les agents si je change de prestataire ?","acceptedAnswer":{"@type":"Answer","text":"L'Annexe 7 de la convention collective de la proprete organise leur transfert vers l'entreprise entrante des lors qu'ils remplissent les criteres d'anciennete et de temps de travail sur le site. Pour vous, c'est une garantie de continuite : les memes personnes continuent d'entretenir vos locaux."}},{"@type":"Question","name":"Suis-je responsable si mon prestataire emploie des travailleurs non declares ?","acceptedAnswer":{"@type":"Answer","text":"Oui, si vous n'avez pas accompli votre obligation de vigilance. Des 5 000 € HT de contrat, vous devez obtenir l'attestation de vigilance URSSAF a la signature puis tous les six mois. Sans cette tracabilite, vous pouvez etre tenu solidairement responsable des cotisations dues."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Comment choisir son entreprise de nettoyage : le guide en 10 points", "description": "Choisir une entreprise de nettoyage sans se tromper : les 10 points à vérifier, du prix au m² à la conformité sociale, avec une grille de comparaison à remplir.", "datePublished": "2026-09-21", "dateModified": "2026-09-21", "author": {"@type": "Organization", "name": "SPN NET"}, "publisher": {"@type": "Organization", "name": "SPN NET"}, "mainEntityOfPage": "https://spn-net.fr/choisir-entreprise-nettoyage/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://spn-net.fr/"},{"@type":"ListItem","position":2,"name":"Nettoyage de bureaux","item":"https://spn-net.fr/tertiaire/"},{"@type":"ListItem","position":3,"name":"Choisir son entreprise de nettoyage"}]}</script><script>(function(){var r=document.querySelector('.spn-art');if(!r)return;r.classList.add('js');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');
+var p=e.target.querySelector('path.line');if(p){p.style.strokeDashoffset='0';}io.unobserve(e.target);}});},{threshold:.2});
+r.querySelectorAll('.rv').forEach(function(el){io.observe(el);});})();</script><script>(function(){
+var r=document.querySelector('.spn-art');if(!r)return;
+function eur(n){return n.toLocaleString('fr-FR',{maximumFractionDigits:0})+' €';}
+function eur2(n){return n.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';}
+
+/* ---- 1. Calculateur bureaux : surface x frequence -> fourchette ---- */
+(function(){
+  var box=r.querySelector('#calcBureaux');if(!box)return;
+  var S=box.querySelector('#cbSurf'),F=box.querySelector('#cbFreq'),P=box.querySelector('#cbPostes'),O=box.querySelector('#cbOut');
+  /* €/m²/mois observés sur le marche parisien (bas, haut) par passages/semaine */
+  var T={1:[1.00,1.80],2:[1.60,2.90],3:[2.20,3.90],5:[3.50,6.50]};
+  var PLANCHER=130; /* minimum de facturation constate (1h30/sem au tarif bas) */
+  function calc(){
+    var s=Math.max(10,Math.min(3000,parseInt(S.value,10)||0));
+    var f=F.value,t=T[f]||T[3];
+    var lo=Math.max(PLANCHER,Math.round(s*t[0]/5)*5), hi=Math.max(PLANCHER+40,Math.round(s*t[1]/5)*5);
+    var p=parseInt(P.value,10)||Math.max(1,Math.round(s/10));
+    var m2lo=lo/s,m2hi=hi/s, plo=lo/p, phi=hi/p;
+    O.innerHTML='<div class="big">'+eur(lo)+' &ndash; '+eur(hi)+' <span style="font-size:.42em;font-weight:700">HT / mois</span></div>'+
+      '<div class="sub">'+s+' m&sup2; &middot; '+f+' passage'+(f>1?'s':'')+' par semaine &middot; '+p+' poste'+(p>1?'s':'')+' de travail</div>'+
+      '<div class="nb-splits">'+
+      '<div>Au m&sup2; : <b>'+eur2(m2lo)+' &ndash; '+eur2(m2hi)+'</b> /m&sup2;/mois</div>'+
+      '<div>Au poste : <b>'+eur(plo)+' &ndash; '+eur(phi)+'</b> /poste/mois</div>'+
+      '<div>Par passage : <b>'+eur(lo/(f*4.33))+' &ndash; '+eur(hi/(f*4.33))+'</b></div>'+
+      '</div>';
+    var rows=box.querySelectorAll('.nb-grid tbody tr');
+    for(var i=0;i<rows.length;i++){rows[i].classList.toggle('hi',rows[i].getAttribute('data-f')===String(f));}
+  }
+  [S,F,P].forEach(function(el){if(el){el.addEventListener('input',calc);el.addEventListener('change',calc);}});
+  calc();
+})();
+
+/* ---- 2. Calculateur copropriete : lots x etages x frequence ---- */
+(function(){
+  var box=r.querySelector('#calcCopro');if(!box)return;
+  var L=box.querySelector('#ccLots'),E=box.querySelector('#ccEtages'),F=box.querySelector('#ccFreq'),O=box.querySelector('#ccOut');
+  function calc(){
+    var lots=Math.max(2,Math.min(400,parseInt(L.value,10)||0));
+    var et=Math.max(1,Math.min(20,parseInt(E.value,10)||1));
+    var f=parseFloat(F.value)||1;
+    /* duree d'un passage : base hall/local poubelles + cage d'escalier par etage */
+    var h=0.5+et*0.22+lots*0.012;              /* heures par passage */
+    var lo=h*f*4.33*22, hi=h*f*4.33*34;        /* 22 a 34 € HT/h releves */
+    lo=Math.max(140,Math.round(lo/10)*10); hi=Math.max(200,Math.round(hi/10)*10);
+    O.innerHTML='<div class="big">'+eur(lo)+' &ndash; '+eur(hi)+' <span style="font-size:.42em;font-weight:700">HT / mois</span></div>'+
+      '<div class="sub">'+lots+' lots &middot; '+et+' &eacute;tage'+(et>1?'s':'')+' &middot; '+f+' passage'+(f>1?'s':'')+' par semaine</div>'+
+      '<div class="nb-splits">'+
+      '<div>Par lot : <b>'+eur2(lo/lots)+' &ndash; '+eur2(hi/lots)+'</b> /lot/mois</div>'+
+      '<div>Par passage : <b>'+eur(lo/(f*4.33))+' &ndash; '+eur(hi/(f*4.33))+'</b></div>'+
+      '<div>Dur&eacute;e estim&eacute;e : <b>'+h.toFixed(1).replace('.',',')+' h</b> /passage</div>'+
+      '</div>';
+  }
+  [L,E,F].forEach(function(el){if(el){el.addEventListener('input',calc);el.addEventListener('change',calc);}});
+  calc();
+})();
+
+/* ---- 3. Checklists cochables + score ---- */
+r.querySelectorAll('[data-checklist]').forEach(function(box){
+  var items=box.querySelectorAll('input[type=checkbox]');
+  var bar=box.querySelector('.nb-bar i'),txt=box.querySelector('.nb-score .txt');
+  if(!items.length||!bar)return;
+  function upd(){
+    var n=0;items.forEach(function(i){if(i.checked)n++;});
+    var pct=Math.round(n/items.length*100);
+    bar.style.width=pct+'%';
+    if(txt){
+      txt.textContent=n+' / '+items.length+' v\u00e9rifi\u00e9'+(n>1?'s':'')+
+        (n===items.length?' \u2014 dossier complet \u2713':(n===0?'':' \u2014 '+pct+' %'));
+    }
+  }
+  items.forEach(function(i){i.addEventListener('change',upd);});
+  upd();
+});
+
+/* ---- 4. Tableaux triables ---- */
+r.querySelectorAll('table.nb-sort').forEach(function(tb){
+  var ths=tb.querySelectorAll('thead th[data-s]');
+  ths.forEach(function(th,idx){
+    th.setAttribute('tabindex','0');th.setAttribute('role','button');
+    function sort(){
+      var col=Array.prototype.indexOf.call(th.parentNode.children,th);
+      var num=th.getAttribute('data-s')==='num';
+      var dir=th.classList.contains('asc')?-1:1;
+      ths.forEach(function(o){o.classList.remove('asc','desc');});
+      th.classList.add(dir===1?'asc':'desc');
+      var tb2=tb.querySelector('tbody');
+      var rows=Array.prototype.slice.call(tb2.querySelectorAll('tr'));
+      rows.sort(function(a,b){
+        var x=a.children[col].getAttribute('data-v')||a.children[col].textContent;
+        var y=b.children[col].getAttribute('data-v')||b.children[col].textContent;
+        if(num){return (parseFloat(String(x).replace(',','.'))-parseFloat(String(y).replace(',','.')))*dir;}
+        return String(x).localeCompare(String(y),'fr')*dir;
+      });
+      rows.forEach(function(rw){tb2.appendChild(rw);});
+    }
+    th.addEventListener('click',sort);
+    th.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sort();}});
+  });
+});
+})();</script><script>(function(){
+var r=document.querySelector('.spn-art');if(!r)return;
+var t=r.querySelector('#cmpTable');if(!t)return;
+var V={oui:2,partiel:1,non:0,'':0};
+function calc(){
+  var cols=[1,2,3];
+  cols.forEach(function(c){
+    var tot=0,max=0;
+    t.querySelectorAll('tbody tr').forEach(function(tr){
+      var s=tr.children[c]&&tr.children[c].querySelector('select');
+      if(!s)return; max+=2; tot+=V[s.value]||0;
+    });
+    var cell=t.querySelector('tfoot tr').children[c];
+    if(cell) cell.innerHTML='<span class="sc">'+tot+'</span> / '+max;
+  });
+}
+t.addEventListener('change',calc);
+var rz=r.querySelector('#cmpReset');
+if(rz) rz.addEventListener('click',function(){
+  t.querySelectorAll('select').forEach(function(s){s.value='';});
+  t.querySelectorAll('thead input').forEach(function(i){i.value='';});
+  calc();
+});
+var pr=r.querySelector('#cmpPrint');
+if(pr) pr.addEventListener('click',function(){window.print();});
+calc();
+})();</script></div>

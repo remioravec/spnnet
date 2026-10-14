@@ -1,0 +1,634 @@
+<!-- ================================================================= -->
+<!--  SPN NET — Landing page Google Ads (CRO) — v2                      -->
+<!--  À coller dans un widget HTML Elementor.                           -->
+<!--  100% scopé sous .spn-lp · sans menu · sans footer.               -->
+<!--  Visuels & logos = fichiers réels de spn-net.fr · Avis Google réels.-->
+<!-- ================================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<section class="spn-lp">
+<script>try{document.head.insertAdjacentHTML('beforeend','<meta name="robots" content="noindex,nofollow,noarchive">');}catch(e){}</script>
+<!-- spn-schema --><script type="application/ld+json">{"@context":"https://schema.org","@type":"CleaningService","@id":"https://spn-net.fr/#business","name":"SPN NET","url":"https://spn-net.fr/","telephone":"+33149462240","email":"contact@spn-net.fr","image":"https://spn-net.fr/wp-content/uploads/elementor/thumbs/logo-rkamhcg62qbiqacow1pw230in940ue5954a7aysbu0.png","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"52 Avenue de Bourg-la-Reine","postalCode":"92220","addressLocality":"Bagneux","addressRegion":"Île-de-France","addressCountry":"FR"},"areaServed":[{"@type":"City","name":"Paris"},{"@type":"AdministrativeArea","name":"Île-de-France"}],"hasMap":"https://share.google/EHIcrr4rikijvXSJE","sameAs":["https://share.google/EHIcrr4rikijvXSJE","https://www.pappers.fr/entreprise/spn-net-382120814"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"48","bestRating":"5","worstRating":"1"}}</script>
+<style>
+/* ===================== TOKENS & RESET (scopés) ===================== */
+.spn-lp{
+  --orange:#ED5D37; --orange-deep:#D8431F; --orange-soft:#FFF1EA;
+  --ink:#16181D; --ink-2:#2A2D35; --grey:#6B7280; --grey-soft:#9AA0A8;
+  --line:#E9E4DD; --cream:#FAF8F5; --white:#fff;
+  --r:18px; --shadow:0 18px 50px -18px rgba(22,24,29,.22); --shadow-sm:0 8px 24px -12px rgba(22,24,29,.18);
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:#fff; font-size:16px;
+}
+.spn-lp *{box-sizing:border-box;margin:0;padding:0}
+.spn-lp img{max-width:100%;display:block}
+.spn-lp a{text-decoration:none;color:inherit}
+.spn-lp button{font-family:inherit;cursor:pointer;border:none}
+.spn-lp h1,.spn-lp h2,.spn-lp h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.01em}
+.spn-lp .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ===================== BUTTONS / UTILS ===================== */
+.spn-lp .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:1rem;border-radius:999px;padding:16px 28px;transition:transform .18s,box-shadow .18s,background .18s;white-space:nowrap}
+.spn-lp .btn-primary{background:linear-gradient(135deg,#F4794E,var(--orange) 55%,var(--orange-deep));color:#fff;box-shadow:0 12px 28px -8px rgba(216,67,31,.55)}
+.spn-lp .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -10px rgba(216,67,31,.6)}
+.spn-lp .btn-dark{background:var(--ink);color:#fff}
+.spn-lp .btn-dark:hover{transform:translateY(-2px);background:#000}
+.spn-lp .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-deep)}
+.spn-lp .eyebrow::before{content:"";width:26px;height:2px;background:var(--orange);border-radius:2px}
+.spn-lp .eyebrow.c{justify-content:center;display:flex}
+
+/* ===================== TOP STRIP ===================== */
+.spn-lp .strip{padding:13px 0;border-bottom:1px solid var(--line);background:#fff}
+.spn-lp .strip .in{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.spn-lp .strip .logo{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;letter-spacing:.02em}
+.spn-lp .strip .logo i{width:18px;height:18px;background:var(--orange);border-radius:4px;transform:rotate(45deg)}
+.spn-lp .strip .logo span{color:var(--grey-soft);font-size:.7rem;font-weight:600;letter-spacing:.35em;align-self:flex-end;margin-bottom:5px}
+.spn-lp .strip .tel{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);font-size:1.05rem}
+.spn-lp .strip .tel small{display:block;font-size:.7rem;font-weight:600;color:var(--grey)}
+
+/* ===================== HERO ===================== */
+.spn-lp .hero{position:relative;overflow:hidden;background:var(--cream);padding:56px 0 66px}
+.spn-lp .hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(680px 380px at 88% -8%,rgba(237,93,55,.16),transparent 70%),radial-gradient(520px 420px at 0% 110%,rgba(237,93,55,.07),transparent 70%)}
+.spn-lp .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .85fr;gap:50px;align-items:center}
+.spn-lp .hero h1{font-size:clamp(2.2rem,4.3vw,3.4rem);margin:18px 0 16px}
+.spn-lp .hero h1 em{font-style:italic;color:var(--orange-deep)}
+.spn-lp .hero .lead{font-size:1.1rem;color:var(--ink-2);max-width:540px;margin-bottom:24px}
+.spn-lp .hero-cta{display:flex;flex-wrap:wrap;gap:13px;align-items:center;margin-bottom:26px}
+.spn-lp .trust-row{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center}
+.spn-lp .trust-pill{display:flex;align-items:center;gap:9px;font-size:.85rem;font-weight:600;color:var(--ink-2)}
+.spn-lp .trust-pill .stars{color:var(--orange);letter-spacing:1px}
+.spn-lp .trust-pill b{font-weight:800}
+.spn-lp .trust-pill img{height:42px;width:auto}
+.spn-lp .dot{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.spn-lp .hero-points{list-style:none;margin:2px 0 24px;display:grid;gap:9px}
+.spn-lp .hero-points li{position:relative;padding-left:28px;font-size:.96rem;font-weight:600;color:var(--ink-2)}
+.spn-lp .hero-points li::before{content:"";position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:50%;background-color:var(--orange-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23D8431F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+
+/* LEAD CARD */
+.spn-lp .lead-card{background:#fff;border-radius:22px;padding:30px 28px;box-shadow:var(--shadow);border:1px solid var(--line);position:relative}
+.spn-lp .lead-card .badge{position:absolute;top:-14px;right:24px;background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.spn-lp .lead-card h3{font-size:1.45rem;margin-bottom:4px}
+.spn-lp .lead-card .sub{font-size:.9rem;color:var(--grey);margin-bottom:18px}
+.spn-lp .field{margin-bottom:13px}
+.spn-lp .field label{display:block;font-size:.78rem;font-weight:700;color:var(--ink-2);margin-bottom:5px}
+.spn-lp .field input,.spn-lp .field select,.spn-lp .field textarea{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:.95rem;background:#fff;color:var(--ink);transition:border .15s,box-shadow .15s}
+.spn-lp .field textarea{resize:vertical;min-height:74px;line-height:1.5}
+.spn-lp .field input:focus,.spn-lp .field select:focus,.spn-lp .field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px var(--orange-soft)}
+.spn-lp .field.invalid textarea{border-color:var(--orange-deep)}
+.spn-lp .norecruit{display:flex;align-items:flex-start;gap:8px;margin-top:14px;padding:10px 13px;background:var(--cream);border:1px solid var(--line);border-radius:11px;font-size:.78rem;line-height:1.45;color:var(--grey)}
+.spn-lp .norecruit svg{flex:none;margin-top:1px;color:var(--orange-deep)}
+.spn-lp .norecruit b{color:var(--ink-2);font-weight:700}
+.spn-lp .cta-final .mini .norecruit{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:rgba(255,255,255,.75)}
+.spn-lp .cta-final .mini .norecruit b{color:#fff}
+.spn-lp .lead-card .btn-primary{width:100%;margin-top:6px;font-size:1.05rem;padding:17px}
+.spn-lp .reassure{display:flex;align-items:center;justify-content:center;gap:7px;font-size:.78rem;color:var(--grey);margin-top:13px}
+.spn-lp .form-success{display:none;text-align:center;padding:18px 6px}
+.spn-lp .form-success.show{display:block}
+.spn-lp .form-success .ok{width:62px;height:62px;border-radius:50%;background:var(--orange-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.spn-lp .form-success h3{margin-bottom:8px}
+.spn-lp .form-success p{color:var(--grey);font-size:.95rem}
+.spn-lp .err{display:none;color:var(--orange-deep);font-size:.76rem;font-weight:600;margin-top:4px}
+.spn-lp .field.invalid input,.spn-lp .field.invalid select{border-color:var(--orange-deep)}
+.spn-lp .field.invalid .err{display:block}
+
+/* ===================== CLIENTS LOGOS (marquee) ===================== */
+.spn-lp .clients{padding:30px 0;border-bottom:1px solid var(--line);background:#fff}
+.spn-lp .clients p{text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-soft);margin-bottom:20px}
+.spn-lp .logo-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.spn-lp .logo-track{display:flex;align-items:center;gap:46px;width:max-content;animation:spn-scroll 38s linear infinite}
+.spn-lp .logo-marquee:hover .logo-track{animation-play-state:paused}
+.spn-lp .logo-track img{height:46px;width:auto;max-width:140px;object-fit:contain;filter:grayscale(1);opacity:.6;transition:filter .2s,opacity .2s}
+.spn-lp .logo-track img:hover{filter:none;opacity:1}
+@keyframes spn-scroll{to{transform:translateX(-50%)}}
+
+/* ===================== STATS ===================== */
+.spn-lp .stats{background:var(--ink);color:#fff;padding:44px 0}
+.spn-lp .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center}
+.spn-lp .stats .num{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:600;color:var(--orange);line-height:1}
+.spn-lp .stats .lbl{font-size:.88rem;color:rgba(255,255,255,.75);margin-top:8px}
+
+/* ===================== SECTION SHELL ===================== */
+.spn-lp .sec{padding:72px 0}
+.spn-lp .sec-head{max-width:700px;margin:0 auto 44px;text-align:center}
+.spn-lp .sec-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin:14px 0 12px}
+.spn-lp .sec-head p{color:var(--grey);font-size:1.05rem}
+
+/* WHY */
+.spn-lp .why{background:var(--cream)}
+.spn-lp .why .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.spn-lp .usp{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;transition:transform .2s,box-shadow .2s}
+.spn-lp .usp:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm)}
+.spn-lp .usp .ic{width:58px;height:58px;border-radius:14px;background:var(--orange-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.spn-lp .usp .ic img{width:34px;height:34px;object-fit:contain}
+.spn-lp .usp h3{font-size:1.18rem;margin-bottom:8px}
+.spn-lp .usp p{font-size:.93rem;color:var(--grey)}
+
+/* ===================== RÉALISATIONS (gallery) ===================== */
+.spn-lp .real .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.spn-lp .real .tile{position:relative;border-radius:16px;overflow:hidden;background:var(--ink-2)}
+.spn-lp .real .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.spn-lp .real .tile:hover img{transform:scale(1.07)}
+.spn-lp .real .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(20,22,27,.82));z-index:1}
+.spn-lp .real .tile .cap{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;color:#fff}
+.spn-lp .real .tile .cap b{font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;display:block}
+.spn-lp .real .tile .cap small{font-size:.8rem;color:rgba(255,255,255,.8)}
+.spn-lp .real .tile.big{grid-column:span 2;grid-row:span 2}
+.spn-lp .real .tile.wide{grid-column:span 2}
+.spn-lp .chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:30px}
+.spn-lp .chips .chip{font-size:.85rem;font-weight:600;color:var(--ink-2);background:var(--cream);border:1px solid var(--line);padding:9px 16px;border-radius:999px}
+
+/* ===================== PROCESS ===================== */
+.spn-lp .process{background:var(--cream)}
+.spn-lp .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step}
+.spn-lp .step{padding:26px 22px;background:#fff;border-radius:var(--r);border:1px solid var(--line)}
+.spn-lp .step .n{counter-increment:step;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+.spn-lp .step .n::before{content:counter(step,decimal-leading-zero)}
+.spn-lp .step h3{font-size:1.1rem;margin-bottom:7px}
+.spn-lp .step p{font-size:.9rem;color:var(--grey)}
+
+/* ===================== ZONE PARIS ===================== */
+.spn-lp .zone{position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:70px 0}
+.spn-lp .zone::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 340px at 12% 110%,rgba(237,93,55,.28),transparent 62%)}
+.spn-lp .zone .wrap{position:relative;z-index:1;display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.spn-lp .zone img.map{border-radius:18px;box-shadow:var(--shadow)}
+.spn-lp .zone h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.6rem);margin:14px 0 14px}
+.spn-lp .zone p{color:rgba(255,255,255,.78);margin-bottom:22px;max-width:520px}
+.spn-lp .zone .eyebrow{color:var(--orange)} .spn-lp .zone .eyebrow::before{background:var(--orange)}
+.spn-lp .zone h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700}
+.spn-lp .arr{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+.spn-lp .arr button{font-size:.82rem;font-weight:600;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 13px;border-radius:9px;transition:background .15s,border .15s}
+.spn-lp .arr button:hover{background:var(--orange);border-color:var(--orange)}
+.spn-lp .dep{display:flex;flex-wrap:wrap;gap:7px}
+.spn-lp .dep span{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.9);background:rgba(237,93,55,.16);border:1px solid rgba(237,93,55,.4);padding:7px 13px;border-radius:9px}
+
+/* ===================== AVIS GOOGLE (2 bandes auto-scroll) ===================== */
+.spn-lp .reviews{padding:72px 0;background:var(--cream);overflow:hidden}
+.spn-lp .rev-top{text-align:center;max-width:640px;margin:0 auto 36px}
+.spn-lp .rev-top h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin:14px 0 14px}
+.spn-lp .rev-score{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 20px;box-shadow:var(--shadow-sm)}
+.spn-lp .rev-score .g{font-family:'Fraunces',serif;font-weight:700;font-size:1.6rem}
+.spn-lp .rev-score .g b:nth-child(1){color:#4285F4}.spn-lp .rev-score .g b:nth-child(2){color:#EA4335}.spn-lp .rev-score .g b:nth-child(3){color:#FBBC05}.spn-lp .rev-score .g b:nth-child(4){color:#4285F4}.spn-lp .rev-score .g b:nth-child(5){color:#34A853}.spn-lp .rev-score .g b:nth-child(6){color:#EA4335}
+.spn-lp .rev-score .nb{font-size:1.5rem;font-weight:800;line-height:1}
+.spn-lp .rev-score .stars{color:#FBBC05;font-size:1rem;letter-spacing:1px}
+.spn-lp .rev-score small{color:var(--grey);font-size:.78rem}
+.spn-lp .rev-band{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.spn-lp .rev-band+.rev-band{margin-top:18px}
+.spn-lp .rev-track{display:flex;gap:18px;width:max-content;animation:spn-scroll 46s linear infinite}
+.spn-lp .rev-track.rev-rev{animation-direction:reverse;animation-duration:54s}
+.spn-lp .rev-band:hover .rev-track{animation-play-state:paused}
+.spn-lp .rcard{width:380px;flex:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 22px;box-shadow:var(--shadow-sm)}
+.spn-lp .rcard .hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.spn-lp .rcard .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#F4794E,var(--orange-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex:none}
+.spn-lp .rcard .nm{font-weight:700;font-size:.95rem;line-height:1.2}
+.spn-lp .rcard .meta{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--grey)}
+.spn-lp .rcard .gicon{width:15px;height:15px}
+.spn-lp .rcard .stars{color:#FBBC05;font-size:.92rem;letter-spacing:1px;margin-left:auto;flex:none}
+.spn-lp .rcard p{font-size:.92rem;color:var(--ink-2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ===================== FAQ ===================== */
+.spn-lp .faq .wrap{max-width:820px}
+.spn-lp .acc{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:#fff;overflow:hidden}
+.spn-lp .acc summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:700;font-size:1.05rem;color:var(--ink)}
+.spn-lp .acc summary::-webkit-details-marker{display:none}
+.spn-lp .acc summary .pl{flex:none;width:26px;height:26px;border-radius:50%;background:var(--orange-soft);color:var(--orange-deep);display:flex;align-items:center;justify-content:center;font-weight:800;transition:transform .25s}
+.spn-lp .acc[open] summary .pl{transform:rotate(45deg)}
+.spn-lp .acc .body{padding:0 22px 20px;color:var(--grey);font-size:.97rem;line-height:1.6}
+
+/* ===================== FINAL CTA ===================== */
+.spn-lp .cta-final{position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:72px 0}
+.spn-lp .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 320px at 82% 0%,rgba(237,93,55,.32),transparent 65%)}
+.spn-lp .cta-final .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.spn-lp .cta-final h2{font-size:clamp(2rem,3.6vw,2.8rem);margin:14px 0 14px;color:#fff}
+.spn-lp .cta-final p{color:rgba(255,255,255,.78);font-size:1.06rem;max-width:480px;margin-bottom:26px}
+.spn-lp .cta-final .eyebrow{color:var(--orange)} .spn-lp .cta-final .eyebrow::before{background:var(--orange)}
+.spn-lp .cta-final .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.spn-lp .cta-final .telbig small{font-size:.8rem;color:rgba(255,255,255,.6);font-weight:600;display:block}
+.spn-lp .cta-final .telbig a{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:#fff}
+.spn-lp .cta-final .mini{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:26px}
+.spn-lp .cta-final .mini h3{color:#fff;font-size:1.3rem;margin-bottom:14px}
+.spn-lp .cta-final .mini .field label{color:rgba(255,255,255,.8)}
+.spn-lp .cta-final .mini .field input,.spn-lp .cta-final .mini .field select,.spn-lp .cta-final .mini .field textarea{background:rgba(255,255,255,.95);border-color:transparent}
+.spn-lp .cta-final .mini .btn-primary{width:100%}
+
+/* ===================== STICKY MOBILE BAR ===================== */
+.spn-lp .sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:none;grid-template-columns:1fr 1fr;background:#fff;box-shadow:0 -8px 30px -10px rgba(0,0,0,.25);border-top:1px solid var(--line)}
+.spn-lp .sticky-bar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px;font-weight:700;font-size:.98rem}
+.spn-lp .sticky-bar .call{color:var(--ink)}
+.spn-lp .sticky-bar .quote{background:linear-gradient(135deg,#F4794E,var(--orange-deep));color:#fff}
+
+/* ===================== MODALE FORMULAIRE ===================== */
+.spn-lp .spn-modal{position:fixed;inset:0;z-index:100000;background:rgba(20,22,27,.62);display:none;align-items:flex-start;justify-content:center;padding:5vh 16px;overflow:auto}
+.spn-lp .spn-modal.show{display:flex}
+.spn-lp .spn-modal-card{background:#fff;border-radius:22px;padding:30px 28px 26px;max-width:440px;width:100%;position:relative;box-shadow:var(--shadow);animation:spnpop .25s ease}
+@keyframes spnpop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.spn-lp .spn-modal-card .badge{position:absolute;top:-13px;left:24px;background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.spn-lp .spn-modal-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:var(--cream);border:1px solid var(--line);font-size:1.4rem;line-height:1;cursor:pointer;color:var(--grey);display:flex;align-items:center;justify-content:center}
+.spn-lp .spn-modal-x:hover{background:var(--line)}
+.spn-lp .spn-modal-card h3{font-size:1.45rem;margin-bottom:4px}
+.spn-lp .spn-modal-card .sub{font-size:.9rem;color:var(--grey);margin-bottom:18px}
+.spn-lp .spn-modal-card .btn-primary{width:100%;margin-top:6px;font-size:1.05rem;padding:16px}
+
+/* ===================== REVEAL ===================== */
+.spn-lp .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.spn-lp .reveal.in{opacity:1;transform:none}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:1024px){
+  .spn-lp .real .gal{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:880px){
+  .spn-lp .hero .wrap{grid-template-columns:1fr;gap:34px}
+  .spn-lp .hero .lead-card{order:2}
+  .spn-lp .stats .grid{grid-template-columns:repeat(2,1fr);gap:28px 16px}
+  .spn-lp .why .grid,.spn-lp .steps{grid-template-columns:repeat(2,1fr)}
+  .spn-lp .zone .wrap,.spn-lp .cta-final .wrap{grid-template-columns:1fr;gap:30px}
+  .spn-lp .zone img.map{max-width:480px}
+  .spn-lp .real .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .spn-lp .real .tile.big{grid-column:span 2;grid-row:span 1}
+}
+@media(max-width:560px){
+  .spn-lp{padding-bottom:62px}
+  .spn-lp .strip .tel small,.spn-lp .strip .logo span{display:none}
+  .spn-lp .hero{padding:32px 0 44px}
+  .spn-lp .sec,.spn-lp .reviews,.spn-lp .zone,.spn-lp .cta-final{padding:50px 0}
+  .spn-lp .why .grid,.spn-lp .steps{grid-template-columns:1fr}
+  .spn-lp .real .gal{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+  .spn-lp .real .tile.big,.spn-lp .real .tile.wide{grid-column:span 2}
+  .spn-lp .hero-cta .btn{flex:1;justify-content:center}
+  .spn-lp .rcard{width:300px}
+  .spn-lp .sticky-bar{display:grid}
+  .spn-lp .lead-card,.spn-lp .cta-final .mini{padding:24px 20px}
+}
+</style>
+
+<!-- ============ TOP STRIP ============ -->
+<div class="strip"><div class="wrap"><div class="in">
+  <div class="logo"><img src="https://spn-net.fr/wp-content/uploads/elementor/thumbs/logo-rkamhcg62qbiqacow1pw230in940ue5954a7aysbu0.png" alt="SPN NET — entreprise de nettoyage" style="height:46px;width:auto"></div>
+  <a href="tel:+33149462240" class="tel" data-tel>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ED5D37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>01 49 46 22 40<small>Lun–Ven · Réponse rapide</small></span>
+  </a>
+</div></div></div>
+
+<!-- ============ HERO ============ -->
+<div class="hero"><div class="wrap">
+  <div class="reveal">
+    <span class="eyebrow">Entretien de bureaux · Paris & Île-de-France</span>
+    <h1>Entretien de <em>bureaux</em> à Paris, sans jamais gêner votre activité</h1>
+    <p class="lead">Sociétés, PME et startups : un nettoyage de bureaux régulier et fiable, réalisé <b>tôt le matin ou en soirée</b>. Un interlocuteur dédié, des équipes formées et certifiées ISO 45001 — devis sous 24h.</p>
+    <ul class="hero-points">
+      <li>Intervention en dehors de vos horaires (soir, matin, week-end)</li>
+      <li>Un interlocuteur unique et une équipe fidélisée</li>
+      <li>Devis gratuit sous 24h, sans engagement</li>
+    </ul>
+    <div class="hero-cta">
+      <a href="#devis" class="btn btn-primary" data-scroll>Obtenir mon devis gratuit
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="tel:+33149462240" class="btn btn-dark" data-tel>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>01 49 46 22 40</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-pill"><span class="stars">★★★★★</span><span><b>4,8/5</b> · 48 avis Google</span></div>
+      <span class="dot"></span>
+      <div class="trust-pill"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Design_sans_titre_30.png" alt="Médaille d'argent EcoVadis 2025"><span>EcoVadis <b>Argent</b></span></div>
+      <div class="trust-pill"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Design_sans_titre_34.png" alt="Certification DEKRA ISO 45001"><span><b>ISO 45001</b></span></div>
+    </div>
+  </div>
+
+  <div class="lead-card reveal" id="devis">
+    <span class="badge">Devis gratuit 24h</span>
+    <form id="spn-form" novalidate>
+      <h3>Votre devis en 30 secondes</h3>
+      <p class="sub">3 champs suffisent · Réponse sous 24h ouvrées</p>
+      <div class="field" data-field><label>Nom & prénom</label><input type="text" name="name" placeholder="Ex. Marie Dupont" required><span class="err">Merci d'indiquer votre nom.</span></div>
+      <div class="field" data-field><label>Téléphone</label><input type="tel" name="phone" placeholder="06 12 34 56 78" required><span class="err">Numéro de téléphone invalide.</span></div>
+      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Merci d'utiliser une adresse e-mail professionnelle.</span></div>
+      <button type="submit" class="btn btn-primary">Demander mon devis gratuit</button>
+      <div class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Données confidentielles · Aucune sollicitation abusive</div>
+      <div class="norecruit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Cette page concerne uniquement les demandes de <b>devis</b>. Nous ne recrutons pas actuellement.</span></div>
+    </form>
+    <div class="form-success" id="spn-success">
+      <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8431F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Demande envoyée&nbsp;!</h3><p>Merci, notre équipe vous recontacte sous 24h ouvrées. Pour un échange immédiat : <b>01 49 46 22 40</b>.</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- ============ CLIENTS LOGOS (réels, marquee) ============ -->
+<div class="clients"><div class="wrap"><p>Ils nous font confiance au quotidien</p></div>
+  <div class="logo-marquee"><div class="logo-track" id="logoTrack">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_5.png" alt="Logo FFT">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_1.png" alt="Logo Foncia">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_6.png" alt="Logo Eurovia">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_2.png" alt="Logo Citya Immobilier">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/culligan-organization-logo.jpg" alt="Logo Culligan">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_3.png" alt="Logo OPPBTP">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_4.png" alt="Logo McCormick">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/images_1.jpg" alt="Logo Ocellis">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/Modele-logo-otis.png" alt="Logo OTIS">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_7.png" alt="Logo KONE">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_2.jpg" alt="Logo Schindler">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_1.jpg" alt="Logo TKE">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_10.png" alt="Logo Orona">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_9.png" alt="Logo WeMaintain">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_11.png" alt="Logo Drieux-Combaluzier">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_8.png" alt="Logo Mistral">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_5.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_1.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_6.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_2.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/culligan-organization-logo.jpg" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_3.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_4.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/images_1.jpg" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/Modele-logo-otis.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_7.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_2.jpg" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_1.jpg" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_10.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_9.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_11.png" alt="" aria-hidden="true">
+    <img src="https://spn-net.fr/wp-content/uploads/2026/01/telechargement_8.png" alt="" aria-hidden="true">
+  </div></div>
+</div>
+
+<!-- ============ STATS ============ -->
+<div class="stats"><div class="wrap"><div class="grid">
+  <div class="reveal"><div class="num">30 ans</div><div class="lbl">d'expertise propreté</div></div>
+  <div class="reveal"><div class="num">+350</div><div class="lbl">clients accompagnés</div></div>
+  <div class="reveal"><div class="num">4,8/5</div><div class="lbl">satisfaction Google</div></div>
+  <div class="reveal"><div class="num">ISO 45001</div><div class="lbl">santé-sécurité certifiée</div></div>
+</div></div></div>
+
+<!-- ============ WHY US ============ -->
+<div class="sec why"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow c">Pourquoi SPN NET</span><h2>Propreté, rigueur et engagement depuis 30 ans</h2><p>Une entreprise à taille humaine, deux priorités : le client et le salarié.</p></div>
+  <div class="grid">
+    <div class="usp reveal"><div class="ic"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Asset-003.png" alt=""></div><h3>Équipe dédiée</h3><p>Un interlocuteur unique et des agents formés, présents sur la durée pour vos sites.</p></div>
+    <div class="usp reveal"><div class="ic"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Asset-006.png" alt=""></div><h3>Sur-mesure</h3><p>Des prestations pensées pour vos contraintes et vos horaires, pas des forfaits standards.</p></div>
+    <div class="usp reveal"><div class="ic"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Asset-004.png" alt=""></div><h3>Fiable & certifié</h3><p>ISO 45001 et médaille EcoVadis Argent : qualité, sécurité et RSE contrôlées.</p></div>
+    <div class="usp reveal"><div class="ic"><img src="https://spn-net.fr/wp-content/uploads/2026/01/Asset-005.png" alt=""></div><h3>Amélioration continue</h3><p>Suivi qualité régulier et ajustements pour un résultat constant dans le temps.</p></div>
+  </div>
+</div></div>
+
+<!-- ============ RÉALISATIONS ============ -->
+<div class="sec real"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow c">Nos réalisations</span><h2>Des espaces impeccables, tous secteurs</h2><p>Un aperçu de nos interventions à Paris et en Île-de-France.</p></div>
+  <div class="gal reveal">
+    <div class="tile big"><img src="https://spn-net.fr/wp-content/uploads/2026/01/tertiaire-1-1024x683.jpg" alt="Nettoyage de bureaux et locaux tertiaires" loading="lazy"><div class="cap"><b>Bureaux & Tertiaire</b><small>Paris 8 · entretien quotidien</small></div></div>
+    <div class="tile"><img src="https://spn-net.fr/wp-content/uploads/2026/01/copro-1024x683.jpg" alt="Nettoyage de copropriété" loading="lazy"><div class="cap"><b>Copropriété</b><small>Hauts-de-Seine</small></div></div>
+    <div class="tile"><img src="https://spn-net.fr/wp-content/uploads/2026/01/sante-1024x683.jpg" alt="Bionettoyage santé et médical" loading="lazy"><div class="cap"><b>Santé & Médical</b><small>Bionettoyage</small></div></div>
+    <div class="tile"><img src="https://spn-net.fr/wp-content/uploads/2026/01/commerce-1024x683.jpg" alt="Nettoyage de commerces et retail" loading="lazy"><div class="cap"><b>Commerce & Retail</b><small>Surfaces de vente</small></div></div>
+    <div class="tile"><img src="https://spn-net.fr/wp-content/uploads/2026/01/logistique-1024x683.jpg" alt="Nettoyage industriel et logistique" loading="lazy"><div class="cap"><b>Logistique & Industrie</b><small>Entrepôts · autolaveuse</small></div></div>
+    <div class="tile wide"><img src="https://spn-net.fr/wp-content/uploads/2026/01/hotel-1024x683.jpg" alt="Nettoyage hôtellerie et restauration" loading="lazy"><div class="cap"><b>Hôtellerie & Restauration</b><small>Parties communes & cuisines</small></div></div>
+    <div class="tile"><img src="https://spn-net.fr/wp-content/uploads/2026/02/ecole-1-1024x683.jpg" alt="Nettoyage d'écoles" loading="lazy"><div class="cap"><b>Enseignement</b><small>Écoles & petite enfance</small></div></div>
+    <div class="tile"><img src="https://spn-net.fr/wp-content/uploads/2026/01/loisir-1024x683.jpg" alt="Nettoyage loisirs et événementiel" loading="lazy"><div class="cap"><b>Loisirs & Événementiel</b><small>Sites recevant du public</small></div></div>
+    <div class="tile"><img src="https://spn-net.fr/wp-content/uploads/2026/03/ascenseurs-et-escalators-e1773133478487.webp" alt="Nettoyage d'ascenseurs et escalators" loading="lazy"><div class="cap"><b>Ascenseurs & Escalators</b><small>Métal & vitrage</small></div></div>
+  </div>
+  <div class="chips reveal">
+    <span class="chip">Bureaux</span><span class="chip">Copropriétés</span><span class="chip">Commerces</span><span class="chip">Santé</span><span class="chip">Logistique</span><span class="chip">Hôtellerie</span><span class="chip">Écoles</span><span class="chip">Ascenseurs & escalators</span>
+  </div>
+</div></div>
+
+<!-- ============ PROCESS ============ -->
+<div class="sec process"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow c">Comment ça marche</span><h2>Votre devis en 4 étapes simples</h2><p>Un démarrage rapide, clair et sans engagement.</p></div>
+  <div class="steps">
+    <div class="step reveal"><div class="n"></div><h3>Votre demande</h3><p>Vous nous décrivez vos locaux et vos besoins en 2 minutes.</p></div>
+    <div class="step reveal"><div class="n"></div><h3>Visite & audit</h3><p>Nous évaluons sur site et définissons le bon protocole.</p></div>
+    <div class="step reveal"><div class="n"></div><h3>Devis sur-mesure</h3><p>Une proposition claire et détaillée sous 24h ouvrées.</p></div>
+    <div class="step reveal"><div class="n"></div><h3>Intervention & suivi</h3><p>Équipe dédiée, planning fixe et contrôle qualité régulier.</p></div>
+  </div>
+</div></div>
+
+<!-- ============ ZONE PARIS & IDF ============ -->
+<div class="zone"><div class="wrap">
+  <div class="reveal"><img class="map" src="https://spn-net.fr/wp-content/uploads/2026/02/pexels-mikhail-nilov-8431136-1024x682.jpg" alt="Intervention SPN NET à Paris"></div>
+  <div class="reveal">
+    <span class="eyebrow">Zone d'intervention</span>
+    <h2>Nous intervenons dans tout Paris & l'Île-de-France</h2>
+    <p>Basés dans les Hauts-de-Seine, nous réagissons vite à Paris comme en proche couronne. Une présence locale et des équipes mobiles dans les 20 arrondissements et l'ensemble des départements franciliens.</p>
+    <h4>Paris — tous les arrondissements</h4>
+    <div class="arr">
+      <button data-scroll>Paris 1</button><button data-scroll>Paris 2</button><button data-scroll>Paris 3</button><button data-scroll>Paris 4</button><button data-scroll>Paris 5</button><button data-scroll>Paris 6</button><button data-scroll>Paris 7</button><button data-scroll>Paris 8</button><button data-scroll>Paris 9</button><button data-scroll>Paris 10</button><button data-scroll>Paris 11</button><button data-scroll>Paris 12</button><button data-scroll>Paris 13</button><button data-scroll>Paris 14</button><button data-scroll>Paris 15</button><button data-scroll>Paris 16</button><button data-scroll>Paris 17</button><button data-scroll>Paris 18</button><button data-scroll>Paris 19</button><button data-scroll>Paris 20</button>
+    </div>
+    <h4>Île-de-France</h4>
+    <div class="dep"><span>77 Seine-et-Marne</span><span>78 Yvelines</span><span>91 Essonne</span><span>92 Hauts-de-Seine</span><span>93 Seine-Saint-Denis</span><span>94 Val-de-Marne</span><span>95 Val-d'Oise</span></div>
+  </div>
+</div></div>
+
+<!-- ============ AVIS GOOGLE (2 bandes auto-scroll) ============ -->
+<div class="reviews">
+  <div class="rev-top reveal">
+    <span class="eyebrow c">Avis vérifiés</span>
+    <h2>Nos clients parlent pour nous</h2>
+    <div class="rev-score"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span><div style="text-align:left"><div class="nb">4,8 <span class="stars">★★★★★</span></div><small>Note moyenne · 48 avis</small></div></div>
+  </div>
+
+  <!-- Bande 1 -->
+  <div class="rev-band"><div class="rev-track" data-rev>
+    <div class="rcard"><div class="hd"><div class="av">TF</div><div><div class="nm">Tallet Florence</div><div class="meta"><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.7-.4-4H24v8h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1C42.7 36.3 45 30.7 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 17.1 2 20.4 2 24s1 6.9 2.5 9.7l7.3-5.4z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Google</div></div><span class="stars">★★★★★</span></div><p>Clients depuis de nombreuses années, je suis extrêmement satisfaite de cette société, ils sont arrangeants, à l'écoute et très efficaces.</p></div>
+    <div class="rcard"><div class="hd"><div class="av">OM</div><div><div class="nm">Olivier Morin</div><div class="meta"><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.7-.4-4H24v8h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1C42.7 36.3 45 30.7 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 17.1 2 20.4 2 24s1 6.9 2.5 9.7l7.3-5.4z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Google</div></div><span class="stars">★★★★★</span></div><p>Je tiens à souligner le professionnalisme de cette société. Nous travaillons depuis plusieurs années avec elle sans aucun reproche. Cela est rare dans ce secteur d'activité.</p></div>
+    <div class="rcard"><div class="hd"><div class="av">SP</div><div><div class="nm">SCIE Packaging Systems</div><div class="meta"><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.7-.4-4H24v8h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1C42.7 36.3 45 30.7 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 17.1 2 20.4 2 24s1 6.9 2.5 9.7l7.3-5.4z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Google</div></div><span class="stars">★★★★★</span></div><p>Service de nettoyage très professionnel et fiable. Les équipes sont ponctuelles, discrètes et la qualité du travail est toujours au rendez-vous. Nos bureaux sont impeccables après chaque passage. Je recommande vivement.</p></div>
+    <div class="rcard"><div class="hd"><div class="av">FC</div><div><div class="nm">Fernando Coutinho</div><div class="meta"><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.7-.4-4H24v8h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1C42.7 36.3 45 30.7 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 17.1 2 20.4 2 24s1 6.9 2.5 9.7l7.3-5.4z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Google</div></div><span class="stars">★★★★★</span></div><p>Entreprise très efficace avec une inspectrice adorable, Madame Laura. Merci pour la compétence.</p></div>
+  </div></div>
+
+  <!-- Bande 2 (sens inverse) -->
+  <div class="rev-band"><div class="rev-track rev-rev" data-rev>
+    <div class="rcard"><div class="hd"><div class="av">VM</div><div><div class="nm">Valérie Mangin</div><div class="meta"><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.7-.4-4H24v8h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1C42.7 36.3 45 30.7 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 17.1 2 20.4 2 24s1 6.9 2.5 9.7l7.3-5.4z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Google</div></div><span class="stars">★★★★★</span></div><p>Je ne peux que recommander SPN, pro, efficace et d'une très grande réactivité ! Le directeur lui-même se déplace pour le premier état des lieux, ce qui prouve un réel engagement et une proximité immédiate très rare aujourd'hui.</p></div>
+    <div class="rcard"><div class="hd"><div class="av">RS</div><div><div class="nm">Renard Sophie</div><div class="meta"><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.7-.4-4H24v8h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1C42.7 36.3 45 30.7 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 17.1 2 20.4 2 24s1 6.9 2.5 9.7l7.3-5.4z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Google</div></div><span class="stars">★★★★★</span></div><p>Équipe au top et toujours prête à rendre service ! Merci à l'équipe de nettoyage et à Christian pour leur efficacité et leur sens du service. 👍</p></div>
+    <div class="rcard"><div class="hd"><div class="av">CV</div><div><div class="nm">Client vérifié</div><div class="meta"><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.7-.4-4H24v8h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1C42.7 36.3 45 30.7 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 17.1 2 20.4 2 24s1 6.9 2.5 9.7l7.3-5.4z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Google</div></div><span class="stars">★★★★★</span></div><p>Équipe au top et toujours serviable. Merci à Laura, Carla et Attiba pour leur efficacité et leurs sourires. 👍</p></div>
+    <div class="rcard"><div class="hd"><div class="av">AM</div><div><div class="nm">Ali Cherif Mehidi</div><div class="meta"><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.7-.4-4H24v8h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1C42.7 36.3 45 30.7 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 17.1 2 20.4 2 24s1 6.9 2.5 9.7l7.3-5.4z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>Google</div></div><span class="stars">★★★★★</span></div><p>Super pro. Une équipe sérieuse et un travail soigné, rien à redire.</p></div>
+  </div></div>
+</div>
+
+<!-- ============ FAQ ============ -->
+<div class="sec faq"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow c">Questions fréquentes</span><h2>Tout ce qu'il faut savoir</h2></div>
+  <div class="reveal">
+    <details class="acc"><summary>Quelle est votre zone d'intervention ?<span class="pl">+</span></summary><div class="body">Nous intervenons dans les 20 arrondissements de Paris ainsi que dans toute l'Île-de-France : 77, 78, 91, 92, 93, 94 et 95. Une demande hors zone ? Contactez-nous, nous étudions chaque situation.</div></details>
+    <details class="acc"><summary>Sous quel délai vais-je recevoir mon devis ?<span class="pl">+</span></summary><div class="body">Votre devis est gratuit, sans engagement, et vous est transmis sous 24h ouvrées après l'étude de votre besoin (souvent précédée d'une visite sur site pour les locaux importants).</div></details>
+    <details class="acc"><summary>Proposez-vous des prestations sur-mesure ?<span class="pl">+</span></summary><div class="body">Oui. Chaque contrat est adapté à la nature de vos locaux, à votre fréquence souhaitée et à vos contraintes d'accès. Pas de forfait standard imposé : nous construisons le protocole avec vous.</div></details>
+    <details class="acc"><summary>Intervenez-vous en dehors des heures de bureau ?<span class="pl">+</span></summary><div class="body">Absolument. Nos équipes peuvent intervenir tôt le matin, en soirée ou le week-end afin de ne pas perturber votre activité.</div></details>
+    <details class="acc"><summary>Êtes-vous une entreprise certifiée ?<span class="pl">+</span></summary><div class="body">SPN NET est certifiée ISO 45001 par DEKRA (santé-sécurité au travail) et a obtenu la médaille d'argent EcoVadis 2025, qui place l'entreprise dans le top 15% des sociétés les mieux notées pour leurs pratiques RSE. Le tout fort de 30 ans d'expérience.</div></details>
+    <details class="acc"><summary>Vos prestations sont-elles respectueuses de l'environnement ?<span class="pl">+</span></summary><div class="body">Oui. Notre démarche RSE, reconnue par EcoVadis, intègre des protocoles et des produits responsables, ainsi qu'une attention forte portée au bien-être et à la sécurité de nos agents.</div></details>
+  </div>
+</div></div>
+
+<!-- ============ FINAL CTA ============ -->
+<div class="cta-final"><div class="wrap">
+  <div class="reveal">
+    <span class="eyebrow">Passez à l'action</span>
+    <h2>Des locaux impeccables, sans y penser</h2>
+    <p>Confiez votre propreté à une équipe certifiée. Devis gratuit, sans engagement, réponse sous 24h.</p>
+    <div class="actions">
+      <a href="#devis" class="btn btn-primary" data-scroll>Obtenir mon devis gratuit</a>
+      <div class="telbig"><small>Ou appelez-nous</small><a href="tel:+33149462240" data-tel>01 49 46 22 40</a></div>
+    </div>
+  </div>
+  <div class="mini reveal">
+    <form id="spn-form-2" novalidate>
+      <h3>Devis express</h3>
+      <div class="field" data-field><label>Nom</label><input type="text" name="name" placeholder="Votre nom" required><span class="err">Champ requis.</span></div>
+      <div class="field" data-field><label>Téléphone</label><input type="tel" name="phone" placeholder="06 12 34 56 78" required><span class="err">Numéro invalide.</span></div>
+      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Adresse e-mail professionnelle requise.</span></div>
+      <button type="submit" class="btn btn-primary">Je veux mon devis</button>
+      <div class="norecruit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Demandes de <b>devis</b> uniquement — nous ne recrutons pas actuellement.</span></div>
+    </form>
+    <div class="form-success" id="spn-success-2">
+      <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8431F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3 style="color:#fff">Demande envoyée&nbsp;!</h3><p style="color:rgba(255,255,255,.8)">Nous vous recontactons sous 24h ouvrées.</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- ============ STICKY MOBILE BAR ============ -->
+<div class="sticky-bar">
+  <a href="tel:+33149462240" class="call" data-tel><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16181D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Appeler</a>
+  <a href="#devis" class="quote" data-scroll>Devis gratuit</a>
+</div>
+
+<!-- ============ MODALE FORMULAIRE (ouverte au clic des CTA) ============ -->
+<div class="spn-modal" id="spnModal" role="dialog" aria-modal="true" aria-label="Demande de devis">
+  <div class="spn-modal-card">
+    <button type="button" class="spn-modal-x" data-modal-close aria-label="Fermer">&times;</button>
+    <form id="spn-form-3" novalidate>
+      <span class="badge">Devis gratuit 24h</span>
+      <h3>Recevez votre devis</h3>
+      <p class="sub">Réponse sous 24h ouvrées · Sans engagement</p>
+      <div class="field" data-field><label>Nom & prénom</label><input type="text" name="name" placeholder="Ex. Marie Dupont" required><span class="err">Merci d'indiquer votre nom.</span></div>
+      <div class="field" data-field><label>Téléphone</label><input type="tel" name="phone" placeholder="06 12 34 56 78" required><span class="err">Numéro de téléphone invalide.</span></div>
+      <div class="field" data-field><label>Email professionnel</label><input type="email" name="email" placeholder="vous@entreprise.fr" required><span class="err">Merci d'utiliser une adresse e-mail professionnelle.</span></div>
+      <button type="submit" class="btn btn-primary">Demander mon devis gratuit</button>
+      <div class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Données confidentielles · Aucune sollicitation abusive</div>
+      <div class="norecruit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Cette page concerne uniquement les demandes de <b>devis</b>. Nous ne recrutons pas actuellement.</span></div>
+    </form>
+    <div class="form-success" id="spn-success-3">
+      <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8431F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Demande envoyée&nbsp;!</h3><p>Merci, notre équipe vous recontacte sous 24h ouvrées. Pour un échange immédiat : <b>01 49 46 22 40</b>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FAQ SCHEMA (SEO) ============ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Quelle est votre zone d'intervention ?","acceptedAnswer":{"@type":"Answer","text":"Nous intervenons dans les 20 arrondissements de Paris ainsi que dans toute l'Île-de-France : 77, 78, 91, 92, 93, 94 et 95."}},
+{"@type":"Question","name":"Sous quel délai vais-je recevoir mon devis ?","acceptedAnswer":{"@type":"Answer","text":"Votre devis est gratuit, sans engagement, et transmis sous 24h ouvrées après l'étude de votre besoin."}},
+{"@type":"Question","name":"Proposez-vous des prestations sur-mesure ?","acceptedAnswer":{"@type":"Answer","text":"Oui, chaque contrat est adapté à vos locaux, votre fréquence et vos contraintes d'accès."}},
+{"@type":"Question","name":"Intervenez-vous en dehors des heures de bureau ?","acceptedAnswer":{"@type":"Answer","text":"Oui, nos équipes interviennent tôt le matin, en soirée ou le week-end pour ne pas perturber votre activité."}},
+{"@type":"Question","name":"Êtes-vous une entreprise certifiée ?","acceptedAnswer":{"@type":"Answer","text":"SPN NET est certifiée ISO 45001 (DEKRA) et a obtenu la médaille d'argent EcoVadis 2025, avec 30 ans d'expérience."}}
+]}
+</script>
+
+<script>
+(function(){
+  var root = document.currentScript.closest('.spn-lp') || document.querySelector('.spn-lp');
+  if(!root) return;
+
+  /* Ouverture du formulaire en pop-up au clic des CTA */
+  var modal = root.querySelector('#spnModal');
+  function openModal(){ if(modal){ modal.classList.add('show'); document.documentElement.style.overflow='hidden'; var f=modal.querySelector('input'); if(f){ setTimeout(function(){f.focus();},80); } } }
+  function closeModal(){ if(modal){ modal.classList.remove('show'); document.documentElement.style.overflow=''; } }
+  root.querySelectorAll('[data-scroll]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+  });
+  root.querySelectorAll('[data-modal-close]').forEach(function(el){ el.addEventListener('click', closeModal); });
+  if(modal){ modal.addEventListener('click', function(e){ if(e.target===modal){ closeModal(); } }); }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeModal(); } });
+
+  /* Suivi conversion appels (GTM / Google Ads) */
+  root.querySelectorAll('[data-tel]').forEach(function(el){
+    el.addEventListener('click', function(){
+      if(window.dataLayer){ window.dataLayer.push({event:'spn_click_to_call'}); }
+      // if(window.gtag){ gtag('event','conversion',{send_to:'AW-XXXXXXXXX/XXXX'}); }
+    });
+  });
+
+  /* Validation + envoi formulaires */
+  function vMail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
+  var FREEMAIL=['gmail.com','googlemail.com','yahoo.com','yahoo.fr','ymail.com','hotmail.com','hotmail.fr','hotmail.co.uk','outlook.com','outlook.fr','live.com','live.fr','msn.com','aol.com','icloud.com','me.com','mac.com','free.fr','orange.fr','wanadoo.fr','sfr.fr','neuf.fr','laposte.net','bbox.fr','numericable.fr','gmx.com','gmx.fr','protonmail.com','proton.me','yopmail.com','mail.com','yandex.com','yandex.ru','zoho.com'];
+  function vProMail(v){ if(!vMail(v)) return false; var d=(v.split('@')[1]||'').toLowerCase(); return FREEMAIL.indexOf(d)===-1; }
+  function vTel(v){return v.replace(/[^0-9+]/g,'').length>=9;}
+  function handle(formId, okId){
+    var form=root.querySelector('#'+formId), ok=root.querySelector('#'+okId);
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault(); var valid=true;
+      form.querySelectorAll('[data-field]').forEach(function(f){
+        var c=f.querySelector('input,select,textarea'); f.classList.remove('invalid');
+        var v=(c.value||'').trim();
+        if(f.hasAttribute('data-optional') && !v) return;
+        var bad=!v;
+        if(c.type==='email'&&v) bad=!vMail(v);
+        if(c.type==='tel'&&v) bad=!vTel(v);
+        if(bad){f.classList.add('invalid');valid=false;}
+      });
+      if(!valid) return;
+      /* Envoi vers le formulaire Elementor existant (mêmes consignes / e-mail de notification que /contact/) */
+      var g=function(n){var el=form.querySelector('[name="'+n+'"]');return el?(el.value||'').trim():'';};
+      var fd=new FormData();
+      fd.append('action','elementor_pro_forms_send_form');
+      fd.append('form_id','ae4c659');
+      fd.append('post_id','933');
+      fd.append('queried_id','933');
+      fd.append('referer', location.href);
+      fd.append('referer_title', 'Landing Ads — ' + document.title);
+      fd.append('form_fields[name]', g('name'));
+      fd.append('form_fields[email]', g('email'));
+      fd.append('form_fields[field_1696542]', g('phone'));
+      fd.append('form_fields[field_e9cc337]', 'Demande via Landing Ads Google');
+      fd.append('form_fields[message]', (g('message') ? g('message') + '\n\n' : '') + '— Demande de devis via la landing page Google Ads (' + document.title + ').');
+      /* Envoi vérifié : le succès ne s'affiche que si le serveur confirme l'enregistrement */
+      var btn=form.querySelector('button[type="submit"],button:not([type])');
+      var btnTxt=btn?btn.textContent:'';
+      if(btn){btn.disabled=true;btn.textContent='Envoi en cours…';}
+      var err=form.querySelector('.spn-send-error');
+      if(!err){err=document.createElement('p');err.className='spn-send-error';err.style.cssText='display:none;color:#c0392b;font-weight:600;margin:10px 0 0;font-size:.92rem;';form.appendChild(err);}
+      err.style.display='none';
+      var done=function(okSend){
+        if(okSend){
+          if(window.dataLayer){ window.dataLayer.push({event:'spn_lead_submit',form:formId}); }
+          form.style.display='none'; if(ok){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});}
+        }else{
+          if(btn){btn.disabled=false;btn.textContent=btnTxt;}
+          err.textContent='⚠ L’envoi a échoué. Réessayez, ou appelez-nous directement au 01 49 46 22 40.';
+          err.style.display='block';
+        }
+      };
+      /* Double écriture : Elementor + journal SPN (plugin). Succès si au moins un canal confirme. */
+      var pElem=fetch('/wp-admin/admin-ajax.php',{method:'POST',body:fd})
+        .then(function(r){return r.json();})
+        .then(function(j){return !!(j&&j.success);})
+        .catch(function(){return false;});
+      var pJournal=fetch('/wp-json/spn/v1/lead',{method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({name:g('name'),email:g('email'),phone:g('phone'),
+            company:'Demande via le site',message:g('message'),
+            source:location.href,form:formId,website:''})})
+        .then(function(r){return r.ok;})
+        .catch(function(){return false;});
+      Promise.all([pElem,pJournal]).then(function(rs){done(rs[0]||rs[1]);});
+    });
+  }
+  handle('spn-form','spn-success'); handle('spn-form-2','spn-success-2'); handle('spn-form-3','spn-success-3');
+
+  /* Avis Google : duplique les cartes pour un défilement continu sans trou */
+  root.querySelectorAll('[data-rev]').forEach(function(tr){
+    tr.insertAdjacentHTML('beforeend', tr.innerHTML);
+  });
+
+  /* Reveal au scroll */
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+  root.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=((i%4)*70)+'ms';io.observe(el);});
+
+  /* Pause des marquees si l'onglet est masqué (perf) */
+  document.addEventListener('visibilitychange',function(){
+    var st=document.hidden?'paused':'running';
+    root.querySelectorAll('.logo-track,.rev-track').forEach(function(t){t.style.animationPlayState=st;});
+  });
+})();
+</script>
+</section>
