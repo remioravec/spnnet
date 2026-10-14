@@ -59,6 +59,33 @@ header.hero{padding:38px 0 26px;border-bottom:1px solid var(--line)}
 .seg button.on{background:var(--green);color:var(--ink)}
 .seglbl{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;text-align:right}
 
+/* schemas : l'arbre et la boucle */
+.meth{margin-top:28px;display:grid;gap:16px}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.mcard h3{margin:0 0 4px;font-size:15px;font-weight:900}
+.mcard .lead{color:var(--muted);font-size:13.5px;margin:0 0 16px}
+.tree{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
+.tree::before{content:"";position:absolute;left:8%;right:8%;top:17px;height:2px;background:var(--line)}
+.tn{position:relative;text-align:center}
+.tn .dot{width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--ink);display:flex;
+  align-items:center;justify-content:center;font-weight:900;font-size:13px;margin:0 auto 12px;position:relative;z-index:1}
+.tn .nm{font-weight:800;font-size:14px}
+.tn .qt{display:inline-block;margin:6px 0 7px;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;background:var(--navy-2);color:var(--green-soft)}
+.tn .ds{display:block;color:var(--muted);font-size:12.5px;line-height:1.5}
+.loop{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.ls{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:16px 13px 13px;position:relative}
+.ls b{display:block;font-size:13px;margin-bottom:4px}
+.ls span{color:var(--muted);font-size:12.5px;line-height:1.5}
+.ls i{position:absolute;top:-9px;left:12px;font-style:normal;font-size:11px;font-weight:900;
+  background:var(--green);color:var(--ink);border-radius:999px;padding:1px 7px}
+.back{margin-top:12px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--green-soft);
+  border-top:1px dashed var(--line);padding-top:11px}
+.back b{color:var(--white)}
+.mnote{margin:14px 0 0;font-size:12.5px;color:var(--muted)}
+.mnote b{color:var(--white)}
+@media(max-width:860px){.tree{grid-template-columns:1fr 1fr}.tree::before{display:none}.loop{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tree,.loop{grid-template-columns:1fr}}
+
 /* demandes du client */
 .askb{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:var(--r);padding:20px 22px;margin-top:28px}
 .askb h3{margin:0 0 12px;font-size:15px;font-weight:900;display:flex;justify-content:space-between;align-items:center}
@@ -206,6 +233,43 @@ tr.kwl td{background:var(--kw);border-top:0;padding:0 14px 12px 38px;white-space
 </header>
 
 <main class="wrap">
+
+  <!-- Comment on travaille : l'arbre et la boucle -->
+  <section class="meth">
+    <div class="mcard">
+      <h3>Comment le site est construit</h3>
+      <p class="lead">Le même schéma qu'au dernier point : chaque étage sert celui du dessus, et rien ne pousse sans le tronc.</p>
+      <div class="tree">
+        <div class="tn"><div class="dot">1</div><div class="nm">Le tronc</div>
+          <span class="qt">102 pages</span>
+          <span class="ds">Le site. Il porte la marque, la fiche d'établissement et la confiance. Tout le reste repose dessus.</span></div>
+        <div class="tn"><div class="dot">2</div><div class="nm">Les branches</div>
+          <span class="qt">8 secteurs · 40 zones</span>
+          <span class="ds">Les pages SEO. Elles portent l'offre et captent la recherche active : un métier, un arrondissement, une commune.</span></div>
+        <div class="tn"><div class="dot">3</div><div class="nm">Les sous-branches</div>
+          <span class="qt">28 contenus</span>
+          <span class="ds">Le GEO. La cartographie de la demande : les questions que vos prospects posent avant d'acheter, et que les IA relaient.</span></div>
+        <div class="tn"><div class="dot">4</div><div class="nm">Les feuilles</div>
+          <span class="qt">31 demandes</span>
+          <span class="ds">Ce qui se récolte. Juillet à septembre, hors Google Ads, dont 18 qualifiées par vos soins.</span></div>
+      </div>
+      <p class="mnote">Doubler les sous-branches, c'est l'objet du budget GEO porté à 1 000 € en janvier : passer de 4 à 8 questions couvertes par sujet.</p>
+    </div>
+
+    <div class="mcard">
+      <h3>La boucle d'optimisation des pages</h3>
+      <p class="lead">Chaque demande dit quelque chose de la page qui l'a produite. C'est ce retour qui décide où l'on investit ensuite.</p>
+      <div class="loop">
+        <div class="ls"><i>1</i><b>La page reçoit une demande</b><span>Analytics indique par quelle page le visiteur est entré et ce qu'il a lu avant d'écrire.</span></div>
+        <div class="ls"><i>2</i><b>Vous la qualifiez</b><span>Bonne ou mauvaise demande, dans l'outil Demandes. C'est vous qui tranchez, personne d'autre ne peut le faire.</span></div>
+        <div class="ls"><i>3</i><b>La donnée revient à la page</b><span>On sait alors quelles pages produisent des demandes exploitables, et lesquelles font du volume sans suite.</span></div>
+        <div class="ls"><i>4</i><b>On lit ses requêtes secondaires</b><span>Ce sur quoi la page sort déjà sans qu'on l'ait visé : c'est là que se trouve le gisement.</span></div>
+        <div class="ls"><i>5</i><b>On arbitre</b><span>Google Ads quand la requête doit convertir tout de suite, SEO et GEO quand elle doit tenir dans la durée.</span></div>
+      </div>
+      <div class="back">↻ <span>La page renforcée produit de meilleures demandes, et la boucle recommence. <b>C'est ce qui fait le lien entre le SEO, les Ads et votre CRM.</b></span></div>
+      <p class="mnote">Ce que la boucle mesure déjà, sur juillet à septembre : <b>56 %</b> des demandes venues du référencement sont qualifiées, <b>75 %</b> de celles venues des IA, <b>21 %</b> de celles venues de Google Ads.</p>
+    </div>
+  </section>
 
   <!-- Demandes du client et leur suite -->
   <div class="askb">
