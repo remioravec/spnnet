@@ -59,6 +59,20 @@ header.hero{padding:38px 0 26px;border-bottom:1px solid var(--line)}
 .seg button.on{background:var(--green);color:var(--ink)}
 .seglbl{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;text-align:right}
 
+/* demandes du client */
+.askb{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:var(--r);padding:20px 22px;margin-top:28px}
+.askb h3{margin:0 0 12px;font-size:15px;font-weight:900;display:flex;justify-content:space-between;align-items:center}
+.askb h3 span{font-weight:500;color:var(--muted);font-size:13px}
+.askb ul{list-style:none;margin:0;padding:0}
+.askb li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line)}
+.askb li:first-child{border-top:0}
+.askb .dt{flex:none;font-size:11px;padding:3px 8px;border-radius:6px;background:var(--navy-2);color:var(--muted);min-width:52px;text-align:center}
+.askb .tx{flex:1;min-width:0}
+.askb .tx b{display:block;margin-bottom:2px}
+.askb .tx span{color:var(--muted);font-size:13.5px}
+.askb a{color:var(--green-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+@media(max-width:760px){.askb li{flex-direction:column;gap:6px}}
+
 /* semaine */
 .week{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:28px 0}
 .wcol{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
@@ -193,6 +207,12 @@ tr.kwl td{background:var(--kw);border-top:0;padding:0 14px 12px 38px;white-space
 
 <main class="wrap">
 
+  <!-- Demandes du client et leur suite -->
+  <div class="askb">
+    <h3>Vos demandes, et où elles en sont <span>3 sujets</span></h3>
+    <ul id="axes"></ul>
+  </div>
+
   <!-- La semaine -->
   <div class="week">
     <div class="wcol">
@@ -222,8 +242,8 @@ tr.kwl td{background:var(--kw);border-top:0;padding:0 14px 12px 38px;white-space
       </div>
     </div>
     <div class="chart trend">
-      <div class="trh"><b>Clics hors marque par mois · juillet 2025 → septembre 2026</b><span class="trd" id="trd"></span></div>
-      <svg id="clk15" viewBox="0 0 900 220" role="img" aria-label="Clics hors marque par mois, de juillet 2025 à septembre 2026"></svg>
+      <div class="trh"><b>Clics hors marque et demandes par mois · juillet 2025 → septembre 2026</b><span class="trd" id="trd"></span></div>
+      <svg id="clk15" viewBox="0 0 900 236" role="img" aria-label="Clics hors marque et demandes par mois, de juillet 2025 à septembre 2026"></svg>
     </div>
     <div class="chart trend">
       <div class="trh"><b>Visites venues des assistants IA · juillet 2025 → septembre 2026</b><span class="trd" id="aid"></span></div>
@@ -317,9 +337,23 @@ function renderKpis(){
 }
 
 const M15=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 10, 10, 16];
+// Demandes hors Google Ads, par mois, lues dans l'outil Demandes de WordPress.
+const LEADS15=[0,0,0,0,0,0,0,0,0,0,1,1,8,3,20];
+const AXES=[
+ [`29/09`,`Axes métier : cabinets d'avocats, cabinets d'architectes, sièges sociaux, conseils`,
+  `Ajoutés à la roadmap de contenu. Les quatre gabarits sont programmés sur décembre.`,
+  `https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit#gid=997115381&range=A73`],
+ [`02/10`,`Zones : Paris et autour de Bagneux, puis Boulogne, Levallois, Courbevoie, Issy, Nanterre, Puteaux, La Défense, Montreuil et Saint-Denis`,
+  `Toutes portées à la roadmap, étalées : Bagneux le 19/10, Saint-Denis le 26/10, les autres de novembre à décembre.`,
+  `https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit#gid=997115381&range=A63`],
+ [`02/10`,`Pousser les demandes venues des assistants IA`,
+  `Validé. Le budget GEO passe de 500 à 1 000 € par mois en janvier, arbitré le 09/10.`,
+  `https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit#gid=1369040838&range=A30`]
+];
+document.getElementById(`axes`).innerHTML=AXES.map(a=>`<li><span class="dt mono">${a[0]}</span><div class="tx"><b><a href="${a[3]}" target="_blank" rel="noopener">${a[1]}</a></b><span>${a[2]}</span></div></li>`).join(``);
 const AIS={"s": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 12, 21], "l": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 7], "src": "ChatGPT"};
 const M15L=[`juil. 25`,`août`,`sept.`,`oct.`,`nov.`,`déc.`,`janv. 26`,`févr.`,`mars`,`avr.`,`mai`,`juin`,`juil.`,`août`,`sept.`];
-function bars15(id,vals,sub,unit,H){
+function bars15(id,vals,sub,unit,H,slbl=`devis`){
   const cs=getComputedStyle(document.documentElement),C=v=>cs.getPropertyValue(v).trim();
   const s=document.getElementById(id),W=900,L=48,R=12,T=24,B=sub?44:28,iw=W-L-R,ih=H-T-B,bw=iw/vals.length;
   const mx=Math.max(1,...vals)*1.15,y=v=>T+ih-(v/mx)*ih,refIx=cmp===`prev`?[9,10,11]:[0,1,2],curIx=[12,13,14];
@@ -327,11 +361,11 @@ function bars15(id,vals,sub,unit,H){
   [0,mx/2].forEach(g=>{h+=`<line x1="${L}" x2="${W-R}" y1="${y(g)}" y2="${y(g)}" stroke="${C(`--line`)}"/><text x="${L-8}" y="${y(g)+4}" text-anchor="end" fill="${C(`--muted`)}" font-size="11">${g?fmt(Math.round(g)):0}</text>`});
   vals.forEach((v,i)=>{const isC=curIx.includes(i),isR=refIx.includes(i),x=L+i*bw;
     const fill=isC?C(`--green`):isR?C(`--amber`):C(`--muted`);
-    h+=`<rect x="${x+bw*.18}" y="${y(v)}" width="${bw*.64}" height="${Math.max(0,T+ih-y(v))}" rx="4" fill="${fill}" opacity="${isC||isR?1:.35}"><title>${M15L[i]} : ${fmt(v)} ${unit}${sub?` · ${sub[i]} devis`:``}</title></rect>`;
+    h+=`<rect x="${x+bw*.18}" y="${y(v)}" width="${bw*.64}" height="${Math.max(0,T+ih-y(v))}" rx="4" fill="${fill}" opacity="${isC||isR?1:.35}"><title>${M15L[i]} : ${fmt(v)} ${unit}${sub?` · ${sub[i]} ${slbl}`:``}</title></rect>`;
     if(isC||isR) h+=`<text x="${x+bw/2}" y="${y(v)-6}" text-anchor="middle" fill="${C(`--white`)}" font-size="11" font-weight="700">${fmt(v)}</text>`;
     h+=`<text x="${x+bw/2}" y="${T+ih+16}" text-anchor="middle" fill="${C(`--muted`)}" font-size="11.5">${M15L[i]}</text>`;
     if(sub) h+=`<text x="${x+bw/2}" y="${T+ih+34}" text-anchor="middle" fill="${isC?C(`--green`):isR?C(`--amber`):C(`--muted`)}" font-size="11" font-weight="700">${sub[i]}</text>`;});
-  if(sub) h+=`<text x="${L-8}" y="${T+ih+34}" text-anchor="end" fill="${C(`--muted`)}" font-size="10.5">devis</text>`;
+  if(sub) h+=`<text x="2" y="${T+ih+34}" text-anchor="start" fill="${C(`--muted`)}" font-size="10.5">${slbl}</text>`;
   s.innerHTML=h;
   const n=curIx.reduce((a,i)=>a+vals[i],0),b=refIx.reduce((a,i)=>a+vals[i],0);
   return [n,b,refIx,curIx];
@@ -345,19 +379,9 @@ function renderAI(){
 }
 function renderChart(){
   renderAI();
-  const cs=getComputedStyle(document.documentElement),C=v=>cs.getPropertyValue(v).trim();
-  const s=document.getElementById(`clk15`),W=900,H=220,L=48,R=12,T=24,B=28,iw=W-L-R,ih=H-T-B,bw=iw/M15.length;
-  const mx=Math.max(1,...M15)*1.15,y=v=>T+ih-(v/mx)*ih,refIx=cmp===`prev`?[9,10,11]:[0,1,2],curIx=[12,13,14];
-  let h=``;
-  [0,mx/2].forEach(g=>{h+=`<line x1="${L}" x2="${W-R}" y1="${y(g)}" y2="${y(g)}" stroke="${C(`--line`)}"/><text x="${L-8}" y="${y(g)+4}" text-anchor="end" fill="${C(`--muted`)}" font-size="11">${g?fmt(Math.round(g)):0}</text>`});
-  M15.forEach((v,i)=>{const isC=curIx.includes(i),isR=refIx.includes(i),x=L+i*bw;
-    const fill=isC?C(`--green`):isR?C(`--amber`):C(`--muted`);
-    h+=`<rect x="${x+bw*.18}" y="${y(v)}" width="${bw*.64}" height="${Math.max(0,T+ih-y(v))}" rx="4" fill="${fill}" opacity="${isC||isR?1:.35}"><title>${M15L[i]} : ${fmt(v)} clics</title></rect>`;
-    if(isC||isR) h+=`<text x="${x+bw/2}" y="${y(v)-6}" text-anchor="middle" fill="${C(`--white`)}" font-size="11" font-weight="700">${fmt(v)}</text>`;
-    h+=`<text x="${x+bw/2}" y="${H-8}" text-anchor="middle" fill="${C(`--muted`)}" font-size="11.5">${M15L[i]}</text>`;});
-  s.innerHTML=h;
-  const n=curIx.reduce((a,i)=>a+M15[i],0),b=refIx.reduce((a,i)=>a+M15[i],0),p=b?Math.round((n-b)/b*100):null;
-  document.getElementById(`trd`).innerHTML=`<b style="color:var(--green)">■ juil.–sept. 2026</b> ${fmt(n)} clics · <b style="color:var(--amber)">■ ${cmp===`prev`?META.prevLong.toLowerCase():META.n1Long.toLowerCase()}</b> ${fmt(b)} clics · <b class="${p==null||p>=0?`up`:`dn`}">${p==null?`pas de référence`:(p>0?`+`:``)+p+`\u00a0%`}</b>`;
+  const [n,b,refIx,curIx]=bars15(`clk15`,M15,LEADS15,`clics`,236,`demandes`);
+  const ln=curIx.reduce((a,i)=>a+LEADS15[i],0),lb=refIx.reduce((a,i)=>a+LEADS15[i],0);
+  document.getElementById(`trd`).innerHTML=cmpTxt(n,b,`clics`)+` · ${fmt(ln)} demandes contre ${fmt(lb)}`;
 }
 
 const WHY={"Position":`w-pos`,"Affichage SERP":`w-serp`,"Intention":`w-int`,"Demande":`w-dem`,"Nouvelles requêtes":`w-new`,"Stable":`w-st`};
