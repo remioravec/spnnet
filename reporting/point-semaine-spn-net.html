@@ -1,0 +1,447 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="fr" data-da="seo-monkey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Point de la semaine — SPN NET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Mulish:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#003032;--navy-2:#02464A;--navy-3:#04565A;--card:#013134;--line:#1A4548;
+  --green:#9BD64A;--green-soft:#B6E579;--teal:#2E8B7F;--teal-deep:#1B5E5A;
+  --white:#F4F8FB;--muted:#9DB0C4;--ink:#003032;--red:#E55A5A;--amber:#E8B04A;--blue:#5AA9E6;
+  --r:18px;color-scheme:dark;
+  --up:#9BD64A;--dn:#E55A5A;--bg-page:radial-gradient(1200px 600px at 85% -10%,#0a5b5c 0%,transparent 60%),#003032;
+  --hover:#023b3e;--kw:#012a2c;--sub:#012d30;--kwtext:#cfe0ea;--thtext:#d6e4ee;--kpi-hi:#02474a;
+  --fix-bg:#0d3f2a;--fix-line:#2c6b3c;--src-g:#9fd8ff;--src-m:#ffd28a;--src-r:#B6E579;
+  --f-display:Fraunces,Georgia,serif;--f-body:Mulish,system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--navy:#003032;--card:#013134}}
+:root[data-theme="dark"]{--navy:#003032;--card:#013134}
+/* DA Google Store — activée par <html data-da="google-store"> */
+:root[data-da="google-store"]{
+  color-scheme:light;
+  --navy:#ffffff;--card:#f8f9fa;--navy-2:#f1f3f4;--navy-3:#e8eaed;--line:#e8eaed;
+  --white:#1f1f1f;--muted:#5f6368;--green:#1a73e8;--green-soft:#1a73e8;--ink:#ffffff;--teal:#1a73e8;
+  --r:28px;--up:#188038;--dn:#d93025;--bg-page:#ffffff;
+  --hover:#f1f3f4;--kw:#fbfbfb;--sub:#f5f7fa;--kwtext:#3c4043;--thtext:#3c4043;--kpi-hi:#e8f0fe;
+  --fix-bg:#e6f4ea;--fix-line:#ceead6;--src-g:#1967d2;--src-m:#b06000;--src-r:#188038;
+  --f-display:"Google Sans","Product Sans",Roboto,system-ui,sans-serif;--f-body:Roboto,system-ui,"Segoe UI",Arial,sans-serif;--f-mono:"Roboto Mono",ui-monospace,Menlo,monospace;
+}
+:root[data-da="google-store"] h1,:root[data-da="google-store"] h2{font-weight:500;letter-spacing:0}
+:root[data-da="google-store"] .fix .mono{color:var(--up)}
+
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg-page);color:var(--white);font-family:var(--f-body);line-height:1.6;font-size:15px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.mono{font-family:var(--f-mono)}
+h1,h2{font-family:var(--f-display);font-weight:800;letter-spacing:-.5px;margin:0}
+h2{font-size:26px}
+a{color:var(--green-soft)}
+button{font:inherit;cursor:pointer}
+button:focus-visible,summary:focus-visible,tr:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+.proto{background:var(--amber);color:#2a1d00;text-align:center;font-weight:700;font-size:13px;padding:8px 14px}
+
+/* hero */
+header.hero{padding:38px 0 26px;border-bottom:1px solid var(--line)}
+.hrow{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.client{font-size:44px;line-height:1.05}
+.sub{color:var(--muted);margin-top:8px}
+.sub b{color:var(--white)}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px}
+.seg button{background:none;border:0;color:var(--muted);padding:9px 16px;border-radius:999px;font-weight:700;font-size:13px;min-height:40px}
+.seg button.on{background:var(--green);color:var(--ink)}
+.seglbl{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;text-align:right}
+
+/* semaine */
+.week{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:28px 0}
+.wcol{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.wcol h3{margin:0 0 12px;font-size:15px;font-weight:900;display:flex;justify-content:space-between;align-items:center}
+.wcol h3 span{font-weight:500;color:var(--muted);font-size:13px}
+.wcol ul{list-style:none;margin:0;padding:0}
+.wcol li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+.wcol li:first-child{border-top:0}
+.src{flex:none;font-size:11px;padding:3px 8px;border-radius:6px;background:var(--navy-2);color:var(--muted);min-width:66px;text-align:center}
+.src.g{color:var(--src-g)}.src.m{color:var(--src-m)}.src.r{color:var(--src-r)}
+.wl{color:var(--white);text-decoration:none;border-bottom:1px solid var(--line)}
+.wl:hover{border-bottom-color:var(--green);color:var(--green-soft)}
+.wl .ext{font-size:11px;color:var(--teal);margin-left:5px}
+.tk{font-size:12px;color:var(--muted);margin-left:auto;flex:none}
+
+/* sections */
+section.blk{padding:34px 0;border-top:1px solid var(--line)}
+.bhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.bhead p{margin:4px 0 0;color:var(--muted);max-width:62ch}
+.step{color:var(--green);font-size:13px;margin-bottom:4px}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.kpi .l{color:var(--muted);font-size:13px}
+.kpi .v{font-family:var(--f-display);font-size:34px;font-weight:800;line-height:1.1;margin-top:4px}
+.kpi.main{border-color:var(--teal);background:linear-gradient(160deg,var(--kpi-hi),var(--card))}
+.d{font-weight:700;font-size:13px}.up{color:var(--up)}.dn{color:var(--dn)}.eq{color:var(--muted)}
+
+.chart{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:18px}
+.chart .cap{display:flex;gap:18px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.chart .cap i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px;border-radius:2px}
+
+/* tables */
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th{background:var(--navy-3);text-align:left;font-size:12px;font-weight:700;color:var(--thtext);padding:11px 14px;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--line);white-space:nowrap;font-size:14px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.pg{cursor:pointer}
+tr.pg:hover td{background:var(--hover)}
+tr.pg td:first-child::before{content:"▸";color:var(--teal);margin-right:8px;display:inline-block;transition:transform .2s}
+tr.pg.open td:first-child::before{transform:rotate(90deg)}
+tr.pg.sub td{background:var(--sub)}
+tr.pg.sub td:first-child{padding-left:30px}
+tr.kw td{background:var(--kw);font-size:13px}
+tr.kw td:first-child{padding-left:38px;color:var(--kwtext)}
+tr.cut td{background:var(--navy-2);color:var(--muted);font-size:12px;padding:8px 14px}
+.zero{color:var(--muted)}
+
+/* SERP */
+.serp{display:grid;gap:14px}
+.sc{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:14px;padding:16px 18px}
+.sc.loss{border-left-color:var(--dn)}
+.sc.gain{border-left-color:var(--up)}
+.sct{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.sct b{font-size:17px}
+.mv{font-size:13px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.cell{background:var(--navy-2);border-radius:10px;padding:10px 12px}
+.cell .l{font-size:11px;color:var(--muted)}
+.cell .v{font-weight:700;margin-top:2px}
+.feats{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.ft{font-size:11px;padding:2px 7px;border-radius:6px;border:1px solid var(--line);color:var(--muted)}
+.ft.on{border-color:var(--amber);color:var(--amber)}
+.verdict{margin-top:12px;font-size:14px}
+.fix{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--fix-bg);border:1px solid var(--fix-line);font-size:14px}
+.fix .mono{color:var(--green);font-size:12px;margin-right:6px}
+.clem{font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px}
+.clem.y{background:#1f4d26;color:var(--green-soft)}.clem.n{background:#4d1f22;color:#ffb3b3}
+
+/* roadmaps */
+details.rm{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
+details.rm summary{list-style:none;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;min-height:44px}
+details.rm summary::-webkit-details-marker{display:none}
+details.rm summary b{font-size:16px}
+.cnt{display:flex;gap:8px;flex-wrap:wrap;font-size:12px}
+.cnt span{padding:3px 9px;border-radius:999px;background:var(--navy-2);color:var(--muted)}
+.cnt .late{background:#4d1f22;color:#ffb3b3}
+details.rm .body{padding:0 18px 16px}
+.st{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
+.st.afaire{background:#3a4652;color:#d6e0ea}.st.encours{background:#5a4a1a;color:#ffd98a}
+.st.termine{background:#1f4d26;color:var(--green-soft)}.st.bloque{background:#4d1f22;color:#ffb3b3}
+.st.propose{background:#173f63;color:#a8d4ff}.st.integre{background:#1f4d26;color:var(--green-soft)}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:13px;background:var(--green);color:var(--ink);font-weight:800;text-decoration:none}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--white)}
+
+footer{padding:30px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+
+@media (max-width:760px){
+  .client{font-size:34px}.week{grid-template-columns:1fr}.kpis{grid-template-columns:1fr}
+  .grid4{grid-template-columns:1fr 1fr}.seglbl{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* tendance 15 mois + grille de lecture des mots-clés */
+.trend .trh{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline;margin-bottom:6px}
+.trend .trh b{font-size:15px}
+.trend .trd{font-size:13px;color:var(--muted)}
+.trend .trd b{font-size:13px}
+.trend svg{display:block;width:100%;height:auto}
+.why{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;border:1px solid currentColor;margin-left:8px;vertical-align:1px;white-space:nowrap}
+.why.w-pos{color:var(--blue)}.why.w-serp{color:var(--amber)}.why.w-int{color:var(--red)}.why.w-dem{color:var(--teal)}.why.w-new{color:var(--green)}.why.w-st{color:var(--muted)}
+tr.kwl td{background:var(--kw);border-top:0;padding:0 14px 12px 38px;white-space:normal}
+.lect{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:820px}
+.lect>div{border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:12.5px;min-width:0}
+.lect .l{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:3px}
+.lect .dt{display:block;color:var(--muted);font-size:12px;margin-top:4px;max-width:820px}
+.legw{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted);margin:10px 2px 0}
+@media(max-width:700px){.lect{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hrow">
+    <div>
+      <div class="mono step" id="m-sem"></div>
+      <h1 class="client" id="m-cli"></h1>
+      <div class="sub" id="m-sub"></div>
+    </div>
+    <div>
+      <span class="seglbl">Comparer à</span>
+      <div class="seg" role="group" aria-label="Période de comparaison">
+        <button class="on" data-cmp="prev" onclick="setCmp('prev')">3 mois avant</button>
+        <button data-cmp="n1" onclick="setCmp('n1')">Même période N-1</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- La semaine -->
+  <div class="week">
+    <div class="wcol">
+      <h3>Fait cette semaine <span>4 actions</span></h3>
+      <ul id="done"></ul>
+    </div>
+    <div class="wcol">
+      <h3>Prévu semaine prochaine <span>4 actions</span></h3>
+      <ul id="next"></ul>
+    </div>
+  </div>
+
+  <!-- 1 Enjeux -->
+  <section class="blk">
+    <div class="bhead">
+      <div>
+        <div class="mono step">1 · Enjeux business</div>
+        <h2>Ce que le SEO rapporte</h2>
+        <p id="viewhelp">Pages classées par chiffre d'affaires. Cliquez une page pour voir ses mots-clés : clics, position, et la raison du mouvement lue dans la demande, l'affichage de Google et la concurrence.</p>
+      </div>
+      <div>
+        <span class="seglbl">Afficher</span>
+        <div class="seg" role="group" aria-label="Vue du tableau">
+          <button class="on" data-view="page" onclick="setView('page')">Par page</button>
+          <button data-view="gab" onclick="setView('gab')">Par gabarit</button>
+        </div>
+      </div>
+    </div>
+    <div class="chart trend">
+      <div class="trh"><b>Clics hors marque par mois · juillet 2025 → septembre 2026</b><span class="trd" id="trd"></span></div>
+      <svg id="clk15" viewBox="0 0 900 220" role="img" aria-label="Clics hors marque par mois, de juillet 2025 à septembre 2026"></svg>
+    </div>
+    <div class="chart trend">
+      <div class="trh"><b>Visites venues des assistants IA · juillet 2025 → septembre 2026</b><span class="trd" id="aid"></span></div>
+      <svg id="ai15" viewBox="0 0 900 236" role="img" aria-label="Visites et demandes venues des assistants IA par mois"></svg>
+      <div class="trd" id="aisrc" style="margin-top:4px"></div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th id="h0">Page</th><th class="n">Leads</th><th class="n">CA</th><th class="n">Clics</th><th class="n" id="hd">Δ clics</th><th class="n">Position</th><th class="n" id="hp">Δ position</th></tr></thead>
+        <tbody id="pages"></tbody>
+      </table>
+    </div>
+    <div class="legw"><span><span class="why w-pos">Position</span> places gagnées ou perdues</span><span><span class="why w-dem">Demande</span> plus ou moins de recherches, à place égale</span><span><span class="why w-serp">Affichage SERP</span> même place, moins de clics : Google affiche autre chose au-dessus</span><span><span class="why w-int">Intention</span> Google montrait une autre page</span><span><span class="why w-new">Nouvelles requêtes</span> absente sur la période de référence</span></div>
+    
+  </section>
+
+  <!-- 2 SERP -->
+  <section class="blk">
+    <div class="bhead">
+      <div>
+        <div class="mono step">2 · Analyse des évolutions</div>
+        <h2>Pourquoi ça bouge</h2>
+        <p>Chaque mot-clé qui bouge, relu dans sa SERP du jour. Toute perte a sa solution et son ticket.</p>
+      </div>
+    </div>
+    <div class="serp" id="serp"></div>
+  </section>
+
+  <!-- 3 Roadmaps -->
+  <section class="blk">
+    <div class="bhead">
+      <div>
+        <div class="mono step">3 · Roadmaps</div>
+        <h2>Où on en est</h2>
+        <p>État lu dans le classeur Roadmaps du client, croisé avec les mails et les notes Gemini de la semaine.</p>
+      </div>
+    </div>
+    <div id="rms"></div>
+    <div class="links">
+      <a class="btn" id="l-rm" target="_blank" rel="noopener">Ouvrir le classeur Roadmaps</a>
+      <a class="btn ghost" id="l-xm" target="_blank" rel="noopener">Arbre du site (XMind)</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Sources : Search Console (clics, demande), DataForSEO (positions, SERP, domaines référents), CRM (leads, CA), Gmail, notes Gemini, classeur Roadmaps.</div></footer>
+
+<script>
+const fmt=n=>n.toLocaleString(`fr-FR`);
+const eur=n=>fmt(n)+`\u00a0€`;
+let cmp=`prev`;
+// ===== DONNÉES DU CLIENT : les 7 constantes META, week, K, months, pages, serp, rms se remplacent EN PLACE (contrat : references/donnees.md). Ne rien toucher d'autre. =====
+const META={"client": "SPN NET", "semaine": "12 → 16/10/2026", "periode": "juillet → septembre 2026", "partiel": "octobre partiel écarté · N-1 indisponible, la Search Console n'a de données que depuis le 09/04/2026", "prev": "avr → juin 2026", "n1": "N-1 indisponible", "prevLong": "Avril → juin 2026", "n1Long": "Juillet → septembre 2025 — aucune donnée", "mois": ["juillet", "août", "septembre"], "roadmaps": "https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit", "xmind": "https://drive.google.com/file/d/1Wnj8fNIrpuKn96OYlSEzwPYiue6Rgd7T/view"};
+
+// [source, libellé source, action, ticket, lien vers le détail]
+// Roadmap → ligne du classeur Roadmaps · Gemini → notes de la réunion · Mail → fil Gmail · livrable → doc Drive
+const week={"done": [["m", "Mail", "Alexandra demande le retrait du texte de la page Carrières et l'ouverture du poste d'inspecteur", "", "https://mail.google.com/mail/?authuser=remi.oravec@seo-monkey.fr#all/1a1357089be2b763"], ["r", "Roadmap", "Page Carrières refaite sur l'offre d'inspecteur, avec le balisage que Google utilise pour les offres d'emploi", "", "https://spn-net.fr/carrieres/"], ["r", "Roadmap", "Champ libre « informations complémentaires » posé sur 150 formulaires, 63 pages", "", "https://spn-net.fr/tertiaire/"], ["r", "Roadmap", "La mention « nous ne recrutons pas » renvoie désormais vers Carrières — 154 emplacements", "", "https://spn-net.fr/paris-8/"], ["r", "Roadmap", "55 pages annonçaient leurs demandes comme venant de Google Ads : le canal réel est rétabli dans l'e-mail", "T-40", "https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit#gid=1801800739&range=A40"], ["m", "Mail", "Alexandra valide les trois points : « Top merci »", "", "https://mail.google.com/mail/?authuser=remi.oravec@seo-monkey.fr#all/1a1357089be2b763"]], "next": [["r", "Roadmap", "Notifications du formulaire : journal d'envoi pour tracer les demandes non reçues", "T-38", "https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit#gid=1801800739&range=A38"], ["r", "Roadmap", "Contenu du 19/10 : « nettoyage de bureaux Paris » et mise à jour de la page Bagneux", "C-62", "https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit#gid=997115381&range=A62"], ["r", "Roadmap", "Netlinking d'octobre : trois blogs sans domaine ni date à la mi-octobre", "bloquant", "https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit#gid=60228062&range=A30"], ["r", "Roadmap", "GEO du 16/10 : nettoyage scolaire, la ligne n'a pas encore de brief", "G-32", "https://docs.google.com/spreadsheets/d/1KoiOUgAWR5n4lNvYPhM9r_SNJvSuYPvweHVLNvg5CUI/edit#gid=1369040838&range=A32"], ["r", "Roadmap", "Retirer la note auto-déclarée de 80 pages : Google l'ignore et elle occupe la place d'une vraie note", "NOUVEAU", "https://spn-net.fr/paris-15/"], ["m", "Arbitrage", "Deux familles d'URL se disputent les arrondissements : /paris-15/ et /societe-nettoyage-bureaux-paris-15/", "bloquant", "https://spn-net.fr/societe-nettoyage-bureaux-paris-15/"]]};
+const li=a=>`<li><span class="src ${a[0]} mono">${a[1]}</span><a class="wl" href="${a[4]}" target="_blank" rel="noopener">${a[2]}<span class="ext" aria-hidden="true">↗</span></a>${a[3]?`<span class="tk mono">${a[3]}</span>`:``}</li>`;
+document.getElementById(`done`).innerHTML=week.done.map(li).join(``);
+document.getElementById(`next`).innerHTML=week.next.map(li).join(``);
+
+const K={"leads": {"cur": 31, "prev": 2, "n1": 0}, "ca": {"cur": 0, "prev": 0, "n1": 0}, "clics": {"cur": 36, "prev": 5, "n1": 0}};
+const months={"cur": [10, 10, 16], "prev": [0, 1, 4], "n1": [0, 0, 0]};
+
+// kw : [mot-clé, clics, clics 3 mois avant, clics N-1, position, position 3 mois avant, position N-1]
+const pages=[{"u": "/", "g": "Accueil", "leads": 9, "ca": 0, "c": 20, "prev": 4, "n1": 0, "kw": [["entreprise de nettoyage en france", 2, 0, 0, 6, 4, null, 30, 4, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["business nettoyage", 2, 0, 0, 1, null, null, 3, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["société de nettoyage ile de france", 1, 1, 0, 12, 12, null, 269, 83, 0, ["Demande", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage", 1, 1, 0, 2, 3, null, 89, 33, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["societe de nettoyage", 1, 0, 0, 3, 3, null, 79, 11, 0, ["Demande", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage industriel", 1, 0, 0, 2, 3, null, 23, 11, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/contact/", "g": "Contact", "leads": 8, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": []}, {"u": "/paris-8/", "g": "Page ville", "leads": 2, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["entreprise de nettoyage paris 8", 0, 0, 0, 10, 10, null, 499, 6, 0, ["Demande", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux paris 8", 0, 0, 0, 5, 7, null, 288, 1, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": {"AIO": 1, "Shopping": 0, "GMB": 1, "PAA": 1}, "rd": 120, "prd": 68}], ["service de nettoyage commercial paris 8", 0, 0, 0, 9, 7, null, 138, 4, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage professionnel paris 8", 0, 0, 0, 9, 10, null, 101, 2, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise nettoyage paris 8", 0, 0, 0, 10, 18, null, 100, 1, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage a la demande pour entreprises paris 8", 0, 0, 0, 11, 4, null, 80, 2, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/paris-18/", "g": "Page ville", "leads": 1, "ca": 0, "c": 2, "prev": 0, "n1": 0, "kw": [["entreprise de nettoyage paris 18", 2, 0, 0, 9, 9, null, 112, 16, 0, ["Demande", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux paris 18", 0, 0, 0, 6, 7, null, 117, 1, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise nettoyage paris 18", 0, 0, 0, 9, 9, null, 116, 14, 0, ["Demande", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux à paris 18", 0, 0, 0, 5, 6, null, 75, 1, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage appartement paris 18", 0, 0, 0, 14, null, null, 13, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/paris-15/", "g": "Page ville", "leads": 1, "ca": 0, "c": 2, "prev": 1, "n1": 0, "kw": [["entreprise de nettoyage paris 15", 2, 1, 0, 9, 12, null, 143, 6, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": {"AIO": 0, "Shopping": 0, "GMB": 1, "PAA": 1}, "rd": null, "prd": 68}], ["entreprise nettoyage paris 15", 0, 0, 0, 8, 12, null, 146, 2, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux paris 15", 0, 0, 0, 7, null, null, 91, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux à paris 15", 0, 0, 0, 7, null, null, 74, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/paris-19/", "g": "Page ville", "leads": 1, "ca": 0, "c": 1, "prev": 0, "n1": 0, "kw": [["nettoyage bureaux paris 19", 1, 0, 0, 9, null, null, 103, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise nettoyage paris 19", 0, 0, 0, 11, 15, null, 126, 9, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage paris 19", 0, 0, 0, 12, 16, null, 98, 6, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux à paris 19", 0, 0, 0, 8, null, null, 64, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/loisirs-culture-et-evenementiel/", "g": "Secteur", "leads": 1, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["entreprise de nettoyage musée", 0, 0, 0, 7, 9, null, 397, 260, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["agence de nettoyage musée", 0, 0, 0, 6, 10, null, 307, 240, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": {"AIO": 1, "Shopping": 0, "GMB": 1, "PAA": 0}, "rd": 120, "prd": 68}], ["société de nettoyage théâtre", 0, 0, 0, 10, 16, null, 306, 167, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["agence de nettoyage théâtre", 0, 0, 0, 10, 14, null, 282, 70, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage théâtre", 0, 0, 0, 19, 15, null, 278, 47, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage cinéma", 0, 0, 0, 33, 47, null, 249, 6, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/paris-11/", "g": "Page ville", "leads": 1, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["entreprise nettoyage paris 11", 0, 0, 0, 8, 15, null, 116, 27, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage paris 11", 0, 0, 0, 10, 15, null, 96, 26, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux paris 11", 0, 0, 0, 7, 10, null, 89, 8, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux à paris 11", 0, 0, 0, 7, 22, null, 73, 2, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/92-hauts-de-seine/", "g": "Page ville", "leads": 1, "ca": 0, "c": 0, "prev": 1, "n1": 0, "kw": [["nettoyage bureaux 92", 0, 0, 0, 10, null, null, 186, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage agence immobiliere 92", 0, 0, 0, 16, null, null, 161, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux suresnes", 0, 0, 0, 36, null, null, 63, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage hauts de seine", 0, 0, 0, 8, null, null, 5, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/78-yvelines/", "g": "Page ville", "leads": 1, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["nettoyage bureaux 78", 0, 0, 0, 9, null, null, 165, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux maurepas", 0, 0, 0, 23, null, null, 129, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux versailles", 0, 0, 0, 21, null, null, 115, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureau yvelines", 0, 0, 0, 6, null, null, 64, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/copropriete-et-habitat/", "g": "Secteur", "leads": 1, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["nettoyage parties communes copropriete paris", 0, 0, 0, 30, null, null, 42, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise nettoyage partie commune paris", 0, 0, 0, 47, null, null, 37, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage copropriétés ile de france", 0, 0, 0, 19, null, null, 6, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/enseignement-et-petite-enfance/", "g": "Secteur", "leads": 1, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["société de nettoyage crèches", 0, 0, 0, 20, 13, null, 120, 23, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage crèches", 0, 0, 0, 32, 19, null, 63, 16, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["agence de nettoyage crèches", 0, 0, 0, 22, 15, null, 54, 1, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage crèche paris", 0, 0, 0, 8, 22, null, 28, 1, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/ascenseurs-escalators/", "g": "Service", "leads": 1, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["nettoyage ascenseur", 0, 0, 0, 13, 10, null, 6, 1, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entretien escalator", 0, 0, 0, 30, null, null, 5, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/changer-de-prestataire-nettoyage/", "g": "Guide", "leads": 1, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["changement de prestataire reprise du personnel nettoyage", 0, 0, 0, 15, null, null, 1, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/meilleure-entreprise-nettoyage-loisirs-culture-evenementiel-paris/", "g": "GEO", "leads": 1, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["entreprise de nettoyage théâtre", 0, 0, 0, 21, 10, null, 83, 5, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["société de nettoyage théâtre", 0, 0, 0, 24, 10, null, 71, 8, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage évènementiel paris", 0, 0, 0, 10, 8, null, 60, 5, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["quelles sont les meilleures entreprises pour les services intégrés de sécurité et de nettoyage dans les lieux événementiels ?", 0, 0, 0, 4, null, null, 23, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/95-val-doise/", "g": "Page ville", "leads": 0, "ca": 0, "c": 4, "prev": 0, "n1": 0, "kw": [["nettoyage des bureaux le soir", 2, 0, 0, 1, null, null, 2, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["société nettoyage 95", 1, 0, 0, 11, null, null, 42, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage 95", 1, 0, 0, 10, null, null, 28, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux cergy", 0, 0, 0, 8, null, null, 83, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/paris-17/", "g": "Page ville", "leads": 0, "ca": 0, "c": 2, "prev": 0, "n1": 0, "kw": [["entreprise de nettoyage paris 17", 1, 0, 0, 12, 12, null, 448, 42, 0, ["Demande", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise nettoyage paris 17", 1, 0, 0, 11, 11, null, 388, 38, 0, ["Demande", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["entreprise de nettoyage rue jacquemont paris", 0, 0, 0, 29, 38, null, 163, 23, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux paris 17", 0, 0, 0, 8, null, null, 88, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/94-val-de-marne/", "g": "Page ville", "leads": 0, "ca": 0, "c": 2, "prev": 0, "n1": 0, "kw": [["nettoyage bureaux val de marne", 1, 0, 0, 4, null, null, 51, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["recrutement nettoyage bureaux", 1, 0, 0, 1, null, null, 1, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage agence immobiliere 94", 0, 0, 0, 25, null, null, 176, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage bureaux 94", 0, 0, 0, 5, null, null, 157, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/91-essonne/", "g": "Page ville", "leads": 0, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["nettoyage bureaux 91", 0, 0, 0, 8, null, null, 352, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["societe de nettoyage de bureau 91", 0, 0, 0, 8, null, null, 186, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage agence immobiliere 91", 0, 0, 0, 28, null, null, 161, 0, 0, ["Nouvelles requêtes", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage boutique 91", 0, 0, 0, 19, 33, null, 128, 1, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}, {"u": "/tertiaire/", "g": "Secteur", "leads": 0, "ca": 0, "c": 0, "prev": 0, "n1": 0, "kw": [["nettoyage de coworking paris", 0, 0, 0, 26, 44, null, 138, 2, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage tertiaire", 0, 0, 0, 44, 35, null, 54, 28, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}], ["nettoyage tertiaire paris", 0, 0, 0, 16, 37, null, 45, 9, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": {"AIO": 0, "Shopping": 0, "GMB": 1, "PAA": 1}, "rd": 156, "prd": 68}], ["nettoyage tertiaire ile de france", 0, 0, 0, 15, 40, null, 31, 2, 0, ["Position", ""], ["Nouvelles requêtes", ""], {"f": null, "rd": null, "prd": null}]]}];
+let view=`page`;
+
+function delta(cur,ref,pct=true){
+  const d=cur-ref; if(!ref&&d&&pct) return `<span class="d up">+${fmt(d)}</span>`; const p=ref?Math.round(d/ref*100):0;
+  const cl=d>0?`up`:d<0?`dn`:`eq`; const s=d>0?`+`:``;
+  return `<span class="d ${cl}">${pct?s+p+`\u00a0%`:s+fmt(d)}</span>`;
+}
+
+function dpos(cur,ref){
+  if(cur==null) return `<span class="d eq">—</span>`;
+  if(ref==null) return `<span class="d up">nouveau</span>`;
+  const d=ref-cur; // positif = on monte
+  if(!d) return `<span class="d eq">=</span>`;
+  return `<span class="d ${d>0?`up`:`dn`}">${d>0?`▲`:`▼`} ${Math.abs(d)} <span class="eq" style="font-weight:500">(${ref} → ${cur})</span></span>`;
+}
+const pi=cmp=>cmp===`prev`?5:6, ci=cmp=>cmp===`prev`?2:3;
+
+function renderKpis(){
+  const lbl=`vs `+(cmp===`prev`?META.prev:META.n1);
+  document.getElementById(`kpis`).innerHTML=
+   `<div class="kpi main"><div class="l">Leads issus du SEO</div><div class="v">${K.leads.cur}</div>${delta(K.leads.cur,K.leads[cmp])} <span class="l">${lbl}</span></div>`+
+   `<div class="kpi"><div class="l">CA signé attribué</div><div class="v">${eur(K.ca.cur)}</div>${delta(K.ca.cur,K.ca[cmp])} <span class="l">${lbl}</span></div>`+
+   `<div class="kpi"><div class="l">Clics hors marque</div><div class="v">${fmt(K.clics.cur)}</div>${delta(K.clics.cur,K.clics[cmp])} <span class="l">${lbl}</span></div>`;
+}
+
+const M15=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 10, 10, 16];
+const AIS={"s": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 12, 21], "l": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 7], "src": "ChatGPT"};
+const M15L=[`juil. 25`,`août`,`sept.`,`oct.`,`nov.`,`déc.`,`janv. 26`,`févr.`,`mars`,`avr.`,`mai`,`juin`,`juil.`,`août`,`sept.`];
+function bars15(id,vals,sub,unit,H){
+  const cs=getComputedStyle(document.documentElement),C=v=>cs.getPropertyValue(v).trim();
+  const s=document.getElementById(id),W=900,L=48,R=12,T=24,B=sub?44:28,iw=W-L-R,ih=H-T-B,bw=iw/vals.length;
+  const mx=Math.max(1,...vals)*1.15,y=v=>T+ih-(v/mx)*ih,refIx=cmp===`prev`?[9,10,11]:[0,1,2],curIx=[12,13,14];
+  let h=``;
+  [0,mx/2].forEach(g=>{h+=`<line x1="${L}" x2="${W-R}" y1="${y(g)}" y2="${y(g)}" stroke="${C(`--line`)}"/><text x="${L-8}" y="${y(g)+4}" text-anchor="end" fill="${C(`--muted`)}" font-size="11">${g?fmt(Math.round(g)):0}</text>`});
+  vals.forEach((v,i)=>{const isC=curIx.includes(i),isR=refIx.includes(i),x=L+i*bw;
+    const fill=isC?C(`--green`):isR?C(`--amber`):C(`--muted`);
+    h+=`<rect x="${x+bw*.18}" y="${y(v)}" width="${bw*.64}" height="${Math.max(0,T+ih-y(v))}" rx="4" fill="${fill}" opacity="${isC||isR?1:.35}"><title>${M15L[i]} : ${fmt(v)} ${unit}${sub?` · ${sub[i]} devis`:``}</title></rect>`;
+    if(isC||isR) h+=`<text x="${x+bw/2}" y="${y(v)-6}" text-anchor="middle" fill="${C(`--white`)}" font-size="11" font-weight="700">${fmt(v)}</text>`;
+    h+=`<text x="${x+bw/2}" y="${T+ih+16}" text-anchor="middle" fill="${C(`--muted`)}" font-size="11.5">${M15L[i]}</text>`;
+    if(sub) h+=`<text x="${x+bw/2}" y="${T+ih+34}" text-anchor="middle" fill="${isC?C(`--green`):isR?C(`--amber`):C(`--muted`)}" font-size="11" font-weight="700">${sub[i]}</text>`;});
+  if(sub) h+=`<text x="${L-8}" y="${T+ih+34}" text-anchor="end" fill="${C(`--muted`)}" font-size="10.5">devis</text>`;
+  s.innerHTML=h;
+  const n=curIx.reduce((a,i)=>a+vals[i],0),b=refIx.reduce((a,i)=>a+vals[i],0);
+  return [n,b,refIx,curIx];
+}
+function cmpTxt(n,b,unit){const p=b?Math.round((n-b)/b*100):null;return `<b style="color:var(--green)">■ juil.–sept. 2026</b> ${fmt(n)} ${unit} · <b style="color:var(--amber)">■ ${cmp===`prev`?META.prevLong.toLowerCase():META.n1Long.toLowerCase()}</b> ${fmt(b)} ${unit} · <b class="${p==null||p>=0?`up`:`dn`}">${p==null?`pas de référence`:(p>0?`+`:``)+p+`\u00a0%`}</b>`;}
+function renderAI(){
+  const [n,b,refIx,curIx]=bars15(`ai15`,AIS.s,AIS.l,`visites`,236);
+  const ln=curIx.reduce((a,i)=>a+AIS.l[i],0),lb=refIx.reduce((a,i)=>a+AIS.l[i],0);
+  document.getElementById(`aid`).innerHTML=cmpTxt(n,b,`visites`)+` · ${fmt(ln)} devis contre ${fmt(lb)}`;
+  document.getElementById(`aisrc`).textContent=`Sources : ${AIS.src}. Visites de tout le site, mesurées dans GA4 par site d'origine.`;
+}
+function renderChart(){
+  renderAI();
+  const cs=getComputedStyle(document.documentElement),C=v=>cs.getPropertyValue(v).trim();
+  const s=document.getElementById(`clk15`),W=900,H=220,L=48,R=12,T=24,B=28,iw=W-L-R,ih=H-T-B,bw=iw/M15.length;
+  const mx=Math.max(1,...M15)*1.15,y=v=>T+ih-(v/mx)*ih,refIx=cmp===`prev`?[9,10,11]:[0,1,2],curIx=[12,13,14];
+  let h=``;
+  [0,mx/2].forEach(g=>{h+=`<line x1="${L}" x2="${W-R}" y1="${y(g)}" y2="${y(g)}" stroke="${C(`--line`)}"/><text x="${L-8}" y="${y(g)+4}" text-anchor="end" fill="${C(`--muted`)}" font-size="11">${g?fmt(Math.round(g)):0}</text>`});
+  M15.forEach((v,i)=>{const isC=curIx.includes(i),isR=refIx.includes(i),x=L+i*bw;
+    const fill=isC?C(`--green`):isR?C(`--amber`):C(`--muted`);
+    h+=`<rect x="${x+bw*.18}" y="${y(v)}" width="${bw*.64}" height="${Math.max(0,T+ih-y(v))}" rx="4" fill="${fill}" opacity="${isC||isR?1:.35}"><title>${M15L[i]} : ${fmt(v)} clics</title></rect>`;
+    if(isC||isR) h+=`<text x="${x+bw/2}" y="${y(v)-6}" text-anchor="middle" fill="${C(`--white`)}" font-size="11" font-weight="700">${fmt(v)}</text>`;
+    h+=`<text x="${x+bw/2}" y="${H-8}" text-anchor="middle" fill="${C(`--muted`)}" font-size="11.5">${M15L[i]}</text>`;});
+  s.innerHTML=h;
+  const n=curIx.reduce((a,i)=>a+M15[i],0),b=refIx.reduce((a,i)=>a+M15[i],0),p=b?Math.round((n-b)/b*100):null;
+  document.getElementById(`trd`).innerHTML=`<b style="color:var(--green)">■ juil.–sept. 2026</b> ${fmt(n)} clics · <b style="color:var(--amber)">■ ${cmp===`prev`?META.prevLong.toLowerCase():META.n1Long.toLowerCase()}</b> ${fmt(b)} clics · <b class="${p==null||p>=0?`up`:`dn`}">${p==null?`pas de référence`:(p>0?`+`:``)+p+`\u00a0%`}</b>`;
+}
+
+const WHY={"Position":`w-pos`,"Affichage SERP":`w-serp`,"Intention":`w-int`,"Demande":`w-dem`,"Nouvelles requêtes":`w-new`,"Stable":`w-st`};
+const pct=(a,b)=>b?Math.round((a-b)/b*100):null;
+function rowKw(k,parent){
+  const w=k[cmp===`prev`?10:11],ri=cmp===`prev`?8:9,di=pct(k[7],k[ri]),g=k[12]||{};
+  const pos=k[4]==null?`—`:k[4];
+  const feats=g.f?Object.entries(g.f).map(([n,v])=>`<span class="ft ${v?`on`:``}">${n===`AIO`?`Encadré IA`:n===`GMB`?`Pack local`:n===`PAA`?`Questions`:n}</span>`).join(` `):`<span class="eq">non relevé</span>`;
+  const conc=g.rd==null?`<span class="eq">non mesuré</span>`:`top 10 : <b>${fmt(g.rd)}</b> domaines · vous : <b>${g.prd==null?`—`:fmt(g.prd)}</b>`;
+  const dem=k[ri]||k[7]?`${fmt(k[ri])} → <b>${fmt(k[7])}</b> recherches affichées ${di==null?``:`<span class="d ${di>=0?`up`:`dn`}">${di>300?`×`+fmt(Math.round(k[7]/k[ri])):(di>0?`+`:``)+di+`\u00a0%`}</span>`}`:`<span class="eq">aucune</span>`;
+  return `<tr class="kw" data-p="${parent}" hidden><td>${k[0]}<span class="why ${WHY[w[0]]||`w-st`}">${w[0]}</span></td><td></td><td></td><td class="n">${fmt(k[1])}</td><td class="n">${delta(k[1],k[ci(cmp)],false)}</td><td class="n">${pos}</td><td class="n">${dpos(k[4],k[pi(cmp)])}</td></tr>`+
+   `<tr class="kwl" data-p="${parent}" hidden><td colspan="7"><div class="lect"><div><div class="l">Demande</div>${dem}</div><div><div class="l">Affichage de la SERP</div>${feats}</div><div><div class="l">Concurrence (domaines référents)</div>${conc}</div></div>${w[1]?`<span class="dt">${w[1]}</span>`:``}</td></tr>`;
+}
+function rowPage(p,id,cls=`pg`,hidden=false,parent=``){
+  const k=p.kw[0]||[``,0,0,0,null,null,null,0,0,0,[`Stable`,``],[`Stable`,``],{f:null,rd:null,prd:null}];
+  return `<tr class="${cls}" ${cls===`pg`?`tabindex="0"`:``} data-i="${id}" ${parent!==``?`data-p="${parent}"`:``} ${hidden?`hidden`:``}><td>${p.u}</td><td class="n ${p.leads?``:`zero`}">${p.leads}</td><td class="n ${p.ca?``:`zero`}">${p.ca?eur(p.ca):`—`}</td><td class="n">${fmt(p.c)}</td><td class="n">${delta(p.c,p[cmp])}</td><td class="n">${k[4]==null?`—`:k[4]}</td><td class="n">${dpos(k[4],k[pi(cmp)])}</td></tr>`;
+}
+function renderPages(){
+  document.getElementById(`hd`).textContent=cmp===`prev`?`Δ vs 3 mois avant`:`Δ vs N-1`;
+  document.getElementById(`h0`).textContent=view===`page`?`Page`:`Gabarit`;
+  document.getElementById(`viewhelp`).textContent=view===`page`
+    ?`Pages classées par chiffre d'affaires. Cliquez une page pour voir ses mots-clés : clics, position, et la raison du mouvement lue dans la demande, l'affichage de Google et la concurrence.`
+    :`Gabarits classés par chiffre d'affaires. Cliquez un gabarit pour voir ses pages, puis une page pour ses mots-clés.`;
+  let h=``;
+  if(view===`page`){
+    let cut=false;
+    pages.forEach((p,i)=>{
+      if(p.ca===0&&p.leads===0&&!cut){cut=true;h+=`<tr class="cut"><td colspan="7">Pages sans lead — la pile de travail, la plus visitée en premier</td></tr>`;}
+      h+=rowPage(p,`p${i}`);
+      p.kw.forEach(k=>h+=rowKw(k,`p${i}`));
+    });
+  } else {
+    const G={};
+    pages.forEach((p,i)=>{(G[p.g]=G[p.g]||{g:p.g,leads:0,ca:0,c:0,prev:0,n1:0,items:[]});const x=G[p.g];x.leads+=p.leads;x.ca+=p.ca;x.c+=p.c;x.prev+=p.prev;x.n1+=p.n1;x.items.push([p,i]);});
+    const list=Object.values(G).sort((a,b)=>b.ca-a.ca||b.leads-a.leads||b.c-a.c);
+    let cut=false;
+    list.forEach((x,j)=>{
+      if(x.ca===0&&x.leads===0&&!cut){cut=true;h+=`<tr class="cut"><td colspan="7">Gabarits sans lead — la pile de travail</td></tr>`;}
+      // progression des positions du gabarit : nb de mots-clés qui montent / descendent
+      let up=0,dn=0; x.items.forEach(([p])=>p.kw.forEach(k=>{const d=k[pi(cmp)]-k[4];if(d>0)up++;else if(d<0)dn++;}));
+      h+=`<tr class="pg" tabindex="0" data-i="g${j}"><td><b>${x.g}</b> <span class="eq" style="font-size:12px">· ${x.items.length} page${x.items.length>1?`s`:``}</span></td><td class="n ${x.leads?``:`zero`}">${x.leads}</td><td class="n ${x.ca?``:`zero`}">${x.ca?eur(x.ca):`—`}</td><td class="n">${fmt(x.c)}</td><td class="n">${delta(x.c,x[cmp])}</td><td class="n eq">—</td><td class="n"><span class="d up">▲ ${up}</span> <span class="d dn">▼ ${dn}</span></td></tr>`;
+      x.items.sort((a,b)=>b[0].ca-a[0].ca||b[0].c-a[0].c).forEach(([p,i])=>{
+        h+=rowPage(p,`p${i}`,`pg sub`,true,`g${j}`);
+        p.kw.forEach(k=>h+=rowKw(k,`p${i}`));
+      });
+    });
+  }
+  const tb=document.getElementById(`pages`); tb.innerHTML=h;
+  const close=id=>tb.querySelectorAll(`tr[data-p="${id}"]`).forEach(r=>{r.hidden=true;if(r.classList.contains(`open`)){r.classList.remove(`open`);close(r.dataset.i);}});
+  tb.querySelectorAll(`tr.pg`).forEach(r=>{
+    const t=()=>{const o=r.classList.toggle(`open`);if(o)tb.querySelectorAll(`tr[data-p="${r.dataset.i}"]`).forEach(k=>k.hidden=false);else close(r.dataset.i);};
+    r.addEventListener(`click`,t); r.addEventListener(`keydown`,e=>{if(e.key===`Enter`||e.key===` `){e.preventDefault();t();}});
+  });
+}
+function setView(v){view=v;document.querySelectorAll(`[data-view]`).forEach(b=>b.classList.toggle(`on`,b.dataset.view===v));renderPages();}
+
+const serp=[{"k": "nettoyage bureaux paris 8", "t": "loss", "mv": "position 7 → 5 · 288 affichages, 0 clic", "feats": {"AIO": 1, "Shopping": 0, "GMB": 1, "PAA": 1}, "dem": "288 · ×288", "rd": "top 3 : 119 à 156 · vous : 68", "int": "Informationnelle", "cl": false, "why": "Vous gagnez deux places et vous ne gagnez aucun clic. Relevé du 14/10 : le premier résultat affiche une note de 4,3/5 sur 43 501 avis et un prix « à partir de 25 € » directement dans la page de résultats. Votre page arrive en huitième position absolue, sans note et sans prix, derrière un encadré IA et la fiche d'un concurrent. Ce n'est pas la page qui bloque, c'est ce que Google montre d'elle.", "fix": ["NOUVEAU", "Retirer la note auto-déclarée présente sur 80 pages : Google ne l'affiche pas et elle occupe la place d'une vraie note"], "fix2": ["G-34", "Audit NAP de la fiche d'établissement — c'est elle qui porte les avis que Google affiche"]}, {"k": "entreprise de nettoyage paris 15", "t": "gain", "mv": "position 12 → 9 · 2 clics, 1 demande", "feats": {"AIO": 0, "Shopping": 0, "GMB": 1, "PAA": 1}, "dem": "143 · ×24", "rd": "top 3 : fiches d'établissement · vous : 68", "int": "Informationnelle", "cl": false, "why": "Trois places gagnées, et c'est la seule requête d'arrondissement qui transforme : deux clics et une demande. Relevé du 14/10 : les six premières positions sont des fiches d'établissement, le premier résultat classique est un annuaire. Passer devant suppose d'exister dans le bloc local, pas d'écrire une page de plus."}, {"k": "agence de nettoyage musée", "t": "gain", "mv": "position 10 → 6 · 307 affichages, 0 clic", "feats": {"AIO": 1, "Shopping": 0, "GMB": 1, "PAA": 0}, "dem": "307 · +28 %", "rd": "top 3 : 120 · vous : 68", "int": "Navigationnelle", "cl": false, "why": "Quatre places gagnées sur une requête travaillée en septembre, et toujours zéro clic. Relevé du 14/10 : un encadré IA ouvre la page, puis six fiches d'établissement occupent le reste de l'écran. Aucune n'est la vôtre. La page est bien placée dans une zone que personne ne regarde.", "fix": ["G-34", "Audit NAP : graphie, horaires et balisage de la fiche. Sans présence dans le bloc local, la première page reste hors d'atteinte sur ces requêtes"]}, {"k": "nettoyage tertiaire paris", "t": "gain", "mv": "position 37 → 16 · 21 places", "feats": {"AIO": 0, "Shopping": 0, "GMB": 1, "PAA": 1}, "dem": "45 · ×5", "rd": "top 3 : 156 · vous : 68", "int": "Informationnelle", "cl": true, "why": "Vingt et une places gagnées sur la requête qui porte le nom de votre offre principale. Pas d'encadré IA ici, et le premier résultat classique est une page d'arrondissement d'un concurrent : la porte est ouverte. Ce qui vous sépare du haut de page tient en domaines référents, 68 contre 156."}];
+document.getElementById(`serp`).innerHTML=serp.map(s=>{
+  const f=Object.entries(s.feats).map(([n,v])=>`<span class="ft ${v?`on`:``}">${n==='AIO'?`Encadré IA`:n==='GMB'?`Pack local`:n}</span>`).join(``);
+  const fx=s.fix?`<div class="fix"><span class="mono">${s.fix[0]}</span>${s.fix[1]}</div>`:``;
+  const fx2=s.fix2?`<div class="fix"><span class="mono">${s.fix2[0]}</span>${s.fix2[1]}</div>`:``;
+  return `<div class="sc ${s.t}"><div class="sct"><b>${s.k}</b><span class="mv d ${s.t===`loss`?`dn`:`up`}">${s.mv}</span></div>
+  <div class="grid4">
+    <div class="cell"><div class="l">Affichage de la SERP</div><div class="feats">${f}</div></div>
+    <div class="cell"><div class="l">Demande (impressions / 3 mois)</div><div class="v">${s.dem}</div></div>
+    <div class="cell"><div class="l">Concurrence (domaines référents)</div><div class="v">${s.rd}</div></div>
+    <div class="cell"><div class="l">Intention</div><div class="v">${s.int} <span class="clem ${s.cl?`y`:`n`}">${s.cl?`SERP clémente`:`SERP chargée`}</span></div></div>
+  </div>
+  <div class="verdict">${s.why}</div>${fx}${fx2}</div>`;
+}).join(``);
+
+const rms=[{"n": "Contenu", "c": {"f": 2, "p": 4, "l": 0}, "rows": [["C-60", "Contrat de nettoyage copropriété", "integre", "Intégré"], ["C-61", "Audit qualité nettoyage", "integre", "Intégré"], ["C-62", "Nettoyage de bureaux Paris · 19/10", "afaire", "À produire"], ["C-63", "Entreprise de nettoyage Bagneux · 19/10", "afaire", "À produire"], ["C-64", "Entreprise de nettoyage Saint-Denis · 26/10", "afaire", "À produire"], ["C-65", "Nettoyage de bureaux Levallois-Perret · 26/10", "afaire", "À produire"]]}, {"n": "Technique", "c": {"f": 0, "p": 1, "l": 0}, "rows": [["T-38", "Notifications du formulaire + test d'envoi", "encours", "Livrable"], ["T-39", "Cannibalisation ascenseurs : arbitrage et 301", "integre", "Intégré"], ["T-40", "Provenance des leads SEO / Ads / IA", "integre", "Intégré"]]}, {"n": "Netlinking", "c": {"f": 0, "p": 4, "l": 3}, "rows": [["N-30", "Blog SEO · société de nettoyage Île-de-France", "bloque", "Sans domaine ni date"], ["N-31", "Blog SEO · société de nettoyage Île-de-France", "bloque", "Sans domaine ni date"], ["N-32", "Blog SEO · société de nettoyage Île-de-France", "bloque", "Sans domaine ni date"], ["N-33", "Article invité · audreytips.com", "propose", "Proposé"]]}, {"n": "GEO", "c": {"f": 0, "p": 4, "l": 2}, "rows": [["G-30", "Contrat nettoyage PME Val-d'Oise · 05/10", "encours", "Livrable"], ["G-31", "Prestataire nettoyage, horaires flexibles · 12/10", "encours", "Livrable"], ["G-32", "Nettoyage scolaire, santé et sécurité · 16/10", "afaire", "Sans brief"], ["G-33", "Demander un devis de reprise de contrat · 23/10", "afaire", "Sans brief"]]}];
+document.getElementById(`rms`).innerHTML=rms.map((r,i)=>`<details class="rm" ${i===0?`open`:``}><summary><b>${r.n}</b><span class="cnt"><span>${r.c.f} faits</span><span>${r.c.p} à venir</span>${r.c.l?`<span class="late">${r.c.l} en retard</span>`:``}</span></summary>
+<div class="body"><div class="tbl"><table style="min-width:520px"><thead><tr><th>Ticket</th><th>Action</th><th>Statut</th></tr></thead><tbody>${r.rows.map(x=>`<tr><td class="mono">${x[0]}</td><td>${x[1]}</td><td><span class="st ${x[2]}">${x[3]}</span></td></tr>`).join(``)}</tbody></table></div></div></details>`).join(``);
+
+function setCmp(c){cmp=c;document.querySelectorAll(`[data-cmp]`).forEach(b=>b.classList.toggle(`on`,b.dataset.cmp===c));renderKpis();renderChart();renderPages();}
+document.title=`Point de la semaine — `+META.client;
+document.getElementById(`m-sem`).textContent=`Point de la semaine · `+META.semaine;
+document.getElementById(`m-cli`).textContent=META.client;
+document.getElementById(`m-sub`).innerHTML=`Lecture sur <b>${META.periode}</b> (${META.partiel}) · <b>hors marque</b>`;
+document.getElementById(`l-rm`).href=META.roadmaps; document.getElementById(`l-xm`).href=META.xmind;
+setCmp(`prev`);
+</script>
+</body>
+</html>
+
+</body></html>
