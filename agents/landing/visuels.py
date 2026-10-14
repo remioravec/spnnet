@@ -139,6 +139,15 @@ def cta(texte, lien, libelle):
 
 
 EXTRA = """<style>
+/* tableaux du corps d'article : le gabarit .spn-art ne les stylait pas */
+.spn-art .tbl-wrap{overflow-x:auto;margin:24px 0;-webkit-overflow-scrolling:touch}
+.spn-art .tbl{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.spn-art .tbl caption{caption-side:top;text-align:left;font-size:.72rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--grey);padding:0 0 10px}
+.spn-art .tbl th,.spn-art .tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+.spn-art .tbl th{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--grey);font-weight:700}
+.spn-art .tbl tr:last-child td{border-bottom:none}
+.spn-art .tbl td:first-child{font-weight:700;color:var(--ink)}
+@media(max-width:700px){.spn-art .tbl{font-size:.86rem}.spn-art .tbl th,.spn-art .tbl td{padding:10px}}
 .spn-art .vz-g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .spn-art .vz-c{border:1px solid var(--line);border-radius:14px;padding:16px 14px;background:var(--cream)}
 .spn-art .vz-c b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--orange-deep);line-height:1.1}
